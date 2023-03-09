@@ -5,10 +5,10 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="customLoginSuccess" class="org.zerock.security.CustomLoginSuccessHandler"/>
+	<bean id="customLoginSuccess" class="org.recruit.security.CustomLoginSuccessHandler"/>
 	<!-- <bean id="CustomNoOpPasswordEncoder" class="org.zerock.security.CustomNoOpPasswordEncoder"/> -->
 	<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
-	<bean id="customUserDetailService" class="org.zerock.security.CustomUserDetailsService"/>
+	<bean id="customUserDetailService" class="org.recruit.security.CustomUserDetailsService"/>
 	
 	<security:http auto-config="true" use-expressions="true">
 	
