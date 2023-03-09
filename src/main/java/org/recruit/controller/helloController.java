@@ -11,7 +11,7 @@ public class helloController {
 	@RequestMapping(value = "/hello", method = RequestMethod.GET)
 	public String anotation(Model model) {
 		
-		model.addAttribute("hello", "hello");
+		model.addAttribute("hello", "hello123");
 		
 		return "home";
 	}
