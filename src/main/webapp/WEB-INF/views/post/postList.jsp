@@ -26,7 +26,7 @@
                         <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-dismiss="modal"></button>
                         <div class="row mx-0 align-items-center">
                             <div class="col-md-6 border-end-md p-4 p-sm-5">
-                                <h2 class="h3 mb-4 mb-sm-5">Hey there!<br>Welcome back.</h2><img class="d-block mx-auto" src="img/signin-modal/signin.svg" width="344" alt="Illustartion">
+                                <h2 class="h3 mb-4 mb-sm-5">Hey there!<br>Welcome back.</h2><img class="d-block mx-auto" src="${path}/resources/img/signin-modal/signin.svg" width="344" alt="Illustartion">
                                 <div class="mt-4 mt-sm-5">Don't have an account? <a href="#signup-modal" data-bs-toggle="modal" data-bs-dismiss="modal">Sign up here</a></div>
                             </div>
                             <div class="col-md-6 px-4 pt-2 pb-4 px-sm-5 pb-sm-5 pt-md-5"><a class="btn btn-outline-info w-100 rounded-pill mb-3" href="#"><i class="fi-google fs-lg me-1"></i>Sign in with Google</a><a class="btn btn-outline-info w-100 rounded-pill mb-3" href="#"><i class="fi-facebook fs-lg me-1"></i>Sign in with Facebook</a>
@@ -174,7 +174,7 @@
         <!-- Navbar-->
         <header class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" data-scroll-header>
             <div class="container">
-                <a class="navbar-brand me-0 me-xl-4" href="job-board-home-v1.html"><img class="d-block" src="img/logo/logo-light.svg" width="116" alt="Finder"></a>
+                <a class="navbar-brand me-0 me-xl-4" href="job-board-home-v1.html"><img class="d-block" src="${path}/resources/img/logo/logo-light.svg" width="116" alt="Finder"></a>
                 <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <a class="btn btn-link btn-light btn-sm d-none d-lg-block order-lg-3" href="#signin-modal" data-bs-toggle="modal"><i class="fi-user me-2"></i>Sign in</a>
                 <a class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3" href="job-board-post-resume-1.html"><i class="fi-plus me-2"></i>Post resume</a><a class="btn btn-link btn-light btn-sm d-none d-lg-block order-lg-3 pe-0 ms-2" href="job-board-home-v2.html">For employers<i class="fi-arrow-long-right ms-2"></i></a>
@@ -399,7 +399,7 @@
                                 <div class="card bg-secondary card-hover mb-2">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-start mb-2">
-                                            <div class="d-flex align-items-center"><img class="me-2" src="img/job-board/company/it-pro.png" width="24" alt="IT Pro Logo"><span class="fs-sm text-dark opacity-80 px-1">IT Pro TV</span></div>
+                                            <div class="d-flex align-items-center"><img class="me-2" src="${path}/resources/img/job-board/company/it-pro.png" width="24" alt="IT Pro Logo"><span class="fs-sm text-dark opacity-80 px-1">IT Pro TV</span></div>
                                             <div class="dropdown content-overlay">
                                                 <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm" type="button" id="contextMenu1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
                                                 <ul class="dropdown-menu my-1" aria-labelledby="contextMenu1">
@@ -420,7 +420,7 @@
                                 <div class="card bg-secondary card-hover mb-2">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-start mb-2">
-                                            <div class="d-flex align-items-center"><img class="me-2" src="img/job-board/company/zalo.png" width="24" alt="Zalo Logo"><span class="fs-sm text-dark opacity-80 px-1">Zalo Tech Company</span><span class="badge bg-faded-accent rounded-pill fs-sm ms-2">Featured</span></div>
+                                            <div class="d-flex align-items-center"><img class="me-2" src="${path}/resources/img/job-board/company/zalo.png" width="24" alt="Zalo Logo"><span class="fs-sm text-dark opacity-80 px-1">Zalo Tech Company</span><span class="badge bg-faded-accent rounded-pill fs-sm ms-2">Featured</span></div>
                                             <div class="dropdown content-overlay">
                                                 <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm" type="button" id="contextMenu2" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
                                                 <ul class="dropdown-menu my-1" aria-labelledby="contextMenu2">
@@ -441,7 +441,7 @@
                                 <div class="card bg-secondary card-hover mb-2">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-start mb-2">
-                                            <div class="d-flex align-items-center"><img class="me-2" src="img/job-board/company/elastic.png" width="24" alt="Elastic Logo"><span class="fs-sm text-dark opacity-80 px-1">Elastic Inc.</span><span class="badge bg-faded-danger rounded-pill fs-sm ms-2">Hot</span></div>
+                                            <div class="d-flex align-items-center"><img class="me-2" src="${path}/resources/img/job-board/company/elastic.png" width="24" alt="Elastic Logo"><span class="fs-sm text-dark opacity-80 px-1">Elastic Inc.</span><span class="badge bg-faded-danger rounded-pill fs-sm ms-2">Hot</span></div>
                                             <div class="dropdown content-overlay">
                                                 <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm" type="button" id="contextMenu3" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
                                                 <ul class="dropdown-menu my-1" aria-labelledby="contextMenu3">
@@ -462,7 +462,7 @@
                                 <div class="card bg-secondary card-hover mb-2">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-start mb-2">
-                                            <div class="d-flex align-items-center"><img class="me-2" src="img/job-board/company/lift-web.png" width="24" alt="Lift Web Logo"><span class="fs-sm text-dark opacity-80 px-1">Lift Web</span></div>
+                                            <div class="d-flex align-items-center"><img class="me-2" src="${path}/resources/img/job-board/company/lift-web.png" width="24" alt="Lift Web Logo"><span class="fs-sm text-dark opacity-80 px-1">Lift Web</span></div>
                                             <div class="dropdown content-overlay">
                                                 <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm" type="button" id="contextMenu4" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
                                                 <ul class="dropdown-menu my-1" aria-labelledby="contextMenu4">
@@ -483,7 +483,7 @@
                                 <div class="card bg-secondary card-hover mb-2">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-start mb-2">
-                                            <div class="d-flex align-items-center"><img class="me-2" src="img/job-board/company/xbox.png" width="24" alt="Xbox Logo"><span class="fs-sm text-dark opacity-80 px-1">Xbox Company</span></div>
+                                            <div class="d-flex align-items-center"><img class="me-2" src="${path}/resources/img/job-board/company/xbox.png" width="24" alt="Xbox Logo"><span class="fs-sm text-dark opacity-80 px-1">Xbox Company</span></div>
                                             <div class="dropdown content-overlay">
                                                 <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm" type="button" id="contextMenu5" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
                                                 <ul class="dropdown-menu my-1" aria-labelledby="contextMenu5">
@@ -504,7 +504,7 @@
                                 <div class="card bg-secondary card-hover mb-2">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-start mb-2">
-                                            <div class="d-flex align-items-center"><img class="me-2" src="img/job-board/company/zapier.png" width="24" alt="Zapier Logo"><span class="fs-sm text-dark opacity-80 px-1">Zapier</span><span class="badge bg-faded-danger rounded-pill fs-sm ms-2">Hot</span></div>
+                                            <div class="d-flex align-items-center"><img class="me-2" src="${path}/resources/img/job-board/company/zapier.png" width="24" alt="Zapier Logo"><span class="fs-sm text-dark opacity-80 px-1">Zapier</span><span class="badge bg-faded-danger rounded-pill fs-sm ms-2">Hot</span></div>
                                             <div class="dropdown content-overlay">
                                                 <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm" type="button" id="contextMenu6" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
                                                 <ul class="dropdown-menu my-1" aria-labelledby="contextMenu6">
@@ -525,7 +525,7 @@
                                 <div class="card bg-secondary card-hover mb-2">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-start mb-2">
-                                            <div class="d-flex align-items-center"><img class="me-2" src="img/job-board/company/kibana.png" width="24" alt="Kibana Logo"><span class="fs-sm text-dark opacity-80 px-1">Elastic Kibana</span><span class="badge bg-faded-info rounded-pill fs-sm ms-2">New</span></div>
+                                            <div class="d-flex align-items-center"><img class="me-2" src="${path}/resources/img/job-board/company/kibana.png" width="24" alt="Kibana Logo"><span class="fs-sm text-dark opacity-80 px-1">Elastic Kibana</span><span class="badge bg-faded-info rounded-pill fs-sm ms-2">New</span></div>
                                             <div class="dropdown content-overlay">
                                                 <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm" type="button" id="contextMenu7" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
                                                 <ul class="dropdown-menu my-1" aria-labelledby="contextMenu7">
@@ -546,7 +546,7 @@
                                 <div class="card bg-secondary card-hover mb-2">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-start mb-2">
-                                            <div class="d-flex align-items-center"><img class="me-2" src="img/job-board/company/xampp.png" width="24" alt="XAMPP Logo"><span class="fs-sm text-dark opacity-80 px-1">XAMPP Company</span></div>
+                                            <div class="d-flex align-items-center"><img class="me-2" src="${path}/resources/img/job-board/company/xampp.png" width="24" alt="XAMPP Logo"><span class="fs-sm text-dark opacity-80 px-1">XAMPP Company</span></div>
                                             <div class="dropdown content-overlay">
                                                 <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm" type="button" id="contextMenu8" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
                                                 <ul class="dropdown-menu my-1" aria-labelledby="contextMenu8">
@@ -635,7 +635,7 @@
 </svg></a>
                                 </div>
                             </div>
-                        </div><img class="d-none d-xl-block ms-n4" src="img/job-board/footer-mobile.svg" width="116" alt="Mobile app">
+                        </div><img class="d-none d-xl-block ms-n4" src="${path}/resources/img/job-board/footer-mobile.svg" width="116" alt="Mobile app">
                     </div>
                 </div>
             </div>
@@ -645,9 +645,9 @@
     </footer>
     <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
     <!-- Vendor scrits: js libraries and plugins-->
-    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="vendor/simplebar/dist/simplebar.min.js"></script>
-    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="${path}/resources/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="${path}/resources/vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="${path}/resources/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
     <!-- Main theme script-->
     <script src="js/theme.min.js"></script>
 </body>

@@ -26,7 +26,7 @@ public class helloController {
 		//
 	}
 	
-	@RequestMapping(value = "/l", method = RequestMethod.GET)
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String postList(Model model) {
 		
 		model.addAttribute("hello", "hello");
