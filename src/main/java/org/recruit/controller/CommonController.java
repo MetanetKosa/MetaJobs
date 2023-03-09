@@ -18,11 +18,11 @@ public class CommonController {
 	
 	@GetMapping("/customLogin")
 	public void loginInput(String error, String logout, Model model) {
-		if(error != null) {	//?—?Ÿ¬ê°? ?‚˜ë©?
+		if(error != null) {	//ì—ëŸ¬ê°€ ë‚˜ë©´
 			model.addAttribute("error", "Login Error Check");
 		}
 		
-		if(logout != null) { //ë¡œê·¸?•„?›ƒ ?•˜ë©?
+		if(logout != null) { //ë¡œê·¸ì•„ì›ƒ í•˜ë©´
 			model.addAttribute("logout", "LogOut");
 		}
 	}
