@@ -12,8 +12,9 @@ public class helloController {
 	public String anotation(Model model) {
 		
 		model.addAttribute("hello", "hello");
-		
+		//
 		return "home";
+		//
 	}
 
 }
