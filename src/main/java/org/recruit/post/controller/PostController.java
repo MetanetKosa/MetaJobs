@@ -1,19 +1,27 @@
 package org.recruit.post.controller;
 
+import org.recruit.post.service.PostService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
 @Controller
 @Log4j
 @RequestMapping("/post/*")
+@AllArgsConstructor
 public class PostController {
+	
+	private PostService service;
 
-	@GetMapping("/postInsert")
-	public void register() {
-		log.info("ddddd");
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	public void register(Model model) {
+		log.info(service.postList());
+		model.addAttribute("postlist",service.postList());
 	}
 }
