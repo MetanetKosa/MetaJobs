@@ -13,7 +13,25 @@ public class helloController {
 		
 		model.addAttribute("hello", "hello");
 		//
-		return "home";
+		return "/post/enroll";
+		//
+	}
+	
+	@RequestMapping(value = "/d", method = RequestMethod.GET)
+	public String postDetail(Model model) {
+		
+		model.addAttribute("hello", "hello");
+		//
+		return "/post/postDetail";
+		//
+	}
+	
+	@RequestMapping(value = "/l", method = RequestMethod.GET)
+	public String postList(Model model) {
+		
+		model.addAttribute("hello", "hello");
+		//
+		return "/post/postList";
 		//
 	}
 
