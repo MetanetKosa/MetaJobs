@@ -1,4 +1,4 @@
-package org.recruit.controller;
+package org.recruit.login.controller;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
