@@ -5,7 +5,7 @@
 <mapper namespace="org.recruit.login.mapper.MemberMapper">
 
 
-  <resultMap type="org.recruit.login.domain.MemberVO" id="memberMap">
+<!--   <resultMap type="org.recruit.login.domain.MemberVO" id="memberMap">
     <id property="userid" column="userid"/>
     <result property="userid" column="userid"/>
     <result property="userpw" column="userpw"/>
@@ -16,10 +16,24 @@
     <result property="userEmail" column="useremail"/>
     <result property="regDate" column="regdate"/>
     <result property="updateDate" column="updatedate"/>
+    <collection property="authList" resultMap="authMap">
+    </collection> 
+  </resultMap> -->
+  
+    <resultMap type="org.recruit.login.domain.MemberVO" id="memberMap">
+    <id property="mem_id" column="mem_id"/>
+    <result property="mem_id" column="mem_id"/>
+    <result property="mem_pw" column="mem_pw"/>
+    <result property="mem_name" column="mem_name"/>
+    <result property="mem_birth" column="mem_birth"/>
+    <result property="mem_phone" column="mem_phone"/>
+    <result property="mem_addr" column="mem_addr"/>
+    <result property="mem_email" column="mem_email"/>
+    <result property="mem_regdate" column="mem_regdate"/>
+    <result property="mem_update" column="mem_update"/>
     <!-- <collection property="authList" resultMap="authMap">
     </collection>  -->
   </resultMap>
-  
 <!--   <resultMap type="org.recruit.login.domain.AuthVO" id="authMap">
     <result property="userid" column="userid"/>
     <result property="auth" column="auth"/>
@@ -33,9 +47,55 @@
 	WHERE mem.userid = #{userid}  -->
 	
 	SELECT 
-	  userid, userpw, username, userbirth, userphone, useraddress, useremail, regdate, updatedate, enabled
+	  mem_no, mem_id, mem_pw, mem_name, mem_birth, mem_phone, mem_addr, mem_email, mem_regdate, mem_update, mem_enabled
 	FROM 
-	  tbl_member
+	  member
+	 WHERE mem_no = #{mem_no}
   </select>
 
+    <insert id="insert">
+	  insert into member (mem_no, mem_id, mem_pw, mem_name, mem_birth, mem_phone, mem_addr, mem_email)
+	  values (mem_seq.nextval, #{mem_id}, #{mem_pw}, #{mem_name}, #{mem_birth}, #{mem_phone}, #{mem_addr}, #{mem_email})
+  </insert>
+  
+  <!-- mno 값을 알아야할때 -->
+     <insert id="insertSelectKey">
+
+		<selectKey keyProperty="mem_no" order="BEFORE"
+			resultType="long">
+			select mem_seq.nextval from dual
+		</selectKey>
+
+		insert into member (mem_no, mem_id, mem_pw, mem_name, mem_birth, mem_phone, mem_addr, mem_email)
+		values (mem_seq.nextval, #{mem_id}, #{mem_pw}, #{mem_name}, #{mem_birth}, #{mem_phone}, #{mem_addr}, #{mem_email})
+	  </insert>
+	
+	
+<!-- 	  <select id="read" resultType="org.recruit.login.domain.MemberVO">
+		select * from member where mem_no = #{mem_no}
+	  </select> -->
+	
+	  <delete id="delete">
+		delete from member where mem_no = #{mem_no}
+	  </delete>
+	
+	  <update id="update">
+		update member 
+			set mem_id = #{mem_id},
+				mem_pw = #{mem_pw}, 
+				mem_name = #{mem_name},
+				mem_birth = #{mem_birth},
+				mem_phone = #{mem_phone},
+				mem_addr = #{mem_addr},
+				mem_email = #{mem_email},
+				mem_update = sysdate
+				<!-- mem_update = TO_CHAR(SYSDATE, 'YYYY/MM/DD HH:MI:SS') -->
+			where mem_no = #{mem_no} 
+	  </update>
+	  
+	  <select id="getList" resultType="org.recruit.login.domain.MemberVO">
+  		<![CDATA[
+  			select * from member where mem_no > 0
+  		]]>
+  	  </select>
 </mapper>
