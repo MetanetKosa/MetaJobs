@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="org.recruit.review.mapper.ReviewMapper">
+ 	<resultMap type="org.recruit.review.domain.ReviewVO" id="reviewResultMap">
+ 		<id property="rno" column="RE_NO"/>
+ 		<result property="cno" column="COM_CNO"/>
+ 		<result property="reJob" column="RE_JOB"/>
+ 		<result property="reDate" column="RE_DATE"/>
+ 		<result property="pNum" column="RE_PNUM"/>
+ 		<result property="reContent" column="RE_CONTENT"/>
+ 		<result property="reResult" column="RE_RESULT"/>
+ 		<result property="reWdate" column="RE_WDATE"/>
+ 		<result property="mno" column="MEM_NO"/>
+ 	</resultMap>
+
+ 	<select id="getList" resultMap="reviewResultMap" resultType="org.recruit.review.domain.ReviewVO">
+ 		<![CDATA[
+ 		select * from review 		
+ 		]]>
+ 	</select>
+ </mapper>
