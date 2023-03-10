@@ -21,10 +21,10 @@ public class ReviewMapperTests {
 	@Autowired
 	ReviewMapper mapper;
 	
-	@Test
-	public void testGetList() {
-		mapper.getList().forEach(review -> log.info(review));
-	}
+//	@Test
+//	public void testGetList() {
+//		mapper.getList().forEach(review -> log.info(review));
+//	}
 	
 	// insert Test
 //	@Test
@@ -51,4 +51,9 @@ public class ReviewMapperTests {
 //		mapper.reviewInsert(review);
 //		log.info(review);
 //	}
+	
+	@Test
+	public void getTest() {
+		log.info(mapper.get(1));
+	}
 }

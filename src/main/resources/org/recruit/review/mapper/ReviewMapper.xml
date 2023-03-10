@@ -27,4 +27,8 @@
  		values (RE_SEQ.NEXTVAL, #{cno}, #{reJob}, #{reDate}, #{pNum}, #{reContent}, #{reResult}, SYSDATE, #{mno})
  		]]>
  	</insert>
+ 	
+ 	<select id="get" resultMap="reviewResultMap">
+ 		select * from review where re_no = #{rno}
+ 	</select>
  </mapper>
