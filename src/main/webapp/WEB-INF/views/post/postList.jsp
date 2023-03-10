@@ -395,11 +395,21 @@
                                     </div>
                                     <div class="text-muted fs-sm text-nowrap"><i class="fi-briefcase fs-base mt-n1 me-2"></i>2948 jobs</div>
                                 </div>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                <c:forEach items = "${postList}" var = "post">
+                                
                                 <!-- Item-->
                                 <div class="card bg-secondary card-hover mb-2">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-start mb-2">
-                                            <div class="d-flex align-items-center"><img class="me-2" src="${path}/resources/img/job-board/company/it-pro.png" width="24" alt="IT Pro Logo"><span class="fs-sm text-dark opacity-80 px-1">IT Pro TV</span></div>
+                                            <div class="d-flex align-items-center"><img class="me-2" src="${path}/resources/img/job-board/company/it-pro.png" width="24" alt="대한그룹"><span class="fs-sm text-dark opacity-80 px-1">IT Pro TV</span></div>
                                             <div class="dropdown content-overlay">
                                                 <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm" type="button" id="contextMenu1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
                                                 <ul class="dropdown-menu my-1" aria-labelledby="contextMenu1">
@@ -412,10 +422,23 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <h3 class="h6 card-title pt-1 mb-3"><a class="text-nav stretched-link text-decoration-none" href="job-board-single.html">Business Analyst</a></h3>
+                                        <h3 class="h6 card-title pt-1 mb-3">${post.postTitle}<a class="text-nav stretched-link text-decoration-none" href="job-board-single.html"> </a></h3>
                                         <div class="fs-sm"><span class="text-nowrap me-3"><i class="fi-map-pin text-muted me-1"> </i>Chicago</span><span class="text-nowrap me-3"><i class="fi-cash fs-base text-muted me-1"></i>$7,500</span></div>
                                     </div>
                                 </div>
+                                
+                                </c:forEach>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
                                 <!-- Item-->
                                 <div class="card bg-secondary card-hover mb-2">
                                     <div class="card-body">
@@ -437,132 +460,9 @@
                                         <div class="fs-sm"><span class="text-nowrap me-3"><i class="fi-map-pin text-muted me-1"> </i>New York</span><span class="text-nowrap me-3"><i class="fi-cash fs-base text-muted me-1"></i>$10,000</span></div>
                                     </div>
                                 </div>
-                                <!-- Item-->
-                                <div class="card bg-secondary card-hover mb-2">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-start mb-2">
-                                            <div class="d-flex align-items-center"><img class="me-2" src="${path}/resources/img/job-board/company/elastic.png" width="24" alt="Elastic Logo"><span class="fs-sm text-dark opacity-80 px-1">Elastic Inc.</span><span class="badge bg-faded-danger rounded-pill fs-sm ms-2">Hot</span></div>
-                                            <div class="dropdown content-overlay">
-                                                <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm" type="button" id="contextMenu3" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
-                                                <ul class="dropdown-menu my-1" aria-labelledby="contextMenu3">
-                                                    <li>
-                                                        <button class="dropdown-item" type="button"><i class="fi-heart opacity-60 me-2"></i>Add to Saved Jobs</button>
-                                                    </li>
-                                                    <li>
-                                                        <button class="dropdown-item" type="button"><i class="fi-x-circle opacity-60 me-2"></i>Not interested</button>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <h3 class="h6 card-title pt-1 mb-3"><a class="text-nav stretched-link text-decoration-none" href="job-board-single.html">Senior Credit Analyst</a></h3>
-                                        <div class="fs-sm"><span class="text-nowrap me-3"><i class="fi-map-pin text-muted me-1"> </i>Dallas</span><span class="text-nowrap me-3"><i class="fi-cash fs-base text-muted me-1"></i>$8,000</span></div>
-                                    </div>
-                                </div>
-                                <!-- Item-->
-                                <div class="card bg-secondary card-hover mb-2">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-start mb-2">
-                                            <div class="d-flex align-items-center"><img class="me-2" src="${path}/resources/img/job-board/company/lift-web.png" width="24" alt="Lift Web Logo"><span class="fs-sm text-dark opacity-80 px-1">Lift Web</span></div>
-                                            <div class="dropdown content-overlay">
-                                                <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm" type="button" id="contextMenu4" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
-                                                <ul class="dropdown-menu my-1" aria-labelledby="contextMenu4">
-                                                    <li>
-                                                        <button class="dropdown-item" type="button"><i class="fi-heart opacity-60 me-2"></i>Add to Saved Jobs</button>
-                                                    </li>
-                                                    <li>
-                                                        <button class="dropdown-item" type="button"><i class="fi-x-circle opacity-60 me-2"></i>Not interested</button>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <h3 class="h6 card-title pt-1 mb-3"><a class="text-nav stretched-link text-decoration-none" href="job-board-single.html">Account Manager</a></h3>
-                                        <div class="fs-sm"><span class="text-nowrap me-3"><i class="fi-map-pin text-muted me-1"> </i>Houston</span><span class="text-nowrap me-3"><i class="fi-cash fs-base text-muted me-1"></i>$5,000</span></div>
-                                    </div>
-                                </div>
-                                <!-- Item-->
-                                <div class="card bg-secondary card-hover mb-2">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-start mb-2">
-                                            <div class="d-flex align-items-center"><img class="me-2" src="${path}/resources/img/job-board/company/xbox.png" width="24" alt="Xbox Logo"><span class="fs-sm text-dark opacity-80 px-1">Xbox Company</span></div>
-                                            <div class="dropdown content-overlay">
-                                                <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm" type="button" id="contextMenu5" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
-                                                <ul class="dropdown-menu my-1" aria-labelledby="contextMenu5">
-                                                    <li>
-                                                        <button class="dropdown-item" type="button"><i class="fi-heart opacity-60 me-2"></i>Add to Saved Jobs</button>
-                                                    </li>
-                                                    <li>
-                                                        <button class="dropdown-item" type="button"><i class="fi-x-circle opacity-60 me-2"></i>Not interested</button>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <h3 class="h6 card-title pt-1 mb-3"><a class="text-nav stretched-link text-decoration-none" href="job-board-single.html">Full-Stack Developer</a></h3>
-                                        <div class="fs-sm"><span class="text-nowrap me-3"><i class="fi-map-pin text-muted me-1"> </i>Washington</span><span class="text-nowrap me-3"><i class="fi-cash fs-base text-muted me-1"></i>$13,000</span></div>
-                                    </div>
-                                </div>
-                                <!-- Item-->
-                                <div class="card bg-secondary card-hover mb-2">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-start mb-2">
-                                            <div class="d-flex align-items-center"><img class="me-2" src="${path}/resources/img/job-board/company/zapier.png" width="24" alt="Zapier Logo"><span class="fs-sm text-dark opacity-80 px-1">Zapier</span><span class="badge bg-faded-danger rounded-pill fs-sm ms-2">Hot</span></div>
-                                            <div class="dropdown content-overlay">
-                                                <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm" type="button" id="contextMenu6" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
-                                                <ul class="dropdown-menu my-1" aria-labelledby="contextMenu6">
-                                                    <li>
-                                                        <button class="dropdown-item" type="button"><i class="fi-heart opacity-60 me-2"></i>Add to Saved Jobs</button>
-                                                    </li>
-                                                    <li>
-                                                        <button class="dropdown-item" type="button"><i class="fi-x-circle opacity-60 me-2"></i>Not interested</button>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <h3 class="h6 card-title pt-1 mb-3"><a class="text-nav stretched-link text-decoration-none" href="job-board-single.html">Onboardng Specialist</a></h3>
-                                        <div class="fs-sm"><span class="text-nowrap me-3"><i class="fi-map-pin text-muted me-1"> </i>Houston</span><span class="text-nowrap me-3"><i class="fi-cash fs-base text-muted me-1"></i>$4,000</span></div>
-                                    </div>
-                                </div>
-                                <!-- Item-->
-                                <div class="card bg-secondary card-hover mb-2">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-start mb-2">
-                                            <div class="d-flex align-items-center"><img class="me-2" src="${path}/resources/img/job-board/company/kibana.png" width="24" alt="Kibana Logo"><span class="fs-sm text-dark opacity-80 px-1">Elastic Kibana</span><span class="badge bg-faded-info rounded-pill fs-sm ms-2">New</span></div>
-                                            <div class="dropdown content-overlay">
-                                                <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm" type="button" id="contextMenu7" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
-                                                <ul class="dropdown-menu my-1" aria-labelledby="contextMenu7">
-                                                    <li>
-                                                        <button class="dropdown-item" type="button"><i class="fi-heart opacity-60 me-2"></i>Add to Saved Jobs</button>
-                                                    </li>
-                                                    <li>
-                                                        <button class="dropdown-item" type="button"><i class="fi-x-circle opacity-60 me-2"></i>Not interested</button>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <h3 class="h6 card-title pt-1 mb-3"><a class="text-nav stretched-link text-decoration-none" href="job-board-single.html">Global Product Operations Specialist</a></h3>
-                                        <div class="fs-sm"><span class="text-nowrap me-3"><i class="fi-map-pin text-muted me-1"> </i>San Francisco</span><span class="text-nowrap me-3"><i class="fi-cash fs-base text-muted me-1"></i>$9,200</span></div>
-                                    </div>
-                                </div>
-                                <!-- Item-->
-                                <div class="card bg-secondary card-hover mb-2">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-start mb-2">
-                                            <div class="d-flex align-items-center"><img class="me-2" src="${path}/resources/img/job-board/company/xampp.png" width="24" alt="XAMPP Logo"><span class="fs-sm text-dark opacity-80 px-1">XAMPP Company</span></div>
-                                            <div class="dropdown content-overlay">
-                                                <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm" type="button" id="contextMenu8" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
-                                                <ul class="dropdown-menu my-1" aria-labelledby="contextMenu8">
-                                                    <li>
-                                                        <button class="dropdown-item" type="button"><i class="fi-heart opacity-60 me-2"></i>Add to Saved Jobs</button>
-                                                    </li>
-                                                    <li>
-                                                        <button class="dropdown-item" type="button"><i class="fi-x-circle opacity-60 me-2"></i>Not interested</button>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <h3 class="h6 card-title pt-1 mb-3"><a class="text-nav stretched-link text-decoration-none" href="job-board-single.html">Sales Manager</a></h3>
-                                        <div class="fs-sm"><span class="text-nowrap me-3"><i class="fi-map-pin text-muted me-1"> </i>New Jersey</span><span class="text-nowrap me-3"><i class="fi-cash fs-base text-muted me-1"></i>$6,500</span></div>
-                                    </div>
-                                </div>
+
+                               
+                               
                                 <!-- Pagination-->
                                 <nav class="pt-4 pb-2" aria-label="Blog pagination">
                                     <ul class="pagination mb-0">

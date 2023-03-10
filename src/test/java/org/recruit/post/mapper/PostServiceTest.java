@@ -1,4 +1,4 @@
-package org.recruit.mapper;
+package org.recruit.post.mapper;
 
 import java.util.List;
 

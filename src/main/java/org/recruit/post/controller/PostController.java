@@ -33,10 +33,10 @@ public class PostController {
 		return "/post/postDetail";
 	}
 	
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	@RequestMapping(value = "/postList", method = RequestMethod.GET)
 	public String list(Model model) {
-		//log.info(service.postList());
-		//model.addAttribute("postlist",service.postList());
+		log.info(service.postList());
+		model.addAttribute("postList",service.postList());
 		return "/post/postList";
 	}
 }

@@ -1,4 +1,4 @@
-package org.recruit.mapper;
+package org.recruit.post.mapper;
 
 import java.util.List;
 
@@ -29,6 +29,20 @@ public class PostMapperTest {
 //	@Test
 //	public void postInsert() {
 //		PostVO post = new PostVO();
+//		post.setPostTitle(null);
+//		post.setPostJob(null);
+//		post.setPostCareer(null);
+//		post.setPostEmptype(null);
+//		post.setPostAdd(null);
+//		post.setPostSdate(null);
+//		post.setPostFdate(null);
+//		post.setPostSal(null);
+//		post.setPostEdu(null);
+//		post.setPostAge(null);
+//		post.setPostHow(null);
+//		post.setPostUrl(null);
+//		post.setComCno(0);
+//		post.setMemNo(0);
 //		post.setPost_title("메타넷개발채용");
 //		post.setPost_job("웹개발");
 //		post.setPost_career("신입");
