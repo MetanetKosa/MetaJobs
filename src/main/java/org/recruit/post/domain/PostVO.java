@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class PostVO {
-	private int postNum;
+	private int postNo;
 	private String postTitle;
 	private String postJob;
 	private String postCareer;

@@ -38,16 +38,16 @@ public class PostMapperTest {
 		Date fdata = formatter.parse(fdate);
 
 		PostVO post = new PostVO();
-		post.setPostTitle("메타넷글로벌채용");
-		post.setPostJob("웹개발");
+		post.setPostTitle("메타넷글로채용");
+		post.setPostJob("IOS개발");
 		post.setPostCareer("경력");
-		post.setPostEmptype("파견직");
-		post.setPostAdd("서울송파구");
+		post.setPostEmptype("정규직");
+		post.setPostAdd("서울상암동");
 		post.setPostSdate(sdata);
 		post.setPostFdate(fdata);
-		post.setPostSal("45000000");
+		post.setPostSal("75000000");
 		post.setPostEdu("초대졸");
-		post.setPostAge("30세");
+		post.setPostAge("35세");
 		post.setPostHow("홈페이지지원");
 		post.setPostUrl("http://www.metanetdigital.co.kr/");
 		post.setComCno(1237);
