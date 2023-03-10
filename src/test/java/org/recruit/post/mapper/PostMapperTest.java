@@ -1,5 +1,8 @@
 package org.recruit.post.mapper;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
@@ -20,42 +23,39 @@ public class PostMapperTest {
 	@Autowired
 	PostMapper mapper;
 	
-	@Test
-	public void postList() {
-		List<PostVO> list = mapper.postList();
-		list.forEach(post -> log.info(post));
-	}
-	
 //	@Test
-//	public void postInsert() {
-//		PostVO post = new PostVO();
-//		post.setPostTitle(null);
-//		post.setPostJob(null);
-//		post.setPostCareer(null);
-//		post.setPostEmptype(null);
-//		post.setPostAdd(null);
-//		post.setPostSdate(null);
-//		post.setPostFdate(null);
-//		post.setPostSal(null);
-//		post.setPostEdu(null);
-//		post.setPostAge(null);
-//		post.setPostHow(null);
-//		post.setPostUrl(null);
-//		post.setComCno(0);
-//		post.setMemNo(0);
-//		post.setPost_title("메타넷개발채용");
-//		post.setPost_job("웹개발");
-//		post.setPost_career("신입");
-//		post.setPost_emptype("인턴");
-//		post.setPost_add("서울종로구");
-//		post.setPost_sdate("2023/02/03");
-//		post.setPost_fdate("2023/03/15");
-//		post.setPost_sal("45000000");
-//		post.setPost_edu("초대졸");
-//		post.setPost_age("30세");
-//		post.setPost_how("홈페이지지원");
-//		post.setPost_url("http://www.metanetdigital.co.kr/");
-//		post.setCom_cno(2);
-//		post.setMem_no(1);
+//	public void postList() {
+//		List<PostVO> list = mapper.postList();
+//		list.forEach(post -> log.info(post));
 //	}
+//	
+	@Test
+	public void postInsert() throws ParseException {
+		String sdate = "2023-02-03";
+		String fdate = "2023-03-03";
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		Date sdata = formatter.parse(sdate);
+		Date fdata = formatter.parse(fdate);
+
+		PostVO post = new PostVO();
+		post.setPostTitle("메타넷글로벌채용");
+		post.setPostJob("웹개발");
+		post.setPostCareer("경력");
+		post.setPostEmptype("파견직");
+		post.setPostAdd("서울송파구");
+		post.setPostSdate(sdata);
+		post.setPostFdate(fdata);
+		post.setPostSal("45000000");
+		post.setPostEdu("초대졸");
+		post.setPostAge("30세");
+		post.setPostHow("홈페이지지원");
+		post.setPostUrl("http://www.metanetdigital.co.kr/");
+		post.setComCno(1237);
+		post.setMemNo(2);
+		
+		mapper.postInsert(post);
+		//log.info("postInsert 값 확인: " + result);
+		
+		
+	}
 }

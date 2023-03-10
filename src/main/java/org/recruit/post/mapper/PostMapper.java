@@ -6,5 +6,5 @@ import org.recruit.post.domain.PostVO;
 
 public interface PostMapper {
 	public List<PostVO> postList();
-	public void postInsert();
+	public void postInsert(PostVO post);
 }
