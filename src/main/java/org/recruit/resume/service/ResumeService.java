@@ -10,6 +10,6 @@ public interface ResumeService {
 	public ResumeVO get(Long resume_no);
 	public boolean updateResume(ResumeVO resume);
 	public boolean delete(Long resume_no);
-	public List<ResumeVO> getResumeList();
+	public List<ResumeVO> getResumeList(Long mem_no);
 
 }

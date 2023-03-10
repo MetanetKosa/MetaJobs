@@ -36,8 +36,8 @@ public class ResumeServiceImpl implements ResumeService {
 	}
 
 	@Override
-	public List<ResumeVO> getResumeList() {
-		return mapper.getList();
+	public List<ResumeVO> getResumeList(Long resume_no) {
+		return mapper.getList(resume_no);
 	}
 
 }

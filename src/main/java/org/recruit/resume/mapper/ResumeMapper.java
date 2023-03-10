@@ -6,7 +6,7 @@ import org.recruit.resume.domain.ResumeVO;
 
 public interface ResumeMapper {
 	
-	public List<ResumeVO> getList();
+	public List<ResumeVO> getList(Long mem_no);
 	
 	public ResumeVO get(Long resume_no);
 	
