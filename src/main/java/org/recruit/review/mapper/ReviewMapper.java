@@ -8,7 +8,7 @@ public interface ReviewMapper {
 
 	public List<ReviewVO> getList();
 	
-	public void reviewInsert(ReviewVO review);
+	public boolean reviewInsert(ReviewVO review);
 	
-	public ReviewVO get(int rno);
+	public ReviewVO get(long rno);
 }

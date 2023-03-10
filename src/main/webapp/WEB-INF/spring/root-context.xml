@@ -30,6 +30,6 @@
 	
 	<mybatis-spring:scan base-package="org.recruit.**.mapper"/>
 	
-	<context:component-scan base-package="org.recruit.service"/>
+	<context:component-scan base-package="org.recruit.**.service"/>
 	
 </beans>
