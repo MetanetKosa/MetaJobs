@@ -34,245 +34,250 @@
 	                    </div>              
 	                    <!-- Step 1: Basic Info-->
 	                    <div class="bg-light rounded-3 p-4 p-md-5 mb-3">
-	                        <h2 class="h4 mb-4"><i class="fi-info-circle text-primary fs-5 mt-n1 me-2"></i>Basic info</h2>
-	                        <div class="row">
-	                            <div class="col-sm-6 mb-4">
-	                                <label class="form-label" for="pr-fn">First name <span class='text-danger'>*</span></label>
-	                                <input class="form-control form-control-lg" type="text" id="pr-fn" value="Annette" placeholder="Enter your first name" required>
-	                            </div>
-	                            <div class="col-sm-6 mb-4">
-	                                <label class="form-label" for="pr-sn">Second name <span class='text-danger'>*</span></label>
-	                                <input class="form-control form-control-lg" type="text" id="pr-sn" value="Black" placeholder="Enter your second name" required>
-	                            </div>
-	                            <div class="col-sm-6 mb-4">
-	                                <label class="form-label" for="pr-email">Email address <span class='text-danger'>*</span></label>
-	                                <input class="form-control form-control-lg" type="email" id="pr-email" value="annette_black@email.com" placeholder="Enter your email address" required>
-	                            </div>
-	                            <div class="col-sm-6 mb-4">
-	                                <label class="form-label" for="pr-phone">Phone</label>
-	                                <input class="form-control form-control-lg" type="text" id="pr-phone" value="(302) 555-0107" placeholder="Enter your phone number">
-	                            </div>
-	                            <div class="col-sm-6 mb-4">
-	                                <label class="form-label" for="pr-birth-date">Date of birth <span class='text-danger'>*</span></label>
-	                                <div class="input-group input-group-lg">
-	                                    <input class="form-control date-picker rounded pe-5" type="text" id="pr-birth-date" placeholder="Choose date" data-datepicker-options="{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;}">
-	                                    <i class="fi-calendar text-muted position-absolute top-50 end-0 translate-middle-y me-3"></i>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="row">
-	                            <div class="col-sm-6 mb-4">
-	                                <label class="form-label" for="pr-country">Country where you want to work <span class='text-danger'>*</span></label>
-	                                <select class="form-select form-select-lg" id="pr-country" required>
-	                    <option value="" disabled selected>Choose country</option>
-	                    <option value="Australia">Australia</option>
-	                    <option value="Belgium">Belgium</option>
-	                    <option value="Canada">Canada</option>
-	                    <option value="China">China</option>
-	                    <option value="Denmark">Denmark</option>
-	                    <option value="France">France</option>
-	                    <option value="Germany">Germany</option>
-	                    <option value="Japan">Japan</option>
-	                    <option value="UK">UK</option>
-	                    <option value="USA">USA</option>
-	                  </select>
-	                            </div>
-	                            <div class="col-sm-6 mb-4">
-	                                <label class="form-label" for="pr-city">City where you want to work <span class='text-danger'>*</span></label>
-	                                <select class="form-select form-select-lg" id="pr-city" required>
-	                    <option value="" disabled selected>Choose city</option>
-	                    <option value="Beijing">Beijing</option>
-	                    <option value="Berlin">Berlin</option>
-	                    <option value="Brussels">Brussels</option>
-	                    <option value="Copenhagen">Copenhagen</option>
-	                    <option value="London">London</option>
-	                    <option value="Ottawa">Ottawa</option>
-	                    <option value="Paris">Paris</option>
-	                    <option value="Sydney">Sydney</option>
-	                    <option value="Tokyo">Tokyo</option>
-	                    <option value="Washington">Washington</option>
-	                  </select>
-	                            </div>
-	                            <div class="col-12 mb-4">
-	                                <label class="form-label" for="pr-address">Your address</label>
-	                                <input class="form-control form-control-lg" type="text" id="pr-address" placeholder="Enter the address">
-	                            </div>
-	                        </div>
-	                        <div class="pb-4 mb-2">
-	                            <label class="form-label fw-bold mb-3">Socials</label>
-	                            <div class="d-flex align-items-center mb-3">
-	                                <div class="btn btn-icon btn-light btn-xs shadow-sm rounded-circle pe-none flex-shrink-0 me-3"><i class="fi-facebook text-body"></i></div>
-	                                <input class="form-control" type="text" placeholder="Your Facebook account">
-	                            </div>
-	                            <div class="d-flex align-items-center mb-3">
-	                                <div class="btn btn-icon btn-light btn-xs shadow-sm rounded-circle pe-none flex-shrink-0 me-3"><i class="fi-linkedin text-body"></i></div>
-	                                <input class="form-control" type="text" placeholder="Your LinkedIn account">
-	                            </div>
-	                            <div class="d-flex align-items-center mb-3">
-	                                <div class="btn btn-icon btn-light btn-xs shadow-sm rounded-circle pe-none flex-shrink-0 me-3"><i class="fi-twitter text-body"></i></div>
-	                                <input class="form-control" type="text" placeholder="Your Twitter account">
-	                            </div>
-	                            <div class="collapse" id="showMoreSocials">
-	                                <div class="d-flex align-items-center mb-3">
-	                                    <div class="btn btn-icon btn-light btn-xs shadow-sm rounded-circle pe-none flex-shrink-0 me-3"><i class="fi-instagram text-body"></i></div>
-	                                    <input class="form-control" type="text" placeholder="Your Instagram account">
-	                                </div>
-	                                <div class="d-flex align-items-center mb-3">
-	                                    <div class="btn btn-icon btn-light btn-xs shadow-sm rounded-circle pe-none flex-shrink-0 me-3"><i class="fi-behance text-body"></i></div>
-	                                    <input class="form-control" type="text" placeholder="Your Behance account">
-	                                </div>
-	                            </div><a class="collapse-label collapsed d-inline-block fs-sm fw-bold text-decoration-none pt-2" href="#showMoreSocials" data-bs-toggle="collapse" data-bs-label-collapsed="Show more" data-bs-label-expanded="Show less" role="button"
-	                                aria-expanded="false" aria-controls="showMoreSocials"><i class="fi-arrow-down me-2"></i></a>
-	                        </div>
-	                        <div class="border-top pt-4">
-	                            <label class="form-label fw-bold py-2 mb-1" for="pr-position">Position you want to work on</label>
-	                            <input class="form-control form-control-lg mb-4" type="text" id="pr-position" placeholder="Indicate the position" required>
-	                            <label class="form-label fw-bold pb-1 mb-2">Choose categories for posting resume</label>
-	                            <div class="row row-cols-sm-2 row-cols-md-4 gx-3 gx-lg-4 mb-4">
-	                                <div class="col">
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="accounting">
-	                                        <label class="form-check-label" for="accounting">Accounting</label>
-	                                    </div>
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="marketing" checked>
-	                                        <label class="form-check-label" for="marketing">Marketing &amp; PR</label>
-	                                    </div>
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="medicine">
-	                                        <label class="form-check-label" for="medicine">Medicine</label>
-	                                    </div>
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="agriculture">
-	                                        <label class="form-check-label" for="agriculture">Agriculture</label>
-	                                    </div>
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="it" checked>
-	                                        <label class="form-check-label" for="it">Internet technology</label>
-	                                    </div>
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="security">
-	                                        <label class="form-check-label" for="security">Security</label>
-	                                    </div>
-	                                </div>
-	                                <div class="col">
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="management">
-	                                        <label class="form-check-label" for="management">Management</label>
-	                                    </div>
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="horeca">
-	                                        <label class="form-check-label" for="horeca">HoReCa</label>
-	                                    </div>
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="design" checked>
-	                                        <label class="form-check-label" for="design">Design, creativity</label>
-	                                    </div>
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="sport">
-	                                        <label class="form-check-label" for="sport">Fitness &amp; sports</label>
-	                                    </div>
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="beauty">
-	                                        <label class="form-check-label" for="beauty">Beauty</label>
-	                                    </div>
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="culture">
-	                                        <label class="form-check-label" for="culture">Culture</label>
-	                                    </div>
-	                                </div>
-	                                <div class="col">
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="music">
-	                                        <label class="form-check-label" for="music">Music</label>
-	                                    </div>
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="logistics">
-	                                        <label class="form-check-label" for="logistics">Logistics</label>
-	                                    </div>
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="education">
-	                                        <label class="form-check-label" for="education">Education &amp; science</label>
-	                                    </div>
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="sales">
-	                                        <label class="form-check-label" for="sales">Sales &amp; purchases</label>
-	                                    </div>
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="industry">
-	                                        <label class="form-check-label" for="industry">Industry</label>
-	                                    </div>
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="transportation">
-	                                        <label class="form-check-label" for="transportation">Transportation</label>
-	                                    </div>
-	                                </div>
-	                                <div class="col">
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="media">
-	                                        <label class="form-check-label" for="media">Mass media &amp; publishing</label>
-	                                    </div>
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="insurance">
-	                                        <label class="form-check-label" for="insurance">Insurance</label>
-	                                    </div>
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="construction">
-	                                        <label class="form-check-label" for="construction">Construction</label>
-	                                    </div>
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="architecture">
-	                                        <label class="form-check-label" for="architecture">Architecture</label>
-	                                    </div>
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="hr">
-	                                        <label class="form-check-label" for="hr">HR management</label>
-	                                    </div>
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="law">
-	                                        <label class="form-check-label" for="law">Law</label>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                            <label class="form-label fw-bold pb-1 mb-2">Job type</label>
-	                            <div class="row row-cols-sm-2 row-cols-md-4 gx-3 gx-lg-4 mb-4">
-	                                <div class="col">
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="full-time">
-	                                        <label class="form-check-label" for="full-time">Full-time</label>
-	                                    </div>
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="part-time" checked>
-	                                        <label class="form-check-label" for="part-time">Part-time</label>
-	                                    </div>
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="remote">
-	                                        <label class="form-check-label" for="remote">Remote</label>
-	                                    </div>
-	                                </div>
-	                                <div class="col">
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="temporary" checked>
-	                                        <label class="form-check-label" for="temporary">Temporary</label>
-	                                    </div>
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="contract">
-	                                        <label class="form-check-label" for="contract">Contract</label>
-	                                    </div>
-	                                    <div class="form-check">
-	                                        <input class="form-check-input" type="checkbox" id="internship">
-	                                        <label class="form-check-label" for="internship">Internship</label>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                            <label class="form-label fw-bold pb-1 mb-2">Salary range</label>
-	                            <div class="row gx-2 gx-lg-3 gx-xl-4">
-	                                <div class="col-md-2 mb-3 mb-md-0">
-	                                    <select class="form-select form-select-lg">
-	                      <option value="usd">&#36;</option>
-	                      <option value="eur">&#8364;</option>
-	                      <option value="gbp">&#163;</option>
-	                      <option value="jpy">&#165;</option>
+	                        <h2 class="h4 mb-4"><i class="fi-info-circle text-primary fs-5 mt-n1 me-2"></i>기본정보</h2>
+	                      	<form role="form" action="/resume/insert" method="post">
+		                        <div class="row">
+		                            <div class="col-sm-6 mb-4">
+		                                <label class="form-label" for="pr-fn">image<span class='text-danger'>*</span></label>
+		                                <input class="form-control form-control-lg" type="text" id="pr-fn" placeholder="Enter your first name" name="resume_image" required>
+		                            </div>
+		                            <div class="col-sm-6 mb-4">
+		                                <label class="form-label" for="pr-sn">technology <span class='text-danger'>*</span></label>
+		                                <input class="form-control form-control-lg" type="text" id="pr-sn"  placeholder="Enter your second name" name="resume_technology"required>
+		                            </div> 
+		                           <!--  <div class="col-sm-6 mb-4">
+		                                <label class="form-label" for="pr-email">technology <span class='text-danger'>*</span></label>
+		                                <input class="form-control form-control-lg" type="email" id="pr-email" placeholder="Enter your email address" required>
+		                            </div> -->
+		                            <div class="col-sm-6 mb-4">
+		                                <label class="form-label" for="pr-phone">mem_no</label>
+		                                <input class="form-control form-control-lg" type="text" id="pr-phone" name="mem_no" placeholder="Enter your phone number">
+		                            </div>
+		                            <!-- <div class="col-sm-6 mb-4">
+		                                <label class="form-label" for="pr-birth-date">생년월일<span class='text-danger'>*</span></label>
+		                                <div class="input-group input-group-lg">
+		                                    <input class="form-control date-picker rounded pe-5" type="text" id="pr-birth-date" placeholder="Choose date" data-datepicker-options="{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;}">
+		                                    <i class="fi-calendar text-muted position-absolute top-50 end-0 translate-middle-y me-3"></i>
+		                                </div>
+		                            </div> -->
+		                        </div>
+		                        <div class="row">
+		                            <div class="col-sm-6 mb-4">
+		                                <label class="form-label" for="pr-country">gender <span class='text-danger'>*</span></label>
+		                                <select class="form-select form-select-lg" id="pr-country" name="resume_gender" required>
+		                    <option value="" disabled selected>Choose country</option>
+		                    <option value="여">여</option>
+		                    <option value="남">남</option>
+	<!-- 	                    <option value="Canada">Canada</option>
+		                    <option value="China">China</option>
+		                    <option value="Denmark">Denmark</option>
+		                    <option value="France">France</option>
+		                    <option value="Germany">Germany</option>
+		                    <option value="Japan">Japan</option>
+		                    <option value="UK">UK</option>
+		                    <option value="USA">USA</option> -->
+		                  </select>
+		                            </div>
+		                            <div class="col-sm-6 mb-4">
+		                                <label class="form-label" for="pr-city">career <span class='text-danger'>*</span></label>
+		                                <select class="form-select form-select-lg" id="pr-city" name="resume_career" required>
+		                    <option value="" disabled selected>Choose city</option>
+		                    <option value="신입">신입</option>
+		                    <option value="경력">경력</option>
+	<!-- 	                    <option value="Brussels">Brussels</option>
+		                    <option value="Copenhagen">Copenhagen</option>
+		                    <option value="London">London</option>
+		                    <option value="Ottawa">Ottawa</option>
+		                    <option value="Paris">Paris</option>
+		                    <option value="Sydney">Sydney</option>
+		                    <option value="Tokyo">Tokyo</option>
+		                    <option value="Washington">Washington</option> -->
+		                  </select>
+		                            </div>
+		                            <div class="col-12 mb-4">
+		                                <label class="form-label" for="pr-address">title</label>
+		                                <input class="form-control form-control-lg" type="text" id="pr-address" name="resume_title" placeholder="Enter the address">
+		                            </div>
+		                             <div class="col-12 mb-4">
+		                                <label class="form-label" for="pr-address">career</label>
+		                                <input class="form-control form-control-lg" type="text" id="pr-address" name="resume_cv" placeholder="Enter the address">
+		                            </div>
+		                        </div>
+		                        <!-- <div class="pb-4 mb-2">
+		                            <label class="form-label fw-bold mb-3">Socials</label>
+		                            <div class="d-flex align-items-center mb-3">
+		                                <div class="btn btn-icon btn-light btn-xs shadow-sm rounded-circle pe-none flex-shrink-0 me-3"><i class="fi-facebook text-body"></i></div>
+		                                <input class="form-control" type="text" placeholder="Your Facebook account">
+		                            </div>
+		                            <div class="d-flex align-items-center mb-3">
+		                                <div class="btn btn-icon btn-light btn-xs shadow-sm rounded-circle pe-none flex-shrink-0 me-3"><i class="fi-linkedin text-body"></i></div>
+		                                <input class="form-control" type="text" placeholder="Your LinkedIn account">
+		                            </div>
+		                            <div class="d-flex align-items-center mb-3">
+		                                <div class="btn btn-icon btn-light btn-xs shadow-sm rounded-circle pe-none flex-shrink-0 me-3"><i class="fi-twitter text-body"></i></div>
+		                                <input class="form-control" type="text" placeholder="Your Twitter account">
+		                            </div>
+		                            <div class="collapse" id="showMoreSocials">
+		                                <div class="d-flex align-items-center mb-3">
+		                                    <div class="btn btn-icon btn-light btn-xs shadow-sm rounded-circle pe-none flex-shrink-0 me-3"><i class="fi-instagram text-body"></i></div>
+		                                    <input class="form-control" type="text" placeholder="Your Instagram account">
+		                                </div>
+		                                <div class="d-flex align-items-center mb-3">
+		                                    <div class="btn btn-icon btn-light btn-xs shadow-sm rounded-circle pe-none flex-shrink-0 me-3"><i class="fi-behance text-body"></i></div>
+		                                    <input class="form-control" type="text" placeholder="Your Behance account">
+		                                </div>
+		                            </div><a class="collapse-label collapsed d-inline-block fs-sm fw-bold text-decoration-none pt-2" href="#showMoreSocials" data-bs-toggle="collapse" data-bs-label-collapsed="Show more" data-bs-label-expanded="Show less" role="button"
+		                                aria-expanded="false" aria-controls="showMoreSocials"><i class="fi-arrow-down me-2"></i></a>
+		                        </div> -->
+		                        <!-- <div class="border-top pt-4">
+		                            <label class="form-label fw-bold py-2 mb-1" for="pr-position">Position you want to work on</label>
+		                            <input class="form-control form-control-lg mb-4" type="text" id="pr-position" placeholder="Indicate the position" required>
+		                            <label class="form-label fw-bold pb-1 mb-2">Choose categories for posting resume</label>
+		                            <div class="row row-cols-sm-2 row-cols-md-4 gx-3 gx-lg-4 mb-4">
+		                                <div class="col">
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="accounting">
+		                                        <label class="form-check-label" for="accounting">Accounting</label>
+		                                    </div>
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="marketing" checked>
+		                                        <label class="form-check-label" for="marketing">Marketing &amp; PR</label>
+		                                    </div>
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="medicine">
+		                                        <label class="form-check-label" for="medicine">Medicine</label>
+		                                    </div>
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="agriculture">
+		                                        <label class="form-check-label" for="agriculture">Agriculture</label>
+		                                    </div>
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="it" checked>
+		                                        <label class="form-check-label" for="it">Internet technology</label>
+		                                    </div>
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="security">
+		                                        <label class="form-check-label" for="security">Security</label>
+		                                    </div>
+		                                </div>
+		                                <div class="col">
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="management">
+		                                        <label class="form-check-label" for="management">Management</label>
+		                                    </div>
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="horeca">
+		                                        <label class="form-check-label" for="horeca">HoReCa</label>
+		                                    </div>
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="design" checked>
+		                                        <label class="form-check-label" for="design">Design, creativity</label>
+		                                    </div>
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="sport">
+		                                        <label class="form-check-label" for="sport">Fitness &amp; sports</label>
+		                                    </div>
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="beauty">
+		                                        <label class="form-check-label" for="beauty">Beauty</label>
+		                                    </div>
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="culture">
+		                                        <label class="form-check-label" for="culture">Culture</label>
+		                                    </div>
+		                                </div>
+		                                <div class="col">
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="music">
+		                                        <label class="form-check-label" for="music">Music</label>
+		                                    </div>
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="logistics">
+		                                        <label class="form-check-label" for="logistics">Logistics</label>
+		                                    </div>
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="education">
+		                                        <label class="form-check-label" for="education">Education &amp; science</label>
+		                                    </div>
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="sales">
+		                                        <label class="form-check-label" for="sales">Sales &amp; purchases</label>
+		                                    </div>
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="industry">
+		                                        <label class="form-check-label" for="industry">Industry</label>
+		                                    </div>
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="transportation">
+		                                        <label class="form-check-label" for="transportation">Transportation</label>
+		                                    </div>
+		                                </div>
+		                                <div class="col">
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="media">
+		                                        <label class="form-check-label" for="media">Mass media &amp; publishing</label>
+		                                    </div>
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="insurance">
+		                                        <label class="form-check-label" for="insurance">Insurance</label>
+		                                    </div>
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="construction">
+		                                        <label class="form-check-label" for="construction">Construction</label>
+		                                    </div>
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="architecture">
+		                                        <label class="form-check-label" for="architecture">Architecture</label>
+		                                    </div>
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="hr">
+		                                        <label class="form-check-label" for="hr">HR management</label>
+		                                    </div>
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="law">
+		                                        <label class="form-check-label" for="law">Law</label>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                            <label class="form-label fw-bold pb-1 mb-2">Job type</label>
+		                            <div class="row row-cols-sm-2 row-cols-md-4 gx-3 gx-lg-4 mb-4">
+		                                <div class="col">
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="full-time">
+		                                        <label class="form-check-label" for="full-time">Full-time</label>
+		                                    </div>
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="part-time" checked>
+		                                        <label class="form-check-label" for="part-time">Part-time</label>
+		                                    </div>
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="remote">
+		                                        <label class="form-check-label" for="remote">Remote</label>
+		                                    </div>
+		                                </div>
+		                                <div class="col">
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="temporary" checked>
+		                                        <label class="form-check-label" for="temporary">Temporary</label>
+		                                    </div>
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="contract">
+		                                        <label class="form-check-label" for="contract">Contract</label>
+		                                    </div>
+		                                    <div class="form-check">
+		                                        <input class="form-check-input" type="checkbox" id="internship">
+		                                        <label class="form-check-label" for="internship">Internship</label>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                            <label class="form-label fw-bold pb-1 mb-2">Salary range</label>
+		                            <div class="row gx-2 gx-lg-3 gx-xl-4">
+		                                <div class="col-md-2 mb-3 mb-md-0">
+		                                    <select class="form-select form-select-lg">
+		                      <option value="usd">&#36;</option>
+		                      <option value="eur">&#8364;</option>
+		                      <option value="gbp">&#163;</option>
+		                      <option value="jpy">&#165;</option>
 	                    </select>
 	                                </div>
 	                                <div class="col-md-7 mb-3 mb-md-0">
@@ -292,12 +297,14 @@
 	                                </div>
 	                            </div>
 	                        </div>
-	                    </div>
+	                    </div> -->
 	                    <!-- Navigation-->
-	                    <div class="d-flex flex-column flex-sm-row bg-light rounded-3 p-4 px-md-5"><a class="btn btn-primary btn-lg rounded-pill ms-sm-auto" href="job-board-post-resume-2.html">Next step<i class="fi-chevron-right fs-sm ms-2"></i></a></div>
+	                    <div class="d-flex flex-column flex-sm-row bg-light rounded-3 p-4 px-md-5"> <input class="btn btn-primary btn-lg rounded-pill ms-sm-auto" type="submit">등록</a></div>
 	                </div>
+	               </form>
 	            </div>
 	        </div>
+	      
 	    </main>
 
 	    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
