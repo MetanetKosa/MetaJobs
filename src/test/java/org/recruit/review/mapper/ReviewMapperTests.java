@@ -1,7 +1,12 @@
 package org.recruit.review.mapper;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.recruit.review.domain.ReviewVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -20,4 +25,30 @@ public class ReviewMapperTests {
 	public void testGetList() {
 		mapper.getList().forEach(review -> log.info(review));
 	}
+	
+	// insert Test
+//	@Test
+//	public void testReviewInsert() throws ParseException {
+//		ReviewVO review = new ReviewVO();
+//
+//		// String -> Date 변환
+//		
+//		String dateStr = "2022-11-11";
+//		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+//		Date date = formatter.parse(dateStr);
+//		 
+// 
+////        System.out.println(date);
+//		review.setCno(1);
+//		review.setReJob("새로운내용");
+//		review.setReDate(date);
+//		review.setPNum(3);
+//		review.setReContent("새로운 면접 후기 내용");
+//		review.setReResult("합격");
+//		//review.setReWdate(date); // default = sysdate
+//		review.setMno(2);
+//		
+//		mapper.reviewInsert(review);
+//		log.info(review);
+//	}
 }

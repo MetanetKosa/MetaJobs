@@ -7,4 +7,8 @@ import org.recruit.review.domain.ReviewVO;
 public interface ReviewMapper {
 
 	public List<ReviewVO> getList();
+	
+	public void reviewInsert(ReviewVO review);
+	
+	public ReviewVO get();
 }
