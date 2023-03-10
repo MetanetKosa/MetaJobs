@@ -21,4 +21,9 @@ public class PostServiceImpl implements PostService {
 		return mapper.postList();
 	}
 
+	@Override
+	public int postInsert(PostVO post) {
+		return mapper.postInsert(post);
+	}
+
 }

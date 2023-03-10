@@ -31,8 +31,8 @@ public class PostMapperTest {
 //	
 	@Test
 	public void postInsert() throws ParseException {
-		String sdate = "2023-02-03";
-		String fdate = "2023-03-03";
+		String sdate = "2023-05-05";
+		String fdate = "2023-06-06";
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		Date sdata = formatter.parse(sdate);
 		Date fdata = formatter.parse(fdate);
@@ -51,7 +51,7 @@ public class PostMapperTest {
 		post.setPostHow("홈페이지지원");
 		post.setPostUrl("http://www.metanetdigital.co.kr/");
 		post.setComCno(1237);
-		post.setMemNo(2);
+		post.setMemNo(1);
 		
 		mapper.postInsert(post);
 		//log.info("postInsert 값 확인: " + result);

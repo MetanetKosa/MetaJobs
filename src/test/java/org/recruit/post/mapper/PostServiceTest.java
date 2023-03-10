@@ -1,7 +1,11 @@
 package org.recruit.post.mapper;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.recruit.post.domain.PostVO;
@@ -20,10 +24,38 @@ public class PostServiceTest {
 	@Autowired
 	private PostService service;
 	
+//	@Test
+//	public void postlistTest() {
+//		List<PostVO> postlist = service.postList();
+//		postlist.forEach(post -> log.info(post));
+//	}
+	
 	@Test
-	public void postlistTest() {
-		List<PostVO> postlist = service.postList();
-		postlist.forEach(post -> log.info(post));
+	public void postInsertTest() throws ParseException {
+		String sdate = "2023-05-05";
+		String fdate = "2023-06-06";
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		Date sdata = formatter.parse(sdate);
+		Date fdata = formatter.parse(fdate);
+		
+		PostVO post = new PostVO();
+		post.setPostTitle("메타넷글로벌채용");
+		post.setPostJob("웹개발");
+		post.setPostCareer("경력");
+		post.setPostEmptype("파견직");
+		post.setPostAdd("서울송파구");
+		post.setPostSdate(sdata);
+		post.setPostFdate(fdata);
+		post.setPostSal("45000000");
+		post.setPostEdu("초대졸");
+		post.setPostAge("30세");
+		post.setPostHow("홈페이지지원");
+		post.setPostUrl("http://www.metanetdigital.co.kr/");
+		post.setComCno(1237);
+		post.setMemNo(2);
+		
+		service.postInsert(post);
+		log.info(post);
 	}
 
 }
