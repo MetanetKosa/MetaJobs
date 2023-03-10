@@ -20,8 +20,23 @@ public class PostController {
 	private PostService service;
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
-	public void register(Model model) {
+	public String register(Model model) {
 		log.info(service.postList());
 		model.addAttribute("postlist",service.postList());
+		return "/post/postDetail";
+	}
+	
+	@RequestMapping(value = "/d", method = RequestMethod.GET)
+	public String d(Model model) {
+		//log.info(service.postList());
+		//model.addAttribute("postlist",service.postList());
+		return "/post/postDetail";
+	}
+	
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public String list(Model model) {
+		//log.info(service.postList());
+		//model.addAttribute("postlist",service.postList());
+		return "/post/postList";
 	}
 }

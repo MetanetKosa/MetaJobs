@@ -29,17 +29,17 @@ public class PostMapperTest {
 //	@Test
 //	public void postInsert() {
 //		PostVO post = new PostVO();
-//		post.setPost_title("¸ŞÅ¸³İÇÃ·§Æû");
-//		post.setPost_job("¾Û°³¹ß");
-//		post.setPost_career("°æ·Â");
-//		post.setPost_emptype("°è¾àÁ÷");
-//		post.setPost_add("¼­¿ïÁ¾·Î±¸");
+//		post.setPost_title("ë©”íƒ€ë„·ê°œë°œì±„ìš©");
+//		post.setPost_job("ì›¹ê°œë°œ");
+//		post.setPost_career("ì‹ ì…");
+//		post.setPost_emptype("ì¸í„´");
+//		post.setPost_add("ì„œìš¸ì¢…ë¡œêµ¬");
 //		post.setPost_sdate("2023/02/03");
 //		post.setPost_fdate("2023/03/15");
 //		post.setPost_sal("45000000");
-//		post.setPost_edu("ÃÊ´ëÁ¹");
-//		post.setPost_age("30¼¼");
-//		post.setPost_how("È¨ÆäÀÌÁöÁö¿ø");
+//		post.setPost_edu("ì´ˆëŒ€ì¡¸");
+//		post.setPost_age("30ì„¸");
+//		post.setPost_how("í™ˆí˜ì´ì§€ì§€ì›");
 //		post.setPost_url("http://www.metanetdigital.co.kr/");
 //		post.setCom_cno(2);
 //		post.setMem_no(1);
