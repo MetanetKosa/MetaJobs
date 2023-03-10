@@ -1,5 +1,6 @@
 package org.recruit.post.controller;
 
+import org.recruit.post.domain.PostVO;
 import org.recruit.post.service.PostService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,18 +20,9 @@ public class PostController {
 	
 	private PostService service;
 
-	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	@RequestMapping(value = "/postRegister", method = RequestMethod.GET)
 	public String register(Model model) {
-		log.info(service.postList());
-		model.addAttribute("postlist",service.postList());
-		return "/post/postDetail";
-	}
-	
-	@RequestMapping(value = "/d", method = RequestMethod.GET)
-	public String d(Model model) {
-		//log.info(service.postList());
-		//model.addAttribute("postlist",service.postList());
-		return "/post/postDetail";
+		return "/post/postInsert";
 	}
 	
 	@RequestMapping(value = "/postList", method = RequestMethod.GET)
@@ -38,5 +30,11 @@ public class PostController {
 		log.info(service.postList());
 		model.addAttribute("postList",service.postList());
 		return "/post/postList";
+	}
+	
+	@RequestMapping(value = "/postInsert", method = RequestMethod.GET)
+	public String d(PostVO post, Model model) {
+//		service.postInsert(post);
+		return "redirect:/post/postList";
 	}
 }
