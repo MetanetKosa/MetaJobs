@@ -6,15 +6,14 @@ import org.recruit.resume.domain.ResumeVO;
 
 public interface ResumeMapper {
 	
-	//전체 목록
 	public List<ResumeVO> getList();
 	
-	public ResumeVO get(Long resum_no);
+	public ResumeVO get(Long resume_no);
 	
 	public void resumeInsert(ResumeVO resume);
 	
 	public int resumeUpdate(ResumeVO resume);
 	
-	public int resumeDelete(Long resum_no);
-	
+	public int resumeDelete(Long resume_no);
+
 }
