@@ -19,12 +19,13 @@ public class CustomUserDetailsService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
 		log.warn("UserName: " +username);
+		return null;
 		
 		//밑의 username은 userId
-		MemberVO vo = mapper.read(username);
+		//MemberVO vo = mapper.read(username);
 		
 		//Member객체 vo가 null이면 null로, 아니면 CustomUser타입으로 리턴
-		return vo == null ? null : new CustomUser(vo);	
+		//return vo == null ? null : new CustomUser(vo);	
 	}
 
 }
