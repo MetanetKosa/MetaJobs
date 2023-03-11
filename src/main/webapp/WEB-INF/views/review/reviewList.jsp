@@ -9,6 +9,13 @@
 <jsp:include page="/WEB-INF/views/common/header.jsp">
 	<jsp:param value="홈페이지" name="title"/>
 </jsp:include>
+<!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="${path}/resources/vendor/simplebar/dist/simplebar.min.css" />
+    <link rel="stylesheet" media="screen" href="${path}/resources/vendor/lightgallery/css/lightgallery-bundle.min.css" />
+    <link rel="stylesheet" media="screen" href="${path}/resources/vendor/tiny-slider/dist/tiny-slider.css" />
+    <link rel="stylesheet" media="screen" href="${path}/resources/vendor/flatpickr/dist/flatpickr.min.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+<link rel="stylesheet" media="screen" href="${path}/resources/css/theme.min.css">
 
 
     <body class="bg-secondary">
@@ -33,6 +40,12 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="review-email">직군 <span class='text-danger'>*</span></label>
+                                <input class="form-control" type="email" id="review-email" placeholder="Your email address" required>
+                                <div class="invalid-feedback">Please provide a valid email address.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="review-email">면접일 <span class='text-danger'>*</span></label>
+								<input class="form-control date-picker rounded pe-5" type="text" id="pr-birth-date" placeholder="Choose date" data-datepicker-options="{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;}"><i class="fi-calendar text-muted position-absolute top-50 end-0 translate-middle-y me-3"></i>
                                 <input class="form-control" type="email" id="review-email" placeholder="Your email address" required>
                                 <div class="invalid-feedback">Please provide a valid email address.</div>
                             </div>
@@ -146,13 +159,14 @@
             </div>
 	    </main>
 
-	    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
+ <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
 	    <!-- Vendor scrits: js libraries and plugins-->
 	    <script src="${path}/resources/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 	    <script src="${path}/resources/vendor/simplebar/dist/simplebar.min.js"></script>
 	    <script src="${path}/resources/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+	    <script src="${path}/resources/vendor/flatpickr/dist/flatpickr.min.js"></script>
 	    <!-- Main theme script-->
-	    <script src="${path}/resources/js/theme.min.js"></script>
+		<script src="${path}/resources/js/theme.min.js"></script>
 	    
 	</body>
 
