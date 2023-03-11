@@ -27,12 +27,12 @@
                     <div class="modal-body px-sm-5 px-4">
                         <form class="needs-validation" novalidate>
                             <div class="mb-3">
-                                <label class="form-label" for="review-name">Name <span class='text-danger'>*</span></label>
+                                <label class="form-label" for="review-name">회사명 <span class='text-danger'>*</span></label>
                                 <input class="form-control" type="text" id="review-name" placeholder="Your name" required>
                                 <div class="invalid-feedback">Please let us know your name.</div>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="review-email">Email <span class='text-danger'>*</span></label>
+                                <label class="form-label" for="review-email">직군 <span class='text-danger'>*</span></label>
                                 <input class="form-control" type="email" id="review-email" placeholder="Your email address" required>
                                 <div class="invalid-feedback">Please provide a valid email address.</div>
                             </div>
@@ -102,31 +102,33 @@
                         </div>
                     </div>
                     <!-- Review-->
-                    <div class="mb-4 pb-4 border-bottom">
-                        <div class="d-flex justify-content-between mb-3">
-                            <div class="d-flex align-items-center pe-2"><img class="rounded-circle me-1" src="${path}/resources/img/avatars/13.png" width="48" alt="Avatar">
-                                <div class="ps-2">
-                                    <h6 class="fs-base mb-0">회사명</h6>
-                                    <h6 class="fs-sm mb-0">직종</h6>
-                                </div>
-                            </div><span class="fs-sm">작성일</span>
-                        </div>
-                        <div class="row">
-                            <div class="col-2">
-                                <h6 class="fs-xs mb-0">면접일</h6>
-                                <h6 class="fs-xs fw-light mb-0">2023.03.09</h6>
-                                <h6 class="fs-xs pt-2 mb-0">면접인원</h6>
-                                <h6 class="fs-xs fw-light mb-0">5명</h6>
-                            </div>
-                            <div class="col-10">
-                                <h3 class="fs-sm mb-0">면접내용</h3>
-                                 <p class="fs-sm" style="min-height:90px;">편안한 분위기였습니다.편안한 분위기였습니다.편안한 분위기였습니다.편안한 분위기였습니다.편안한 분위기였습니다.편안한 분위기였습니다.편안한 분위기였습니다.편안한 분위기였습니다.편안한 분위기였습니다.</p>
-                                <h3 class="fs-sm mb-0">면접 결과</h3>
-                                <p class="fs-sm">합격</p>
-
-                            </div>
-                        </div>
-                    </div>
+                    <c:forEach items="${list}" var="review">
+	                    <div class="mb-4 pb-4 border-bottom">
+	                        <div class="d-flex justify-content-between mb-3">
+	                            <div class="d-flex align-items-center pe-2"><img class="rounded-circle me-1" src="${path}/resources/img/avatars/13.png" width="48" alt="Avatar">
+	                                <div class="ps-2">
+	                                    <h6 class="fs-base mb-0">회사명</h6>
+	                                    <h6 class="fs-sm mb-0">${review.reJob}</h6>
+	                                </div>
+	                            </div><span class="fs-sm"><fmt:formatDate pattern="yyyy년 MM월 dd일" value="${review.reDate}"/></span>
+	                        </div>
+	                        <div class="row">
+	                            <div class="col-2">
+	                                <h6 class="fs-xs mb-0">면접일</h6>
+	                                <h6 class="fs-xs fw-light mb-0"><fmt:formatDate pattern="yyyy년 MM월 dd일" value="${review.reDate}"/></h6>
+	                                <h6 class="fs-xs pt-2 mb-0">면접인원</h6>
+	                                <h6 class="fs-xs fw-light mb-0">면접인원!!</h6>
+	                            </div>
+	                            <div class="col-10">
+	                                <h3 class="fs-sm mb-0">면접내용</h3>
+	                                 <p class="fs-sm" style="min-height:90px;">${review.reContent}</p>
+	                                <h3 class="fs-sm mb-0">면접 결과</h3>
+	                                <p class="fs-sm">${review.reResult}</p>
+	
+	                            </div>
+	                        </div>
+	                    </div>
+                    </c:forEach>
                     <!-- Pagination-->
                     <nav class="mt-2 mb-4" aria-label="Reviews pagination">
                         <ul class="pagination">
