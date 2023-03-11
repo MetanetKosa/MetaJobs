@@ -57,7 +57,6 @@
               <li class="nav-item mb-md-0 me-md-2 pe-md-1"><a class="nav-link" href="job-board-account-profile.html"><i class="fi-settings mt-n1 me-2 fs-base"></i>Profile Settings</a></li>
               <li class="nav-item mb-md-0 me-md-2 pe-md-1"><a class="nav-link active" href="job-board-account-my-resumes.html" aria-current="page"><i class="fi-file mt-n1 me-2 fs-base"></i>My Resumes</a></li>
               <li class="nav-item mb-md-0 me-md-2 pe-md-1"><a class="nav-link" href="job-board-account-saved-jobs.html"><i class="fi-heart mt-n1 me-2 fs-base"></i>Saved Jobs</a></li>
-              <li class="nav-item mb-md-0"><a class="nav-link" href="job-board-account-notifications.html"><i class="fi-bell mt-n1 me-2 fs-base"></i>Notifications</a></li>
               <li class="nav-item d-md-none"><a class="nav-link" href="signin-light.html"><i class="fi-logout mt-n1 me-2 fs-base"></i>Sign Out</a></li>
             </ul>
           </div>
@@ -73,7 +72,7 @@
                   <li><a class="nav-link fw-normal d-flex align-items-center px-0 py-1" href="#"><i class="fi-file opacity-70 me-2"></i><span>Publihed</span><span class="text-muted ms-auto">(3)</span></a></li>
                   <li><a class="nav-link fw-normal d-flex align-items-center px-0 py-1" href="#"><i class="fi-file-clean opacity-70 me-2"></i><span>Drafts</span><span class="text-muted ms-auto">(0)</span></a></li>
                   <li><a class="nav-link fw-normal d-flex align-items-center px-0 py-1" href="#"><i class="fi-archive opacity-70 me-2"></i><span>Archived</span><span class="text-muted ms-auto">(0)</span></a></li>
-                </ul><a class="btn btn-primary rounded-pill w-100" href="job-board-post-resume-1.html"><i class="fi-plus fs-sm me-2"></i>Post resume</a>
+                </ul><a class="btn btn-primary rounded-pill w-100" href="/resume/insert"><i class="fi-plus fs-sm me-2"></i>새 이력서 등록</a>
               </div>
             </div>
             <!-- List of resumes-->
@@ -112,51 +111,12 @@
                             <button class="dropdown-item" type="button"><i class="fi-trash opacity-60 me-2"></i>Delete</button>
                           </li>
                         </ul>
-                      </div><strong class="fs-sm">80 views</strong>
+                      </div><strong class="fs-sm">${resume.updateDate }</strong>
                     </div>
                   </div>
                 </div>
               </div>
               </c:forEach>
-              <!-- Item-->
-    <%--           <div class="card bg-secondary card-hover mb-2">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between">
-                    <div class="d-flex align-items-start"><img class="d-none d-sm-block" src="${path}/resources/img/avatars/37.png" width="100" alt="Resume picture">
-                      <div class="ps-sm-3">
-                        <h3 class="h6 card-title pb-1 mb-2"><a class="stretched-link text-nav text-decoration-none" href="#"><span class="me-3">Graphic Designer</span><span class="badge bg-faded-accent fs-sm rounded-pill">Featured</span></a></h3>
-                        <div class="fs-sm">
-                          <div class="text-nowrap mb-2"><i class="fi-map-pin text-muted me-1"> </i>New York</div>
-                          <div class="text-nowrap"><i class="fi-cash fs-base text-muted me-1"></i>$2,000 - $2,500</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="d-flex flex-column align-items-end justify-content-between">
-                      <div class="dropdown position-relative zindex-5 mb-3">
-                        <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm" type="button" id="contextMenu2" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
-                        <ul class="dropdown-menu my-1" aria-labelledby="contextMenu2">
-                          <li>
-                            <button class="dropdown-item" type="button"><i class="fi-edit opacity-60 me-2"></i>Edit</button>
-                          </li>
-                          <li>
-                            <button class="dropdown-item" type="button"><i class="fi-flame opacity-60 me-2"></i>Promote</button>
-                          </li>
-                          <li>
-                            <button class="dropdown-item" type="button"><i class="fi-download-file opacity-60 me-2"></i>Download as PDF</button>
-                          </li>
-                          <li>
-                            <button class="dropdown-item" type="button"><i class="fi-power opacity-60 me-2"></i>Deactivate</button>
-                          </li>
-                          <li>
-                            <button class="dropdown-item" type="button"><i class="fi-trash opacity-60 me-2"></i>Delete</button>
-                          </li>
-                        </ul>
-                      </div><strong class="fs-sm">203 views</strong>
-                    </div>
-                  </div>
-                </div>
-              </div> --%>
- 
                 </div>
               </div>
             </div>
