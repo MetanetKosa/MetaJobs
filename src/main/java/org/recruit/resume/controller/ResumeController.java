@@ -29,7 +29,7 @@ public class ResumeController {
 	@PostMapping("/insert")
 	public String insert(ResumeVO resume, RedirectAttributes rttr) {
 		service.insertResume(resume);
-		rttr.addFlashAttribute("result", resume.getResume_no());
+		rttr.addAttribute("mem_no", resume.getMem_no());
 		return "redirect:/resume/list";
 	}
 	
@@ -37,21 +37,21 @@ public class ResumeController {
 	public void insert() {
 		
 	}
-	@GetMapping("/get")
+	@GetMapping({"/get","/modify"})
 	public void get(@RequestParam Long resume_no, Model model) {
 		model.addAttribute("resume", service.get(resume_no));
 	}
 	
-	@PatchMapping("/modify")
+	@PostMapping("/modify")
 	public String modify(ResumeVO resume, RedirectAttributes rttr) {
 		if(service.updateResume(resume)) {
-			rttr.addFlashAttribute("result", "success");
+			rttr.addAttribute("mem_no", resume.getMem_no());
 		}
 		
 		return "redirect:/resume/list";
 	}
 	
-	@DeleteMapping("/delete")
+	@PostMapping("/delete")
 	public String remove(@RequestParam Long resume_no, RedirectAttributes rttr) {
 		if(service.delete(resume_no)) {
 			rttr.addFlashAttribute("result", "success");
