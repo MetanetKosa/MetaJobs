@@ -10,7 +10,6 @@
 	<jsp:param value="홈페이지" name="title"/>
 </jsp:include>
 
-
     <body class="bg-secondary">
 
 	    <main class="page-wrapper">
@@ -29,150 +28,99 @@
 	                <div class="col-lg-11 col-xl-10">
 	                    <!-- Page title-->
 	                    <div class="text-center pb-4 mb-3">
-	                        <h1 class="h2 mb-4">Create online resume</h1>
-	                        <p class="mb-4">Save time by uploading a resume to prefill some of the fields below. Please, use PDF format.</p>
+	                        <h1 class="h2 mb-4">이력서 등록</h1>
 	                    </div>              
 	                    <!-- Step 1: Basic Info-->
 	                    <div class="bg-light rounded-3 p-4 p-md-5 mb-3">
-	                        <h2 class="h4 mb-4"><i class="fi-info-circle text-primary fs-5 mt-n1 me-2"></i>기본정보</h2>
+	                        <h2 class="h4 mb-4"><i class="fi-info-circle text-primary fs-5 mt-n1 me-2"></i>이력서</h2>
 	                      	<form role="form" action="/resume/insert" method="post">
 		                        <div class="row">
-		                            <div class="col-sm-6 mb-4">
-		                                <label class="form-label" for="pr-fn">image<span class='text-danger'>*</span></label>
-		                                <input class="form-control form-control-lg" type="text" id="pr-fn" placeholder="Enter your first name" name="resume_image" required>
+		                       		 <div class="col-12 mb-4">
+		                                <!-- <label class="form-label" for="pr-address">title</label> -->
+		                                <input class="form-control form-control-lg" type="text" id="pr-address" name="resume_title" placeholder="이력서 제목을 입력하세요(100자까지 가능)*">
 		                            </div>
-		                            <div class="col-sm-6 mb-4">
-		                                <label class="form-label" for="pr-sn">technology <span class='text-danger'>*</span></label>
-		                                <input class="form-control form-control-lg" type="text" id="pr-sn"  placeholder="Enter your second name" name="resume_technology"required>
-		                            </div> 
-		                           <!--  <div class="col-sm-6 mb-4">
-		                                <label class="form-label" for="pr-email">technology <span class='text-danger'>*</span></label>
-		                                <input class="form-control form-control-lg" type="email" id="pr-email" placeholder="Enter your email address" required>
-		                            </div> -->
-		                            <div class="col-sm-6 mb-4">
+		                            <div class="d-sm-flex justify-content-between align-items-start pb-4">
+	                                    <div class="flex-shrink-0 order-sm-2 mb-4" style="width: 10rem; height: 10rem;">
+	                                        <div class="filepond--root file-uploader bg-secondary filepond--hopper" data-style-panel-layout="compact" data-style-button-remove-item-position="left" data-style-button-process-item-position="right" data-style-load-indicator-position="right" data-style-progress-indicator-position="right" data-style-button-remove-item-align="false" style="height: 160px;">
+	                                        	<input class="filepond--browser" type="file" id="filepond--browser-wiavsc9xq" name="filepond" aria-controls="filepond--assistant-wiavsc9xq" aria-labelledby="filepond--drop-label-wiavsc9xq" accept="image/png,image/jpeg">
+	                                        	<!-- <a class="filepond--credits" aria-hidden="true" href="https://pqina.nl/" target="_blank" rel="noopener noreferrer" style="transform: translateY(152px);">Powered by PQINA
+	                                        	</a> -->
+	                                        	<div class="filepond--drop-label" style="transform: translate3d(0px, 0px, 0px); opacity: 1;">
+		                                        	<label for="filepond--browser-wiavsc9xq" id="filepond--drop-label-wiavsc9xq" aria-hidden="true">
+		                                        	<i class="d-inline-block fi-camera-plus fs-2 text-muted mb-2"></i><br>	                    
+		                                       		 <span class="fw-bold">사진 추가</span>	                                       
+	                                        		</label>
+	                                       		</div>
+	                                        	<div class="filepond--list-scroller" style="transform: translate3d(0px, 0px, 0px);">
+	                                        		<ul class="filepond--list" role="list"></ul>
+	                                        	</div>	                                       
+	                                        	<div class="filepond--panel filepond--panel-root" data-scalable="true">
+	                                       			<div class="filepond--panel-top filepond--panel-root">
+	                                       			</div>
+	                                        		<div class="filepond--panel-center filepond--panel-root" style="transform: translate3d(0px, 8px, 0px) scale3d(1, 1.44, 1);">
+	                                       			</div>
+	                                        		<div class="filepond--panel-bottom filepond--panel-root" style="transform: translate3d(0px, 152px, 0px);"></div></div><span class="filepond--assistant" id="filepond--assistant-wiavsc9xq" role="status" aria-live="polite" aria-relevant="additions"></span>
+	                                        			<div class="filepond--drip">
+	                                        			</div>
+	                                        			<fieldset class="filepond--data"></fieldset>
+	                                        		</div>
+	                                    			</div>
+	                                    			<div class="order-sm-1">
+	                                        			<h4 class="h5">기본정보</h4>
+	                                        			<ul class="list-unstyled text-nav">
+			                                            <li><span class="text-muted">이름:</span> UX Designer</li>
+			                                            <li><span class="text-muted">이메일:</span> Part-time</li>
+			                                            <li><span class="text-muted">휴대폰:</span> New York, USA</li>
+			                                            <li><span class="text-muted">주소:</span> $2000 – $3000</li>
+	                                       				 </ul>
+	                                    		</div>
+                               			 </div>
+                               		<div class="row">
+                              		    <div class="col-sm-6 mb-4">		                                	
+		                                	<select class="form-select form-select-lg" id="pr-country" name="resume_gender" required>
+		                    					<option value="" disabled selected>성별*</option>
+							                    <option value="여">여</option>
+							                    <option value="남">남</option>
+		                  					</select>
+		                           		 </div>
+		                           		 <div class="col-sm-6 mb-4">
+		                                	<select class="form-select form-select-lg" id="pr-city" name="resume_career" required>
+							                    <option value="" disabled selected>경력여부*</option>
+							                    <option value="신입">신입</option>
+							                    <option value="경력">경력</option>
+		                  					</select>
+		                            	</div>
+		                            </div>
+		                            	<div class="col-12 mb-4">
+		                                	 <label class="form-label fw-bold pb-1 mb-2">보유기술 및 능력</label>
+		                               		 <input class="form-control form-control-lg" type="text" id="pr-address" name="resume_technology" placeholder="보유기술 입력(ex.문서작성능력, java 등)">
+		                           		 </div>
+		                           		 <div class="col-12 mb-4">
+		                                	 <label class="form-label fw-bold pb-1 mb-2">보유기술 및 능력</label>
+		                               		 <input class="form-control form-control-lg" type="text" id="pr-address" name="mem_no" placeholder="보유기술 입력(ex.문서작성능력, java 등)">
+		                           		 </div>
+		                   
+<!-- 		                            <div class="col-sm-6 mb-4">
 		                                <label class="form-label" for="pr-phone">mem_no</label>
 		                                <input class="form-control form-control-lg" type="text" id="pr-phone" name="mem_no" placeholder="Enter your phone number">
-		                            </div>
-		                            <!-- <div class="col-sm-6 mb-4">
-		                                <label class="form-label" for="pr-birth-date">생년월일<span class='text-danger'>*</span></label>
-		                                <div class="input-group input-group-lg">
-		                                    <input class="form-control date-picker rounded pe-5" type="text" id="pr-birth-date" placeholder="Choose date" data-datepicker-options="{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;}">
-		                                    <i class="fi-calendar text-muted position-absolute top-50 end-0 translate-middle-y me-3"></i>
-		                                </div>
-		                            </div> -->
-		                        </div>
-		                        <div class="row">
-		                            <div class="col-sm-6 mb-4">
-		                                <label class="form-label" for="pr-country">gender <span class='text-danger'>*</span></label>
-		                                <select class="form-select form-select-lg" id="pr-country" name="resume_gender" required>
-		                    <option value="" disabled selected>Choose country</option>
-		                    <option value="여">여</option>
-		                    <option value="남">남</option>
-	<!-- 	                    <option value="Canada">Canada</option>
-		                    <option value="China">China</option>
-		                    <option value="Denmark">Denmark</option>
-		                    <option value="France">France</option>
-		                    <option value="Germany">Germany</option>
-		                    <option value="Japan">Japan</option>
-		                    <option value="UK">UK</option>
-		                    <option value="USA">USA</option> -->
-		                  </select>
-		                            </div>
-		                            <div class="col-sm-6 mb-4">
-		                                <label class="form-label" for="pr-city">career <span class='text-danger'>*</span></label>
-		                                <select class="form-select form-select-lg" id="pr-city" name="resume_career" required>
-		                    <option value="" disabled selected>Choose city</option>
-		                    <option value="신입">신입</option>
-		                    <option value="경력">경력</option>
-	<!-- 	                    <option value="Brussels">Brussels</option>
-		                    <option value="Copenhagen">Copenhagen</option>
-		                    <option value="London">London</option>
-		                    <option value="Ottawa">Ottawa</option>
-		                    <option value="Paris">Paris</option>
-		                    <option value="Sydney">Sydney</option>
-		                    <option value="Tokyo">Tokyo</option>
-		                    <option value="Washington">Washington</option> -->
-		                  </select>
-		                            </div>
-		                            <div class="col-12 mb-4">
-		                                <label class="form-label" for="pr-address">title</label>
-		                                <input class="form-control form-control-lg" type="text" id="pr-address" name="resume_title" placeholder="Enter the address">
-		                            </div>
+		                            </div> -->		                      	                            
+		                          
 		                             <div class="col-12 mb-4">
-		                                <label class="form-label" for="pr-address">career</label>
-		                                <input class="form-control form-control-lg" type="text" id="pr-address" name="resume_cv" placeholder="Enter the address">
+		                                <label class="form-label fw-bold pb-1 mb-2">자기소개서</label>
+		                                <textarea class="form-control form-control-lg" id="pr-address" name="resume_cv" cols="30" rows="10" placeholder="내용을 입력하세요 " style="height: 272px;  resize: none;"></textarea>
 		                            </div>
 		                        </div>
-		                        <!-- <div class="pb-4 mb-2">
-		                            <label class="form-label fw-bold mb-3">Socials</label>
-		                            <div class="d-flex align-items-center mb-3">
-		                                <div class="btn btn-icon btn-light btn-xs shadow-sm rounded-circle pe-none flex-shrink-0 me-3"><i class="fi-facebook text-body"></i></div>
-		                                <input class="form-control" type="text" placeholder="Your Facebook account">
-		                            </div>
-		                            <div class="d-flex align-items-center mb-3">
-		                                <div class="btn btn-icon btn-light btn-xs shadow-sm rounded-circle pe-none flex-shrink-0 me-3"><i class="fi-linkedin text-body"></i></div>
-		                                <input class="form-control" type="text" placeholder="Your LinkedIn account">
-		                            </div>
-		                            <div class="d-flex align-items-center mb-3">
-		                                <div class="btn btn-icon btn-light btn-xs shadow-sm rounded-circle pe-none flex-shrink-0 me-3"><i class="fi-twitter text-body"></i></div>
-		                                <input class="form-control" type="text" placeholder="Your Twitter account">
-		                            </div>
-		                            <div class="collapse" id="showMoreSocials">
-		                                <div class="d-flex align-items-center mb-3">
-		                                    <div class="btn btn-icon btn-light btn-xs shadow-sm rounded-circle pe-none flex-shrink-0 me-3"><i class="fi-instagram text-body"></i></div>
-		                                    <input class="form-control" type="text" placeholder="Your Instagram account">
-		                                </div>
-		                                <div class="d-flex align-items-center mb-3">
-		                                    <div class="btn btn-icon btn-light btn-xs shadow-sm rounded-circle pe-none flex-shrink-0 me-3"><i class="fi-behance text-body"></i></div>
-		                                    <input class="form-control" type="text" placeholder="Your Behance account">
-		                                </div>
-		                            </div><a class="collapse-label collapsed d-inline-block fs-sm fw-bold text-decoration-none pt-2" href="#showMoreSocials" data-bs-toggle="collapse" data-bs-label-collapsed="Show more" data-bs-label-expanded="Show less" role="button"
-		                                aria-expanded="false" aria-controls="showMoreSocials"><i class="fi-arrow-down me-2"></i></a>
-		                        </div> -->
+		                      
 		                        <!-- <div class="border-top pt-4">
 		                            <label class="form-label fw-bold py-2 mb-1" for="pr-position">Position you want to work on</label>
 		                            <input class="form-control form-control-lg mb-4" type="text" id="pr-position" placeholder="Indicate the position" required>
 		                            <label class="form-label fw-bold pb-1 mb-2">Choose categories for posting resume</label>
 		                            <div class="row row-cols-sm-2 row-cols-md-4 gx-3 gx-lg-4 mb-4">
+		                               
 		                                <div class="col">
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="accounting">
-		                                        <label class="form-check-label" for="accounting">Accounting</label>
-		                                    </div>
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="marketing" checked>
-		                                        <label class="form-check-label" for="marketing">Marketing &amp; PR</label>
-		                                    </div>
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="medicine">
-		                                        <label class="form-check-label" for="medicine">Medicine</label>
-		                                    </div>
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="agriculture">
-		                                        <label class="form-check-label" for="agriculture">Agriculture</label>
-		                                    </div>
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="it" checked>
-		                                        <label class="form-check-label" for="it">Internet technology</label>
-		                                    </div>
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="security">
-		                                        <label class="form-check-label" for="security">Security</label>
-		                                    </div>
-		                                </div>
-		                                <div class="col">
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="management">
-		                                        <label class="form-check-label" for="management">Management</label>
-		                                    </div>
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="horeca">
-		                                        <label class="form-check-label" for="horeca">HoReCa</label>
-		                                    </div>
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="design" checked>
-		                                        <label class="form-check-label" for="design">Design, creativity</label>
-		                                    </div>
+		                                    
+		                                   
+		                                    
 		                                    <div class="form-check">
 		                                        <input class="form-check-input" type="checkbox" id="sport">
 		                                        <label class="form-check-label" for="sport">Fitness &amp; sports</label>
@@ -297,7 +245,7 @@
 	                                </div>
 	                            </div>
 	                        </div>
-	                    </div> -->
+	                    </div>
 	                    <!-- Navigation-->
 	                    <div class="d-flex flex-column flex-sm-row bg-light rounded-3 p-4 px-md-5"> <input class="btn btn-primary btn-lg rounded-pill ms-sm-auto" type="submit">등록</a></div>
 	                </div>
