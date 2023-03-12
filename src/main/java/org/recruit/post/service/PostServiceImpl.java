@@ -17,13 +17,28 @@ public class PostServiceImpl implements PostService {
 	private PostMapper mapper;
 	
 	@Override
-	public List<PostVO> postList() {
-		return mapper.postList();
+	public List<PostVO> getPostList() {
+		return mapper.getPostList();
 	}
 
 	@Override
 	public int postInsert(PostVO post) {
 		return mapper.postInsert(post);
+	}
+
+	@Override
+	public int postUpdate(PostVO post) {
+		return mapper.postUpdate(post);
+	}
+
+	@Override
+	public int postDelete(Long postNo) {
+		return mapper.postDelete(postNo);
+	}
+
+	@Override
+	public PostVO getPost(Long postNo) {
+		return mapper.getPost(postNo);
 	}
 
 }

@@ -409,7 +409,7 @@
                                 <div class="card bg-secondary card-hover mb-2">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-start mb-2">
-                                            <div class="d-flex align-items-center"><img class="me-2" src="${path}/resources/img/job-board/company/it-pro.png" width="24" alt=""><span class="fs-sm text-dark opacity-80 px-1"> ~ ${post.postFdate}</span></div>
+                                            <div class="d-flex align-items-center"><img class="me-2" src="${path}/resources/img/job-board/company/it-pro.png" width="24" alt=""><span class="fs-sm text-dark opacity-80 px-1"> ~ <fmt:formatDate pattern="MM/dd" value="${post.postFdate}" /></span></div>
                                             <div class="dropdown content-overlay">
                                                 <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm" type="button" id="contextMenu1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
                                                 <ul class="dropdown-menu my-1" aria-labelledby="contextMenu1">
@@ -427,7 +427,7 @@
                                         <span class="text-nowrap me-3"><i class="fi-map-pin text-muted me-1"> </i>${post.postAdd }</span>
                                         <span class="text-nowrap me-3"><i class="fi-cash fs-base text-muted me-1"></i>${post.postJob} </span>
                                         <span class="text-nowrap me-3">${post.postEdu }</span>
-                                        <span class="text-nowrap me-3"> | 등록일 ${post.postSdate }</span>
+                                        <span class="text-nowrap me-3"> | 등록일 <fmt:formatDate pattern="MM/dd" value="${post.postSdate}" /></span>
                                         
                                         </div>
                                     </div>

@@ -35,18 +35,7 @@ public class PostController {
 	
 	@RequestMapping(value = "/postList", method = RequestMethod.GET)
 	public String list(Model model) {
-//		log.info(service.postList());
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		PostVO postVo = new PostVO();
-//		List<PostVO> postLists = service.postList()
-//			.forEach(post-> {
-//				try {
-//					formatter.parse(post.getPostFdate().toString());
-//				} catch (ParseException e) {
-//					e.printStackTrace();
-//				}
-//			});
-		model.addAttribute("postList",service.postList());
+		model.addAttribute("postList",service.getPostList());
 		return "/post/postList";
 	}
 	
@@ -58,8 +47,10 @@ public class PostController {
 		return "redirect:/post/postList";
 	}
 	
+
 	@RequestMapping(value = "/postDetail", method = RequestMethod.GET)
 	public String postDetail(Model model) {
+		service.getPost(4L);
 		return "/post/postDetail";
 	}
 }
