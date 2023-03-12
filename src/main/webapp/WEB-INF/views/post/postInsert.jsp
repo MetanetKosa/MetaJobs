@@ -9,22 +9,28 @@
 <jsp:include page="/WEB-INF/views/common/header.jsp">
 	<jsp:param value="홈페이지" name="title" />
 </jsp:include>
+   <link rel="stylesheet" media="screen" href="${path}/resources/vendor/simplebar/dist/simplebar.min.css" />
+    <link rel="stylesheet" media="screen" href="${path}/resources/vendor/lightgallery/css/lightgallery-bundle.min.css" />
+    <link rel=stylesheet" media="screen" href="${path}/resources/vendor/tiny-slider/dist/tiny-slider.css" />
+    <link rel="stylesheet" media="screen" href="${path}/resources/vendor/flatpickr/dist/flatpickr.min.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+<link rel="stylesheet" media="screen" href="${path}/resources/css/theme.min.css">
 
 <script type="text/javascript">
-$("select[name=location]").change(function(){
+/* $("select[name=postCareer]").change(function(){
 	  console.log($(this).val()); //value값 가져오기
 	  console.log($("select[name=postCareer] option:selected").text()); //경력구분
 	});
 	
-$("select[name=location]").change(function(){
+$("select[name=postEmptype]").change(function(){
 	  console.log($(this).val()); //value값 가져오기
 	  console.log($("select[name=postEmptype] option:selected").text()); //고용형태
 	});
 	
-$("select[name=location]").change(function(){
+$("select[name=postEdu]").change(function(){
 	  console.log($(this).val()); //value값 가져오기
 	  console.log($("select[name=postEdu] option:selected").text()); //학력조건
-	});
+	}); */
 </script>
 
 
@@ -43,6 +49,7 @@ $("select[name=location]").change(function(){
 				</ol>
 			</nav>
 			<!-- Page content-->
+			<form method = 'post' action="/post/postInsert">
 			<div class="row justify-content-center pb-sm-2">
 				<div class="col-lg-11 col-xl-10">
 					<!-- Page title-->
@@ -62,27 +69,28 @@ $("select[name=location]").change(function(){
 									<input
 									class="form-control form-control-lg" type="text" 
 									placeholder=""
-									name="postTitle" required>
+									id = 'postTitle' name='postTitle' required>
 							</div>
 							<div class="col-sm-6 mb-4">
 								<label class="form-label" for="pr-sn">직종<span
 									class='text-danger'>*</span></label> <input
 									class="form-control form-control-lg" type="text" 
 									placeholder=""
-									name="postJob" required>
+									id = 'postJob' name='postJob' required>
 							</div>
 							<div class="col-sm-6 mb-4">
 								<label class="form-label" >연봉/급여<span
 									class='text-danger'>*</span></label> 
 									<input
 									class="form-control form-control-lg" 
-									placeholder="" name="postSal" required>
+									placeholder="" 
+									id = 'postSal' name='postSal' required>
 							</div>
 							<div class="col-sm-6 mb-4">
 								<label class="form-label" for="pr-phone">지원자 연령</label> <input
 									class="form-control form-control-lg" type="text" 
 									placeholder=""
-									name="postAge">
+									id = 'postAge' name='postAge'>
 							</div>
 							<div class="col-sm-6 mb-4">
 								<label class="form-label" for="pr-birth-date">접수 시작일<span
@@ -90,7 +98,8 @@ $("select[name=location]").change(function(){
 								<div class="input-group input-group-lg">
 									<input class="form-control date-picker rounded pe-5"
 										type="text" placeholder=""
-										data-datepicker-options="{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;}">
+										data-datepicker-options="{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;}" 
+										id = 'postSdate' name = 'posSdate'>
 									<i
 										class="fi-calendar text-muted position-absolute top-50 end-0 translate-middle-y me-3"></i>
 								</div>
@@ -101,7 +110,8 @@ $("select[name=location]").change(function(){
 								<div class="input-group input-group-lg">
 									<input class="form-control date-picker rounded pe-5"
 										type="text" placeholder=""
-										data-datepicker-options="{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;}">
+										data-datepicker-options="{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;}" 
+										id = "postFdate" name = 'postFdate'>
 									<i
 										class="fi-calendar text-muted position-absolute top-50 end-0 translate-middle-y me-3"></i>
 								</div>
@@ -111,19 +121,18 @@ $("select[name=location]").change(function(){
 							<div class="col-sm-6 mb-2">
 								<label class="form-label" for="pr-country">경력<span
 									class='text-danger'>*</span></label> <select
-									class="form-select form-select-lg" id="pr-country"
-									name="postCareer" required>
+									class="form-select form-select-lg" 
+									id='postCareer' name='postCareer' required>
 									<option value="" disabled selected>경력무관</option>
 									<option value="신입">신입</option>
 									<option value="인턴">인턴</option>
-
 								</select>
 							</div>
 							<div class="col-sm-6 mb-2">
 								<label class="form-label" for="pr-city">근무형태<span
 									class='text-danger'>*</span></label> <select
-									class="form-select form-select-lg" id="pr-city"
-									name="postEmptype" required>
+									class="form-select form-select-lg" id='postEmptype'
+									id = 'postEmptype' name='postEmptype' required>
 									<option value="" disabled selected>정규직</option>
 									<option value="정규직">정규직</option>
 									<option value="계약직">계약직</option>
@@ -135,8 +144,8 @@ $("select[name=location]").change(function(){
 							<div class="col-sm-6 mb-2">
 								<label class="form-label" for="pr-city">학력조건<span
 									class='text-danger'>*</span></label> <select
-									class="form-select form-select-lg" id="pr-city" required
-									name="postEmptype">
+									class="form-select form-select-lg" 
+									id='postEmptype' name='postEmptype' required>
 									<option value="" disabled selected>고졸</option>
 									<option value="고졸">고졸</option>
 									<option value="초대졸">초대졸</option>
@@ -147,32 +156,38 @@ $("select[name=location]").change(function(){
 							<div class="col-12 mb-4">
 								<label class="form-label" for="pr-address">근무지</label> <input
 									class="form-control form-control-lg" type="text"
-									id="pr-address" placeholder="" name="postAdd" />
+									id='postAdd'  name='postAdd' placeholder=""/>
 							</div>
 							<div class="col-12 mb-4">
-								<label class="form-label" for="pr-address">지원방법</label> <input
-									class="form-control form-control-lg" type="text"
-									id="pr-address" placeholder="" name="postHow" />
+								<label class="form-label" for="pr-address">지원방법</label> 
+								<textarea
+									class="form-control form-control-lg" style= "height:300px"
+									id='postHow' name='postHow' placeholder=""  >
+									</textarea>
 							</div>
 						</div>
 
 						<div class="border-top pt-4">
 							<label class="form-label fw-bold py-2 mb-1" for="pr-position">홈페이지URL</label>
 							<input class="form-control form-control-lg mb-4" type="text"
-								id="pr-position" placeholder="URL을 입력해주세요" name="postUrl"
+								id='postUrl'  name='postUrl' placeholder="URL을 입력해주세요"
 								required>
 
 						</div>
 					</div>
 				</div>
 			</div>
+			
 			<!-- Navigation-->
 			<div
 				class="d-flex flex-column flex-sm-row bg-light rounded-3 p-4 px-md-5">
-				<a class="btn btn-primary btn-lg rounded-pill ms-sm-auto"
-					href="job-board-post-resume-2.html">공고등록<i
-					class="fi-chevron-right fs-sm ms-2"></i></a>
+				<!-- <a class="btn btn-primary btn-lg rounded-pill ms-sm-auto"
+					 type = "submit">공고등록<i
+					class="fi-chevron-right fs-sm ms-2"></i></a> -->
+					
+					<button type="submit">공고등록</button>
 			</div>
+			</form>
 		</div>
 		</div>
 		</div>
@@ -183,11 +198,11 @@ $("select[name=location]").change(function(){
 		class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i
 		class="btn-scroll-top-icon fi-chevron-up"> </i></a>
 	<!-- Vendor scrits: js libraries and plugins-->
-	<script
-		src="${path}/resources/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="${path}/resources/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="${path}/resources/vendor/simplebar/dist/simplebar.min.js"></script>
-	<script
-		src="${path}/resources/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+	<script src="${path}/resources/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+		    <script src="${path}/resources/vendor/flatpickr/dist/flatpickr.min.js"></script>
+	
 	<!-- Main theme script-->
 	<script src="${path}/resources/js/theme.min.js"></script>
 
