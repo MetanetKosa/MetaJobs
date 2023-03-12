@@ -6,8 +6,8 @@ import org.recruit.post.domain.PostVO;
 
 public interface PostService {
 	public List<PostVO> getPostList();
-	public int postInsert(PostVO post);
-	public int postUpdate(PostVO post);
-	public int postDelete(Long postNo);
+	public int insertPost(PostVO post);
+	public int updatePost(PostVO post);
+	public int deletePost(Long postNo);
 	public PostVO getPost(Long postNo);
 }

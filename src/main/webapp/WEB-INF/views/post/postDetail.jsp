@@ -373,43 +373,42 @@
                     <!-- Breadcrumb-->
                     <nav class="pb-4 my-2" aria-label="Breadcrumb">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="job-board-home-v1.html">Home</a></li>
-                            <li class="breadcrumb-item"><a href="job-board-catalog.html">Find jobs</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Partnership Manager</li>
+                            <li class="breadcrumb-item"><a href="job-board-home-v1.html">공고목록</a></li>
+                            <li class="breadcrumb-item"><a href="job-board-catalog.html">채용정보</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">${post.postTitle }</li>
                         </ol>
                     </nav>
                     <div class="row">
                         <!-- Signle job content-->
                         <div class="col-lg-12 position-relative pe-lg-5 mb-5 mb-lg-0" style="z-index: 1025;">
                             <div class="d-flex justify-content-between mb-2">
-                                <h2 class="h3 mb-0">Partnership Manager</h2>
-                                <div class="text-end"><span class="badge bg-faded-accent rounded-pill fs-sm mb-2">Featured</span>
-                                    <div class="fs-sm text-muted">2 hours ago</div>
+                                <h2 class="h3 mb-0">${post.postTitle }</h2>
+                              <!--   <div class="text-end"><span class="badge bg-faded-accent rounded-pill fs-sm mb-2">Featured</span>
+                                    <div class="fs-sm text-muted">2 hours ago</div> -->
                                 </div>
                             </div>
                             <ul class="list-unstyled fs-sm mb-4">
-                                <li class="mb-2"><a class="d-flex align-items-center text-decoration-none" href="job-board-employer-single.html"><i class="fi-external-link me-2"></i><span class="text-decoration-underline">Zalo Tech Company</span></a></li>
-                                <li class="d-flex align-items-center mb-2"><i class="fi-map-pin text-muted me-2"></i><span>New York</span></li>
-                                <li class="d-flex align-items-center mb-2"><i class="fi-cash fs-base text-muted me-2"></i><span>$10,000</span></li>
-                                <li class="d-flex align-items-center mb-2"><i class="fi-phone text-muted me-2"></i><span class="me-2">Bessie Cooper, HR Manager</span><a href="#">Show phone</a></li>
-                                <li class="d-flex align-items-center mb-2"><i class="fi-clock text-muted me-2"></i><span class="me-2">Full-time</span></li>
+                                <li class="mb-2"><a class="d-flex align-items-center text-decoration-none" href="job-board-employer-single.html">
+                                <i class="fi-external-link me-2"></i><span class="text-decoration-underline">${post.postUrl }</span></a></li>
+                                <li class="d-flex align-items-center mb-2"><i class="fi-map-pin text-muted me-2"></i><span>${post.postAdd} </span></li>
+                                <li class="d-flex align-items-center mb-2"><i class="fi-cash fs-base text-muted me-2"></i><span>${post.postSal}</span></li>
+                                <li class="d-flex align-items-center mb-2"><i class="fi-phone text-muted me-2"></i><span class="me-2">${post.postEmptype}</span><a href="#">Show phone</a></li>
+                                <li class="d-flex align-items-center mb-2"><i class="fi-clock text-muted me-2"></i><span class="me-2">${post.postAge}</span></li>
                             </ul>
                             <hr class="mb-4">
-                            <h3 class="h6">Description:</h3>
-                            <p>Sit sit viverra aenean nunc. Vestibulum nulla tellus, praesent mi. Eget eu sapien posuere varius nisl. Arcu scelerisque ut venenatis, nec. Sed id etiam nisl nisl, elementum ac odio morbi dolor. Sem mauris turpis ultrices sed
-                                porttitor orci, erat. Ultrices ut a mi sem mauris, vitae egestas. Eget suscipit a, consectetur quam sed morbi. Metus, tortor egestas phasellus urna. Lorem eu dictum egestas vitae faucibus congue urna. Sed dolor sed risus
-                                duis volutpat ullamcorper.
+                            <h3 class="h6">상세요강:</h3>
+                            <p>${post.postHow}
                             </p>
-                            <h3 class="h6 pt-2">Requirements:</h3>
+                            <h3 class="h6 pt-2">포지션 및 자격요건:</h3>
                             <ul class="list-unstyled">
-                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>Placerat id mauris, ac ipsum nulla mi netus vestibulum fringilla.</li>
-                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>Turpis venenatis sapien etiam in orci, euismod.</li>
-                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>Elit tempor, integer augue aliquam justo.</li>
-                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>Ultricies accumsan, malesuada pellentesque malesuada massa sed viverra eget.</li>
-                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>Varius mauris netus placerat neque, orci amet odio orci.</li>
-                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>Fermentum ut mi sit vel sit dictum mollis turpis.</li>
+                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>${post.postJob} </li>
+                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>근무지는 ${post.postAdd} 입니다.  </li>
+                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>연봉은 ${post.postSal} 입니다.  </li>
+                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>시작일  <fmt:formatDate pattern="YYYY.MM.dd" value="${post.postSdate}" /> 입니다.  </li>
+                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>마감일  <fmt:formatDate pattern="YYYY.MM.dd" value="${post.postFdate}" /> 입니다.  </li>
+                               
                             </ul>
-                            <h3 class="h6 pt-2">Company offers:</h3>
+                            <h3 class="h6 pt-2">유의사항:</h3>
                             <ul class="list-unstyled">
                                 <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>Et mattis sit imperdiet risus, fermentum ultrices non.</li>
                                 <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>Sed phasellus consequat nunc enim interdum tristique ultrices egestas.</li>

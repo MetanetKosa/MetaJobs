@@ -397,44 +397,55 @@
                                 </div>
                                 
                                 
-                                
-                                
-                                
-                                
-                                
-                                
-                                <c:forEach items = "${postList}" var = "post">
-                                
-                                <!-- Item-->
-                                <div class="card bg-secondary card-hover mb-2">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-start mb-2">
-                                            <div class="d-flex align-items-center"><img class="me-2" src="${path}/resources/img/job-board/company/it-pro.png" width="24" alt=""><span class="fs-sm text-dark opacity-80 px-1"> ~ <fmt:formatDate pattern="MM/dd" value="${post.postFdate}" /></span></div>
-                                            <div class="dropdown content-overlay">
-                                                <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm" type="button" id="contextMenu1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
-                                                <ul class="dropdown-menu my-1" aria-labelledby="contextMenu1">
-                                                    <li>
-                                                        <button class="dropdown-item" type="button"><i class="fi-heart opacity-60 me-2"></i>Add to Saved Jobs</button>
-                                                    </li>
-                                                    <li>
-                                                        <button class="dropdown-item" type="button"><i class="fi-x-circle opacity-60 me-2"></i>Not interested</button>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <h3 class="h6 card-title pt-1 mb-3">${post.postTitle}<a class="text-nav stretched-link text-decoration-none" href="job-board-single.html"> </a></h3>
-                                        <div class="fs-sm">
-                                        <span class="text-nowrap me-3"><i class="fi-map-pin text-muted me-1"> </i>${post.postAdd }</span>
-                                        <span class="text-nowrap me-3"><i class="fi-cash fs-base text-muted me-1"></i>${post.postJob} </span>
-                                        <span class="text-nowrap me-3">${post.postEdu }</span>
-                                        <span class="text-nowrap me-3"> | 등록일 <fmt:formatDate pattern="MM/dd" value="${post.postSdate}" /></span>
-                                        
-                                        </div>
-                                    </div>
-                                </div>
-                                </c:forEach>
-                                
-                                
+                            
+                    
+	<form id='actionForm' action="/post/list" method='get'>
+	<!--  -->
+		<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+		<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+	
+		<input type='hidden' name='type'
+			value='<c:out value="${ pageMaker.cri.type }"/>'> <input
+			type='hidden' name='keyword'
+			value='<c:out value="${ pageMaker.cri.keyword }"/>'>
+	
+	
+	</form>
+                
+     
+     
+     <c:forEach items = "${postList}" var = "post">
+     
+     <!-- Item-->
+     <div class="card bg-secondary card-hover mb-2">
+         <div class="card-body">
+             <div class="d-flex justify-content-between align-items-start mb-2">
+                 <div class="d-flex align-items-center"><img class="me-2" src="${path}/resources/img/job-board/company/it-pro.png" width="24" alt=""><span class="fs-sm text-dark opacity-80 px-1"> ~ <fmt:formatDate pattern="MM/dd" value="${post.postFdate}" /></span></div>
+                 <div class="dropdown content-overlay">
+                     <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm" type="button" id="contextMenu1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
+                     <ul class="dropdown-menu my-1" aria-labelledby="contextMenu1">
+                         <li>
+                             <button class="dropdown-item" type="button"><i class="fi-heart opacity-60 me-2"></i>Add to Saved Jobs</button>
+                         </li>
+                         <li>
+                             <button class="dropdown-item" type="button"><i class="fi-x-circle opacity-60 me-2"></i>Not interested</button>
+                         </li>
+                     </ul>
+                 </div>
+             </div>
+             <h3 class="h6 card-title pt-1 mb-3">${post.postTitle}<a class="text-nav stretched-link text-decoration-none" href="/post/postGet/?post_no=${post.postNo }"> </a></h3>
+             <div class="fs-sm">
+             <span class="text-nowrap me-3"><i class="fi-map-pin text-muted me-1"> </i>${post.postAdd }</span>
+             <span class="text-nowrap me-3"><i class="fi-cash fs-base text-muted me-1"></i>${post.postJob} </span>
+             <span class="text-nowrap me-3">${post.postEdu }</span>
+             <span class="text-nowrap me-3"> | 등록일 <fmt:formatDate pattern="MM/dd" value="${post.postSdate}" /></span>
+             
+             </div>
+         </div>
+     </div>
+     </c:forEach>
+                    
+                            
                                 
                                 
                                 
@@ -558,3 +569,12 @@
 </body>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+
+<script type="text/javascript">
+   $(".move").on("click",function(e){
+	   e.preventDefault();
+	   actionForm.append("<input type='hidden' name='postNo' value='"+ $(this).attr("href") + "'>");
+		actionForm.attr("action","/post/postGet");
+		actionForm.submit();
+   })  ;                           
+ </script>
