@@ -57,16 +57,24 @@ public class PostController {
 		return "/post/postDetail";
 	}
 	
+	@RequestMapping(value = "/postModify")
+	public String postModify(Model model, @RequestParam Long post_no) {
+		log.info("postModify결과확인: "+ post_no);
+		model.addAttribute("post", service.getPost(post_no));
+		return "/post/postModify";
+	}
+	
 	@PatchMapping("/postModify")
 	@PostMapping("/postModify")
-	public String modify(PostVO post, RedirectAttributes rttr) {
+	public String modify(PostVO post, RedirectAttributes rttr, @RequestParam Long post_no) {
 		if(service.updatePost(post) == 1) {
 			rttr.addFlashAttribute("result", "success");
-			rttr.addAttribute("mem_no", post.getPostNo());
+			rttr.addAttribute("post_no", post.getPostNo());
 		}
 
 		return "redirect:/post/postList";
 	}
+	
 
 	@DeleteMapping("/postDelete")
 	@PostMapping("/delete")

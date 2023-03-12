@@ -35,7 +35,7 @@
 				</ol>
 			</nav>
 			<!-- Page content-->
-			<form role = "form" method = 'post' action="/post/postInsert">
+			<form role = "form" method = 'post' action="/post/Modify">
 			<div class="row justify-content-center pb-sm-2">
 				<div class="col-lg-11 col-xl-10">
 					<!-- Page title-->
@@ -55,11 +55,12 @@
 									<input
 									class="form-control form-control-lg" type="text" 
 									placeholder=""
+									value="${post.postTitle}"
 									id = 'postTitle' name='postTitle' required>
 							</div>
 							<div class="col-sm-6 mb-4">
 								<label class="form-label" for="pr-sn">직종<span
-									class='text-danger'>*</span></label> <input
+									class='text-danger'>*</span></label> <input value='<c:out value="${post.postJob}"/>'
 									class="form-control form-control-lg" type="text" 
 									placeholder=""
 									id = 'postJob' name='postJob' required>
@@ -67,7 +68,7 @@
 							<div class="col-sm-6 mb-4">
 								<label class="form-label" >연봉/급여<span
 									class='text-danger'>*</span></label> 
-									<input
+									<input value='<c:out value="${post.postSal}"/>'
 									class="form-control form-control-lg" 
 									placeholder="" 
 									id = 'postSal' name='postSal' required>
@@ -75,6 +76,9 @@
 							<div class="col-sm-6 mb-4">
 								<label class="form-label" for="pr-phone">지원자 연령</label> <input
 									class="form-control form-control-lg" type="text" 
+									value='<c:out value="${post.postAge}"/>'
+
+
 									placeholder=""
 									id = 'postAge' name='postAge'>
 							</div>
@@ -85,7 +89,8 @@
 									<input class="form-control date-picker rounded pe-5"
 										type="text" placeholder=""
 										data-datepicker-options="{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;}" 
-										id = 'postSdate' name = 'posSdate'>
+										id = 'postSdate' name = 'posSdate' 
+										value='<c:out value="${post.postSdate}"/>'>
 									<i
 										class="fi-calendar text-muted position-absolute top-50 end-0 translate-middle-y me-3"></i>
 								</div>
@@ -97,7 +102,8 @@
 									<input class="form-control date-picker rounded pe-5"
 										type="text" placeholder=""
 										data-datepicker-options="{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;}" 
-										id = "postFdate" name = 'postFdate'>
+										id = "postFdate" name = 'postFdate'
+										value='<c:out value="${post.postFdate}"/>'>
 									<i
 										class="fi-calendar text-muted position-absolute top-50 end-0 translate-middle-y me-3"></i>
 								</div>
@@ -109,9 +115,9 @@
 									class='text-danger'>*</span></label> <select
 									class="form-select form-select-lg" 
 									id='postCareer' name='postCareer' required>
-									<option value="" disabled selected></option>
+									<option value="" disabled selected>${post.postCareer }</option>
 									<option value="신입">신입</option>
-									<option value="인턴">인턴</option>
+									<option value="인턴">인턴 </option>
 								</select>
 							</div>
 							<div class="col-sm-6 mb-2">
@@ -119,7 +125,7 @@
 									class='text-danger'>*</span></label> <select
 									class="form-select form-select-lg" id='postEmptype'
 									id = 'postEmptype' name='postEmptype' required>
-									<option value="" disabled selected></option>
+									<option value="" disabled selected>${post.postEmptype }</option>
 									<option value="정규직">정규직</option>
 									<option value="계약직">계약직</option>
 									<option value="인턴직">인턴직</option>
@@ -132,7 +138,7 @@
 									class='text-danger'>*</span></label> <select
 									class="form-select form-select-lg" 
 									id='postEmptype' name='postEmptype' required>
-									<option value="" disabled selected></option>
+									<option value="" disabled selected>${post.postEdu }</option>
 									<option value="고졸">고졸</option>
 									<option value="초대졸">초대졸</option>
 									<option value="대졸">대졸</option>
@@ -142,13 +148,16 @@
 							<div class="col-12 mb-4">
 								<label class="form-label" for="pr-address">근무지</label> <input
 									class="form-control form-control-lg" type="text"
-									id='postAdd'  name='postAdd' placeholder=""/>
+									id='postAdd'  name='postAdd' placeholder=""
+									<%--  <fmt:formatDate pattern="MM/dd" value="${post.postSdate}" /> --%>
+									value='<c:out value="${post.postAdd}"/>'/>
 							</div>
 							<div class="col-12 mb-4">
 								<label class="form-label" for="pr-address">지원방법</label> 
 								<textarea
 									class="form-control form-control-lg" style= "height:300px"
-									id='postHow' name='postHow' placeholder=""  >
+									id='postHow' name='postHow' placeholder='<c:out value="${post.postHow}"/>' >
+									${post.postHow}
 									</textarea>
 							</div>
 						</div>
@@ -157,6 +166,7 @@
 							<label class="form-label fw-bold py-2 mb-1" for="pr-position">홈페이지URL</label>
 							<input class="form-control form-control-lg mb-4" type="text"
 								id='postUrl'  name='postUrl' placeholder="URL을 입력해주세요"
+								value='<c:out value="${post.postUrl}"/>'
 								required>
 
 						</div>
@@ -168,7 +178,7 @@
 			<div
 				class="d-flex flex-column flex-sm-row bg-light rounded-3 p-4 px-md-5">
 				 <a class="btn btn-primary btn-lg rounded-pill ms-sm-auto"
-					 type = "submit">공고등록<i
+					 type = "submit" >수정<i
 					class="fi-chevron-right fs-sm ms-2"></i></a>
 			</div>
 			</form>

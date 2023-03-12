@@ -420,9 +420,10 @@
                             <p class="pt-2 mb-1">Please, send your CV marked âPartnership Managerâ in the subject via e-mail:</p><a class="nav-link-muted fw-bold" href="mailto:contact@example.com">contact@example.com</a>
                             <hr class="my-4">
                             <div class="btn-group btn-group-lg">
-                                <button class="btn btn-primary rounded-pill rounded-end-0 ps-4 pe-3" type="button">Apply for this position</button>
+                                <button class="btn btn-primary rounded-pill rounded-end-0 ps-4 pe-3" type="button" onclick="location.href='/post/postModify/?post_no=${post.postNo }'">수정</button>
                                 <div class="position-relative border-start border-light zindex-5" style="margin-left: -1px;"></div>
-                                <button class="btn btn-primary rounded-pill rounded-start-0 px-3" type="button"><i class="fi-heart me-1"></i></button>
+                                <button class="btn btn-primary rounded-pill rounded-start-0 pe-3" type="button" href="/post/postDelete/?post_no=${post.postNo }">삭제</button>
+                                <button class="btn btn-primary rounded-pill rounded-start-0 px-3" type="button" href="/post/postList">목록</button>
                             </div>
                         </div>
 
