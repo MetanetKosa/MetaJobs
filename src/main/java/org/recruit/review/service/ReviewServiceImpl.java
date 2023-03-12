@@ -2,6 +2,7 @@ package org.recruit.review.service;
 
 import java.util.List;
 
+import org.recruit.review.domain.Criteria;
 import org.recruit.review.domain.ReviewVO;
 import org.recruit.review.mapper.ReviewMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,12 @@ public class ReviewServiceImpl implements ReviewService{
 	}
 
 	@Override
+	public List<ReviewVO> getReviewList(Criteria cri) {
+		log.info("getList with criteria : " + cri);
+		return mapper.getListWithPaging(cri);
+	}
+
+	@Override
 	public boolean insertReview(ReviewVO review) {
 		return mapper.reviewInsert(review);
 	}
@@ -30,6 +37,5 @@ public class ReviewServiceImpl implements ReviewService{
 	public ReviewVO getReview(long rno) {
 		return mapper.get(rno);
 	}
-	
 	
 }

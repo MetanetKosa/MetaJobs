@@ -1,11 +1,12 @@
 package org.recruit.review.service;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
+
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.recruit.review.domain.Criteria;
 import org.recruit.review.domain.ReviewVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -32,6 +33,12 @@ public class ReviewServiceTests {
 //		reviewList.forEach(review -> log.info(review));
 //	}
 	
+	@Test
+	public void getReviewList(){
+		List<ReviewVO> reviewList = service.getReviewList(new Criteria(2, 5));
+		reviewList.forEach(review -> log.info(review));
+	}
+	
 //	@Test
 //	public void insertReview() throws ParseException {
 //		// String -> Date 변환
@@ -57,9 +64,9 @@ public class ReviewServiceTests {
 //			log.info("성공!!!");
 //	}
 	
-	@Test
-	public void getReviewTest() {
-		ReviewVO review = service.getReview(3);
-		log.info(review);
-	}
+//	@Test
+//	public void getReviewTest() {
+//		ReviewVO review = service.getReview(3);
+//		log.info(review);
+//	}
 }
