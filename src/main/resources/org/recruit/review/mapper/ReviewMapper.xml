@@ -17,7 +17,7 @@
 
  	<select id="getList" resultMap="reviewResultMap">
  		<![CDATA[
- 		select * from review
+ 		select /*+ INDEX_DESC(review pk_review) */ * from review
  		]]>
  	</select>
  	
