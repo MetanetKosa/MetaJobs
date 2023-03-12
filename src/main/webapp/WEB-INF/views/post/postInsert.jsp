@@ -17,20 +17,6 @@
 <link rel="stylesheet" media="screen" href="${path}/resources/css/theme.min.css">
 
 <script type="text/javascript">
-/* $("select[name=postCareer]").change(function(){
-	  console.log($(this).val()); //value값 가져오기
-	  console.log($("select[name=postCareer] option:selected").text()); //경력구분
-	});
-	
-$("select[name=postEmptype]").change(function(){
-	  console.log($(this).val()); //value값 가져오기
-	  console.log($("select[name=postEmptype] option:selected").text()); //고용형태
-	});
-	
-$("select[name=postEdu]").change(function(){
-	  console.log($(this).val()); //value값 가져오기
-	  console.log($("select[name=postEdu] option:selected").text()); //학력조건
-	}); */
 </script>
 
 
@@ -49,7 +35,7 @@ $("select[name=postEdu]").change(function(){
 				</ol>
 			</nav>
 			<!-- Page content-->
-			<form method = 'post' action="/post/postInsert">
+			<form role = "form" method = 'post' action="/post/postInsert">
 			<div class="row justify-content-center pb-sm-2">
 				<div class="col-lg-11 col-xl-10">
 					<!-- Page title-->
@@ -123,7 +109,7 @@ $("select[name=postEdu]").change(function(){
 									class='text-danger'>*</span></label> <select
 									class="form-select form-select-lg" 
 									id='postCareer' name='postCareer' required>
-									<option value="" disabled selected>경력무관</option>
+									<option value="" disabled selected></option>
 									<option value="신입">신입</option>
 									<option value="인턴">인턴</option>
 								</select>
@@ -133,7 +119,7 @@ $("select[name=postEdu]").change(function(){
 									class='text-danger'>*</span></label> <select
 									class="form-select form-select-lg" id='postEmptype'
 									id = 'postEmptype' name='postEmptype' required>
-									<option value="" disabled selected>정규직</option>
+									<option value="" disabled selected></option>
 									<option value="정규직">정규직</option>
 									<option value="계약직">계약직</option>
 									<option value="인턴직">인턴직</option>
@@ -146,7 +132,7 @@ $("select[name=postEdu]").change(function(){
 									class='text-danger'>*</span></label> <select
 									class="form-select form-select-lg" 
 									id='postEmptype' name='postEmptype' required>
-									<option value="" disabled selected>고졸</option>
+									<option value="" disabled selected></option>
 									<option value="고졸">고졸</option>
 									<option value="초대졸">초대졸</option>
 									<option value="대졸">대졸</option>
@@ -181,16 +167,13 @@ $("select[name=postEdu]").change(function(){
 			<!-- Navigation-->
 			<div
 				class="d-flex flex-column flex-sm-row bg-light rounded-3 p-4 px-md-5">
-				<!-- <a class="btn btn-primary btn-lg rounded-pill ms-sm-auto"
+				 <a class="btn btn-primary btn-lg rounded-pill ms-sm-auto"
 					 type = "submit">공고등록<i
-					class="fi-chevron-right fs-sm ms-2"></i></a> -->
-					
-					<button type="submit">공고등록</button>
+					class="fi-chevron-right fs-sm ms-2"></i></a>
 			</div>
 			</form>
 		</div>
-		</div>
-		</div>
+
 	</main>
 
 	<!-- Back to top button-->
@@ -205,7 +188,7 @@ $("select[name=postEdu]").change(function(){
 	
 	<!-- Main theme script-->
 	<script src="${path}/resources/js/theme.min.js"></script>
-
+7
 </body>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />

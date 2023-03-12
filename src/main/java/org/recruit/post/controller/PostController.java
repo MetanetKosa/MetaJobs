@@ -37,10 +37,16 @@ public class PostController {
 		return "/post/postList";
 	}
 	
-	@PostMapping(value = "/postInsert")
-	public String postList(PostVO post, RedirectAttributes rttr) {
+	@PostMapping("/postInsert")
+	public String postList(PostVO post,RedirectAttributes rttr) {
 		log.info(post);
 //		service.postInsert(post);
+//		rttr.addFlashAttribute("result",post.getPostNo());
 		return "redirect:/post/postList";
+	}
+	
+	@RequestMapping(value = "/postDetail", method = RequestMethod.GET)
+	public String postDetail(Model model) {
+		return "/post/postDetail";
 	}
 }
