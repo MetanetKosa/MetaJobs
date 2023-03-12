@@ -409,7 +409,7 @@
                                 <div class="card bg-secondary card-hover mb-2">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-start mb-2">
-                                            <div class="d-flex align-items-center"><img class="me-2" src="${path}/resources/img/job-board/company/it-pro.png" width="24" alt="대한그룹"><span class="fs-sm text-dark opacity-80 px-1">IT Pro TV</span></div>
+                                            <div class="d-flex align-items-center"><img class="me-2" src="${path}/resources/img/job-board/company/it-pro.png" width="24" alt=""><span class="fs-sm text-dark opacity-80 px-1"> ~ ${post.postFdate}</span></div>
                                             <div class="dropdown content-overlay">
                                                 <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm" type="button" id="contextMenu1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
                                                 <ul class="dropdown-menu my-1" aria-labelledby="contextMenu1">
@@ -423,10 +423,15 @@
                                             </div>
                                         </div>
                                         <h3 class="h6 card-title pt-1 mb-3">${post.postTitle}<a class="text-nav stretched-link text-decoration-none" href="job-board-single.html"> </a></h3>
-                                        <div class="fs-sm"><span class="text-nowrap me-3"><i class="fi-map-pin text-muted me-1"> </i>Chicago</span><span class="text-nowrap me-3"><i class="fi-cash fs-base text-muted me-1"></i>$7,500</span></div>
+                                        <div class="fs-sm">
+                                        <span class="text-nowrap me-3"><i class="fi-map-pin text-muted me-1"> </i>${post.postAdd }</span>
+                                        <span class="text-nowrap me-3"><i class="fi-cash fs-base text-muted me-1"></i>${post.postJob} </span>
+                                        <span class="text-nowrap me-3">${post.postEdu }</span>
+                                        <span class="text-nowrap me-3"> | 등록일 ${post.postSdate }</span>
+                                        
+                                        </div>
                                     </div>
                                 </div>
-                                
                                 </c:forEach>
                                 
                                 

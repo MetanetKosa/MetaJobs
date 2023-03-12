@@ -1,6 +1,9 @@
 package org.recruit.post.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.recruit.post.domain.PostVO;
 import org.recruit.post.service.PostService;
@@ -32,7 +35,17 @@ public class PostController {
 	
 	@RequestMapping(value = "/postList", method = RequestMethod.GET)
 	public String list(Model model) {
-		log.info(service.postList());
+//		log.info(service.postList());
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		PostVO postVo = new PostVO();
+//		List<PostVO> postLists = service.postList()
+//			.forEach(post-> {
+//				try {
+//					formatter.parse(post.getPostFdate().toString());
+//				} catch (ParseException e) {
+//					e.printStackTrace();
+//				}
+//			});
 		model.addAttribute("postList",service.postList());
 		return "/post/postList";
 	}
@@ -41,7 +54,7 @@ public class PostController {
 	public String postList(PostVO post,RedirectAttributes rttr) {
 		log.info(post);
 //		service.postInsert(post);
-//		rttr.addFlashAttribute("result",post.getPostNo());
+		rttr.addFlashAttribute("result",post.getPostNo());
 		return "redirect:/post/postList";
 	}
 	
