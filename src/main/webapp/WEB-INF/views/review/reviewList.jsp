@@ -162,15 +162,28 @@
                     <!-- Pagination-->
                     <nav class="mt-2 mb-4" aria-label="Reviews pagination">
                         <ul class="pagination">
+                        	<c:if test="${pageMaker.prev}">
+                            	<li class="page-item"><a class="page-link" href="#" aria-label="Prev"><i class="fi-chevron-left"></i></a></li>
+                        	</c:if>
+                        	
                             <li class="page-item d-sm-none"><span class="page-link page-link-static">1 / 5</span></li>
-                            <li class="page-item active d-none d-sm-block" aria-current="page"><span class="page-link">1<span class="visually-hidden">(current)</span></span>
-                            </li>
-                            <li class="page-item d-none d-sm-block"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item d-none d-sm-block"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item d-none d-sm-block">...</li>
-                            <li class="page-item d-none d-sm-block"><a class="page-link" href="#">8</a></li>
-                            <li class="page-item"><a class="page-link" href="#" aria-label="Next"><i class="fi-chevron-right"></i></a></li>
+                            <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+	                      <!--       <li class="page-item active d-none d-sm-block" aria-current="page"> -->
+	                            <li class="page-item ${pageMaker.cri.pageNum == num ? "active" : ""}" aria-current="page">
+	                            	<a class="page-link" href="${num}"><c:out value="${num}"/></a>
+	                            	<span class="visually-hidden">(current)</span>
+	                            </li>
+                            </c:forEach>
+                        	<c:if test="${pageMaker.prev}">
+                            	<li class="page-item"><a class="page-link" href="#" aria-label="Next"><i class="fi-chevron-right"></i></a></li>
+                        	</c:if>
                         </ul>
+                        
+                        <form id='actionForm' action="${path}/review/reviewList" method='get'>
+							<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>                        
+							<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>                        
+                        </form>
+                        
                     </nav>
                 </div>
             </div>
@@ -222,6 +235,18 @@
 					}
 				$("#myModal").modal("show");
 				}
+				
+				var actionForm = $("#actionForm");
+				$(".page-item a").on("click", function(e) {
+					
+					e.preventDefault();
+					
+					console.log('click');
+					
+					actionForm.find("input[name = 'pageNum']").val($(this).attr("href"));
+					actionForm.submit();
+				});
+				
 				
 			});
 		</script>

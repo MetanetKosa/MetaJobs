@@ -1,5 +1,7 @@
 package org.recruit.review.controller;
 
+import org.recruit.review.domain.Criteria;
+import org.recruit.review.domain.PageDTO;
 import org.recruit.review.domain.ReviewVO;
 import org.recruit.review.service.ReviewService;
 import org.springframework.stereotype.Controller;
@@ -22,18 +24,12 @@ public class ReviewController {
 	private ReviewService service;
 	
 	@GetMapping("/reviewList")
-	public void getReviewList(Model model) {
-		model.addAttribute("list", service.getReviewList());
+	public void getReviewList(Criteria cri, Model model) {
+		log.info("list : " + cri);
+		model.addAttribute("list", service.getReviewList(cri));
+		model.addAttribute("pageMaker", new PageDTO(cri, 10));
 	}
 	
-//	@PostMapping("/insert")
-//	public void insertReview(Model model, ReviewVO review) {
-//		model.addAttribute("review", service.insertReview(review));
-//	}
-//	@GetMapping("/insert")
-//	public void insertReveiew() {
-//		
-//	}
 	
 	@PostMapping("/insert")
 	public String insertReview(ReviewVO review, RedirectAttributes rttr) {
