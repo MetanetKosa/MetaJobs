@@ -19,7 +19,8 @@
 
 
     <body class="bg-secondary">
-
+	<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+	
 	    <main class="page-wrapper">
 	        
 	     <!-- Page content-->
@@ -118,14 +119,15 @@
                     <div class="mb-4 pb-4 border-bottom">
                         <div class="d-flex flex-sm-row flex-column align-items-sm-center align-items-stretch justify-content-between"><a class="btn btn-outline-primary mb-sm-0 mb-3" href="#modal-review" data-bs-toggle="modal"><i class="fi-edit me-1"></i>Add review</a>
                             <div class="d-flex align-items-center ms-sm-4">
-                                <label class="me-2 pe-1 text-nowrap" for="reviews-sorting"><i class="fi-arrows-sort text-muted mt-n1 me-2"></i>Sort by:</label>
+                           	<p>총 100건</p>
+                               <!--  <label class="me-2 pe-1 text-nowrap" for="reviews-sorting"><i class="fi-arrows-sort text-muted mt-n1 me-2"></i>Sort by:</label>
                                 <select class="form-select" id="reviews-sorting">
                     <option>Newest</option>
                     <option>Oldest</option>
                     <option>Popular</option>
                     <option>High rating</option>
                     <option>Low rating</option>
-                  </select>
+                  </select> -->
                             </div>
                         </div>
                     </div>
@@ -172,8 +174,57 @@
                     </nav>
                 </div>
             </div>
+            
+            
+<!--         <div class="modal fade" id="myModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            	<div class="modal-body">처리가 완료되었습니다.</div>
+            	<div class="modal-body">처리가 완료되었습니다.</div>
+            	<div class="modal-body">처리가 완료되었습니다.</div>
+            	<div class="modal-body">처리가 완료되었습니다.</div>
+            	<div class="modal-body">처리가 완료되었습니다.</div>
+            	<div class="modal-body">처리가 완료되었습니다.</div>
+            	<div class="modal-body">처리가 완료되었습니다.</div>
+            	<div class="modal-body">처리가 완료되었습니다.</div>
+            </div>
+        </div> -->
+        
+        <div class="modal fade" id="myModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header d-block position-relative border-0 pb-0 px-sm-5 px-4">
+                        <h6 class="modal-title mt-1 text-center">등록 완료!</h6>
+                        <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+						처리가 완료되었습니다.
+                    </div>
+                </div>
+            </div>
+        </div>
 	    </main>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var result = '<c:out value="${result}"/>';
+				
+				checkModal(result);
 
+				history.replaceState({}, null, null);
+				
+				function checkModal(result){
+					
+					if(result ==='' || history.state){
+						return;
+					}
+					
+					if(parseInt(result) > 0){
+						$(".modal-body").html("게시글" + parseInt(result) + "번이 등록되었습니다.");
+					}
+				$("#myModal").modal("show");
+				}
+				
+			});
+		</script>
  <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
 	    <!-- Vendor scrits: js libraries and plugins-->
 	    <script src="${path}/resources/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
