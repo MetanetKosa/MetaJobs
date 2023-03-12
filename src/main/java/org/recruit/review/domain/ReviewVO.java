@@ -11,7 +11,7 @@ public class ReviewVO {
 	private long cno;
 	private String reJob;
 	private Date reDate;
-	private int pNum;
+	private String pNum;
 	private String reContent;
 	private String reResult;
 	private Date reWdate;

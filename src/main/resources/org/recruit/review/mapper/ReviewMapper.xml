@@ -24,7 +24,7 @@
  	<insert id="reviewInsert">
  		<![CDATA[
  		insert into review(re_no, com_cno, re_job, re_date, re_pnum, re_Content, re_Result, re_wdate, mem_no)
- 		values (RE_SEQ.NEXTVAL, #{cno}, #{reJob}, #{reDate}, #{pNum}, #{reContent}, #{reResult}, SYSDATE, #{mno})
+ 		values (RE_SEQ.NEXTVAL, #{cno}, #{reJob}, SYSDATE, #{pNum}, #{reContent}, #{reResult}, SYSDATE, #{mno})
  		]]>
  	</insert>
  	

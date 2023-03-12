@@ -24,7 +24,6 @@ public class ReviewController {
 	@GetMapping("/reviewList")
 	public void getReviewList(Model model) {
 		model.addAttribute("list", service.getReviewList());
-		System.out.println("Å×½ºÆ®!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"+model);
 	}
 	
 //	@PostMapping("/insert")

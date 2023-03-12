@@ -32,41 +32,56 @@
                         <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body px-sm-5 px-4">
-                        <form class="needs-validation" novalidate>
+                        <form class="needs-validation" action="${path}/review/insert" method="post" novalidate>
                             <div class="mb-3">
-                                <label class="form-label" for="review-name">회사명 <span class='text-danger'>*</span></label>
-                                <input class="form-control" type="text" id="review-name" placeholder="Your name" required>
+                                <label class="form-label" for="cName">회사명 <span class='text-danger'>*</span></label>
+                                <input class="form-control" type="text" id="cName" name="cno" placeholder="회사명" required>
                                 <div class="invalid-feedback">Please let us know your name.</div>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="review-email">직군 <span class='text-danger'>*</span></label>
-                                <input class="form-control" type="email" id="review-email" placeholder="Your email address" required>
-                                <div class="invalid-feedback">Please provide a valid email address.</div>
+                                <label class="form-label" for="reJob">직군 <span class='text-danger'>*</span></label>
+                                <input class="form-control" type="text" id="reJob" name="reJob" placeholder="직군" required>
+                               <!--  <div class="invalid-feedback">Please provide a valid email address.</div> -->
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="review-email">면접일 <span class='text-danger'>*</span></label>
-								<input class="form-control date-picker rounded pe-5" type="text" id="pr-birth-date" placeholder="Choose date" data-datepicker-options="{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;}"><i class="fi-calendar text-muted position-absolute top-50 end-0 translate-middle-y me-3"></i>
-                                <input class="form-control" type="email" id="review-email" placeholder="Your email address" required>
-                                <div class="invalid-feedback">Please provide a valid email address.</div>
+                                <label class="form-label" for="reJob">직군 <span class='text-danger'>*</span></label>
+                                <input class="form-control" type="text" id="mno" name="mno" placeholder="직군" required>
+                               <!--  <div class="invalid-feedback">Please provide a valid email address.</div> -->
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="review-rating">Rating <span class='text-danger'>*</span></label>
-                                <select class="form-control form-select" id="review-rating" required>
-                    <option value="" selected disabled hidden>Choose rating</option>
-                    <option value="5 stars">5 stars</option>
-                    <option value="4 stars">4 stars</option>
-                    <option value="3 stars">3 stars</option>
-                    <option value="2 stars">2 stars</option>
-                    <option value="1 star">1 star</option>
-                  </select>
-                                <div class="invalid-feedback">Please rate the property.</div>
+                                <label class="form-label" for="reDate">면접일 <span class='text-danger'>*</span></label>
+                                <div class="input-group input-group-lg">
+<!-- 								<input class="form-control date-picker rounded pe-5" type="text" id="reDate" name="reDate" placeholder="Choose date" data-datepicker-options="{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;}"><i class="fi-calendar text-muted position-absolute top-50 end-0 translate-middle-y me-3"></i>-->
+								</div>
+                            </div>
+                            <div class="mb-3">
+                            <div class="row">
+	                            <div class="col-6">
+	                                <label class="form-label" for="pNum">면접인원 <span class='text-danger'>*</span></label>
+	                                <select class="form-control form-select" style="width:150px;" id="pNum" name="pNum" required>
+					                    <option value="" selected disabled hidden>면접인원</option>
+					                    <option value="single">단독면접</option>
+					                    <option value="individual">개인면접</option>
+					                    <option value="group">집단면접</option>
+				                  </select>
+	                 			 </div>
+	                            <div class="col-6">
+	                                <label class="form-label" for="reResult">면접결과 <span class='text-danger'>*</span></label>
+	                                <select class="form-control form-select" style="width:150px;" id="reResult" name="reResult" required>
+					                    <option value="" selected disabled hidden>면접결과</option>
+					                    <option value="합격">합격</option>
+					                    <option value="불합격">불합격</option>
+				                  </select>
+	                 			 </div>
+                            
+                 		 </div>
                             </div>
                             <div class="mb-4">
-                                <label class="form-label" for="review-text">Review <span class='text-danger'>*</span></label>
-                                <textarea class="form-control" id="review-text" rows="5" placeholder="Your review message" required></textarea>
-                                <div class="invalid-feedback">Please write your review.</div>
+                                <label class="form-label" for="reContent">후기 내용 <span class='text-danger'>*</span></label>
+                                <textarea class="form-control" id="reContent" name="reContent" rows="5" placeholder="후기 내용을 적어주세요." required></textarea>
+                                <div class="invalid-feedback">후기 내용을 적어주세요.</div>
                             </div>
-                            <button class="btn btn-primary d-block w-100 mb-4" type="submit">Submit a review</button>
+                            <button class="btn btn-primary d-block w-100 mb-4" type="submit">리뷰 등록</button>
                         </form>
                     </div>
                 </div>
