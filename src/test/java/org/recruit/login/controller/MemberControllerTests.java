@@ -1,6 +1,6 @@
 package org.recruit.login.controller;
 
-import org.junit.Before;
+import org.junit.Before;	
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.recruit.login.service.MemberService;

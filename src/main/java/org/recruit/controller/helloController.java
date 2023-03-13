@@ -9,17 +9,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import lombok.AllArgsConstructor;
 
 @Controller
-@RequestMapping("/resume/*")
+@RequestMapping
 @AllArgsConstructor
 public class helloController {
 	
 	@GetMapping("/enroll")
-	public void anotation(Model model) {
+	public String anotation(Model model) {
 		
 		model.addAttribute("hello", "hello");
 		//
 		return "/post/enroll";
-		//
 	}
 	
 	@RequestMapping(value = "/d", method = RequestMethod.GET)
@@ -41,7 +40,6 @@ public class helloController {
 	}
 		//return "home";
 		//
-	}
 	
 	@GetMapping("/resumeList")
 	public void anotations(Model model) {
@@ -51,8 +49,5 @@ public class helloController {
 		//return "home";
 		//
 	}
-
-	
-
 
 }

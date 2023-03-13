@@ -44,7 +44,7 @@ public class ResumeController {
 		model.addAttribute("resume", service.get(resume_no));
 	}
 	
-	@PostMapping("/modify")
+	@PostMapping("/modify")	
 	public String modify(ResumeVO resume, RedirectAttributes rttr) {
 		if(service.updateResume(resume)) {
 			rttr.addAttribute("mem_no", resume.getMem_no());

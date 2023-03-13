@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-import javax.annotation.Resource;
+//import javax.annotation.Resource;
 
 import org.recruit.resume.domain.ResumeAttachVO;
 import org.springframework.core.io.FileSystemResource;
@@ -34,8 +34,8 @@ import net.coobird.thumbnailator.Thumbnailator;
 @Log4j
 public class UploadController {
 	
-	//¿À´Ã ³¯Â¥ÀÇ °æ·Î¸¦ ¹®ÀÚ¿­·Î »ý¼º
-	//Æú´õ °æ·Î·Î ¼öÁ¤µÚ¿¡ ¹ÝÈ¯
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Î·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½ï¿½È¯
 	private String getFolder() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		
@@ -46,7 +46,7 @@ public class UploadController {
 		return str.replace("-", File.separator);
 	}
 	
-	//ÀÌ¹ÌÁö ÆÄÀÏÀÇ ÆÇ´Ü
+	//ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½
 	private boolean checkImageType(File file) {
 		
 		try {
@@ -90,17 +90,17 @@ public class UploadController {
 		return result;
 	}
 	
-	@GetMapping(value="/download", produces=MediaType.APPLICATION_OCTET_STREAM_VALUE)
-	@ResponseBody
-	public ResponseEntity<Resource> downloadFile(String fileName){
-		
-		log.info(fileName);
-		
-		FileSystemResource resource = new FileSystemResource("C:\\upload\\" + fileName);
-		
-		
-		return null;
-	}
+//	@GetMapping(value="/download", produces=MediaType.APPLICATION_OCTET_STREAM_VALUE)
+//	@ResponseBody
+//	public ResponseEntity<Resource> downloadFile(String fileName){
+//		
+//		log.info(fileName);
+//		
+//		FileSystemResource resource = new FileSystemResource("C:\\upload\\" + fileName);
+//		
+//		
+//		return null;
+//	}
 
 	
 	
@@ -115,7 +115,7 @@ public class UploadController {
 	
 		File uploadPath = new File(uploadFolder, uploadFolderPath);
 	 
-		 //ÇØ´ç °æ·Î°¡ ÀÖ´ÂÁö °Ë»çÇÏ°í Æú´õ¸¦ »ý¼º
+		 //ï¿½Ø´ï¿½ ï¿½ï¿½Î°ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		 //yyyy/mm/dd
 		 if(uploadPath.exists() == false) {
 			 uploadPath.mkdirs();
@@ -133,7 +133,7 @@ public class UploadController {
 			 log.info("only file name" +uploadFileName);
 			 vo.setFileName(uploadFileName);
 			 
-			 //Áßº¹¹æÁö¸¦ À§ÇÑ uuid Àû¿ë
+			 //ï¿½ßºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ uuid ï¿½ï¿½ï¿½ï¿½
 			 UUID uuid = UUID.randomUUID();
 	
 			 uploadFileName = uuid.toString() +"_" + uploadFileName;
@@ -141,7 +141,7 @@ public class UploadController {
 	 
 	 
 	 
-			 //ÆÄÀÏ ÀúÀå
+			 //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			 try {
 				 File saveFile = new File(uploadPath, uploadFileName);
 				 multipartFile.transferTo(saveFile);

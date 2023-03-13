@@ -223,7 +223,6 @@
 		    <version>5.0.7.RELEASE</version>
 		</dependency>
 		
-		</dependency>
 		
 		<!-- 첨부파일 라이브러리 -->
 		<dependency>

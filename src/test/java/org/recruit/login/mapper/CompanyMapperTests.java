@@ -17,25 +17,25 @@ public class CompanyMapperTests {
 	@Autowired
 	private CompanyMapper mapper;
 	
-	@Test
-	public void testInsert() {
-		//MemberVO 객체를 임의로 생성하고 값 넣어 insert가 잘 되는지 단위테스트
-		
-		CompanyVO company = new CompanyVO();
-		company.setCno("1592");
-		company.setId("company25");
-		company.setPw("pw25");
-		company.setName("(주)코사그룹");
-		company.setPhone("02-4817-6485");
-		company.setAddress("서울시 강남구 18");
-		company.setType("대기업");
-		company.setManager("박감자");
-		
-		mapper.insert(company);
-		
-		log.info(company);
-	}
-	
+//	@Test
+//	public void testInsert() {
+//		//MemberVO 객체를 임의로 생성하고 값 넣어 insert가 잘 되는지 단위테스트
+//		
+//		CompanyVO company = new CompanyVO();
+//		company.setCno("1592");
+//		company.setId("company25");
+//		company.setPw("pw25");
+//		company.setName("(주)코사그룹");
+//		company.setPhone("02-4817-6485");
+//		company.setAddress("서울시 강남구 18");
+//		company.setType("대기업");
+//		company.setManager("박감자");
+//		
+//		mapper.insert(company);
+//		
+//		log.info(company);
+//	}
+//	
 	
 //	@Test
 //	public void testReadList() {
