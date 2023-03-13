@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 public class PostVO {
-	private int postNo;
+	private Long postNo;
 	private String postTitle;
 	private String postJob;
 	private String postCareer;
@@ -23,6 +23,6 @@ public class PostVO {
 	private String postAge;
 	private String postHow;
 	private String postUrl;
-	private int comCno;
-	private int memNo;
+	private Long comCno;
+	private Long memNo;
 }
