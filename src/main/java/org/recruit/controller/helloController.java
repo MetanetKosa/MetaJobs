@@ -34,5 +34,4 @@ public class helloController {
 		return "/post/postList";
 		//
 	}
-
 }

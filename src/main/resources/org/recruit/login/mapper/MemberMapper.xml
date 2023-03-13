@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.recruit.login.mapper.MemberMapper">
+<!-- mapper.xml id 명과 mapper.java(interface) 메소드명이 일치하도록 -->
+
+<!--   
+    <resultMap type="org.recruit.login.domain.MemberVO" id="memberMap">
+	    <id property="id" column="id"/>
+	    <result property="id" column="id"/>
+	    <result property="pw" column="pw"/>
+	    <result property="auth" column="auth"/>
+	    <result property="name" column="name"/>
+	    <result property="birth" column="birth"/>
+	    <result property="phone" column="phone"/>
+	    <result property="address" column="address"/>
+	    <result property="email" column="email"/>
+	    <result property="joinDate" column="joinDate"/>
+	    <result property="updateDate" column="updatedate"/>
+    <collection property="authList" resultMap="authMap">
+    </collection> 
+  	</resultMap>
+	<resultMap type="org.recruit.login.domain.AuthVO" id="authMap">
+	    <result property="userid" column="userid"/>
+	    <result property="auth" column="auth"/>
+   </resultMap> 
+   -->
+  
+  <!-- 회원정보 확인 -->
+  	<select id="read" resultType="org.recruit.login.domain.MemberVO">
+<!-- 	SELECT 
+	  mem.userid, userpw, username, enabled, regdate, updatedate, auth
+	FROM 
+	  tbl_member mem LEFT OUTER JOIN tbl_member_auth auth on mem.userid = auth.userid 
+	WHERE mem.userid = #{userid}  -->
+	
+		SELECT 
+		 mno, id, pw, auth, name, birth, phone, address, email, joinDate, updateDate
+		FROM 
+		  member
+		 WHERE id = #{id}
+  	</select>
+
+	<!-- 회원가입 -->
+    <insert id="insert">
+   
+	  	insert into member (mno, id, pw, name, birth, phone, email, address)
+	  	values (mem_seq.nextval, #{id}, #{pw}, #{name}, #{birth}, #{phone}, #{email}, #{address})
+	  	<!-- 
+	  	insert into auth (id, pw, auth, enabled)
+		SELECT id, pw, auth, enabled
+		FROM member FROM member where id = (select max(id) from member);
+		 -->
+  	</insert>
+
+	<!-- id로 비밀번호 찾기 -->
+	<select id="readPw" parameterType="String" resultType="String">
+		select pw from member where id = #{id}
+	</select>
+	
+	<!-- 회원정보 수정 -->
+	<update id="update">
+		update member 
+		set pw = #{pw},
+			birth = #{birth},
+			phone = #{phone},
+			address = #{address},
+			email = #{email},
+			updateDate = sysdate
+			<!-- mem_update = TO_CHAR(SYSDATE, 'YYYY/MM/DD HH:MI:SS') -->
+		where id = #{id} 
+	</update>
+	
+	<!-- 회원 탈퇴 -->
+	<delete id="delete">
+		delete from member where id = #{id}
+	</delete>
+	 
+	<!-- 회원 리스트 -->
+	<select id="getList" resultType="org.recruit.login.domain.MemberVO">
+  		<![CDATA[
+  			select * from member where mno > 0
+  		]]>
+  	</select>
+   	
+  	<!-- 로그인 -->
+	<select id="login" resultType="int" >
+		select count(*)
+		from member
+		where
+		id = #{id} and pw = #{pw}
+	</select>
+
+</mapper>
