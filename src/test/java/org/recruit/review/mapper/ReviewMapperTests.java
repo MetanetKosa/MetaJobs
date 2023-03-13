@@ -69,4 +69,8 @@ public class ReviewMapperTests {
 //		list.forEach(review -> log.info(review));
 //	}
 	
+	@Test
+	public void testDelete() {
+		log.info("DELETE COUNT : " + mapper.reviewDelete(33));
+	}
 }
