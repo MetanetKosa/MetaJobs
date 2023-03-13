@@ -8,8 +8,8 @@
     <insert id="insertMem">
     <![CDATA[
 	  insert into auth (id, pw, auth, enabled)
-		SELECT id, pw, auth, enabled
-		FROM member where id = (select max(id) from member)  
+		SELECT mem_id, mem_pw, mem_auth, mem_enabled
+		FROM member where mem_id = (select max(mem_id) from member)  
 	]]>
   	</insert>
   	
@@ -17,8 +17,8 @@
     <insert id="insertCom">
     <![CDATA[
 	  insert into auth (id, pw, auth, enabled)
-		SELECT id, pw, auth, enabled
-		FROM company where id = (select max(id) from company)  
+		SELECT com_id, com_pw, com_auth, com_enabled
+		FROM company where com_id = (select max(com_id) from company)  
 	]]>
   	</insert>
 <!--   

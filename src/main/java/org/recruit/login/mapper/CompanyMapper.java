@@ -9,10 +9,10 @@ public interface CompanyMapper {
 	public void insert(CompanyVO company);
 
 	//회원 한명 정보 조회
-	public CompanyVO read(String id);
+	public CompanyVO read(String com_id);
 	
 	//로그인 pw 조회
-	public String readPw(String id);
+	public String readPw(String com_id);
 
 	public List<CompanyVO> getList();
 	
@@ -20,5 +20,5 @@ public interface CompanyMapper {
 	public int update(CompanyVO company);
 	
 	//회원 탈퇴
-	public int delete(String id);
+	public int delete(String com_id);
 }

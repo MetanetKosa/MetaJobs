@@ -10,10 +10,10 @@ public interface MemberMapper {
 	public void insert(MemberVO member);
 
 	//회원 한명 정보 조회
-	public MemberVO read(String id);
+	public MemberVO read(String mem_id);
 	
 	//로그인 pw 조회
-	public String readPw(String id);
+	public String readPw(String mem_id);
 
 	public List<MemberVO> getList();
 	
@@ -21,6 +21,6 @@ public interface MemberMapper {
 	public int update(MemberVO member);
 	
 	//회원 탈퇴
-	public int delete(String id);
+	public int delete(String mem_id);
 	
 }

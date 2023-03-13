@@ -36,17 +36,17 @@
 	WHERE mem.userid = #{userid}  -->
 	
 		SELECT 
-		 mno, id, pw, auth, name, birth, phone, address, email, joinDate, updateDate
+		 mem_no, mem_id, mem_pw, mem_auth, mem_name, mem_birth, mem_phone, mem_address, mem_email, mem_joinDate, mem_updateDate
 		FROM 
 		  member
-		 WHERE id = #{id}
+		 WHERE mem_id = #{mem_id}
   	</select>
 
 	<!-- 회원가입 -->
     <insert id="insert">
    
-	  	insert into member (mno, id, pw, name, birth, phone, email, address)
-	  	values (mem_seq.nextval, #{id}, #{pw}, #{name}, #{birth}, #{phone}, #{email}, #{address})
+	  	insert into member (mem_no, mem_id, mem_pw, mem_name, mem_birth, mem_phone, mem_address, mem_email)
+	  	values (mem_seq.nextval, #{mem_id}, #{mem_pw}, #{mem_name}, #{mem_birth}, #{mem_phone}, #{mem_address}, #{mem_email})
 	  	<!-- 
 	  	insert into auth (id, pw, auth, enabled)
 		SELECT id, pw, auth, enabled
@@ -56,31 +56,31 @@
 
 	<!-- id로 비밀번호 찾기 -->
 	<select id="readPw" parameterType="String" resultType="String">
-		select pw from member where id = #{id}
+		select mem_pw from member where mem_id = #{mem_id}
 	</select>
 	
 	<!-- 회원정보 수정 -->
 	<update id="update">
 		update member 
-		set pw = #{pw},
-			birth = #{birth},
-			phone = #{phone},
-			address = #{address},
-			email = #{email},
-			updateDate = sysdate
+		set mem_pw = #{mem_pw},
+			mem_birth = #{mem_birth},
+			mem_phone = #{mem_phone},
+			mem_address = #{mem_address},
+			mem_email = #{mem_email},
+			mem_updateDate = sysdate
 			<!-- mem_update = TO_CHAR(SYSDATE, 'YYYY/MM/DD HH:MI:SS') -->
 		where id = #{id} 
 	</update>
 	
 	<!-- 회원 탈퇴 -->
 	<delete id="delete">
-		delete from member where id = #{id}
+		delete from member where mem_id = #{mem_id}
 	</delete>
 	 
 	<!-- 회원 리스트 -->
 	<select id="getList" resultType="org.recruit.login.domain.MemberVO">
   		<![CDATA[
-  			select * from member where mno > 0
+  			select * from member where mem_no > 0
   		]]>
   	</select>
    	
@@ -89,7 +89,7 @@
 		select count(*)
 		from member
 		where
-		id = #{id} and pw = #{pw}
+		mem_id = #{mem_id} and mem_pw = #{mem_pw}
 	</select>
 
 </mapper>

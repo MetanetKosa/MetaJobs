@@ -216,13 +216,13 @@
                                 <form action="/member/insert" method="post" class="needs-validation" novalidate>
                                     <div class="mb-4">
                                         <label class="form-label" for="signup-id">ID<span class='fs-sm text-muted'>&nbsp;&nbsp;영어/숫자&nbsp;조합&nbsp;4-20글자</span></label>
-                                        <input class="form-control" type="text" id="signup-id" name="id" required pattern="[A-Za-z0-9]{4,20}" autocomplete="off">
+                                        <input class="form-control" type="text" id="signup-id" name="mem_id" required pattern="[A-Za-z0-9]{4,20}" autocomplete="off">
                                         
                                     </div>
                                     <div class="mb-4">
                                         <label class="form-label" for="signup-password">Password<span class='fs-sm text-muted'>&nbsp;&nbsp;최소 4글자 이상</span></label>
                                         <div class="password-toggle">
-                                            <input class="form-control" type="password" name="pw" id="signup-password" minlength="4" required>
+                                            <input class="form-control" type="password" name="mem_pw" id="signup-password" minlength="4" required>
                                             <label class="password-toggle-btn" aria-label="Show/hide password">
                           						<input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
                         					</label>
@@ -239,24 +239,24 @@
                                     </div> -->
                                     <div class="mb-4">
                                         <label class="form-label" for="signup-name">Name<span class='fs-sm text-muted'>&nbsp;&nbsp;한글&nbsp;2-10글자</span></label>
-                                        <input class="form-control" type="text" name="name" id="signup-name" pattern="[가-힣]{2,10}" placeholder="이름" required>
+                                        <input class="form-control" type="text" name="mem_name" id="signup-name" pattern="[가-힣]{2,10}" placeholder="이름" required>
                                     </div>
                                     <div class="mb-4">
                                         <label class="form-label" for="signup-birth">Birth</label>
                                         <!-- <input class="form-control" type="text" name="birth" id="signup-birth" placeholder="생년월일 yyyy-mm-dd" required> -->
-                                        <input class="form-control" type="date" name="birth" id="signup-birth" placeholder="생년월일" required>
+                                        <input class="form-control" type="date" name="mem_birth" id="signup-birth" placeholder="생년월일" required>
                                     </div>
                                     <div class="mb-4">
                                         <label class="form-label" for="signup-address">Address</label>
-                                        <input class="form-control" type="text" name="address" id="signup-address" placeholder="주소" required>
+                                        <input class="form-control" type="text" name="mem_address" id="signup-address" placeholder="주소" required>
                                     </div>
                                     <div class="mb-4">
                                         <label class="form-label" for="signup-phone">Phone</label>
-                                        <input class="form-control" type="text" name="phone" id="signup-phone" placeholder="전화번호" required>
+                                        <input class="form-control" type="text" name="mem_phone" id="signup-phone" placeholder="전화번호" required>
                                     </div>
                                     <div class="mb-4">
                                         <label class="form-label" for="signup-email">Email</label>
-                                        <input class="form-control" type="email" name="email" id="signup-email" placeholder="@gmail.com" required>
+                                        <input class="form-control" type="email" name="mem_email" id="signup-email" placeholder="@gmail.com" required>
                                     </div>
                                     <div class="form-check mb-4">
                                         <input class="form-check-input" type="checkbox" id="agree-to-terms" required>
@@ -299,18 +299,19 @@
                                 <form action="/company/insert" method="post" class="needs-validation" novalidate>
                                     <div class="mb-4">
                                         <label class="form-label" for="signup-id">ID<span class='fs-sm text-muted'>&nbsp;&nbsp;영어/숫자&nbsp;조합&nbsp;4-20글자</span></label>
-                                        <input class="form-control" type="text" name="id" id="signup-id" required pattern="[A-Za-z0-9]{4,20}" autocomplete="off">
+                                        <input class="form-control" type="text" name="com_id" id="signup-id" required pattern="[A-Za-z0-9]{4,20}" autocomplete="off">
                                         
                                     </div>
                                     <div class="mb-4">
                                         <label class="form-label" for="signup-password">Password<span class='fs-sm text-muted'>&nbsp;&nbsp;최소 4글자 이상</span></label>
                                         <div class="password-toggle">
-                                            <input class="form-control" type="password" name="pw" id="signup-password" minlength="4" required>
+                                            <input class="form-control" type="password" name="com_pw" id="signup-password" minlength="4" required>
                                             <label class="password-toggle-btn" aria-label="Show/hide password">
                           						<input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
                         					</label>
                                         </div>
                                     </div>
+                                    <!-- 
                                     <div class="mb-4">
                                         <label class="form-label" for="signup-password-confirm">Confirm password</label>
                                         <div class="password-toggle">
@@ -320,34 +321,35 @@
                        					</label>
                                         </div>
                                     </div>
+                                     -->
                                     <div class="mb-4">
-                                        <label class="form-label" for="signup-number">Company Number<span class='fs-sm text-muted'>&nbsp;&nbsp;6글자</span></label>
-                                        <input class="form-control" type="text" id="signup-number" name="cno" length="6" placeholder="사업자번호" required>
+                                        <label class="form-label" for="signup-number">Company Number<span class='fs-sm text-muted'>&nbsp;&nbsp;4글자</span></label>
+                                        <input class="form-control" type="text" id="signup-number" name="com_cno" maxlength="4" placeholder="사업자번호" required>
                                     </div>
                                     <div class="mb-4">
                                         <label class="form-label" for="signup-name">Company Name<span class='fs-sm text-muted'>&nbsp;&nbsp;2-10글자</span></label>
-                                        <input class="form-control" type="text" id="signup-name" name="name" pattern="[가-힣A-Za-z0-9]{2,10}" placeholder="기업명" required>
+                                        <input class="form-control" type="text" id="signup-name" name="com_name" pattern="[가-힣A-Za-z0-9]{2,10}" placeholder="기업명" required>
                                     </div>
                                     <div class="mb-4">
                                         <label class="form-label" for="signup-address">Company Address</label>
-                                        <input class="form-control" type="text" id="signup-address" name="address" placeholder="주소" required>
+                                        <input class="form-control" type="text" id="signup-address" name="com_address" placeholder="주소" required>
                                     </div>
                                     <div class="mb-4">
                                         <label class="form-label" for="signup-phone">Company Phone</label>
-                                        <input class="form-control" type="text" id="signup-phone" name="phone" placeholder="전화번호" required>
+                                        <input class="form-control" type="text" id="signup-phone" name="com_phone" placeholder="전화번호" required>
                                     </div>
                                     <div class="mb-4">
                                         <label class="form-label" for="signup-type">Company Type</label>
                                         <div>
-                                        	<label class="radio-inline"><input type="radio" name="type" checked value="대기업">대기업</label>&nbsp;&nbsp;
-                                        	<label class="radio-inline"><input type="radio" name="type" value="중견기업">중견기업</label>&nbsp;&nbsp;
-                                        	<label class="radio-inline"><input type="radio" name="type" value="중소기업">중소기업</label>
+                                        	<label class="radio-inline"><input type="radio" name="com_type" checked value="대기업">대기업</label>&nbsp;&nbsp;
+                                        	<label class="radio-inline"><input type="radio" name="com_type" value="중견기업">중견기업</label>&nbsp;&nbsp;
+                                        	<label class="radio-inline"><input type="radio" name="com_type" value="중소기업">중소기업</label>
                                         </div>
                                         <!-- <input class="form-control" type="text" id="signup-type" placeholder="기업형태 ex)대기업/중견기업" required> -->
                                     </div>
                                     <div class="mb-4">
                                         <label class="form-label" for="signup-manager">CEO<span class='fs-sm text-muted'>&nbsp;&nbsp;2-10글자</span></label>
-                                        <input class="form-control" type="text" id="signup-manager" name="manager" pattern="[가-힣A-Za-z0-9]{2,10}" placeholder="기업 대표" required>
+                                        <input class="form-control" type="text" id="signup-manager" name="com_ceo" pattern="[가-힣A-Za-z0-9]{2,10}" placeholder="기업 대표" required>
                                     </div>
                                     <div class="form-check mb-4">
                                         <input class="form-check-input" type="checkbox" id="agree-to-terms" required>

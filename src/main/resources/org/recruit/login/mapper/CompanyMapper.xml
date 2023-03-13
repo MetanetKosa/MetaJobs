@@ -7,39 +7,39 @@
   	<!-- 회원정보 확인 -->
   	<select id="read" resultType="org.recruit.login.domain.CompanyVO">
 		SELECT 
-		 id, pw, auth, cno, name, phone, address, type, manager, joinDate
+		 com_id, com_pw, com_auth, com_cno, com_name, com_phone, com_address, com_type, com_ceo, com_joinDate
 		FROM 
 		  company
-		 WHERE cno = #{cno}
+		 WHERE com_cno = #{com_cno}
   	</select>
 
 	<!-- 회원가입 -->
     <insert id="insert">
-	  insert into company (id, pw, cno, name, phone, address, type, manager)
-	  values (#{id}, #{pw}, #{cno}, #{name}, #{phone}, #{address}, #{type}, #{manager})
+	  insert into company (com_id, com_pw, com_cno, com_name, com_phone, com_address, com_type, com_ceo)
+	  values (#{com_id}, #{com_pw}, #{com_cno}, #{com_name}, #{com_phone}, #{com_address}, #{com_type}, #{com_ceo})
   	</insert>
   
 	<!-- 회원 탈퇴 -->
     <delete id="delete">
-		delete from company where cno = #{cno}
+		delete from company where com_cno = #{com_cno}
     </delete>
 
 	<!-- 회원 수정 -->
   	<update id="update">
 		update company 
-		set pw = #{pw},
-			phone = #{phone},
-			address = #{address},
-			type = #{type},
-			manager = #{manager},
-			updateDate = sysdate
+		set com_pw = #{com_pw},
+			com_phone = #{com_phone},
+			com_address = #{com_address},
+			com_type = #{com_type},
+			com_ceo = #{com_manager},
+			com_updateDate = sysdate
 			<!-- mem_update = TO_CHAR(SYSDATE, 'YYYY/MM/DD HH:MI:SS') -->
-		where cno = #{cno} 
+		where com_cno = #{com_cno} 
   	</update>
   
   <select id="getList" resultType="org.recruit.login.domain.CompanyVO">
  		<![CDATA[
- 			select * from company where cno > 0
+ 			select * from company where com_cno > 0
  		]]>
  	  </select>
 </mapper>
