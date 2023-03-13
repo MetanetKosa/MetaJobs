@@ -41,11 +41,88 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="reJob">직군 <span class='text-danger'>*</span></label>
+                                <select class="form-control form-select" id="reJob" name="reJob" required>
+					                    <option value="" selected disabled hidden>직군</option>
+					                    <option value="개발">개발</option>
+					                    <option value="금융/재무">금융/재무</option>
+					                    <option value="기획/경영">기획/경영</option>
+					                    <option value="미디어/홍보">미디어/홍보</option>
+					                    <option value="법률/법무">법률/법무</option>
+					                    <option value="생산/제조">생산/제조</option>
+					                    <option value="생산관리/품질관리">생산관리/품질관리</option>
+					                    <option value="엔지니어링">엔지니어링</option>
+					                    <option value="연구개발">연구개발</option>
+					                    <option value="영업/제휴">영업/제휴</option>
+					                    <option value="유통/무역">유통/무역</option>
+				                  </select>
+				            </div> 
+                            <div class="mb-3">
+				                <label class="form-label" for="reJob">직군 <span class='text-danger'>*</span></label>
+                                <input class="form-control" type="text" id="mno" name="mno" placeholder="회원번호" required>
+                               <!--  <div class="invalid-feedback">Please provide a valid email address.</div> -->
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="reDate">면접일 <span class='text-danger'>*</span></label>
+                                <div class="input-group input-group-lg">
+ 								<input class="form-control date-picker rounded pe-5" type="text" id="reDate" name="reDate" placeholder="Choose date" data-datepicker-options="{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;}"><i class="fi-calendar text-muted position-absolute top-50 end-0 translate-middle-y me-3"></i>
+								</div>
+                            </div>
+                            <div class="mb-3">
+                            <div class="row">
+	                            <div class="col-6">
+	                                <label class="form-label" for="pNum">면접인원 <span class='text-danger'>*</span></label>
+	                                <select class="form-control form-select" style="width:150px;" id="pNum" name="pNum" required>
+					                    <option value="" selected disabled hidden>면접인원</option>
+					                    <option value="단독면접">단독면접</option>
+					                    <option value="개인면접">개인면접</option>
+					                    <option value="집단면접">집단면접</option>
+				                  </select>
+	                 			 </div>
+	                            <div class="col-6">
+	                                <label class="form-label" for="reResult">면접결과 <span class='text-danger'>*</span></label>
+	                                <select class="form-control form-select" style="width:150px;" id="reResult" name="reResult" required>
+					                    <option value="" selected disabled hidden>면접결과</option>
+					                    <option value="합격">합격</option>
+					                    <option value="불합격">불합격</option>
+				                  </select>
+	                 			 </div>
+                            
+                 		 </div>
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label" for="reContent">후기 내용 <span class='text-danger'>*</span></label>
+                                <textarea class="form-control" id="reContent" name="reContent" rows="5" placeholder="후기 내용을 적어주세요." required></textarea>
+                                <div class="invalid-feedback">후기 내용을 적어주세요.</div>
+                            </div>
+                            <button class="btn btn-primary d-block w-100 mb-4" type="submit">리뷰 등록</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+       <%--  <!-- Review modal-->
+        <div class="modal fade" id="modal-reviewUpdate" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header d-block position-relative border-0 pb-0 px-sm-5 px-4">
+                        <h3 class="modal-title mt-4 text-center">Leave a review</h3>
+                        <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body px-sm-5 px-4">
+                        <form class="needs-validation" action="${path}/review/update" method="post" novalidate>
+                            <div class="mb-3">
+                                <label class="form-label" for="cName">회사명 <span class='text-danger'>*</span></label>
+                                <input class="form-control" type="text" id="cName" name="cno" value='<c:out value="${review.cno}"/>' placeholder="회사명" >
+                                <div class="invalid-feedback">Please let us know your name.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="reJob">직군 <span class='text-danger'>*</span></label>
                                 <input class="form-control" type="text" id="reJob" name="reJob" placeholder="직군" required>
                                <!--  <div class="invalid-feedback">Please provide a valid email address.</div> -->
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="reJob">직군 <span class='text-danger'>*</span></label>
+                                <label class="form-label" for="reJob">회원번호..수정해야함 <span class='text-danger'>*</span></label>
                                 <input class="form-control" type="text" id="mno" name="mno" placeholder="직군" required>
                                <!--  <div class="invalid-feedback">Please provide a valid email address.</div> -->
                             </div>
@@ -82,12 +159,12 @@
                                 <textarea class="form-control" id="reContent" name="reContent" rows="5" placeholder="후기 내용을 적어주세요." required></textarea>
                                 <div class="invalid-feedback">후기 내용을 적어주세요.</div>
                             </div>
-                            <button class="btn btn-primary d-block w-100 mb-4" type="submit">리뷰 등록</button>
+                            <button class="btn btn-primary d-block w-100 mb-4" type="submit">리뷰 수정</button>
                         </form>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --%>
 
         <!-- Post content-->
         <section class="container mb-5 pb-1">
@@ -113,6 +190,51 @@
                     <span class="badge bg-success me-2 mb-3">Verified</span><span class="badge bg-info me-2 mb-3">New</span>
                     <h2 class="h3 mb-4 pb-4 border-bottom">$2,000<span class="d-inline-block ms-1 fs-base fw-normal text-body">/month</span></h2>
 
+					 <!-- Form group-->
+                        <form class="form-group d-block" name="campSearchFrm" action="${path}/camp/campSearch" method="get" >
+                            <div class="row g-0">
+                                <div class="col-md-10 d-sm-flex align-items-center">
+                                    <div class="input-group input-group-lg border-end-md"><span class="input-group-text text-muted rounded-pill ps-3"><i class="fi-search"></i></span>
+                                        <input class="form-control" name="cno" type="text" placeholder="회사명을 입력하세요">
+                                    </div>
+                                    <hr class="d-sm-none my-2">
+                                    <div class="dropdown w-sm-50 border-end-sm" data-bs-toggle="select">
+                                        <button class="btn btn-lg btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown"><i class="fi-home me-2"></i><span class="dropdown-toggle-label">직종</span></button>
+                                        <input type="hidden" name="reJob">
+                                        <ul class="dropdown-menu" style="position: absolute; z-index:1;">
+                                            <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">직종 전체</span></a></li>      
+                                            <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">개발</span></a></li>      
+                                            <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">금융/재무</span></a></li>
+                                            <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">기획/경영</span></a></li>
+                                            <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">미디어/홍보</span></a></li>
+                                            <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">법률/법무</span></a></li>
+                                            <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">생산/제조</span></a></li>
+                                            <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">생산관리/품질관리</span></a></li>
+                                            <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">엔지니어링</span></a></li>
+                                            <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">연구개발</span></a></li>
+                                            <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">영업/제휴</span></a></li>
+                                            <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">유통/무역</span></a></li>
+                                        </ul>
+                                    </div>
+                                    <hr class="d-sm-none my-2">
+                                    <div class="dropdown w-sm-50 border-end-sm" data-bs-toggle="select">
+                                        <button class="btn btn-lg btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown"><i class="fi-map-pin me-2"></i><span class="dropdown-toggle-label">면접결과</span></button>
+                                        <input type="hidden" name="reResult">
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">합격</span></a></li>
+                                            <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">불합격</span></a></li>
+                                            <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">대기중</span></a></li>
+                                        </ul>
+                                    </div>  
+<!--                                     <input class="form-control" name="category" type="hidden"> -->
+<!--                                     <input class="form-control" name="price" type="hidden"> -->
+                                </div>
+                                <hr class="d-md-none mt-2">
+                                <div class="col-md-2 d-sm-flex align-items-center pt-3 pt-md-0">
+                                    <input class="btn btn-lg btn-icon btn-primary px-3 w-100" type="submit" value="검색"/>
+                                </div>
+                            </div>
+                        </form>
 
 
                     <!-- Reviews-->
@@ -143,7 +265,10 @@
 	                            </div>
 	                            <div>
 	                            	<span class="fs-sm"><fmt:formatDate pattern="yyyy년 MM월 dd일" value="${review.reDate}"/></span>
-	                            	<span><a class="nav-link" href="${path}/" role="button">수정</a></span>
+	                            	<form id="updateForm" action="${path}/review/get" method="get">
+		                            	<input type="hidden" name="rno" value="${review.rno}">
+		                            	<span><a class="nav-link" href = "#modal-reviewUpdate" data-bs-toggle="modal">수정</a></span>
+	                            	</form>
 	                            	<form id="deleteForm" action="${path}/review/delete" method="post">
 		                            	<input type="hidden" name="rno" value="${review.rno}">
 		                            	<span><button class="nav-link" type="submit">삭제</button></span>
@@ -155,7 +280,7 @@
 	                                <h6 class="fs-xs mb-0">면접일</h6>
 	                                <h6 class="fs-xs fw-light mb-0"><fmt:formatDate pattern="yyyy년 MM월 dd일" value="${review.reDate}"/></h6>
 	                                <h6 class="fs-xs pt-2 mb-0">면접인원</h6>
-	                                <h6 class="fs-xs fw-light mb-0">면접인원!!</h6>
+	                                <h6 class="fs-xs fw-light mb-0">면접인원</h6>
 	                            </div>
 	                            <div class="col-10">
 	                                <h3 class="fs-sm mb-0">면접내용</h3>
@@ -242,8 +367,7 @@
 					actionForm.find("input[name = 'pageNum']").val($(this).attr("href"));
 					actionForm.submit();
 				});
-				
-				
+			
 			});
 		</script>
  <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>

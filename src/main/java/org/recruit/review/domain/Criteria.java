@@ -12,6 +12,10 @@ public class Criteria {
 	private int pageNum;
 	private int amount;
 	
+	private String type;
+	private String keyword;
+	
+	
 	public Criteria() {
 		this(1,5);
 	}
@@ -22,5 +26,5 @@ public class Criteria {
 		this.amount = amount;
 	}
 
-	
+
 }

@@ -30,8 +30,9 @@ public class ReviewController {
 	@GetMapping("/reviewList")
 	public void getReviewList(Criteria cri, Model model) {
 		log.info("list : " + cri);
+		int total = service.getTotal(cri);
 		model.addAttribute("list", service.getReviewList(cri));
-		model.addAttribute("pageMaker", new PageDTO(cri, 10));
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
 		model.addAttribute("total", service.getTotal(cri));
 	}
 	
@@ -45,9 +46,9 @@ public class ReviewController {
 		return "redirect:/review/reviewList";
 	}
 
-	@GetMapping("/get")
+	@GetMapping({"/get", "/update"})
 	public void get(@RequestParam("rno")Long rno, Model model) {
-		log.info("/get");
+		log.info("/get or update");
 		model.addAttribute("review", service.getReview(rno));
 	}
 	
@@ -56,6 +57,17 @@ public class ReviewController {
 	public String deleteReview(@RequestParam("rno")Long rno, RedirectAttributes rttr) {
 		log.info("remove: " + rno);
 		if(service.deleteReview(rno)) {
+			rttr.addFlashAttribute("result", "success");
+		}
+		return "redirect:/review/reviewList";
+	}
+	
+	
+	@PostMapping("/update")
+	public String updateReview(ReviewVO review, RedirectAttributes rttr) {
+		log.info("update : " + review);
+		
+		if(service.updateReview(review)) {
 			rttr.addFlashAttribute("result", "success");
 		}
 		return "redirect:/review/reviewList";
