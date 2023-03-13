@@ -137,7 +137,7 @@
 								<label class="form-label" for="pr-city">학력조건<span
 									class='text-danger'>*</span></label> <select
 									class="form-select form-select-lg" 
-									id='postEmptype' name='postEmptype' required>
+									id='postEdu' name='postEdu' required>
 									<option value="" disabled selected>${post.postEdu }</option>
 									<option value="고졸">고졸</option>
 									<option value="초대졸">초대졸</option>
@@ -183,7 +183,7 @@
 					class="fi-chevron-right fs-sm ms-2"></i></button>
 					<%-- onclick="location.href='/post/postModify?post_no=${post.postNo }'" --%>
 					<button class="btn btn-primary btn-lg rounded-pill ms-sm-auto"
-					 type = "submit" data-oper='delete'
+					 type = "submit" data-oper='delete' onclick="location.href='/post/postDelete?postNo=${post.postNo }'"
 					 >삭제<i
 					class="fi-chevron-right fs-sm ms-2"></i></button>
 			</div>
@@ -212,29 +212,4 @@
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
 <script type="text/javascript">
-$(document).ready(function() {
-
-
-	  var formObj = $("form");
-
-	  $('button').on("click", function(e){
-	    
-	    e.preventDefault(); 
-	    var operation = $(this).data("oper");
-	    
-	    console.log(operation);
-	    
-	    if(operation === 'delete'){
-	      formObj.attr("action", "/post/postDelete");
-	      
-	    }else if(operation === 'list'){
-	      //move to list
-	      formObj.attr("action", "/post/postList").attr("method","get");
-       
-	    }
-	    
-	    formObj.submit();
-	  });
-
-});
 </script>

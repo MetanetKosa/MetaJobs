@@ -3,6 +3,7 @@ package org.recruit.post.controller;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import org.recruit.post.domain.PostVO;
@@ -70,8 +71,6 @@ public class PostController {
 //	@PostMapping("/postModify")
 	@RequestMapping(value = "/postModify", method = RequestMethod.POST)
 	public String modify(@ModelAttribute PostVO post, RedirectAttributes rttr, @RequestParam("postNo") Long postNo) {
-		log.info("PostMapping결과확인: "+ postNo);
-		log.info("PostVO결과확인: "+ post);
 		if(service.updatePost(post) == 1) {
 			rttr.addFlashAttribute("result", "success");
 			rttr.addAttribute("post_no", post.getPostNo());
@@ -80,8 +79,9 @@ public class PostController {
 	}
 	
 
-	@DeleteMapping("/postDelete")
-	@PostMapping("/postDelete")
+//	@DeleteMapping("/postDelete")
+//	@PostMapping("/postDelete")
+	@RequestMapping(value = "/postDelete", method = RequestMethod.GET)
 	public String delete(@RequestParam Long postNo, RedirectAttributes rttr) {
 		log.info("@DeleteMapping결과확인: "+ postNo);
 		if(service.deletePost(postNo) == 1) {
