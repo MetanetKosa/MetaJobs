@@ -37,7 +37,7 @@ public class ReviewController {
 	
 	
 	@PostMapping("/insert")
-	public String insertReview(ReviewVO review, RedirectAttributes rttr) throws ParseException {
+	public String insertReview(ReviewVO review, RedirectAttributes rttr){
 		log.info("ReDate : " + review.getReDate());
 		service.insertReview(review);
 		rttr.addFlashAttribute("result", review.getRno());
@@ -49,5 +49,15 @@ public class ReviewController {
 	public void get(@RequestParam("rno")Long rno, Model model) {
 		log.info("/get");
 		model.addAttribute("review", service.getReview(rno));
+	}
+	
+	
+	@PostMapping("/delete")
+	public String deleteReview(@RequestParam("rno")Long rno, RedirectAttributes rttr) {
+		log.info("remove: " + rno);
+		if(service.deleteReview(rno)) {
+			rttr.addFlashAttribute("result", "success");
+		}
+		return "redirect:/review/reviewList";
 	}
 }

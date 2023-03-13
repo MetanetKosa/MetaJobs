@@ -143,8 +143,11 @@
 	                            </div>
 	                            <div>
 	                            	<span class="fs-sm"><fmt:formatDate pattern="yyyy년 MM월 dd일" value="${review.reDate}"/></span>
-	                            	<span class="page-link" onclick="location.href='http://art-life.tistory.com'" style="cursor:pointer;">수정</span>
 	                            	<span><a class="nav-link" href="${path}/" role="button">수정</a></span>
+	                            	<form id="deleteForm" action="${path}/review/delete" method="post">
+		                            	<input type="hidden" name="rno" value="${review.rno}">
+		                            	<span><button class="nav-link" type="submit">삭제</button></span>
+	                            	</form>
 	                           </div>
 	                        </div>
 	                        <div class="row">
