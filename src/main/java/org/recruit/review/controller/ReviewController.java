@@ -1,5 +1,9 @@
 package org.recruit.review.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.recruit.review.domain.Criteria;
 import org.recruit.review.domain.PageDTO;
 import org.recruit.review.domain.ReviewVO;
@@ -28,13 +32,13 @@ public class ReviewController {
 		log.info("list : " + cri);
 		model.addAttribute("list", service.getReviewList(cri));
 		model.addAttribute("pageMaker", new PageDTO(cri, 10));
+		model.addAttribute("total", service.getTotal(cri));
 	}
 	
 	
 	@PostMapping("/insert")
-	public String insertReview(ReviewVO review, RedirectAttributes rttr) {
-		
-		log.info("register : " + review);
+	public String insertReview(ReviewVO review, RedirectAttributes rttr) throws ParseException {
+		log.info("ReDate : " + review.getReDate());
 		service.insertReview(review);
 		rttr.addFlashAttribute("result", review.getRno());
 		

@@ -37,5 +37,10 @@ public class ReviewServiceImpl implements ReviewService{
 	public ReviewVO getReview(long rno) {
 		return mapper.get(rno);
 	}
+
+	@Override
+	public int getTotal(Criteria cri) {
+		return mapper.getTotalCount(cri);
+	}
 	
 }

@@ -52,7 +52,7 @@
                             <div class="mb-3">
                                 <label class="form-label" for="reDate">면접일 <span class='text-danger'>*</span></label>
                                 <div class="input-group input-group-lg">
-<!-- 								<input class="form-control date-picker rounded pe-5" type="text" id="reDate" name="reDate" placeholder="Choose date" data-datepicker-options="{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;}"><i class="fi-calendar text-muted position-absolute top-50 end-0 translate-middle-y me-3"></i>-->
+ 								<input class="form-control date-picker rounded pe-5" type="text" id="reDate" name="reDate" placeholder="Choose date" data-datepicker-options="{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;}"><i class="fi-calendar text-muted position-absolute top-50 end-0 translate-middle-y me-3"></i>
 								</div>
                             </div>
                             <div class="mb-3">
@@ -119,7 +119,7 @@
                     <div class="mb-4 pb-4 border-bottom">
                         <div class="d-flex flex-sm-row flex-column align-items-sm-center align-items-stretch justify-content-between"><a class="btn btn-outline-primary mb-sm-0 mb-3" href="#modal-review" data-bs-toggle="modal"><i class="fi-edit me-1"></i>Add review</a>
                             <div class="d-flex align-items-center ms-sm-4">
-                           	<p>총 100건</p>
+                           	<p>총 ${total}건</p>
                                <!--  <label class="me-2 pe-1 text-nowrap" for="reviews-sorting"><i class="fi-arrows-sort text-muted mt-n1 me-2"></i>Sort by:</label>
                                 <select class="form-select" id="reviews-sorting">
                     <option>Newest</option>
@@ -140,7 +140,12 @@
 	                                    <h6 class="fs-base mb-0">회사명</h6>
 	                                    <h6 class="fs-sm mb-0">${review.reJob}</h6>
 	                                </div>
-	                            </div><span class="fs-sm"><fmt:formatDate pattern="yyyy년 MM월 dd일" value="${review.reDate}"/></span>
+	                            </div>
+	                            <div>
+	                            	<span class="fs-sm"><fmt:formatDate pattern="yyyy년 MM월 dd일" value="${review.reDate}"/></span>
+	                            	<span class="page-link" onclick="location.href='http://art-life.tistory.com'" style="cursor:pointer;">수정</span>
+	                            	<span><a class="nav-link" href="${path}/" role="button">수정</a></span>
+	                           </div>
 	                        </div>
 	                        <div class="row">
 	                            <div class="col-2">
@@ -189,18 +194,6 @@
             </div>
             
             
-<!--         <div class="modal fade" id="myModal" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-            	<div class="modal-body">처리가 완료되었습니다.</div>
-            	<div class="modal-body">처리가 완료되었습니다.</div>
-            	<div class="modal-body">처리가 완료되었습니다.</div>
-            	<div class="modal-body">처리가 완료되었습니다.</div>
-            	<div class="modal-body">처리가 완료되었습니다.</div>
-            	<div class="modal-body">처리가 완료되었습니다.</div>
-            	<div class="modal-body">처리가 완료되었습니다.</div>
-            	<div class="modal-body">처리가 완료되었습니다.</div>
-            </div>
-        </div> -->
         
         <div class="modal fade" id="myModal" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered" role="document">

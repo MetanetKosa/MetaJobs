@@ -14,4 +14,7 @@ public interface ReviewMapper {
 	public ReviewVO get(long rno);
 	
 	public List<ReviewVO> getListWithPaging(Criteria cri);
+	
+	public int getTotalCount(Criteria cri);
+
 }

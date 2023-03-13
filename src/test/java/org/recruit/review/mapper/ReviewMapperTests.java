@@ -58,14 +58,15 @@ public class ReviewMapperTests {
 //		log.info(mapper.get(1L));
 //	}
 	
-	@Test
-	public void testPaging() {
-		Criteria cri = new Criteria();
-		cri.setAmount(5);
-		cri.setPageNum(2);
-		
-		List<ReviewVO> list = mapper.getListWithPaging(cri);
-		
-		list.forEach(review -> log.info(review));
-	}
+//	@Test
+//	public void testPaging() {
+//		Criteria cri = new Criteria();
+//		cri.setAmount(5);
+//		cri.setPageNum(2);
+//		
+//		List<ReviewVO> list = mapper.getListWithPaging(cri);
+//		
+//		list.forEach(review -> log.info(review));
+//	}
+	
 }

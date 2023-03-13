@@ -13,4 +13,6 @@ public interface ReviewService {
 	public boolean insertReview(ReviewVO review);
 	
 	public ReviewVO getReview(long rno);
+	
+	public int getTotal(Criteria cri);
 }
