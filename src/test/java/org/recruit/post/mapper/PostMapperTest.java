@@ -56,34 +56,34 @@ public class PostMapperTest {
 //		int result = mapper.postInsert(post);
 //		log.info("postInsert 값 확인: " + result);
 //	}
-//	@Test
-//	public void postUpdate() throws ParseException {
-//		String sdate = "2023-05-05";
-//		String fdate = "2023-06-06";
-//		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-//		Date sdata = formatter.parse(sdate);
-//		Date fdata = formatter.parse(fdate);
-//
-//		PostVO post = new PostVO();
-//		post.setPostTitle("메타넷글로채용");
-//		post.setPostJob("IOS개발");
-//		post.setPostCareer("신입");
-//		post.setPostEmptype("정규직");
-//		post.setPostAdd("서울상암동");
-//		post.setPostSdate(sdata);
-//		post.setPostFdate(fdata);
-//		post.setPostSal("75000000");
-//		post.setPostEdu("초대졸");
-//		post.setPostAge("35세");
-//		post.setPostHow("홈페이지지원");
-//		post.setPostUrl("http://www.metanetdigital.co.kr/");
-//		post.setPostNo(2);
-////		post.setComCno(1237);
-////		post.setMemNo(2);
-//		
-//		int result = mapper.postUpdate(post);
-//		log.info(result);
-//	}
+	@Test
+	public void postUpdate() throws ParseException {
+		String sdate = "2023-05-05";
+		String fdate = "2023-06-06";
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		Date sdata = formatter.parse(sdate);
+		Date fdata = formatter.parse(fdate);
+
+		PostVO post = new PostVO();
+		post.setPostTitle("메타넷글로채용");
+		post.setPostJob("IOS개발");
+		post.setPostCareer("신입");
+		post.setPostEmptype("정규직");
+		post.setPostAdd("서울상암동");
+		post.setPostSdate(sdata);
+		post.setPostFdate(fdata);
+		post.setPostSal("75000000");
+		post.setPostEdu("초대졸");
+		post.setPostAge("35세");
+		post.setPostHow("홈페이지지원");
+		post.setPostUrl("http://www.metanetdigital.co.kr/");
+		post.setPostNo(2);
+		post.setComCno(1237);
+		post.setMemNo(2);
+		
+		int result = mapper.postUpdate(post);
+		log.info(result);
+	}
 //	
 //	@Test
 //	public void postDelete() {

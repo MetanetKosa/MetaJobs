@@ -82,6 +82,8 @@
 									placeholder=""
 									id = 'postAge' name='postAge'>
 							</div>
+
+							
 							<div class="col-sm-6 mb-4">
 								<label class="form-label" for="pr-birth-date">접수 시작일<span
 									class='text-danger'>*</span></label>
@@ -89,8 +91,8 @@
 									<input class="form-control date-picker rounded pe-5"
 										type="text" placeholder=""
 										data-datepicker-options="{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;}" 
-										id = 'postSdate' name = 'posSdate' 
-										value='<c:out value="${post.postSdate}"/>'>
+										id = 'postSdate' name ='postSdate'
+										value = '<c:out value="${post.postSdate}"/>'>
 									<i
 										class="fi-calendar text-muted position-absolute top-50 end-0 translate-middle-y me-3"></i>
 								</div>
