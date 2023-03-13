@@ -15,4 +15,6 @@ public interface ReviewService {
 	public ReviewVO getReview(long rno);
 	
 	public int getTotal(Criteria cri);
+	
+	public boolean deleteReview(long rno);
 }

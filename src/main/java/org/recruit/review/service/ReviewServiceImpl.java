@@ -42,5 +42,10 @@ public class ReviewServiceImpl implements ReviewService{
 	public int getTotal(Criteria cri) {
 		return mapper.getTotalCount(cri);
 	}
+
+	@Override
+	public boolean deleteReview(long rno) {
+		return mapper.reviewDelete(rno) == 1;
+	}
 	
 }

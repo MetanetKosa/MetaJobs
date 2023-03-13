@@ -69,4 +69,13 @@ public class ReviewServiceTests {
 //		ReviewVO review = service.getReview(3);
 //		log.info(review);
 //	}
+	
+	@Test
+	public void deleteReview() {
+//		if(service.deleteReview(30)) {
+//			log.info("¼º°ø!!");
+//		};
+		
+		log.info("DELETE TEST!! : " + service.deleteReview(10));
+	}
 }
