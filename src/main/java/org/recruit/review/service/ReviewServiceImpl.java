@@ -47,5 +47,12 @@ public class ReviewServiceImpl implements ReviewService{
 	public boolean deleteReview(long rno) {
 		return mapper.reviewDelete(rno) == 1;
 	}
+
+	@Override
+	public boolean updateReview(ReviewVO review) {
+		return mapper.reviewUpdate(review) == 1;
+	}
+	
+	
 	
 }

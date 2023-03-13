@@ -33,11 +33,11 @@ public class ReviewServiceTests {
 //		reviewList.forEach(review -> log.info(review));
 //	}
 	
-	@Test
-	public void getReviewList(){
-		List<ReviewVO> reviewList = service.getReviewList(new Criteria(2, 5));
-		reviewList.forEach(review -> log.info(review));
-	}
+//	@Test
+//	public void getReviewList(){
+//		List<ReviewVO> reviewList = service.getReviewList(new Criteria(2, 5));
+//		reviewList.forEach(review -> log.info(review));
+//	}
 	
 //	@Test
 //	public void insertReview() throws ParseException {
@@ -70,12 +70,24 @@ public class ReviewServiceTests {
 //		log.info(review);
 //	}
 	
-	@Test
-	public void deleteReview() {
+//	@Test
+//	public void deleteReview() {
 //		if(service.deleteReview(30)) {
 //			log.info("성공!!");
 //		};
+//		
+//		log.info("DELETE TEST!! : " + service.deleteReview(10));
+//	}
+	
+	@Test
+	public void updateReviewTest() {
+		ReviewVO review = service.getReview(1L);
+		log.info("Review!!!: " + review);
+		if(review == null) {
+			return;
+		}
 		
-		log.info("DELETE TEST!! : " + service.deleteReview(10));
+		review.setReContent("service test 새로운 내용입니다!");
+		log.info("결과!!: " + service.updateReview(review));
 	}
 }

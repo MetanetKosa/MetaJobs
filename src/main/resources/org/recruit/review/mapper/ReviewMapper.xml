@@ -21,6 +21,13 @@
  		where rownum <= 5
  		]]>
  	</select>
+
+ 	<select id="get" resultMap="reviewResultMap">
+ 		<![CDATA[
+ 		select * from review
+ 		where re_no = #{rno}
+ 		]]>
+ 	</select>
  	
  	<insert id="reviewInsert">
  		<![CDATA[
@@ -51,4 +58,15 @@
  		delete from review where re_no = #{rno}
  	</delete>
  	
+ 	<update id="reviewUpdate">
+ 		update review
+ 		set com_cno = #{cno},
+ 		re_job = #{reJob},
+ 		re_date = #{reDate},
+ 		re_pnum = #{pNum},
+ 		re_content = #{reContent},
+ 		re_result = #{reResult},
+ 		re_wdate = sysdate
+ 		where re_no = #{rno}
+ 	</update>
  </mapper>

@@ -18,4 +18,6 @@ public interface ReviewMapper {
 	public int getTotalCount(Criteria cri);
 	
 	public int reviewDelete(long rno);
+	
+	public int reviewUpdate(ReviewVO review);
 }
