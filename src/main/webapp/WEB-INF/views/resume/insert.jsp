@@ -109,152 +109,196 @@
 		                                <label class="form-label fw-bold pb-1 mb-2">자기소개서</label>
 		                                <textarea class="form-control form-control-lg" id="pr-address" name="resume_cv" cols="30" rows="10" placeholder="내용을 입력하세요 " style="height: 272px;  resize: none;"></textarea>
 		                            </div>
-		                        </div>
-		                      
-		                        <!-- <div class="border-top pt-4">
-		                            <label class="form-label fw-bold py-2 mb-1" for="pr-position">Position you want to work on</label>
-		                            <input class="form-control form-control-lg mb-4" type="text" id="pr-position" placeholder="Indicate the position" required>
-		                            <label class="form-label fw-bold pb-1 mb-2">Choose categories for posting resume</label>
-		                            <div class="row row-cols-sm-2 row-cols-md-4 gx-3 gx-lg-4 mb-4">
-		                               
-		                                <div class="col">
-		                                    
-		                                   
-		                                    
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="sport">
-		                                        <label class="form-check-label" for="sport">Fitness &amp; sports</label>
-		                                    </div>
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="beauty">
-		                                        <label class="form-check-label" for="beauty">Beauty</label>
-		                                    </div>
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="culture">
-		                                        <label class="form-check-label" for="culture">Culture</label>
-		                                    </div>
-		                                </div>
-		                                <div class="col">
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="music">
-		                                        <label class="form-check-label" for="music">Music</label>
-		                                    </div>
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="logistics">
-		                                        <label class="form-check-label" for="logistics">Logistics</label>
-		                                    </div>
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="education">
-		                                        <label class="form-check-label" for="education">Education &amp; science</label>
-		                                    </div>
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="sales">
-		                                        <label class="form-check-label" for="sales">Sales &amp; purchases</label>
-		                                    </div>
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="industry">
-		                                        <label class="form-check-label" for="industry">Industry</label>
-		                                    </div>
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="transportation">
-		                                        <label class="form-check-label" for="transportation">Transportation</label>
-		                                    </div>
-		                                </div>
-		                                <div class="col">
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="media">
-		                                        <label class="form-check-label" for="media">Mass media &amp; publishing</label>
-		                                    </div>
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="insurance">
-		                                        <label class="form-check-label" for="insurance">Insurance</label>
-		                                    </div>
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="construction">
-		                                        <label class="form-check-label" for="construction">Construction</label>
-		                                    </div>
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="architecture">
-		                                        <label class="form-check-label" for="architecture">Architecture</label>
-		                                    </div>
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="hr">
-		                                        <label class="form-check-label" for="hr">HR management</label>
-		                                    </div>
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="law">
-		                                        <label class="form-check-label" for="law">Law</label>
-		                                    </div>
-		                                </div>
-		                            </div>
-		                            <label class="form-label fw-bold pb-1 mb-2">Job type</label>
-		                            <div class="row row-cols-sm-2 row-cols-md-4 gx-3 gx-lg-4 mb-4">
-		                                <div class="col">
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="full-time">
-		                                        <label class="form-check-label" for="full-time">Full-time</label>
-		                                    </div>
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="part-time" checked>
-		                                        <label class="form-check-label" for="part-time">Part-time</label>
-		                                    </div>
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="remote">
-		                                        <label class="form-check-label" for="remote">Remote</label>
-		                                    </div>
-		                                </div>
-		                                <div class="col">
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="temporary" checked>
-		                                        <label class="form-check-label" for="temporary">Temporary</label>
-		                                    </div>
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="contract">
-		                                        <label class="form-check-label" for="contract">Contract</label>
-		                                    </div>
-		                                    <div class="form-check">
-		                                        <input class="form-check-input" type="checkbox" id="internship">
-		                                        <label class="form-check-label" for="internship">Internship</label>
-		                                    </div>
-		                                </div>
-		                            </div>
-		                            <label class="form-label fw-bold pb-1 mb-2">Salary range</label>
-		                            <div class="row gx-2 gx-lg-3 gx-xl-4">
-		                                <div class="col-md-2 mb-3 mb-md-0">
-		                                    <select class="form-select form-select-lg">
-		                      <option value="usd">&#36;</option>
-		                      <option value="eur">&#8364;</option>
-		                      <option value="gbp">&#163;</option>
-		                      <option value="jpy">&#165;</option>
-	                    </select>
-	                                </div>
-	                                <div class="col-md-7 mb-3 mb-md-0">
-	                                    <div class="d-flex align-items-center">
-	                                        <input class="form-control form-control-lg" type="number" step="100" min="300" placeholder="From">
-	                                        <div class="mx-2">&mdash;</div>
-	                                        <input class="form-control form-control-lg" type="number" step="100" min="500" placeholder="To">
-	                                    </div>
-	                                </div>
-	                                <div class="col-md-3">
-	                                    <select class="form-select form-select-lg">
-	                      <option value="monthly">monthly</option>
-	                      <option value="per hour">per hour</option>
-	                      <option value="weekly">weekly</option>
-	                      <option value="annually">annually</option>
-	                    </select>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
+		                            
+		                                      
+		                        
 	                    <!-- Navigation-->
 	                    <div class="d-flex flex-column flex-sm-row bg-light rounded-3 p-4 px-md-5"> <input class="btn btn-primary btn-lg rounded-pill ms-sm-auto" type="submit">등록</a></div>
 	                </div>
 	               </form>
+	               
+	                  <div class = "row">
+		                            	<div class="col-lg-12">
+		                            		<div class="panel-panel-default">
+		                            			<div class="panel-heading">첨부파일</div>
+		                            			
+		                            			<div class="panel-body">
+		                            				<div class="form-group uploadDiv">
+		                            					<input type="file" name='uploadFile' multiple>
+		                            				</div>
+		                            				
+		                            				<div class='uploadResult'>
+		                            					<ul>
+		                            					</ul>
+		                            				</div>
+		                            			</div>
+		                            		</div>
+		                            	</div>
+		                     </div>
 	            </div>
 	        </div>
 	      
 	    </main>
+	    </script>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		crossorigin="anonymous"></script>
+		<script>
 
+		$(document).ready(function(e){
+		  
+		  var formObj = $("form[role='form']");
+		  
+		  $("input[type='submit']").on("click", function(e){
+		    
+		    e.preventDefault();
+		    
+		    console.log("submit clicked");
+		    
+		    var str = "";
+		    
+		    $(".uploadResult ul li").each(function(i, obj){
+		      
+		      var jobj = $(obj);
+		      
+		      console.dir(jobj);
+		      console.log("-------------------------");
+		      console.log(jobj.data("filename"));
+		      
+		      
+		      str += "<input type='hidden' name='attachList["+i+"].fileName' value='"+jobj.data("filename")+"'>";
+		      str += "<input type='hidden' name='attachList["+i+"].uuid' value='"+jobj.data("uuid")+"'>";
+		      str += "<input type='hidden' name='attachList["+i+"].uploadPath' value='"+jobj.data("path")+"'>";
+		      str += "<input type='hidden' name='attachList["+i+"].fileType' value='"+ jobj.data("type")+"'>";
+		      
+		    });
+		    
+		    console.log(str);
+		    
+		    formObj.append(str).submit();
+		    
+		  });
+
+		  
+		  var regex = new RegExp("(.*?)\.(exe|sh|zip|alz)$");
+		  var maxSize = 5242880; //5MB
+		  
+		  function checkExtension(fileName, fileSize){
+		    
+		    if(fileSize >= maxSize){
+		      alert("파일 사이즈 초과");
+		      return false;
+		    }
+		    
+		    if(regex.test(fileName)){
+		      alert("해당 종류의 파일은 업로드할 수 없습니다.");
+		      return false;
+		    }
+		    return true;
+		  }
+		  
+		  $("input[type='file']").change(function(e){
+
+		    var formData = new FormData();
+		    
+		    var inputFile = $("input[name='uploadFile']");
+		    console.log("inputFile:"
+		    		+inputFile);
+		    var files = inputFile[0].files;
+		    
+		    for(var i = 0; i < files.length; i++){
+
+		      if(!checkExtension(files[i].name, files[i].size) ){
+		        return false;
+		      }
+		      formData.append("uploadFile", files[i]);
+		      
+		    }
+		    
+		    $.ajax({
+		      url: '/uploadAjaxAction',
+		      processData: false, 
+		      contentType: false,data: 
+		      formData,type: 'POST',
+		      dataType:'json',
+		        success: function(result){
+		          console.log(result); 
+				  showUploadResult(result); //업로드 결과 처리 함수 
+
+		      }
+		    }); //$.ajax
+		    
+		  });  
+		  
+		  function showUploadResult(uploadResultArr){
+			    
+		    if(!uploadResultArr || uploadResultArr.length == 0){ return; }
+		    
+		    var uploadUL = $(".uploadResult ul");
+		    
+		    var str ="";
+		    
+		    $(uploadResultArr).each(function(i, obj){
+		    				
+				if(obj.image){
+					var fileCallPath =  encodeURIComponent( obj.uploadPath+ "/s_"+obj.uuid +"_"+obj.fileName);
+					str += "<li data-path='"+obj.uploadPath+"'";
+					str +=" data-uuid='"+obj.uuid+"' data-filename='"+obj.fileName+"' data-type='"+obj.image+"'"
+					str +" ><div>";
+					str += "<span> "+ obj.fileName+"</span>";
+					str += "<button type='button' data-file=\'"+fileCallPath+"\' "
+					str += "data-type='image' class='btn btn-warning btn-circle'><i class='fa fa-times'></i></button><br>";
+					str += "<img src='/display?fileName="+fileCallPath+"'>";
+					str += "</div>";
+					str +"</li>";
+				}else{
+					var fileCallPath =  encodeURIComponent( obj.uploadPath+"/"+ obj.uuid +"_"+obj.fileName);			      
+				    var fileLink = fileCallPath.replace(new RegExp(/\\/g),"/");
+				      
+					str += "<li "
+					str += "data-path='"+obj.uploadPath+"' data-uuid='"+obj.uuid+"' data-filename='"+obj.fileName+"' data-type='"+obj.image+"' ><div>";
+					str += "<span> "+ obj.fileName+"</span>";
+					str += "<button type='button' data-file=\'"+fileCallPath+"\' data-type='file' " 
+					str += "class='btn btn-warning btn-circle'><i class='fa fa-times'></i></button><br>";
+					str += "<img src='/resources/img/attach.png'></a>";
+					str += "</div>";
+					str +"</li>";
+				}
+
+		    });
+		    
+		    uploadUL.append(str);
+		  }
+
+		  $(".uploadResult").on("click", "button", function(e){
+			    
+		    console.log("delete file");
+		      
+		    var targetFile = $(this).data("file");
+		    var type = $(this).data("type");
+		    
+		    var targetLi = $(this).closest("li");
+		    
+		    $.ajax({
+		      url: '/deleteFile',
+		      data: {fileName: targetFile, type:type},
+		      dataType:'text',
+		      type: 'POST',
+		        success: function(result){
+		           alert(result);
+		           
+		           targetLi.remove();
+		         }
+		    }); //$.ajax
+		   });
+
+
+		  
+		});
+
+	
+
+		</script>
 	    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
 	    <!-- Vendor scrits: js libraries and plugins-->
 	    <script src="${path}/resources/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -262,6 +306,12 @@
 	    <script src="${path}/resources/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
 	    <!-- Main theme script-->
 	    <script src="${path}/resources/js/theme.min.js"></script>
+
+	    	
+	    	
+	    
+	    
+	
 	    
 	</body>
 

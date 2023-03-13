@@ -1,6 +1,7 @@
 package org.recruit.resume.domain;
 
 import java.util.Date;
+import java.util.List;
 
 import lombok.Data;
 
@@ -17,5 +18,7 @@ public class ResumeVO {
 	private String resume_cv;
 	private Date regDate;
 	private Date updateDate;
+	
+	private List<ResumeAttachVO> attachList;
 
 }

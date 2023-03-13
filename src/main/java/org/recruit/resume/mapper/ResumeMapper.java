@@ -12,6 +12,8 @@ public interface ResumeMapper {
 	
 	public void resumeInsert(ResumeVO resume);
 	
+	public void insertSelectKey(ResumeVO resume);
+	
 	public int resumeUpdate(ResumeVO resume);
 	
 	public int resumeDelete(Long resume_no);

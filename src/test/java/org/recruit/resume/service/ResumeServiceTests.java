@@ -1,5 +1,7 @@
 package org.recruit.resume.service;
 
+import static org.junit.Assert.assertNull;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.recruit.resume.domain.ResumeVO;
@@ -71,9 +73,27 @@ public class ResumeServiceTests {
 //	}
 	
 	
+//	@Test
+//	public void getList() {
+//		
+//		service.getResumeList(2L).forEach(resume -> log.info(resume));
+//	}
+	
+	
+	
 	@Test
-	public void getList() {
+	public void testRegister() {
+		ResumeVO resume = new ResumeVO();
+		resume.setResume_title("seyun의 이력서 입니다");
+		resume.setResume_career("경력");
+		resume.setResume_cv("seyun의 자기소개서 입니다.");
+		resume.setMem_no(3L);
+		resume.setResume_gender("여");
+		resume.setResume_image("이미지");
+		resume.setResume_technology("파이썬");
 		
-		service.getResumeList(2L).forEach(resume -> log.info(resume));
+	
+		service.insertResume(resume);
+		log.info(resume.getResume_no());
 	}
 }

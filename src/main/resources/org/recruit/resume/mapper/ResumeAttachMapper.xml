@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.recruit.resume.mapper.ResumeAttachMapper">
+
+	<insert id="insert">     	
+		insert into attach(uuid, uploadpath, filename, filetype, resume_no)
+		values(#{uuid}, #{uploadPath}, #{fileName}, #{fileType}, #{Resume_no})
+	</insert>
+	
+	<delete id="delete">
+	
+	delete from attch where uuid = #{uuid}
+		
+	</delete>
+	
+	<select id="findByRno" resultType="org.recruit.resume.domain.ResumeAttachVO">
+		select * from attach where resume_no = #{resume_no}
+	</select>
+	
+	
+	
+</mapper>

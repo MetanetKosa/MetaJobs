@@ -77,15 +77,15 @@
                                			 </div>
                                		<div class="row">
                               		    <div class="col-sm-6 mb-4">		                                	
-		                                	<select class="form-select form-select-lg" id="pr-country" name="resume_gender" >
-		                    					<option value="" disabled selected>${resume.resume_gender}</option>
+		                                	<select class="form-select form-select-lg" id="pr-country" name="resume_gender" value='<c:out value="${resume.resume_gender }"/>'>
+		                    					<option value='<c:out value="${resume.resume_gender }"/>' disabled selected>${resume.resume_gender}</option>
 							                    <option value="여">여</option>
 							                    <option value="남">남</option>
 		                  					</select>
 		                           		 </div>
 		                           		 <div class="col-sm-6 mb-4">
 		                                	<select class="form-select form-select-lg" id="pr-city" name="resume_career" >
-							                    <option value="" disabled selected>${resume.resume_career}</option>
+							                    <option value='<c:out value="${resume.resume_career }"/>' disabled selected>${resume.resume_career}</option>
 							                    <option value="신입">신입</option>
 							                    <option value="경력">경력</option>
 		                  					</select>
