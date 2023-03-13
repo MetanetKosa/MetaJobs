@@ -372,6 +372,7 @@
                 <a class="navbar-brand me-3 me-xl-4" href="${path}/"><img class="d-block" src="img/logo/logo-dark.svg" width="116" alt="Finder"></a>
                 
                 <!-- ************************************* 로그인 로그아웃 버튼 -->
+                <a class="navbar-brand me-3 me-xl-4" href="${path}/"><img class="d-block" src="${path}/resources/img/logo/logo-dark.svg" width="116" alt="Finder"></a>
                 <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <a class="btn btn-sm text-primary d-none d-lg-block order-lg-3" href="#signin-modal" data-bs-toggle="modal"><i class="fi-user me-2"></i>Sign in</a>
                 <a class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3" href="#signup-modal" data-bs-toggle="modal"><i class="fi-plus me-2"></i>Sign<span class='d-none d-sm-inline'> Up</span></a>
