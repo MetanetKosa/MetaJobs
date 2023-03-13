@@ -73,7 +73,7 @@ public class PostController {
 	public String modify(@ModelAttribute PostVO post, RedirectAttributes rttr, @RequestParam("postNo") Long postNo) {
 		if(service.updatePost(post) == 1) {
 			rttr.addFlashAttribute("result", "success");
-			rttr.addAttribute("post_no", post.getPostNo());
+			rttr.addAttribute("postNo", post.getPostNo());
 		}
 		return "redirect:/post/postList";
 	}

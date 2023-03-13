@@ -451,32 +451,7 @@
                                 
                                 
                                 
-                                
-                                
-                                
-                                
-                                <!-- Item-->
-                                <div class="card bg-secondary card-hover mb-2">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-start mb-2">
-                                            <div class="d-flex align-items-center"><img class="me-2" src="${path}/resources/img/job-board/company/zalo.png" width="24" alt="Zalo Logo"><span class="fs-sm text-dark opacity-80 px-1">Zalo Tech Company</span><span class="badge bg-faded-accent rounded-pill fs-sm ms-2">Featured</span></div>
-                                            <div class="dropdown content-overlay">
-                                                <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm" type="button" id="contextMenu2" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
-                                                <ul class="dropdown-menu my-1" aria-labelledby="contextMenu2">
-                                                    <li>
-                                                        <button class="dropdown-item" type="button"><i class="fi-heart opacity-60 me-2"></i>Add to Saved Jobs</button>
-                                                    </li>
-                                                    <li>
-                                                        <button class="dropdown-item" type="button"><i class="fi-x-circle opacity-60 me-2"></i>Not interested</button>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <h3 class="h6 card-title pt-1 mb-3"><a class="text-nav stretched-link text-decoration-none" href="job-board-single.html">Partnership Manager</a></h3>
-                                        <div class="fs-sm"><span class="text-nowrap me-3"><i class="fi-map-pin text-muted me-1"> </i>New York</span><span class="text-nowrap me-3"><i class="fi-cash fs-base text-muted me-1"></i>$10,000</span></div>
-                                    </div>
-                                </div>
-
+                        
                                
                                
                                 <!-- Pagination-->

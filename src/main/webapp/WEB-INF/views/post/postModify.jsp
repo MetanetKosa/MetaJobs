@@ -154,11 +154,7 @@
 							</div>
 							<div class="col-12 mb-4">
 								<label class="form-label" for="pr-address">지원방법</label> 
-								<textarea
-									class="form-control form-control-lg" style= "height:300px"
-									id='postHow' name='postHow' placeholder='<c:out value="${post.postHow}"/>' >
-									${post.postHow}
-									</textarea>
+								<textarea class="form-control form-control-lg" style= "height:300px" id='postHow' name='postHow' placeholder='<c:out value="${post.postHow}"/>' >${post.postHow}</textarea>
 							</div>
 						</div>
 
