@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.AllArgsConstructor;
@@ -42,10 +43,11 @@ public class PostController {
 	}
 	
 	@PostMapping("/postInsert")
-	public String postList(PostVO post,RedirectAttributes rttr) {
-		log.info(post);
-//		service.postInsert(post);
-		rttr.addFlashAttribute("result",post.getPostNo());
+	public String postList(@ModelAttribute PostVO post) {
+		log.info("result삽입결과:"+post);
+		log.info("result삽입결과:"+post.getPostSdate());
+		log.info("result삽입결과:"+post.getPostFdate());
+		service.insertPost(post);
 		return "redirect:/post/postList";
 	}
 	
@@ -57,29 +59,32 @@ public class PostController {
 		return "/post/postDetail";
 	}
 	
-	@RequestMapping(value = "/postModify")
-	public String postModify(Model model, @RequestParam Long post_no) {
-		log.info("postModify결과확인: "+ post_no);
-		model.addAttribute("post", service.getPost(post_no));
+	@GetMapping(value = "/postModify")
+	public String postModify(Model model, @RequestParam Long postNo) {
+		log.info("postModify결과확인: "+ postNo);
+		model.addAttribute("post", service.getPost(postNo));
 		return "/post/postModify";
 	}
 	
-	@PatchMapping("/postModify")
-	@PostMapping("/postModify")
-	public String modify(PostVO post, RedirectAttributes rttr, @RequestParam Long post_no) {
+//	@PatchMapping("/postModify")
+//	@PostMapping("/postModify")
+	@RequestMapping(value = "/postModify", method = RequestMethod.POST)
+	public String modify(@ModelAttribute PostVO post, RedirectAttributes rttr, @RequestParam("postNo") Long postNo) {
+		log.info("PostMapping결과확인: "+ postNo);
+		log.info("PostVO결과확인: "+ post);
 		if(service.updatePost(post) == 1) {
 			rttr.addFlashAttribute("result", "success");
 			rttr.addAttribute("post_no", post.getPostNo());
 		}
-
 		return "redirect:/post/postList";
 	}
 	
 
 	@DeleteMapping("/postDelete")
-	@PostMapping("/delete")
-	public String delete(@RequestParam Long post_no, RedirectAttributes rttr) {
-		if(service.deletePost(post_no) == 1) {
+	@PostMapping("/postDelete")
+	public String delete(@RequestParam Long postNo, RedirectAttributes rttr) {
+		log.info("@DeleteMapping결과확인: "+ postNo);
+		if(service.deletePost(postNo) == 1) {
 			rttr.addFlashAttribute("result", "success");
 		}
 		return "redirect:/post/postList";

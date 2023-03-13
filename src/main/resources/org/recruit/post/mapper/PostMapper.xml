@@ -33,7 +33,8 @@
 		post_sal, post_edu, post_age, post_how, post_url, com_cno, mem_no)
 		VALUES(
 		post_seq.nextval,#{postTitle},#{postJob},#{postCareer},#{postEmptype},#{postAdd},#{postSdate},#{postFdate},
-		#{postSal},#{postEdu},#{postAge},#{postHow},#{postUrl},#{comCno},#{memNo})
+		#{postSal},#{postEdu},#{postAge},#{postHow},#{postUrl},1237,2)
+		<!-- #{postSal},#{postEdu},#{postAge},#{postHow},#{postUrl},#{comCno},#{memNo}) -->
 	</insert>
 
 	<update id="postUpdate">

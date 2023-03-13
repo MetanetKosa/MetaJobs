@@ -35,7 +35,7 @@
 				</ol>
 			</nav>
 			<!-- Page content-->
-			<form role = "form" method = 'post' action="/post/postInsert">
+			<form role = "form" method = "post" action="/post/postInsert">
 			<div class="row justify-content-center pb-sm-2">
 				<div class="col-lg-11 col-xl-10">
 					<!-- Page title-->
@@ -85,7 +85,7 @@
 									<input class="form-control date-picker rounded pe-5"
 										type="text" placeholder=""
 										data-datepicker-options="{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;}" 
-										id = 'postSdate' name = 'posSdate'>
+										id = 'postSdate' name ='postSdate'>
 									<i
 										class="fi-calendar text-muted position-absolute top-50 end-0 translate-middle-y me-3"></i>
 								</div>
@@ -97,7 +97,7 @@
 									<input class="form-control date-picker rounded pe-5"
 										type="text" placeholder=""
 										data-datepicker-options="{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;}" 
-										id = "postFdate" name = 'postFdate'>
+										id = "postFdate" name ='postFdate'>
 									<i
 										class="fi-calendar text-muted position-absolute top-50 end-0 translate-middle-y me-3"></i>
 								</div>
@@ -131,7 +131,7 @@
 								<label class="form-label" for="pr-city">학력조건<span
 									class='text-danger'>*</span></label> <select
 									class="form-select form-select-lg" 
-									id='postEmptype' name='postEmptype' required>
+									id='postEdu' name='postEdu' required>
 									<option value="" disabled selected></option>
 									<option value="고졸">고졸</option>
 									<option value="초대졸">초대졸</option>
@@ -167,9 +167,9 @@
 			<!-- Navigation-->
 			<div
 				class="d-flex flex-column flex-sm-row bg-light rounded-3 p-4 px-md-5">
-				 <a class="btn btn-primary btn-lg rounded-pill ms-sm-auto"
+				 <button class="btn btn-primary btn-lg rounded-pill ms-sm-auto"
 					 type = "submit">공고등록<i
-					class="fi-chevron-right fs-sm ms-2"></i></a>
+					class="fi-chevron-right fs-sm ms-2"></i></button>
 			</div>
 			</form>
 		</div>
@@ -192,3 +192,7 @@
 </body>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
+<script>
+
+</script>

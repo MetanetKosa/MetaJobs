@@ -35,7 +35,7 @@
 				</ol>
 			</nav>
 			<!-- Page content-->
-			<form role = "form" method = 'post' action="/post/Modify">
+			<form role = "form" method = "post" action="/post/postModify">
 			<div class="row justify-content-center pb-sm-2">
 				<div class="col-lg-11 col-xl-10">
 					<!-- Page title-->
@@ -177,10 +177,18 @@
 			<!-- Navigation-->
 			<div
 				class="d-flex flex-column flex-sm-row bg-light rounded-3 p-4 px-md-5">
-				 <a class="btn btn-primary btn-lg rounded-pill ms-sm-auto"
-					 type = "submit" >수정<i
-					class="fi-chevron-right fs-sm ms-2"></i></a>
+				 <button class="btn btn-primary btn-lg rounded-pill ms-sm-auto"
+					 type = "submit" 
+					 >수정<i
+					class="fi-chevron-right fs-sm ms-2"></i></button>
+					<%-- onclick="location.href='/post/postModify?post_no=${post.postNo }'" --%>
+					<button class="btn btn-primary btn-lg rounded-pill ms-sm-auto"
+					 type = "submit" data-oper='delete'
+					 >삭제<i
+					class="fi-chevron-right fs-sm ms-2"></i></button>
 			</div>
+			 <input type='hidden' name='postNo' id= 'postNo' value='<c:out value="${post.postNo }"/>'>
+			
 			</form>
 		</div>
 
@@ -198,7 +206,35 @@
 	
 	<!-- Main theme script-->
 	<script src="${path}/resources/js/theme.min.js"></script>
-7
+
 </body>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+
+	  var formObj = $("form");
+
+	  $('button').on("click", function(e){
+	    
+	    e.preventDefault(); 
+	    var operation = $(this).data("oper");
+	    
+	    console.log(operation);
+	    
+	    if(operation === 'delete'){
+	      formObj.attr("action", "/post/postDelete");
+	      
+	    }else if(operation === 'list'){
+	      //move to list
+	      formObj.attr("action", "/post/postList").attr("method","get");
+       
+	    }
+	    
+	    formObj.submit();
+	  });
+
+});
+</script>

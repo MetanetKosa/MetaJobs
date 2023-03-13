@@ -53,8 +53,8 @@ public class PostMapperTest {
 //		post.setComCno(1237);
 //		post.setMemNo(1);
 //		
-//		mapper.postInsert(post);
-		//log.info("postInsert 값 확인: " + result);
+//		int result = mapper.postInsert(post);
+//		log.info("postInsert 값 확인: " + result);
 //	}
 //	@Test
 //	public void postUpdate() throws ParseException {
