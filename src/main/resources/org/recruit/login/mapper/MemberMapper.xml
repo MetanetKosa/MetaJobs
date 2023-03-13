@@ -3,99 +3,93 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.recruit.login.mapper.MemberMapper">
+<!-- mapper.xml id 명과 mapper.java(interface) 메소드명이 일치하도록 -->
 
-
-<!--   <resultMap type="org.recruit.login.domain.MemberVO" id="memberMap">
-    <id property="userid" column="userid"/>
-    <result property="userid" column="userid"/>
-    <result property="userpw" column="userpw"/>
-    <result property="userName" column="username"/>
-    <result property="userBirth" column="userbirth"/>
-    <result property="userPhone" column="userphone"/>
-    <result property="userAddress" column="useraddress"/>
-    <result property="userEmail" column="useremail"/>
-    <result property="regDate" column="regdate"/>
-    <result property="updateDate" column="updatedate"/>
+<!--   
+    <resultMap type="org.recruit.login.domain.MemberVO" id="memberMap">
+	    <id property="id" column="id"/>
+	    <result property="id" column="id"/>
+	    <result property="pw" column="pw"/>
+	    <result property="auth" column="auth"/>
+	    <result property="name" column="name"/>
+	    <result property="birth" column="birth"/>
+	    <result property="phone" column="phone"/>
+	    <result property="address" column="address"/>
+	    <result property="email" column="email"/>
+	    <result property="joinDate" column="joinDate"/>
+	    <result property="updateDate" column="updatedate"/>
     <collection property="authList" resultMap="authMap">
     </collection> 
-  </resultMap> -->
+  	</resultMap>
+	<resultMap type="org.recruit.login.domain.AuthVO" id="authMap">
+	    <result property="userid" column="userid"/>
+	    <result property="auth" column="auth"/>
+   </resultMap> 
+   -->
   
-    <resultMap type="org.recruit.login.domain.MemberVO" id="memberMap">
-    <id property="mem_id" column="mem_id"/>
-    <result property="mem_id" column="mem_id"/>
-    <result property="mem_pw" column="mem_pw"/>
-    <result property="mem_name" column="mem_name"/>
-    <result property="mem_birth" column="mem_birth"/>
-    <result property="mem_phone" column="mem_phone"/>
-    <result property="mem_addr" column="mem_addr"/>
-    <result property="mem_email" column="mem_email"/>
-    <result property="mem_regdate" column="mem_regdate"/>
-    <result property="mem_update" column="mem_update"/>
-    <!-- <collection property="authList" resultMap="authMap">
-    </collection>  -->
-  </resultMap>
-<!--   <resultMap type="org.recruit.login.domain.AuthVO" id="authMap">
-    <result property="userid" column="userid"/>
-    <result property="auth" column="auth"/>
-  </resultMap> -->
-  
-  <select id="read" resultMap="memberMap">
+  <!-- 회원정보 확인 -->
+  	<select id="read" resultType="org.recruit.login.domain.MemberVO">
 <!-- 	SELECT 
 	  mem.userid, userpw, username, enabled, regdate, updatedate, auth
 	FROM 
 	  tbl_member mem LEFT OUTER JOIN tbl_member_auth auth on mem.userid = auth.userid 
 	WHERE mem.userid = #{userid}  -->
 	
-	SELECT 
-	  mem_no, mem_id, mem_pw, mem_name, mem_birth, mem_phone, mem_addr, mem_email, mem_regdate, mem_update, mem_enabled
-	FROM 
-	  member
-	 WHERE mem_no = #{mem_no}
-  </select>
+		SELECT 
+		 mno, id, pw, auth, name, birth, phone, address, email, joinDate, updateDate
+		FROM 
+		  member
+		 WHERE id = #{id}
+  	</select>
 
+	<!-- 회원가입 -->
     <insert id="insert">
-	  insert into member (mem_no, mem_id, mem_pw, mem_name, mem_birth, mem_phone, mem_addr, mem_email)
-	  values (mem_seq.nextval, #{mem_id}, #{mem_pw}, #{mem_name}, #{mem_birth}, #{mem_phone}, #{mem_addr}, #{mem_email})
-  </insert>
-  
-  <!-- mno 값을 알아야할때 -->
-     <insert id="insertSelectKey">
+   
+	  	insert into member (mno, id, pw, name, birth, phone, email, address)
+	  	values (mem_seq.nextval, #{id}, #{pw}, #{name}, #{birth}, #{phone}, #{email}, #{address})
+	  	<!-- 
+	  	insert into auth (id, pw, auth, enabled)
+		SELECT id, pw, auth, enabled
+		FROM member FROM member where id = (select max(id) from member);
+		 -->
+  	</insert>
 
-		<selectKey keyProperty="mem_no" order="BEFORE"
-			resultType="long">
-			select mem_seq.nextval from dual
-		</selectKey>
-
-		insert into member (mem_no, mem_id, mem_pw, mem_name, mem_birth, mem_phone, mem_addr, mem_email)
-		values (mem_seq.nextval, #{mem_id}, #{mem_pw}, #{mem_name}, #{mem_birth}, #{mem_phone}, #{mem_addr}, #{mem_email})
-	  </insert>
+	<!-- id로 비밀번호 찾기 -->
+	<select id="readPw" parameterType="String" resultType="String">
+		select pw from member where id = #{id}
+	</select>
 	
-	
-<!-- 	  <select id="read" resultType="org.recruit.login.domain.MemberVO">
-		select * from member where mem_no = #{mem_no}
-	  </select> -->
-	
-	  <delete id="delete">
-		delete from member where mem_no = #{mem_no}
-	  </delete>
-	
-	  <update id="update">
+	<!-- 회원정보 수정 -->
+	<update id="update">
 		update member 
-			set mem_id = #{mem_id},
-				mem_pw = #{mem_pw}, 
-				mem_name = #{mem_name},
-				mem_birth = #{mem_birth},
-				mem_phone = #{mem_phone},
-				mem_addr = #{mem_addr},
-				mem_email = #{mem_email},
-				mem_update = sysdate
-				<!-- mem_update = TO_CHAR(SYSDATE, 'YYYY/MM/DD HH:MI:SS') -->
-			where mem_no = #{mem_no} 
-	  </update>
-	  
-	  <select id="getList" resultType="org.recruit.login.domain.MemberVO">
+		set pw = #{pw},
+			birth = #{birth},
+			phone = #{phone},
+			address = #{address},
+			email = #{email},
+			updateDate = sysdate
+			<!-- mem_update = TO_CHAR(SYSDATE, 'YYYY/MM/DD HH:MI:SS') -->
+		where id = #{id} 
+	</update>
+	
+	<!-- 회원 탈퇴 -->
+	<delete id="delete">
+		delete from member where id = #{id}
+	</delete>
+	 
+	<!-- 회원 리스트 -->
+	<select id="getList" resultType="org.recruit.login.domain.MemberVO">
   		<![CDATA[
-  			select * from member where mem_no > 0
+  			select * from member where mno > 0
   		]]>
-  	  </select>
+  	</select>
+   	
+  	<!-- 로그인 -->
+	<select id="login" resultType="int" >
+		select count(*)
+		from member
+		where
+		id = #{id} and pw = #{pw}
+	</select>
+
 </mapper>

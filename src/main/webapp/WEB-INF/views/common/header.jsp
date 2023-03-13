@@ -107,6 +107,7 @@
                 }, 2000);
             };
         })();
+
     </script>
     <!-- Vendor Styles-->
     <link rel="stylesheet" media="screen" href="${path}/resources/vendor/simplebar/dist/simplebar.min.css" />
@@ -125,7 +126,9 @@
         </div>
     </div>
     <main class="page-wrapper">
+    
         <!-- Sign In Modal-->
+        <!-- ************************************** 로그인 모달 id signin-modal -->
         <div class="modal fade" id="signin-modal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered p-2 my-0 mx-auto" style="max-width: 950px;">
                 <div class="modal-content">
@@ -142,10 +145,10 @@
                                     <div class="px-3">Or</div>
                                     <hr class="w-100">
                                 </div>
-                                <form class="needs-validation" novalidate>
+                                <form action="/login" method="post" class="needs-validation" novalidate>
                                     <div class="mb-4">
-                                        <label class="form-label mb-2" for="signin-email">Email address</label>
-                                        <input class="form-control" type="email" id="signin-email" placeholder="Enter your email" required>
+                                        <label class="form-label mb-2" for="signin-id">ID</label>
+                                        <input class="form-control" id="signin-id" placeholder="Enter ID" required>
                                     </div>
                                     <div class="mb-4">
                                         <div class="d-flex align-items-center justify-content-between mb-2">
@@ -154,8 +157,8 @@
                                         <div class="password-toggle">
                                             <input class="form-control" type="password" id="signin-password" placeholder="Enter password" required>
                                             <label class="password-toggle-btn" aria-label="Show/hide password">
-                          <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
-                        </label>
+                          					<input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                        					</label>
                                         </div>
                                     </div>
                                     <button class="btn btn-primary btn-lg rounded-pill w-100" type="submit">Sign in</button>
@@ -166,8 +169,30 @@
                 </div>
             </div>
         </div>
+        
         <!-- Sign Up Modal-->
+        <!-- **************************************** 회원가입 회원/기업 구분 id signup-modal -->
         <div class="modal fade" id="signup-modal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered p-2 my-0 mx-auto" style="max-width: 500px;">
+                <div class="modal-content">
+                    <div class="modal-body px-0 py-2 py-sm-0">
+                        <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-dismiss="modal"></button>
+                        <div class="row mx-0 align-items-center">
+                            <div class="col-md-6 border-end-md p-4 p-sm-5">
+                            	 <a class="btn btn-sm text-primary d-none d-lg-block order-lg-3" href="#modal-memSingup" data-bs-toggle="modal"><i class="fi-user me-2"></i>일반 회원</a>
+                            </div>
+                            <div class="col-md-6 px-4 pt-2 pb-4 px-sm-5 pb-sm-5 pt-md-5">
+								 <a class="btn btn-sm text-primary d-none d-lg-block order-lg-3" href="#modal-comSingup" data-bs-toggle="modal"><i class="fi-user me-2"></i>기업 회원</a>                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+          
+       <!--  Sign Up Modal -->
+        <!-- **************************************** 회원가입 멤버 모달 id signup-member -->
+        <div class="modal fade" id="modal-memSingup" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered p-2 my-0 mx-auto" style="max-width: 950px;">
                 <div class="modal-content">
                     <div class="modal-body px-0 py-2 py-sm-0">
@@ -188,32 +213,141 @@
                                     <div class="px-3">Or</div>
                                     <hr class="w-100">
                                 </div>
-                                <form class="needs-validation" novalidate>
+                                <form action="/member/insert" method="post" class="needs-validation" novalidate>
                                     <div class="mb-4">
-                                        <label class="form-label" for="signup-name">Full name</label>
-                                        <input class="form-control" type="text" id="signup-name" placeholder="Enter your full name" required>
+                                        <label class="form-label" for="signup-id">ID<span class='fs-sm text-muted'>&nbsp;&nbsp;영어/숫자&nbsp;조합&nbsp;4-20글자</span></label>
+                                        <input class="form-control" type="text" id="signup-id" name="id" required pattern="[A-Za-z0-9]{4,20}" autocomplete="off">
+                                        
                                     </div>
                                     <div class="mb-4">
-                                        <label class="form-label" for="signup-email">Email address</label>
-                                        <input class="form-control" type="email" id="signup-email" placeholder="Enter your email" required>
-                                    </div>
-                                    <div class="mb-4">
-                                        <label class="form-label" for="signup-password">Password <span class='fs-sm text-muted'>min. 8 char</span></label>
+                                        <label class="form-label" for="signup-password">Password<span class='fs-sm text-muted'>&nbsp;&nbsp;최소 4글자 이상</span></label>
                                         <div class="password-toggle">
-                                            <input class="form-control" type="password" id="signup-password" minlength="8" required>
+                                            <input class="form-control" type="password" name="pw" id="signup-password" minlength="4" required>
                                             <label class="password-toggle-btn" aria-label="Show/hide password">
-                          <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
-                        </label>
+                          						<input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                        					</label>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="mb-4">
+                                        <label class="form-label" for="signup-password-confirm">Confirm password</label>
+                                        <div class="password-toggle">
+                                            <input class="form-control" type="password" id="signup-password-confirm" minlength="4" required>
+                                            <label class="password-toggle-btn" aria-label="Show/hide password">
+                          					<input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                       					</label>
+                                        </div>
+                                    </div> -->
+                                    <div class="mb-4">
+                                        <label class="form-label" for="signup-name">Name<span class='fs-sm text-muted'>&nbsp;&nbsp;한글&nbsp;2-10글자</span></label>
+                                        <input class="form-control" type="text" name="name" id="signup-name" pattern="[가-힣]{2,10}" placeholder="이름" required>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label" for="signup-birth">Birth</label>
+                                        <!-- <input class="form-control" type="text" name="birth" id="signup-birth" placeholder="생년월일 yyyy-mm-dd" required> -->
+                                        <input class="form-control" type="date" name="birth" id="signup-birth" placeholder="생년월일" required>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label" for="signup-address">Address</label>
+                                        <input class="form-control" type="text" name="address" id="signup-address" placeholder="주소" required>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label" for="signup-phone">Phone</label>
+                                        <input class="form-control" type="text" name="phone" id="signup-phone" placeholder="전화번호" required>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label" for="signup-email">Email</label>
+                                        <input class="form-control" type="email" name="email" id="signup-email" placeholder="@gmail.com" required>
+                                    </div>
+                                    <div class="form-check mb-4">
+                                        <input class="form-check-input" type="checkbox" id="agree-to-terms" required>
+                                        <label class="form-check-label" for="agree-to-terms">By joining, I agree to the <a href='#'>Terms of use</a> and <a href='#'>Privacy policy</a></label>
+                                    </div>
+                                    <button class="btn btn-primary btn-lg rounded-pill w-100" type="submit">Sign up</button>
+                                    <!-- <button class="btn btn-primary btn-lg rounded-pill w-100" type="button">Sign up</button> -->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+      
+        <!-- Sign Up Modal -->
+        <!-- **************************************** 회원가입 기업 모달 id signup-company -->
+        <div class="modal fade" id="modal-comSingup" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered p-2 my-0 mx-auto" style="max-width: 950px;">
+                <div class="modal-content">
+                    <div class="modal-body px-0 py-2 py-sm-0">
+                        <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-dismiss="modal"></button>
+                        <div class="row mx-0 align-items-center">
+                            <div class="col-md-6 border-end-md p-4 p-sm-5">
+                                <h2 class="h3 mb-4 mb-sm-5">Join MetaJobs.<br>Get premium benefits:</h2>
+                                <ul class="list-unstyled mb-4 mb-sm-5">
+                                    <li class="d-flex mb-2"><i class="fi-check-circle text-primary mt-1 me-2"></i><span>Add and promote your Apply Post</span></li>
+                                    <li class="d-flex mb-2"><i class="fi-check-circle text-primary mt-1 me-2"></i><span>Easily manage your Apply Post</span></li>
+                                    <li class="d-flex mb-0"><i class="fi-check-circle text-primary mt-1 me-2"></i><span>Easily manage Candidates</span></li>
+                                </ul><img class="d-block mx-auto" src="img/signin-modal/signup.svg" width="344" alt="Illustartion">
+                                <div class="mt-sm-4 pt-md-3">Already have an account? <a href="#signin-modal" data-bs-toggle="modal" data-bs-dismiss="modal">Sign in</a></div>
+                            </div>
+                            <div class="col-md-6 px-4 pt-2 pb-4 px-sm-5 pb-sm-5 pt-md-5"><a class="btn btn-outline-info rounded-pill w-100 mb-3" href="#"><i class="fi-google fs-lg me-1"></i>Sign in with Google</a><a class="btn btn-outline-info rounded-pill w-100 mb-3" href="#"><i class="fi-facebook fs-lg me-1"></i>Sign in with Facebook</a>
+                                <div class="d-flex align-items-center py-3 mb-3">
+                                    <hr class="w-100">
+                                    <div class="px-3">Or</div>
+                                    <hr class="w-100">
+                                </div>
+                                <form action="/company/insert" method="post" class="needs-validation" novalidate>
+                                    <div class="mb-4">
+                                        <label class="form-label" for="signup-id">ID<span class='fs-sm text-muted'>&nbsp;&nbsp;영어/숫자&nbsp;조합&nbsp;4-20글자</span></label>
+                                        <input class="form-control" type="text" name="id" id="signup-id" required pattern="[A-Za-z0-9]{4,20}" autocomplete="off">
+                                        
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label" for="signup-password">Password<span class='fs-sm text-muted'>&nbsp;&nbsp;최소 4글자 이상</span></label>
+                                        <div class="password-toggle">
+                                            <input class="form-control" type="password" name="pw" id="signup-password" minlength="4" required>
+                                            <label class="password-toggle-btn" aria-label="Show/hide password">
+                          						<input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                        					</label>
                                         </div>
                                     </div>
                                     <div class="mb-4">
                                         <label class="form-label" for="signup-password-confirm">Confirm password</label>
                                         <div class="password-toggle">
-                                            <input class="form-control" type="password" id="signup-password-confirm" minlength="8" required>
+                                            <input class="form-control" type="password" id="signup-password-confirm" minlength="4" required>
                                             <label class="password-toggle-btn" aria-label="Show/hide password">
-                          <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
-                        </label>
+                          					<input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                       					</label>
                                         </div>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label" for="signup-number">Company Number<span class='fs-sm text-muted'>&nbsp;&nbsp;6글자</span></label>
+                                        <input class="form-control" type="text" id="signup-number" name="cno" length="6" placeholder="사업자번호" required>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label" for="signup-name">Company Name<span class='fs-sm text-muted'>&nbsp;&nbsp;2-10글자</span></label>
+                                        <input class="form-control" type="text" id="signup-name" name="name" pattern="[가-힣A-Za-z0-9]{2,10}" placeholder="기업명" required>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label" for="signup-address">Company Address</label>
+                                        <input class="form-control" type="text" id="signup-address" name="address" placeholder="주소" required>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label" for="signup-phone">Company Phone</label>
+                                        <input class="form-control" type="text" id="signup-phone" name="phone" placeholder="전화번호" required>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label" for="signup-type">Company Type</label>
+                                        <div>
+                                        	<label class="radio-inline"><input type="radio" name="type" checked value="대기업">대기업</label>&nbsp;&nbsp;
+                                        	<label class="radio-inline"><input type="radio" name="type" value="중견기업">중견기업</label>&nbsp;&nbsp;
+                                        	<label class="radio-inline"><input type="radio" name="type" value="중소기업">중소기업</label>
+                                        </div>
+                                        <!-- <input class="form-control" type="text" id="signup-type" placeholder="기업형태 ex)대기업/중견기업" required> -->
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label" for="signup-manager">CEO<span class='fs-sm text-muted'>&nbsp;&nbsp;2-10글자</span></label>
+                                        <input class="form-control" type="text" id="signup-manager" name="manager" pattern="[가-힣A-Za-z0-9]{2,10}" placeholder="기업 대표" required>
                                     </div>
                                     <div class="form-check mb-4">
                                         <input class="form-check-input" type="checkbox" id="agree-to-terms" required>
@@ -227,10 +361,15 @@
                 </div>
             </div>
         </div>
-        <!-- Navbar-->
+         
+      
+ 	
+ 		<!-- Navbar-->
         <header class="navbar navbar-expand-lg navbar-light fixed-top" data-scroll-header>
             <div class="container">
                 <a class="navbar-brand me-3 me-xl-4" href="${path}/"><img class="d-block" src="img/logo/logo-dark.svg" width="116" alt="Finder"></a>
+                
+                <!-- ************************************* 로그인 로그아웃 버튼 -->
                 <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <a class="btn btn-sm text-primary d-none d-lg-block order-lg-3" href="#signin-modal" data-bs-toggle="modal"><i class="fi-user me-2"></i>Sign in</a>
                 <a class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3" href="#signup-modal" data-bs-toggle="modal"><i class="fi-plus me-2"></i>Sign<span class='d-none d-sm-inline'> Up</span></a>

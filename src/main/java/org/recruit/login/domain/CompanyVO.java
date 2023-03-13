@@ -2,24 +2,20 @@ package org.recruit.login.domain;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import lombok.Data;
 
 @Data
-public class MemberVO {
+public class CompanyVO {
 
-	private Long mno;
 	private String id;
 	private String pw;
 	private String auth;
+	private String cno;
 	private String name;
-	//날짜형 입력받을시 문자형으로 들어오므로 패턴 지정해서 Date객체 만들기 400error
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date birth;
 	private String phone;
-	private String email;
 	private String address;
+	private String type;
+	private String manager;
 	private Date joinDate;
 	private Date updateDate;
 	private int enabled;

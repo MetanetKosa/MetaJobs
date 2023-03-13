@@ -1,6 +1,9 @@
 package org.recruit.login.mapper;
 
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
@@ -20,22 +23,7 @@ public class MemberMapperTests {
 	@Autowired
 	private MemberMapper mapper;
 	
-//	@Test
-//	public void testInsert() {
-//		//MemberVO 객체를 임의로 생성하고 값 넣어 insert가 잘 되는지 단위테스트
-//		MemberVO member = new MemberVO();
-//		member.setMem_id("dkssudg90");
-//		member.setMem_pw("asguhsl646");
-//		member.setMem_name("usernn");
-//		member.setMem_birth("19991111");
-//		member.setMem_addr("서울시 강남구 18");
-//		member.setMem_phone("010-7683-3578");
-//		member.setMem_email("sdafw90@gmail.com");
-//		
-//		mapper.insert(member);
-//		
-//		log.info(member);
-//	}
+
 	
 //	@Test
 //	public void testInsertSelectKey() {
@@ -59,13 +47,21 @@ public class MemberMapperTests {
 //		List<MemberVO> list = mapper.getList();
 //		list.forEach(member -> log.info(member));
 //	}
-//	
-//	@Test
-//	public void testRead() {
-//		//1번 글번호 글이 잘 출력되는지 단위테스트
-//		MemberVO member = mapper.read(1L);
-//		log.info(member);
-//	}
+
+
+//  @Test
+//  public void testRead() {
+//	//mno로 글이 잘 출력되는지 단위테스트
+//    MemberVO vo = mapper.read(8L);
+//    log.info(vo);
+//  }
+
+//  @Test
+//  public void testReadPw() {
+//	//mno로 글이 잘 출력되는지 단위테스트
+//    String pw = mapper.readPw("member01");
+//    log.info(pw);
+//  }
 	
 //	@Test
 //	public void testDelete() {
@@ -77,58 +73,16 @@ public class MemberMapperTests {
 //	@Test
 //	public void testUpdate() {
 //		//1번 글번호 글이 잘 수정되는지 단위테스트
-//		MemberVO member = mapper.read(2L);
+//		MemberVO member = mapper.read(8L);
 //		
-//		//member.setMem_no(2L);
-//		
-//		member.setMem_id(member.getMem_id());
-//		member.setMem_pw(member.getMem_pw());
-//		member.setMem_name("왕감자");
-//		member.setMem_birth(member.getMem_birth());
-//		member.setMem_addr(member.getMem_addr());
-//		member.setMem_phone(member.getMem_phone());
-//		member.setMem_email("BigPotato@gmail.com");
+//		member.setBirth(member.getBirth());
+//		member.setPhone("010-7683-3578");
+//		member.setAddress("서울시 강남구 18");
+//		member.setEmail("BigPotato@gmail.com");
 //		
 //		
 //		log.info("UPDATE count: " +mapper.update(member));
 //	}
-	
-	
-//	@Test
-//	public void testPaging() {
-//		//Paging처리가 잘 되는지 단위테스트
-//		Criteria cri = new Criteria();
-//		
-//		List<MemberVO> list = mapper.getListWithPaging(cri);
-//		
-//		list.forEach(member -> log.info(member));
-//	}
-	
-//	@Test
-//	public void testSearch() {
-//		//Search처리가 잘 되는지 단위테스트
-//		Criteria cri = new Criteria();
-//		
-//		//검색정보를 전달 (TC / 새로 검색)
-//		cri.setType("TC");
-//		cri.setKeyword("새로");
-//		
-//		List<MemberVO> list = mapper.getListWithPaging(cri);
-//		
-//		list.forEach(member -> log.info(member));
-//	}
-	
-//  @Test
-//  public void testRead() {
-//    
-//    MemberVO vo = mapper.read(2L);
-//    
-//    log.info(vo);
-//    
-//    //vo.getAuthList().forEach(authVO -> log.info(authVO));
-//    
-//  }
-  
 }
 
 
