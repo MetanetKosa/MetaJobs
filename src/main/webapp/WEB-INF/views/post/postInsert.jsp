@@ -185,7 +185,7 @@
 	
 	<!-- Main theme script-->
 	<script src="${path}/resources/js/theme.min.js"></script>
-7
+
 </body>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />

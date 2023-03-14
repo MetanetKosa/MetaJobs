@@ -9,6 +9,13 @@
 <jsp:include page="/WEB-INF/views/common/header.jsp">
 	<jsp:param value="홈페이지" name="title"/>
 </jsp:include>
+<link rel="stylesheet" media="screen" href="${path}/resources/vendor/simplebar/dist/simplebar.min.css" />
+    <link rel="stylesheet" media="screen" href="${path}/resources/vendor/lightgallery/css/lightgallery-bundle.min.css" />
+    <link rel=stylesheet" media="screen" href="${path}/resources/vendor/tiny-slider/dist/tiny-slider.css" />
+    <link rel="stylesheet" media="screen" href="${path}/resources/vendor/flatpickr/dist/flatpickr.min.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+<link rel="stylesheet" media="screen" href="${path}/resources/css/theme.min.css">
+
 
 <body>
     <!-- Page loading spinner-->
@@ -428,7 +435,7 @@
                              <button class="dropdown-item" type="button"><i class="fi-heart opacity-60 me-2"></i>Add to Saved Jobs</button>
                          </li>
                          <li>
-                             <button class="dropdown id = "move""button"text-nav stretched-link text-decoration-noneNot interested</button>
+                             <button class="dropdown-item" type="button"><i class="fi-x-circle opacity-60 me-2"></i>Not interested</button>
                          </li>
                      </ul>
                  </div>
@@ -533,12 +540,13 @@
         </div>
     </footer>
     <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
-    <!-- Vendor scrits: js libraries and plugins-->
-    <script src="${path}/resources/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="${path}/resources/vendor/simplebar/dist/simplebar.min.js"></script>
-    <script src="${path}/resources/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
-    <!-- Main theme script-->
-    <script src="js/theme.min.js"></script>
+    	<script src="${path}/resources/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="${path}/resources/vendor/simplebar/dist/simplebar.min.js"></script>
+	<script src="${path}/resources/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+		    <script src="${path}/resources/vendor/flatpickr/dist/flatpickr.min.js"></script>
+	
+	<!-- Main theme script-->
+	<script src="${path}/resources/js/theme.min.js"></script>
 </body>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>

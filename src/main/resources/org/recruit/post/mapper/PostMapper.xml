@@ -19,7 +19,7 @@
 		<result property="postUrl" column="post_url" />
 		<result property="comCno" column="com_cno" />
 		<result property="memNo" column="mem_no" />
-	</resultMap>
+	</resultMap>	
 
 	<select id="getPostList" resultMap="postMap">
   		<![CDATA[
