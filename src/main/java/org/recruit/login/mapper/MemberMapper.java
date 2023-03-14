@@ -14,11 +14,9 @@ public interface MemberMapper {
 	
 	//로그인 pw 조회
 	public String readPw(String mem_id);
-
-	public List<MemberVO> getList();
 	
-	//회원 정보 변경
-	public int update(MemberVO member);
+	//회원정보 변경
+	public void updateMember(MemberVO member);
 	
 	//회원 탈퇴
 	public int delete(String mem_id);

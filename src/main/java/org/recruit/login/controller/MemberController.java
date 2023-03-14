@@ -50,7 +50,7 @@ public class MemberController {
 	}
 	
 	//로그인 페이지 이동 /login
-	@PostMapping("/login")
+	@PostMapping("/member/login")
 	public String loginPost(HttpServletRequest request, MemberVO member, RedirectAttributes rttr) throws Exception {
 		log.info("로그인 페이지 진입");
 		
@@ -72,11 +72,22 @@ public class MemberController {
 	}
 	
 	//로그아웃 버튼
+	//@GetMapping("/member/logout")
 	@GetMapping("/logout")
 	public String logoutPost(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		
 		session.invalidate();
+		
+		return "redirect:/";
+	}
+	
+	//회원정보 수정 /member/update
+	@PostMapping("/member/update")
+	public String updatePOST(MemberVO member) throws Exception {
+		
+		log.info("memberUpdate : " + member);
+		service.updateMember(member);
 		
 		return "redirect:/";
 	}

@@ -55,16 +55,15 @@
 	</select>
 	
 	<!-- 회원정보 수정 -->
-	<update id="update">
+	<update id="updateMember">
 		update member 
-		set mem_pw = #{mem_pw},
-			mem_birth = #{mem_birth},
+		set mem_birth = #{mem_birth},
 			mem_phone = #{mem_phone},
 			mem_address = #{mem_address},
 			mem_email = #{mem_email},
 			mem_updateDate = sysdate
 			<!-- mem_update = TO_CHAR(SYSDATE, 'YYYY/MM/DD HH:MI:SS') -->
-		where mem_id = #{mem_id} 
+		where mem_id = #{mem_id}
 	</update>
 	
 	<!-- 회원 탈퇴 -->

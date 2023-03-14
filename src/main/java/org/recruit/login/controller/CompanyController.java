@@ -2,10 +2,12 @@ package org.recruit.login.controller;
 
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.recruit.login.domain.AuthVO;
 import org.recruit.login.domain.CompanyVO;
 import org.recruit.login.service.CompanyService;
-import org.recruit.login.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +25,7 @@ import lombok.extern.log4j.Log4j;
 @Controller
 @Log4j
 @AllArgsConstructor
+@SessionAttributes("login")	
 public class CompanyController {
 
 	@Autowired
@@ -45,19 +48,36 @@ public class CompanyController {
 		return "redirect:/";
 	}
 	
-//	@PostMapping("/company/insert")
-//	public String comJoinPOST(CompanyVO company) throws Exception {
-//		
-//		log.info("companyJoin : " + company);
-//		service.insert(company);
-//		
-//		return "redirect:/";
-//	}
-	
-//	//로그인 페이지 이동 /login
-//	@RequestMapping(value = "/login", method = RequestMethod.GET)
-//	public void comLoginGET() {
-//		log.info("로그인 페이지 진입");
-//	}
+		//로그인 페이지 이동 /login
+		@PostMapping("/company/login")
+		public String loginPost(HttpServletRequest request, CompanyVO company, RedirectAttributes rttr) throws Exception {
+			log.info("로그인 페이지 진입");
+			
+			HttpSession session = request.getSession();
+			CompanyVO login = service.companyLogin(company);
+			
+			if (login == null) {
+				int result = 0;
+				rttr.addFlashAttribute("result", result);
+				session.setAttribute("company", null);
+				return "redirect:/";
+			} else{
+				int result = 1;
+				rttr.addFlashAttribute("result", result);
+				session.setAttribute("company", login);
+				System.out.println("로그인 데이터: " +company);
+				return "redirect:/";
+			}
+		}
+		
+		//로그아웃 버튼
+		@GetMapping("/company/logout")
+		public String logoutPost(HttpServletRequest request) {
+			HttpSession session = request.getSession();
+			
+			session.invalidate();
+			
+			return "redirect:/";
+		}
 	
 }

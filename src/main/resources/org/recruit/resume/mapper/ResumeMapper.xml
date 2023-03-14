@@ -6,10 +6,11 @@
 
 	<insert id="resumeInsert">     	
 		insert into resume(resume_no, resume_image,resume_title, resume_gender, resume_technology,resume_career , mem_no,resume_cv)
-		values(resume_seq.nextVal, 'imageTest', #{resume_title}, #{resume_gender}, #{resume_technology}, #{resume_career}, #{mem_no},  #{resume_cv})
+		values(resume_seq.nextVal, null, #{resume_title}, #{resume_gender}, #{resume_technology}, #{resume_career}, #{mem_no},  #{resume_cv})
 	</insert>
 	
 	<insert id="insertSelectKey">
+
 		<selectKey keyProperty="resume_no" order="BEFORE"
 				resultType="long">
 				select resume_seq.nextVal from dual

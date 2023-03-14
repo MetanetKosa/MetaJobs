@@ -37,9 +37,17 @@
 		where com_cno = #{com_cno} 
   	</update>
   
-  <select id="getList" resultType="org.recruit.login.domain.CompanyVO">
+  	<select id="getList" resultType="org.recruit.login.domain.CompanyVO">
  		<![CDATA[
  			select * from company where com_cno > 0
  		]]>
- 	  </select>
+ 	</select>
+ 	
+ 	<!-- 로그인 -->
+	<select id="loginCompany" resultType="org.recruit.login.domain.CompanyVO" >
+		select com_id, com_pw, com_cno, com_name, com_phone, com_address, com_type, com_ceo, com_joinDate
+		from company
+		where
+		com_id = #{com_id} and com_pw = #{com_pw}
+	</select>
 </mapper>
