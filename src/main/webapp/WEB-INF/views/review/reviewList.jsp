@@ -70,8 +70,8 @@
                             <div class="mb-3">
                             <div class="row">
 	                            <div class="col-6">
-	                                <label class="form-label" for="pNum">면접인원 <span class='text-danger'>*</span></label>
-	                                <select class="form-control form-select" style="width:150px;" id="pNum" name="pNum" required>
+	                                <label class="form-label" for="pnum">면접인원 <span class='text-danger'>*</span></label>
+	                                <select class="form-control form-select" style="width:150px;" id="pnum" name="pnum" required>
 					                    <option value="" selected disabled hidden>면접인원</option>
 					                    <option value="단독면접">단독면접</option>
 					                    <option value="개인면접">개인면접</option>
@@ -273,7 +273,7 @@
 		                                <h6 class="fs-xs mb-0">면접일</h6>
 		                                <h6 class="fs-xs fw-light mb-0"><fmt:formatDate pattern="yyyy년 MM월 dd일" value="${review.reDate}"/></h6>
 		                                <h6 class="fs-xs pt-2 mb-0">면접인원</h6>
-		                                <h6 class="fs-xs fw-light mb-0">면접인원</h6>
+		                                <h6 class="fs-xs fw-light mb-0">${review.pnum}</h6>
 		                            </div>
 		                            <div class="col-10">
 		                                <h3 class="fs-sm mb-0">면접내용</h3>

@@ -14,7 +14,7 @@ public class ReviewVO {
 	private String reJob;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date reDate;
-	private String pNum;
+	private String pnum;
 	private String reContent;
 	private String reResult;
 	private Date reWdate;

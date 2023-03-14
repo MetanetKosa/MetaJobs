@@ -8,7 +8,7 @@
  		<result property="cno" column="COM_CNO"/>
  		<result property="reJob" column="RE_JOB"/>
  		<result property="reDate" column="RE_DATE"/>
- 		<result property="pNum" column="RE_PNUM"/>
+ 		<result property="pnum" column="RE_PNUM"/>
  		<result property="reContent" column="RE_CONTENT"/>
  		<result property="reResult" column="RE_RESULT"/>
  		<result property="reWdate" column="RE_WDATE"/>
@@ -33,7 +33,7 @@
  	<insert id="reviewInsert">
  		<![CDATA[
  		insert into review(re_no, com_cno, re_job, re_date, re_pnum, re_Content, re_Result, re_wdate, mem_no)
- 		values (RE_SEQ.NEXTVAL, #{cno}, #{reJob}, #{reDate}, #{pNum}, #{reContent}, #{reResult}, SYSDATE, #{mno})
+ 		values (RE_SEQ.NEXTVAL, #{cno}, #{reJob}, #{reDate}, #{pnum}, #{reContent}, #{reResult}, SYSDATE, #{mno})
  		]]>
  	</insert>
 
@@ -62,29 +62,7 @@
  		
  	</select>
  	
- <!-- 	<select id="getSearchWithPaging" resultMap="reviewResultMap" parameterType="map">
- 		<![CDATA[
- 		select
- 		re_no, com_cno, re_job, re_date, re_pnum, re_content, re_result, re_wdate, mem_no
- 		from(
-	 		select /*+ INDEX_DESC(review pk_review) */ 
-	 		rownum rn, re_no, com_cno, re_job, re_date, re_pnum, re_content, re_result, re_wdate, mem_no
-	 		from review
-	 		where rownum <= #{pageNum} * #{amount}
-	 		)
- 		where 1=1
- 		]]>
- 		<if test="keyword != null">
- 			AND re_no like '%'||#{keyword}||'%'
- 		</if>
- 		<if test="searchResult != null">
- 			AND re_result like '%'||#{searchResult}||'%'
- 		</if>
- 		<if test="keyword != null">
- 			AND re_job like '%'||#{searchJob}||'%'
- 		</if>
- 	</select>
- 	 -->
+
  	<select id="getTotalCount" resultType="int">
  		select count(*) from review
  		where 1=1
@@ -109,7 +87,7 @@
  		set com_cno = #{cno},
  		re_job = #{reJob},
  		re_date = #{reDate},
- 		re_pnum = #{pNum},
+ 		re_pnum = #{pnum},
  		re_content = #{reContent},
  		re_result = #{reResult},
  		re_wdate = sysdate
