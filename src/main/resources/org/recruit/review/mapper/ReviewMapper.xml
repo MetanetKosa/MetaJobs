@@ -48,7 +48,7 @@
 	 		from review
 	 		where rownum <= #{pageNum} * #{amount}
 	 		)
-	 	where rn > (#{pageNum} - 1) * #{amount} and 1=1
+	 	where rn > (#{pageNum} - 1) * #{amount}
  		]]>
  		<if test="keyword != null">
  			AND com_cno like '%'||#{keyword}||'%'

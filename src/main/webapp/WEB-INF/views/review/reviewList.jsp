@@ -196,10 +196,9 @@
                                     </div>
                                     <hr class="d-sm-none my-2">
                                     <div class="dropdown w-sm-50 border-end-sm" data-bs-toggle="select">
-                                        <button class="btn btn-lg btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown"><i class="fi-home me-2"></i><span class="dropdown-toggle-label">직종</span></button>
+                                        <button class="btn btn-lg btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown"><i class="fi-home me-2"></i><span class="dropdown-toggle-label">직종 전체</span></button>
                                         <input type="hidden" name="searchJob">
                                         <ul class="dropdown-menu" style="position: absolute; z-index:1;">
-                                            <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">직종 전체</span></a></li>      
                                             <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">개발</span></a></li>      
                                             <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">금융/재무</span></a></li>
                                             <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">기획/경영</span></a></li>
@@ -215,7 +214,7 @@
                                     </div>
                                     <hr class="d-sm-none my-2">
                                     <div class="dropdown w-sm-50 border-end-sm" data-bs-toggle="select">
-                                        <button class="btn btn-lg btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown"><i class="fi-map-pin me-2"></i><span class="dropdown-toggle-label">면접결과</span></button>
+                                        <button class="btn btn-lg btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown"><i class="fi-map-pin me-2"></i><span class="dropdown-toggle-label">면접결과 전체</span></button>
                                         <input type="hidden" name="searchResult">
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">합격</span></a></li>
@@ -258,13 +257,13 @@
 		                            </div>
 		                            <div>
 		                            	<span class="fs-sm"><fmt:formatDate pattern="yyyy년 MM월 dd일" value="${review.reDate}"/></span>
-		                            	<form id="updateForm" action="${path}/review/get" method="get">
+		                            	<%-- <form id="updateForm" action="${path}/review/get" method="get">
 			                            	<input type="hidden" name="rno" value="${review.rno}">
 			                            	<span><a class="nav-link" href = "#modal-reviewUpdate" data-bs-toggle="modal">수정</a></span>
-		                            	</form>
+		                            	</form> --%>
 		                            	<form id="deleteForm" action="${path}/review/delete" method="post">
 			                            	<input type="hidden" name="rno" value="${review.rno}">
-			                            	<span><button class="nav-link" type="submit">삭제</button></span>
+			                            	<span><button class="btn btn-primary" type="submit">삭제</button></span>
 		                            	</form>
 		                           </div>
 		                        </div>
