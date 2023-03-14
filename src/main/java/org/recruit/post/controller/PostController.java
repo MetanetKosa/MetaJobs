@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+
 import org.recruit.post.domain.PostVO;
 import org.recruit.post.service.PostService;
 import org.springframework.stereotype.Controller;
@@ -34,6 +35,7 @@ public class PostController {
 
 	@RequestMapping(value = "/postRegister", method = RequestMethod.GET)
 	public String register(Model model) {
+		log.info("확인");
 		return "/post/postInsert";
 	}
 	
@@ -57,6 +59,7 @@ public class PostController {
 	public String postDetail(Model model, @RequestParam Long post_no ) {
 		log.info("결과확인: "+ post_no);
 		model.addAttribute("post", service.getPost(post_no));
+		
 		return "/post/postDetail";
 	}
 	

@@ -6,7 +6,7 @@
 
 	<insert id="insert">     	
 		insert into attach(uuid, uploadpath, filename, filetype, resume_no)
-		values(#{uuid}, #{uploadPath}, #{fileName}, #{fileType}, #{Resume_no})
+		values(#{uuid}, #{uploadPath}, #{fileName}, #{fileType}, #{resume_no})
 	</insert>
 	
 	<delete id="delete">
@@ -15,6 +15,11 @@
 		
 	</delete>
 	
+	<delete id="deleteAll">
+
+		delete attach where resume_no = #{resume_no}
+
+	</delete>
 	<select id="findByRno" resultType="org.recruit.resume.domain.ResumeAttachVO">
 		select * from attach where resume_no = #{resume_no}
 	</select>
