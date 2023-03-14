@@ -30,8 +30,7 @@
 			<nav class="mb-3 mb-md-4 pt-md-3" aria-label="Breadcrumb">
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="job-board-home-v1.html">Home</a></li>
-					<li class="breadcrumb-item active" aria-current="page">Post
-						resume</li>
+					<li class="breadcrumb-item active" aria-current="page"><a href="/post/postGet">공고 등록</a></li>
 				</ol>
 			</nav>
 			<!-- Page content-->
@@ -122,7 +121,7 @@
 									<option value="" disabled selected></option>
 									<option value="정규직">정규직</option>
 									<option value="계약직">계약직</option>
-									<option value="인턴직">인턴직</option>
+									<option value="인턴">인턴</option>
 									<option value="파견직">파견직</option>
 								</select>
 							</div>
@@ -133,7 +132,6 @@
 									class="form-select form-select-lg" 
 									id='postEdu' name='postEdu' required>
 									<option value="" disabled selected></option>
-									<option value="학력무관">학력무관</option>
 									<option value="고졸">고졸</option>
 									<option value="초대졸">초대졸</option>
 									<option value="대졸">대졸</option>

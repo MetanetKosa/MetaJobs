@@ -175,7 +175,7 @@
                 <a class="navbar-brand me-0 me-xl-4" href="job-board-home-v1.html"><img class="d-block" src="${path}/resources/img/logo/logo-light.svg" width="116" alt="Finder"></a>
                 <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <a class="btn btn-link btn-light btn-sm d-none d-lg-block order-lg-3" href="#signin-modal" data-bs-toggle="modal"><i class="fi-user me-2"></i>Sign in</a>
-                <a class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3" href="job-board-post-resume-1.html"><i class="fi-plus me-2"></i>Post resume</a><a class="btn btn-link btn-light btn-sm d-none d-lg-block order-lg-3 pe-0 ms-2" href="job-board-home-v2.html">For employers<i class="fi-arrow-long-right ms-2"></i></a>
+                <a class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3" href="/post/postGet"><i class="fi-plus me-2"></i>공고 등록</a><a class="btn btn-link btn-light btn-sm d-none d-lg-block order-lg-3 pe-0 ms-2" href="job-board-home-v2.html">For employers<i class="fi-arrow-long-right ms-2"></i></a>
                 <div class="collapse navbar-collapse order-lg-2" id="navbarNav">
                     <ul class="navbar-nav navbar-nav-scroll" style="max-height: 35rem;">
                         <!-- Demos switcher-->
@@ -381,10 +381,11 @@
                     <div class="row">
                         <!-- Signle job content-->
                         <div class="col-lg-12 position-relative pe-lg-5 mb-5 mb-lg-0" style="z-index: 1025;">
-                            <div class="d-flex justify-content-between mb-2">
+                            <div class=" d-flex justify-content-between mb-2">
                                 <h2 class="h3 mb-0">${post.postTitle }</h2>
                               <!--   <div class="text-end"><span class="badge bg-faded-accent rounded-pill fs-sm mb-2">Featured</span>
                                     <div class="fs-sm text-muted">2 hours ago</div> -->
+                                     <a class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3" href="/post/Insert"><i class="fi-plus me-2"></i>지원하기</a>
                                 </div>
                             </div>
                             <ul class="list-unstyled fs-sm mb-4">

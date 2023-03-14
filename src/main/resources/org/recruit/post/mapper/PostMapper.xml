@@ -24,6 +24,7 @@
 	<select id="getPostList" resultMap="postMap">
   		<![CDATA[
   			select * from post where post_no > 0
+  			order by post_no desc
   		]]>
 	</select>
 
@@ -33,7 +34,7 @@
 		post_sal, post_edu, post_age, post_how, post_url, com_cno, mem_no)
 		VALUES(
 		post_seq.nextval,#{postTitle},#{postJob},#{postCareer},#{postEmptype},#{postAdd},#{postSdate},#{postFdate},
-		#{postSal},#{postEdu},#{postAge},#{postHow},#{postUrl},1237,2)
+		#{postSal},#{postEdu},#{postAge},#{postHow},#{postUrl},1237,41)
 		<!-- #{postSal},#{postEdu},#{postAge},#{postHow},#{postUrl},#{comCno},#{memNo}) -->
 	</insert>
 
@@ -74,8 +75,8 @@
 			        from post
 			        where rownum <= #{pageNum} * #{amount}
 			        )
-			where  post_no > (#{pageNum}-1) * #{amount}
-]]>
+			where  post_no > (#{pageNum} - 1) * #{amount}
+		]]>
 	</select>
 
 </mapper>

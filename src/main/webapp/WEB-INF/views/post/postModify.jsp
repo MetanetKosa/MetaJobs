@@ -141,7 +141,6 @@
 									class="form-select form-select-lg" 
 									id='postEdu' name='postEdu' required>
 									<option value="" disabled selected>${post.postEdu }</option>
-									<option value="학력무관">학력무관</option>
 									<option value="고졸">고졸</option>
 									<option value="초대졸">초대졸</option>
 									<option value="대졸">대졸</option>

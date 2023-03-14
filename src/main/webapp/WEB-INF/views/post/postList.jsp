@@ -179,7 +179,7 @@
                 <a class="navbar-brand me-0 me-xl-4" href="job-board-home-v1.html"><img class="d-block" src="${path}/resources/img/logo/logo-light.svg" width="116" alt="Finder"></a>
                 <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <a class="btn btn-link btn-light btn-sm d-none d-lg-block order-lg-3" href="#signin-modal" data-bs-toggle="modal"><i class="fi-user me-2"></i>Sign in</a>
-                <a class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3" href="/post/postRegister" ><i class="fi-plus me-2"></i>공고 등록</a><a class="btn btn-link btn-light btn-sm d-none d-lg-block order-lg-3 pe-0 ms-2" href="job-board-home-v2.html">For employers<i class="fi-arrow-long-right ms-2"></i></a>
+                <a class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3" href="/post/postGet" ><i class="fi-plus me-2"></i>공고 등록</a><a class="btn btn-link btn-light btn-sm d-none d-lg-block order-lg-3 pe-0 ms-2" href="job-board-home-v2.html">For employers<i class="fi-arrow-long-right ms-2"></i></a>
                 <div class="collapse navbar-collapse order-lg-2" id="navbarNav">
                     <ul class="navbar-nav navbar-nav-scroll" style="max-height: 35rem;">
                         <!-- Demos switcher-->
@@ -423,7 +423,11 @@
                      </ul>
                  </div>
              </div>
-             <h3 class="h6 card-title pt-1 mb-3">${post.postTitle}<a class="text-nav stretched-link text-decoration-none" href="/post/postGet?post_no=${post.postNo}"> </a></h3>
+             <h3 class="h6 card-title pt-1 mb-3">${post.postTitle}
+            	 <%-- <a class="text-nav stretched-link text-decoration-none" href="/post/postDetail?post_no=${post.postNo}">  --%>
+	             <a id = "move" class="text-nav stretched-link text-decoration-none" href="/post/postDetail?post_no=${post.postNo}"> 
+	             </a>
+             </h3>
              <div class="fs-sm">
              <span class="text-nowrap me-3"><i class="fi-map-pin text-muted me-1"> </i>${post.postAdd }</span>
              <span class="text-nowrap me-3"><i class="fi-cash fs-base text-muted me-1"></i>${post.postJob} </span>
@@ -473,8 +477,10 @@
             </div>
         </section>
     </main>
+			<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-		<script type="text/javascript">
+		<script>
+		console.log("script가 잘 실행되나요?");
 			$(document).ready(function(){
 				var actionForm = $("#actionForm");
 				$(".page-item a").on("click", function(e) {
@@ -486,7 +492,13 @@
 					actionForm.find("input[name = 'pageNum']").val($(this).attr("href"));
 					actionForm.submit();
 				});
-			
+				
+				/* $("#move").on("click",function(e){
+					e.preventDefault();
+					actionForm.find("<input type = 'hidden' name='postNo' value =' "+ $(this).attr("href")+"'>");
+					actionForm.attr("action","/post/postGet")
+					actionForm.submit();
+				} */
 			});
 		</script>
 </body>

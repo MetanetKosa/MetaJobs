@@ -33,8 +33,8 @@ import lombok.extern.log4j.Log4j;
 public class PostController {
 	
 	private PostService service;
-
-	@RequestMapping(value = "/postRegister", method = RequestMethod.GET)
+//post
+	@RequestMapping(value = "/postGet", method = RequestMethod.GET)
 	public String register(Model model) {
 		return "/post/postInsert";
 	}
@@ -44,11 +44,11 @@ public class PostController {
 	@GetMapping("/postList")
 	public void list(Criteria cri, Model model) {
 		log.info("list:" + cri);
-		model.addAttribute("postList",service.getPostList());
+//		model.addAttribute("postList",service.getPostList());
 //		int total = service.getTotal(cri);
-//		log.info("postList:" + cri );
-//		model.addAttribute("postList",service.getListWithPaging(cri));
-//		model.addAttribute("pageMaker",new PageDTO(cri, 80));
+//		log.info("postList: " + cri );
+		model.addAttribute("postList", service.getListWithPaging(cri));
+		model.addAttribute("pageMaker",new PageDTO(cri, 80));
 	}
 	
 	//페이징 처리
@@ -61,18 +61,18 @@ public class PostController {
 	
 	@PostMapping("/postInsert")
 	public String postList(@ModelAttribute PostVO post) {
-		log.info("result삽입결과:"+post);
-		log.info("result삽입결과:"+post.getPostSdate());
-		log.info("result삽입결과:"+post.getPostFdate());
+		log.info("getPostSdate결과:"+post.getPostSdate());
+		log.info("getPostFdate결과:"+post.getPostFdate());
 		service.insertPost(post);
 		return "redirect:/post/postList";
 	}
 	
 
-	@GetMapping(value = "/postGet")
+	@GetMapping(value = "/postDetail")
 	public String postDetail(Model model, @RequestParam Long post_no ) {
-		log.info("결과확인: "+ post_no);
+		log.info("post_no 결과확인: "+ post_no);
 		model.addAttribute("post", service.getPost(post_no));
+		log.info("postDetail 결과확인: "+ service.getPost(post_no));
 		return "/post/postDetail";
 	}
 	
@@ -96,7 +96,7 @@ public class PostController {
 
 	@RequestMapping(value = "/postDelete", method = RequestMethod.GET)
 	public String delete(@RequestParam Long postNo, RedirectAttributes rttr) {
-		log.info("@DeleteMapping결과확인: "+ postNo);
+		log.info("DeleteMapping결과확인: "+ postNo);
 		if(service.deletePost(postNo) == 1) {
 			rttr.addFlashAttribute("result", "success");
 		}
