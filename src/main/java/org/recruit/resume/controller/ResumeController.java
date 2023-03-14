@@ -5,6 +5,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
+import org.recruit.resume.domain.ResumeAttachVO;
+import org.recruit.resume.domain.ResumeVO;
 import org.recruit.resume.service.ResumeService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
