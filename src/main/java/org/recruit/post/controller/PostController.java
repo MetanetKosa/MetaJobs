@@ -6,6 +6,8 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import org.recruit.post.domain.Criteria;
+import org.recruit.post.domain.PageDTO;
 import org.recruit.post.domain.PostVO;
 import org.recruit.post.service.PostService;
 import org.springframework.stereotype.Controller;
@@ -37,11 +39,25 @@ public class PostController {
 		return "/post/postInsert";
 	}
 	
-	@RequestMapping(value = "/postList", method = RequestMethod.GET)
-	public String list(Model model) {
+	//페이징 처리
+	//@RequestMapping(value = "/postList", method = RequestMethod.GET)
+	@GetMapping("/postList")
+	public void list(Criteria cri, Model model) {
+		log.info("list:" + cri);
 		model.addAttribute("postList",service.getPostList());
-		return "/post/postList";
+//		int total = service.getTotal(cri);
+//		log.info("postList:" + cri );
+//		model.addAttribute("postList",service.getListWithPaging(cri));
+//		model.addAttribute("pageMaker",new PageDTO(cri, 80));
 	}
+	
+	//페이징 처리
+		@GetMapping("/getListWithPaging")
+		public void getListWithPaging(Criteria cri, Model model) {
+			log.info("getListWithPaging:" + cri );
+			model.addAttribute("getList", service.getListWithPaging(cri));
+			model.addAttribute("pageMaker",new PageDTO(cri, 200));
+		}
 	
 	@PostMapping("/postInsert")
 	public String postList(@ModelAttribute PostVO post) {
@@ -75,7 +91,7 @@ public class PostController {
 		log.info("getPostFdate확인 : " + post.getPostFdate());
 		if(service.updatePost(post) == 1) {
 			rttr.addFlashAttribute("result", "success");
-			rttr.addAttribute("postNo", post.getPostNo());
+			//rttr.addAttribute("postNo", post.getPostNo());
 		}
 		return "redirect:/post/postList";
 	}
@@ -91,4 +107,5 @@ public class PostController {
 		}
 		return "redirect:/post/postList";
 	}
+	
 }

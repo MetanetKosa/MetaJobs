@@ -64,5 +64,18 @@
 			select * from post where post_no = #{post_no}
   		]]>
 	</select>
+	
+	<select id = "getListWithPaging" parameterType="org.recruit.post.domain.Criteria" resultMap="postMap">
+		<![CDATA[
+				select post_no,post_title, post_job, post_career ,post_emptype, post_add, post_sdate ,post_fdate, post_sal, post_edu, post_how, post_url,com_cno,mem_no
+			from (
+			    select /*+INDEX_DESC(tbl_post pk_post_no) */ 
+			        rownum post_no,post_title, post_job, post_career ,post_emptype, post_add, post_sdate ,post_fdate, post_sal, post_edu, post_how, post_url,com_cno,mem_no
+			        from post
+			        where rownum <= #{pageNum} * #{amount}
+			        )
+			where  post_no > (#{pageNum}-1) * #{amount}
+]]>
+	</select>
 
 </mapper>

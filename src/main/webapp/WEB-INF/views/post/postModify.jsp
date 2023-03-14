@@ -117,7 +117,7 @@
 									class='text-danger'>*</span></label> <select
 									class="form-select form-select-lg" 
 									id='postCareer' name='postCareer' required>
-									<option value="" disabled selected>${post.postCareer }</option>
+									<option value="" selected>${post.postCareer }</option>
 									<option value="신입">신입</option>
 									<option value="인턴">인턴 </option>
 								</select>
@@ -127,7 +127,7 @@
 									class='text-danger'>*</span></label> <select
 									class="form-select form-select-lg" id='postEmptype'
 									id = 'postEmptype' name='postEmptype' required>
-									<option value="" disabled selected>${post.postEmptype }</option>
+									<option value="" selected>${post.postEmptype }</option>
 									<option value="정규직">정규직</option>
 									<option value="계약직">계약직</option>
 									<option value="인턴직">인턴직</option>

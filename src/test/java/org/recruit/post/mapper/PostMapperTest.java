@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.recruit.post.domain.Criteria;
 import org.recruit.post.domain.PostVO;
 import org.recruit.post.mapper.PostMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,12 +91,18 @@ public class PostMapperTest {
 //		int result = mapper.postDelete(1L);
 //		log.info("post 삭제 결과 : " + result);
 //	}
-		
+//		
+//	@Test
+//	public void postGet() {
+//		PostVO post = mapper.getPost(4L);
+//		log.info("vo결과" + post);
+//		
+//	}
 	@Test
-	public void postGet() {
-		PostVO post = mapper.getPost(4L);
-		log.info("vo결과" + post);
-		
+	public void getListWithPaging() {
+		Criteria cri = new Criteria();
+		List<PostVO> list = mapper.getListWithPaging(cri);
+		list.forEach(post -> log.info(post));
 	}
 	
 }
