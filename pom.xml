@@ -58,10 +58,14 @@
 			<version>${org.slf4j-version}</version>
 		</dependency>
 		<dependency>
-			<groupId>log4j</groupId>
+		 <groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
 			<exclusions>
+			<!-- <groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.12.1</version>
+			<exclusions> -->
 				<exclusion>
 					<groupId>javax.mail</groupId>
 					<artifactId>mail</artifactId>
@@ -161,7 +165,7 @@
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
-			<version>3.4.6</version>
+			<version>3.5.2</version>
 		</dependency>
 
 		<dependency>

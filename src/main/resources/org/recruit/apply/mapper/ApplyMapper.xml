@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.recruit.resume.mapper.ApplyMapper">
+
+	<insert id="applyInsert">     	
+		insert into apply(apply_no, resume_no, post_no)
+		values(apply_seq.nextVal, #{resume_no}, #{post_no})
+	</insert>
+	
+	
+	
+	<select id="findApply" resultType="org.recruit.resume.domain.ApplyVO">
+		select apply_check from apply where resume_no = #{resume_no} and post_no = #{post_no}
+	</select>
+	
+	
+	
+</mapper>

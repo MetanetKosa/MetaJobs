@@ -84,18 +84,14 @@
                                 <div class="border-top py-4">
                                     <h4 class="h5">자기소개서</h4>
                                     <ul class="list-unstyled text-nav">
-                                        <li><span class='text-muted'>Full name:</span> Annete Black</li>
-                                        <!-- <li><span class='text-muted'>Date of birth:</span> May 18, 1989</li>
-                                        <li><span class='text-muted'>Address:</span> 2464 Royal Ln. Mesa, New Jersey 45463</li>
-                                        <li><span class='text-muted'>Phone:</span> (302) 555-0107</li>
-                                        <li><span class='text-muted'>Email:</span> annette_black@email.com</li> -->
+                                        <li><span class='text-muted'> ${resume.resume_cv}</span></li>
+
                                     </ul>
                                 </div>
                                 <div class="border-top py-4">
                                     <h4 class="h5">첨부파일</h4>
                                     <div class="mt-3">                                
-                                        <p>Praesent sed pulvinar posuere nisl tincidunt. Iaculis sit quam magna congue. Amet vel non aliquet habitasse. Egestas erat odio et, eleifend turpis etiam blandit interdum. Nec augue ut senectus quisque diam quis.
-                                            At augue accumsan, bibendum. A eget et, eget quisque egestas netus vel.</p>
+                                        <p></p>
                                         <div class="d-flex">
                                         </div>                              
                                   	 </div>                                 
@@ -144,10 +140,11 @@
 			});
 			
 			$("button[data-oper='delete']").on("click", function(e){
+				operForm.find("#mem_no").remove();
 				operForm.attr("action", "/resume/delete").attr("method","post").submit();
 			});
 			
-		})
+		});
 		
 	</script>
 
