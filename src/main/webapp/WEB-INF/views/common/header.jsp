@@ -628,29 +628,7 @@
 		else alert("로그인 성공");
 	} 
 	
-	$("#loginBtn").click(function(){
-		
-		var userId = $("mem_id").val();
-		var userPwd = $("mem_pw").val();
-		console.log("유저아이디 확인"+userId+"비번:"+userPwd);
-		
-		$.ajax({
-			type: "post",
-			url : "/member/login",
-			dataType : "json",
-			data : {"mem_id":userId, "mem_pw", userPwd},
-			success : function(data){
-				console.log(data);
-				if (data == "no"){
-					alert("아이디 또는 비밀번호를 확인해주세요.");
-					return false;
-				} else {
-					window.location.href = "/diary/index";
-				}
-			}
-			
-		})
-	});
+	
 	</script>
 </body>
 
