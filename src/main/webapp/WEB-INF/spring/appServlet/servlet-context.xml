@@ -8,7 +8,6 @@
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-		<context:component-scan base-package="org.recruit.post"/>
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
@@ -23,13 +22,12 @@
 	</beans:bean>
 	
 	<!-- <context:component-scan base-package="org.recruit.controller" /> -->
-	
-	<context:component-scan base-package="org.recruit.**.controller" />
-	
+		
 	<beans:bean id="multipartResolver"
 		class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
 
 	</beans:bean>
 	
+	<context:component-scan base-package="org.recruit.controller, org.recruit.**.controller" />
 	
 </beans:beans>
