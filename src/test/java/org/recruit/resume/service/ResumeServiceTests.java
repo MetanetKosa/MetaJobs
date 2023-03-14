@@ -24,13 +24,13 @@ public class ResumeServiceTests {
 //	public void insert() {
 //		
 //		ResumeVO resume = new ResumeVO();
-//		resume.setResume_title("seyunÀÇ ÀÌ·Â¼­ ÀÔ´Ï´Ù");
-//		resume.setResume_career("°æ·Â");
-//		resume.setResume_cv("seyunÀÇ ÀÚ±â¼Ò°³¼­ ÀÔ´Ï´Ù.");
+//		resume.setResume_title("seyunï¿½ï¿½ ï¿½Ì·Â¼ï¿½ ï¿½Ô´Ï´ï¿½");
+//		resume.setResume_career("ï¿½ï¿½ï¿½");
+//		resume.setResume_cv("seyunï¿½ï¿½ ï¿½Ú±ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½Ô´Ï´ï¿½.");
 //		resume.setMem_no(3L);
-//		resume.setResume_gender("¿©");
-//		resume.setResume_image("ÀÌ¹ÌÁö");
-//		resume.setResume_technology("ÆÄÀÌ½ã");
+//		resume.setResume_gender("ï¿½ï¿½");
+//		resume.setResume_image("ï¿½Ì¹ï¿½ï¿½ï¿½");
+//		resume.setResume_technology("ï¿½ï¿½ï¿½Ì½ï¿½");
 //		
 //		service.insertResume(resume);
 //		
@@ -48,13 +48,13 @@ public class ResumeServiceTests {
 //		}
 //		
 //		
-//		resume.setResume_title("seyunÀÇ ÀÌ·Â¼­ ¼öÁ¤");
+//		resume.setResume_title("seyunï¿½ï¿½ ï¿½Ì·Â¼ï¿½ ï¿½ï¿½ï¿½ï¿½");
 //		resume.setResume_career(resume.getResume_career());
-//		resume.setResume_cv("seyunÀÇ ÀÚ±â¼Ò°³¼­ ¼öÁ¤.");
+//		resume.setResume_cv("seyunï¿½ï¿½ ï¿½Ú±ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.");
 //		resume.setMem_no(resume.getResume_no());
 //		resume.setResume_gender(resume.getResume_gender());
-//		resume.setResume_image("ÀÌ¹ÌÁö");
-//		resume.setResume_technology("ÆÄÀÌ½ã");
+//		resume.setResume_image("ï¿½Ì¹ï¿½ï¿½ï¿½");
+//		resume.setResume_technology("ï¿½ï¿½ï¿½Ì½ï¿½");
 //		
 //		log.info(service.updateResume(resume));
 //	}
@@ -84,13 +84,13 @@ public class ResumeServiceTests {
 	@Test
 	public void testRegister() {
 		ResumeVO resume = new ResumeVO();
-		resume.setResume_title("seyunÀÇ ÀÌ·Â¼­ ÀÔ´Ï´Ù");
-		resume.setResume_career("°æ·Â");
-		resume.setResume_cv("seyunÀÇ ÀÚ±â¼Ò°³¼­ ÀÔ´Ï´Ù.");
+		resume.setResume_title("seyundd");
+		resume.setResume_career("ê²½ë ¥");
+		resume.setResume_cv("seyunds");
 		resume.setMem_no(3L);
-		resume.setResume_gender("¿©");
-		resume.setResume_image("ÀÌ¹ÌÁö");
-		resume.setResume_technology("ÆÄÀÌ½ã");
+		resume.setResume_gender("ì—¬");
+		resume.setResume_image("imag");
+		resume.setResume_technology("sdf");
 		
 	
 		service.insertResume(resume);

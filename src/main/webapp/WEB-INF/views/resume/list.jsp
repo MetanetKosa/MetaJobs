@@ -118,7 +118,7 @@
                             <button class="dropdown-item" type="button"><i class="fi-trash opacity-60 me-2"></i>Delete</button>
                           </li>
                         </ul>
-                      </div><strong class="fs-sm">${resume.updateDate }</strong>
+                      </div><strong class="fs-sm"><fmt:formatDate pattern="YYYY-MM-dd" value ="${resume.updateDate }"/></strong>
                     </div>
                   </div>
                 </div>

@@ -2,6 +2,7 @@ package org.recruit.resume.service;
 
 import java.util.List;
 
+import org.recruit.resume.domain.ResumeAttachVO;
 import org.recruit.resume.domain.ResumeVO;
 import org.recruit.resume.mapper.ResumeAttachMapper;
 import org.recruit.resume.mapper.ResumeMapper;
@@ -9,18 +10,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import lombok.AllArgsConstructor;
+
 import lombok.Setter;
 
 @Service
-@AllArgsConstructor
 public class ResumeServiceImpl implements ResumeService {
 	
-	
+	@Setter(onMethod_ = @Autowired)
 	private ResumeMapper mapper;
 
-	
-	private ResumeAttachMapper resumeattch;
+	@Setter(onMethod_ = @Autowired)
+	private ResumeAttachMapper attachMapper;
 
 	
 	@Transactional
@@ -32,7 +32,7 @@ public class ResumeServiceImpl implements ResumeService {
 		}
 		resume.getAttachList().forEach(attach -> {
 			attach.setResume_no(resume.getResume_no());
-			resumeattch.insert(attach);
+			attachMapper.insert(attach);
 		});
 
 	}
@@ -44,17 +44,43 @@ public class ResumeServiceImpl implements ResumeService {
 
 	@Override
 	public boolean updateResume(ResumeVO resume) {
-		return mapper.resumeUpdate(resume) == 1;
+		
+//		attachMapper.deleteAll(resume.getResume_no());
+		boolean modifyResult =  mapper.resumeUpdate(resume) == 1;
+		
+//		if(modifyResult && resume.getAttachList().size() > 0) {
+//			resume.getAttachList().forEach(attach -> {
+//				attach.setResume_no(resume.getResume_no());
+//				attachMapper.insert(attach);
+//			});
+//		}
+		return modifyResult;
 	}
 
+	@Transactional
 	@Override
 	public boolean delete(Long resume_no) {
+		
+		attachMapper.deleteAll(resume_no);
 		return mapper.resumeDelete(resume_no) == 1;
 	}
 
 	@Override
 	public List<ResumeVO> getResumeList(Long resume_no) {
 		return mapper.getList(resume_no);
+	}
+
+	@Override
+	public List<ResumeAttachVO> getAttachList(Long resum_no) {
+		// TODO Auto-generated method stub
+		return attachMapper.findByRno(resum_no);
+	}
+
+	@Override
+	public void removeAttach(Long resume_no) {
+		// TODO Auto-generated method stub
+		attachMapper.deleteAll(resume_no);
+		
 	}
 
 }

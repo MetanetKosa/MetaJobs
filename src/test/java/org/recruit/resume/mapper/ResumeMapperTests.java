@@ -22,11 +22,11 @@ public class ResumeMapperTests {
 //	@Test
 //	public void insert() {
 //		ResumeVO vo = new ResumeVO();
-//		vo.setResume_title("ÀÌ·Â¼­1");
+//		vo.setResume_title("ï¿½Ì·Â¼ï¿½1");
 //		vo.setResume_technology("java,spring");
-//		vo.setResume_cv("ÀÚ±â¼Ò°³¼­1");
-//		vo.setResume_career("½ÅÀÔ");
-//		vo.setResume_gender("³²");
+//		vo.setResume_cv("ï¿½Ú±ï¿½Ò°ï¿½ï¿½ï¿½1");
+//		vo.setResume_career("ï¿½ï¿½ï¿½ï¿½");
+//		vo.setResume_gender("ï¿½ï¿½");
 //		vo.setMem_no(4L);
 //	mapper.resumeInsert(vo);
 //	
@@ -37,12 +37,12 @@ public class ResumeMapperTests {
 	public void update() {
 		ResumeVO vo = mapper.get(13L);
 		
-		vo.setResume_title("juÀÇ ÀÌ·Â¼­ ÀÔ´Ï´Ù.");
+		vo.setResume_title("juï¿½ï¿½ ï¿½Ì·Â¼ï¿½ ï¿½Ô´Ï´ï¿½.");
 		vo.setResume_image("image");
 		vo.setResume_technology(vo.getResume_technology());
-		vo.setResume_cv("ÀÚ±â¼Ò°³¼­ ¼öÁ¤ÀÔ´Ï´Ù.");
-		vo.setResume_career("½ÅÀÔ");
-		vo.setResume_gender("³²");
+		vo.setResume_cv("ï¿½Ú±ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
+		vo.setResume_career("ï¿½ï¿½ï¿½ï¿½");
+		vo.setResume_gender("ï¿½ï¿½");
 		vo.setMem_no(vo.getMem_no());
 
 		
