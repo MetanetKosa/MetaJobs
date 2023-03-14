@@ -1,4 +1,4 @@
-package org.recruit.post.mapper;
+package org.recruit.post.service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -8,6 +8,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.recruit.post.domain.Criteria;
 import org.recruit.post.domain.PostVO;
 import org.recruit.post.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,11 +93,19 @@ public class PostServiceTest {
 //		int result = service.postDelete(2L);
 //		log.info("post 삭제 결과 : " + result);
 //	}
-	
+//	
+//	@Test
+//	public void postGet() {
+//		PostVO post = service.getPost(4L);
+//		log.info("postVO 결과 : " + post);
+//	}
 	@Test
-	public void postGet() {
-		PostVO post = service.getPost(4L);
-		log.info("postVO 결과 : " + post);
+	public void postgetListWithPaging() {
+		Criteria cri = new Criteria();
+		cri.setPageNum(1);
+		cri.setAmount(10);
+		List<PostVO> postList= service.getListWithPaging(cri);
+		postList.forEach(post ->log.info(post));
 	}
 
 }

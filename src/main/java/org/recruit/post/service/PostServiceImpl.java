@@ -2,6 +2,7 @@ package org.recruit.post.service;
 
 import java.util.List;
 
+import org.recruit.post.domain.Criteria;
 import org.recruit.post.domain.PostVO;
 import org.recruit.post.mapper.PostMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,16 @@ public class PostServiceImpl implements PostService {
 	@Override
 	public PostVO getPost(Long postNo) {
 		return mapper.getPost(postNo);
+	}
+
+	@Override
+	public List<PostVO> getListWithPaging(Criteria cri, int total) {
+		return mapper.getListWithPaging(cri);
+	}
+
+	@Override
+	public int getTotalCount(Criteria cri) {
+		return mapper.getTotalCount(cri);
 	}
 
 }

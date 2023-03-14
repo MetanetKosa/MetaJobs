@@ -24,6 +24,7 @@
 	<select id="getPostList" resultMap="postMap">
   		<![CDATA[
   			select * from post where post_no > 0
+  			order by post_no desc
   		]]>
 	</select>
 
@@ -33,7 +34,7 @@
 		post_sal, post_edu, post_age, post_how, post_url, com_cno, mem_no)
 		VALUES(
 		post_seq.nextval,#{postTitle},#{postJob},#{postCareer},#{postEmptype},#{postAdd},#{postSdate},#{postFdate},
-		#{postSal},#{postEdu},#{postAge},#{postHow},#{postUrl},1237,2)
+		#{postSal},#{postEdu},#{postAge},#{postHow},#{postUrl},1237,41)
 		<!-- #{postSal},#{postEdu},#{postAge},#{postHow},#{postUrl},#{comCno},#{memNo}) -->
 	</insert>
 
@@ -45,7 +46,7 @@
 		post_emptype = #{postEmptype},
 		post_add = #{postAdd},
 		post_sdate = #{postSdate},
-		post_fdate = #{postSdate},
+		post_fdate = #{postFdate},
 		post_sal = #{postSal},
 		post_edu = #{postEdu},
 		post_age = #{postAge},
@@ -63,6 +64,48 @@
 	<![CDATA[
 			select * from post where post_no = #{post_no}
   		]]>
+	</select>
+	
+	<select id = "getListWithPaging" parameterType="org.recruit.post.domain.Criteria" resultMap="postMap">
+		<![CDATA[
+				select post_no,post_title, post_job, post_career ,post_emptype, post_add, post_sdate ,post_fdate, post_sal, post_edu, post_how, post_url,com_cno,mem_no
+			from (
+			    select /*+INDEX_DESC(tbl_post pk_post) */ 
+			        rownum rn ,post_no,post_title, post_job, post_career ,post_emptype, post_add, post_sdate ,post_fdate, post_sal, post_edu, post_how, post_url,com_cno,mem_no
+			        from post
+			        where rownum <= #{pageNum} * #{amount}
+			        )
+			where  rn > (#{pageNum} - 1) * #{amount}
+		]]>
+		<if test = "keyword != null">
+			AND post_title like '%' || #{keyword} || '%'
+		</if>
+		<if test = "searchCareer != null">
+			AND post_career like '%' || #{searchCareer} || '%'
+		</if>
+		<if test = "searchEmptype != null">
+			AND post_emptype like '%' || #{searchEmptype} || '%'
+		</if>
+		<if test = "searchEdu != null">
+			AND post_edu like '%' || #{searchEdu} || '%'
+		</if>
+	</select>
+	
+	<select id="getTotalCount" resultType="int">
+		select count(*) from post 
+		where 1=1
+		<if test = "keyword != null">
+			AND post_title like '%' || #{keyword} || '%'
+		<if test = "searchCareer != null">
+			AND post_career like '%' || #{searchCareer} || '%'
+		<if test = "searchEmptype != null">
+			AND post_emptype like '%' || #{searchEmptype} || '%'
+			<if test = "searchEdu != null">
+			AND post_edu like '%' || #{searchEdu} || '%'
+		</if>
+		</if>
+		</if>
+		</if>
 	</select>
 
 </mapper>

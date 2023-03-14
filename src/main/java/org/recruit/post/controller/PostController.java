@@ -6,7 +6,12 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+<<<<<<< HEAD
 
+=======
+import org.recruit.post.domain.Criteria;
+import org.recruit.post.domain.PageDTO;
+>>>>>>> post
 import org.recruit.post.domain.PostVO;
 import org.recruit.post.service.PostService;
 import org.springframework.stereotype.Controller;
@@ -32,34 +37,49 @@ import lombok.extern.log4j.Log4j;
 public class PostController {
 	
 	private PostService service;
-
-	@RequestMapping(value = "/postRegister", method = RequestMethod.GET)
+//post
+	@RequestMapping(value = "/postGet", method = RequestMethod.GET)
 	public String register(Model model) {
 		log.info("확인");
 		return "/post/postInsert";
 	}
 	
-	@RequestMapping(value = "/postList", method = RequestMethod.GET)
-	public String list(Model model) {
-		model.addAttribute("postList",service.getPostList());
-		return "/post/postList";
+	//페이징 처리
+	//@RequestMapping(value = "/postList", method = RequestMethod.GET)
+	@GetMapping("/postList")
+	public void list(Criteria cri, Model model) {
+		log.info("list:" + cri);
+//		model.addAttribute("postList",service.getPostList());
+		int total = service.getTotalCount(cri);
+		log.info("postList: " + cri );
+		model.addAttribute("postList", service.getListWithPaging(cri,total));
+		model.addAttribute("pageMaker",new PageDTO(cri, total));
 	}
+	
+	//페이징 처리
+		@GetMapping("/getListWithPaging")
+		public void getListWithPaging(Criteria cri, Model model) {
+			log.info("getListWithPaging:" + cri );
+			int total = service.getTotalCount(cri);
+			log.info(total);
+			model.addAttribute("getList", service.getListWithPaging(cri,total));
+			model.addAttribute("pageMaker",new PageDTO(cri, 200));
+		}
 	
 	@PostMapping("/postInsert")
 	public String postList(@ModelAttribute PostVO post) {
-		log.info("result삽입결과:"+post);
-		log.info("result삽입결과:"+post.getPostSdate());
-		log.info("result삽입결과:"+post.getPostFdate());
+		log.info("getPostSdate결과:"+post.getPostSdate());
+		log.info("getPostFdate결과:"+post.getPostFdate());
 		service.insertPost(post);
 		return "redirect:/post/postList";
 	}
 	
 
-	@GetMapping(value = "/postGet")
+	@GetMapping(value = "/postDetail")
 	public String postDetail(Model model, @RequestParam Long post_no ) {
-		log.info("결과확인: "+ post_no);
+		log.info("post_no 결과확인: "+ post_no);
 		model.addAttribute("post", service.getPost(post_no));
-		
+		log.info("postDetail 결과확인: "+ service.getPost(post_no));
 		return "/post/postDetail";
 	}
 	
@@ -70,28 +90,24 @@ public class PostController {
 		return "/post/postModify";
 	}
 	
-//	@PatchMapping("/postModify")
-//	@PostMapping("/postModify")
 	@RequestMapping(value = "/postModify", method = RequestMethod.POST)
 	public String modify(@ModelAttribute PostVO post, RedirectAttributes rttr, @RequestParam("postNo") Long postNo) {
 		log.info("getPostSdate확인 : " + post.getPostSdate());
 		log.info("getPostFdate확인 : " + post.getPostFdate());
 		if(service.updatePost(post) == 1) {
 			rttr.addFlashAttribute("result", "success");
-			rttr.addAttribute("postNo", post.getPostNo());
 		}
 		return "redirect:/post/postList";
 	}
 	
 
-//	@DeleteMapping("/postDelete")
-//	@PostMapping("/postDelete")
 	@RequestMapping(value = "/postDelete", method = RequestMethod.GET)
 	public String delete(@RequestParam Long postNo, RedirectAttributes rttr) {
-		log.info("@DeleteMapping결과확인: "+ postNo);
+		log.info("DeleteMapping결과확인: "+ postNo);
 		if(service.deletePost(postNo) == 1) {
 			rttr.addFlashAttribute("result", "success");
 		}
 		return "redirect:/post/postList";
 	}
+	
 }

@@ -182,7 +182,7 @@
                 <a class="navbar-brand me-0 me-xl-4" href="job-board-home-v1.html"><img class="d-block" src="${path}/resources/img/logo/logo-light.svg" width="116" alt="Finder"></a>
                 <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <a class="btn btn-link btn-light btn-sm d-none d-lg-block order-lg-3" href="#signin-modal" data-bs-toggle="modal"><i class="fi-user me-2"></i>Sign in</a>
-                <a class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3" href="job-board-post-resume-1.html"><i class="fi-plus me-2"></i>Post resume</a><a class="btn btn-link btn-light btn-sm d-none d-lg-block order-lg-3 pe-0 ms-2" href="job-board-home-v2.html">For employers<i class="fi-arrow-long-right ms-2"></i></a>
+                <a class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3" href="/post/postGet"><i class="fi-plus me-2"></i>공고 등록</a><a class="btn btn-link btn-light btn-sm d-none d-lg-block order-lg-3 pe-0 ms-2" href="job-board-home-v2.html">For employers<i class="fi-arrow-long-right ms-2"></i></a>
                 <div class="collapse navbar-collapse order-lg-2" id="navbarNav">
                     <ul class="navbar-nav navbar-nav-scroll" style="max-height: 35rem;">
                         <!-- Demos switcher-->
@@ -388,10 +388,11 @@
                     <div class="row">
                         <!-- Signle job content-->
                         <div class="col-lg-12 position-relative pe-lg-5 mb-5 mb-lg-0" style="z-index: 1025;">
-                            <div class="d-flex justify-content-between mb-2">
+                            <div class=" d-flex justify-content-between mb-2">
                                 <h2 class="h3 mb-0">${post.postTitle }</h2>
                               <!--   <div class="text-end"><span class="badge bg-faded-accent rounded-pill fs-sm mb-2">Featured</span>
                                     <div class="fs-sm text-muted">2 hours ago</div> -->
+                                     <a class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3" href="/post/Insert"><i class="fi-plus me-2"></i>지원하기</a>
                                 </div>
                             </div>
                             <ul class="list-unstyled fs-sm mb-4">
@@ -415,16 +416,15 @@
                                 <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>마감일  <fmt:formatDate pattern="YYYY.MM.dd" value="${post.postFdate}" /> 입니다.  </li>
                                
                             </ul>
-                            <h3 class="h6 pt-2">유의사항:</h3>
+                            <!-- <h3 class="h6 pt-2">유의사항:</h3>
                             <ul class="list-unstyled">
-                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>Et mattis sit imperdiet risus, fermentum ultrices non.</li>
-                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>Sed phasellus consequat nunc enim interdum tristique ultrices egestas.</li>
-                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>Molestie mus ultrices tellus enim.</li>
-                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>Vitae pulvinar massa id lorem aliquam fermentum egestas.</li>
-                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>Dictumst blandit sit mauris in consectetur.</li>
-                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>Sem purus lorem odio donec faucibus ipsum ultricies.</li>
-                            </ul>
-                            <p class="pt-2 mb-1">Please, send your CV marked âPartnership Managerâ in the subject via e-mail:</p><a class="nav-link-muted fw-bold" href="mailto:contact@example.com">contact@example.com</a>
+                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>본 채용은 메타넷 그룹사에서 함께 진행하고 있으며 최종 합격 후 계열 법인으로 입사 결정될 수 있습니다.</li>
+                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>근무지는 최종 합격 후 해당 계열 법인 및 프로젝트 사이트에 따라 결정됩니다.(서울/수도권)</li>
+                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>입사 지원서 내용 중 허위 사항이 있는 경우 합격이 취소됩니다.</li>
+                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>전형 일정은 내부 사정에 따라 조정될 수 있으며, 조정 사항 발생 시 사전 안내 예정입니다.</li>
+                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>국가유공자 및 장애인 등 취업보호대상자는 관계 법령에 따라 우대합니다..</li>
+                            </ul> -->
+                            	
                             <hr class="my-4">
                             <div class="btn-group btn-group-lg">
                                 <button class="btn btn-primary rounded-pill rounded-end-0 ps-4 pe-3" type="button" onclick="location.href='/post/postModify?postNo=${post.postNo }'">수정</button>

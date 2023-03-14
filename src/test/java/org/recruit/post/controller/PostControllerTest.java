@@ -1,4 +1,4 @@
-package org.recruit.post.mapper;
+package org.recruit.post.controller;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -87,5 +87,17 @@ public class PostControllerTest {
 //		
 //		log.info(result);
 //	}
+	//페이징 처리
+	@Test
+	public void getListWithPaging() throws Exception {
+		log.info(
+				mvc.perform(
+						MockMvcRequestBuilders.get("/post/getListWithPaging")
+						.param("pageNum", "1")
+						.param("amount", "5"))
+				.andReturn().getModelAndView().getModelMap()
+				);
+		
+	}
 	
 }
