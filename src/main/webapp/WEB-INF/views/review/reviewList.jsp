@@ -84,6 +84,7 @@
 					                    <option value="" selected disabled hidden>면접결과</option>
 					                    <option value="합격">합격</option>
 					                    <option value="불합격">불합격</option>
+					                    <option value="대기중">대기중</option>
 				                  </select>
 	                 			 </div>
                             
@@ -173,22 +174,18 @@
                 <div class="container col-lg-8 col-xl-7">
 
                     <!-- Page header-->
-                    <section class="container pt-5 mt-5">
+                    <section class="container pt-5 mt-5 mb-3 border-bottom">
                         <!-- Breadcrumb-->
-                        <nav class="mb-3 pt-md-3" aria-label="breadcrumb">
+                        <nav class="mb-3 pt-md-3 " aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="real-estate-home-v1.html">Home</a></li>
-                                <li class="breadcrumb-item"><a href="real-estate-catalog-rent.html">Property for rent</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Pine Apartments</li>
+                                <li class="breadcrumb-item active" aria-current="page">면접 후기</li>
                             </ol>
                         </nav>
-                        <h1 class="h2 mb-2">Pine Apartments</h1>
-                        <p class="mb-2 pb-1 fs-lg">28 Jackson Ave Long Island City, NY 67234</p>
+                        <h1 class="h2 mb-2 ">면접 후기</h1>
+                        <p class="mb-2 pb-1 fs-lg">면접 후기를 확인하세요</p>
 
                     </section>
-
-                    <span class="badge bg-success me-2 mb-3">Verified</span><span class="badge bg-info me-2 mb-3">New</span>
-                    <h2 class="h3 mb-4 pb-4 border-bottom">$2,000<span class="d-inline-block ms-1 fs-base fw-normal text-body">/month</span></h2>
 
 					 <!-- Form group-->
                         <form class="form-group d-block" name="reviewSearchFrm" id="reviewSearchFrm" action="${path}/review/reviewList" method="get" >
@@ -238,53 +235,75 @@
 
 
                     <!-- Reviews-->
-                    <div class="mb-4 pb-4 border-bottom">
-                        <div class="d-flex flex-sm-row flex-column align-items-sm-center align-items-stretch justify-content-between"><a class="btn btn-outline-primary mb-sm-0 mb-3" href="#modal-review" data-bs-toggle="modal"><i class="fi-edit me-1"></i>Add review</a>
+                    <div class="mt-3 mb-4 pb-4 border-bottom">
+                        <div class="d-flex flex-sm-row flex-column align-items-sm-center align-items-stretch justify-content-between"><a class="btn btn-outline-primary mb-sm-0 mb-3" href="#modal-review" data-bs-toggle="modal"><i class="fi-edit me-1"></i>리뷰 등록</a>
                             <div class="d-flex align-items-center ms-sm-4">
-                           		<p>총 ${total}건</p>
+                           		<p class="pt-4 mb-0">총 ${total}건</p>
                             </div>
                         </div>
                     </div>
-                    <!-- Review-->
-                    <c:forEach items="${list}" var="review">
-	                    <div class="mb-4 pb-4 border-bottom">
-	                        <div class="d-flex justify-content-between mb-3">
-	                            <div class="d-flex align-items-center pe-2"><img class="rounded-circle me-1" src="${path}/resources/img/avatars/13.png" width="48" alt="Avatar">
-	                                <div class="ps-2">
-	                                    <h6 class="fs-base mb-0">회사명</h6>
-	                                    <h6 class="fs-sm mb-0">${review.reJob}</h6>
-	                                </div>
-	                            </div>
-	                            <div>
-	                            	<span class="fs-sm"><fmt:formatDate pattern="yyyy년 MM월 dd일" value="${review.reDate}"/></span>
-	                            	<form id="updateForm" action="${path}/review/get" method="get">
-		                            	<input type="hidden" name="rno" value="${review.rno}">
-		                            	<span><a class="nav-link" href = "#modal-reviewUpdate" data-bs-toggle="modal">수정</a></span>
-	                            	</form>
-	                            	<form id="deleteForm" action="${path}/review/delete" method="post">
-		                            	<input type="hidden" name="rno" value="${review.rno}">
-		                            	<span><button class="nav-link" type="submit">삭제</button></span>
-	                            	</form>
-	                           </div>
-	                        </div>
-	                        <div class="row">
-	                            <div class="col-2">
-	                                <h6 class="fs-xs mb-0">면접일</h6>
-	                                <h6 class="fs-xs fw-light mb-0"><fmt:formatDate pattern="yyyy년 MM월 dd일" value="${review.reDate}"/></h6>
-	                                <h6 class="fs-xs pt-2 mb-0">면접인원</h6>
-	                                <h6 class="fs-xs fw-light mb-0">면접인원</h6>
-	                            </div>
-	                            <div class="col-10">
-	                                <h3 class="fs-sm mb-0">면접내용</h3>
-	                                 <p class="fs-sm" style="min-height:90px;">${review.reContent}</p>
-	                                <h3 class="fs-sm mb-0">면접 결과</h3>
-	                                <p class="fs-sm">${review.reResult}</p>
-	
-	                            </div>
-	                        </div>
-	                    </div>
-                    </c:forEach>
+                    <c:if test="${total == 0}">
+							검색 결과가 없습니다.
+                    </c:if>
+                    
+                    <div style="min-height:300px;">                   
+	                    <c:forEach items="${list}" var="review">
+		                    <div class="mb-2 pb-4 border-bottom">
+		                        <div class="d-flex justify-content-between mb-3">
+		                            <div class="d-flex align-items-center pe-2"><img class="rounded-circle me-1" src="${path}/resources/img/avatars/13.png" width="48" alt="Avatar">
+		                                <div class="ps-2">
+		                                    <h6 class="fs-base mb-0">회사명</h6>
+		                                    <h6 class="fs-sm mb-0">${review.reJob}</h6>
+		                                </div>
+		                            </div>
+		                            <div>
+		                            	<span class="fs-sm"><fmt:formatDate pattern="yyyy년 MM월 dd일" value="${review.reDate}"/></span>
+		                            	<form id="updateForm" action="${path}/review/get" method="get">
+			                            	<input type="hidden" name="rno" value="${review.rno}">
+			                            	<span><a class="nav-link" href = "#modal-reviewUpdate" data-bs-toggle="modal">수정</a></span>
+		                            	</form>
+		                            	<form id="deleteForm" action="${path}/review/delete" method="post">
+			                            	<input type="hidden" name="rno" value="${review.rno}">
+			                            	<span><button class="nav-link" type="submit">삭제</button></span>
+		                            	</form>
+		                           </div>
+		                        </div>
+		                        <div class="row">
+		                            <div class="col-2">
+		                                <h6 class="fs-xs mb-0">면접일</h6>
+		                                <h6 class="fs-xs fw-light mb-0"><fmt:formatDate pattern="yyyy년 MM월 dd일" value="${review.reDate}"/></h6>
+		                                <h6 class="fs-xs pt-2 mb-0">면접인원</h6>
+		                                <h6 class="fs-xs fw-light mb-0">면접인원</h6>
+		                            </div>
+		                            <div class="col-10">
+		                                <h3 class="fs-sm mb-0">면접내용</h3>
+		                                 <p class="fs-sm" style="min-height:60px;">${review.reContent}</p>
+		                                <h3 class="fs-sm mb-0">면접 결과</h3>
+		                                <p class="fs-sm">${review.reResult}</p>
+		
+		                            </div>
+		                        </div>
+		                    </div>
+                    	</c:forEach>
+                    </div>
                     <!-- Pagination-->
+                    <c:if test="${total == 0}">
+							 <nav aria-label="Page navigation example">
+							  <ul class="pagination">
+							    <li class="page-item">
+							      <a href="#" class="page-link" aria-label="Previous">
+							        <i class="fi-angle-left"></i>
+							      </a>
+							    </li>
+							    <li class="page-item active d-none d-sm-block" aria-current="page">
+							      <span class="page-link">
+							        1
+							        <span class="visually-hidden">(current)</span>
+							      </span>
+							    </li>
+							  </ul>
+							</nav>
+                    </c:if>
                     <nav class="mt-2 mb-4" aria-label="Reviews pagination">
                         <ul class="pagination">
                         	<c:if test="${pageMaker.prev}">
@@ -326,7 +345,7 @@
                         <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-						처리가 완료되었습니다.
+						게시글 등록이 완료되었습니다.
                     </div>
                 </div>
             </div>
