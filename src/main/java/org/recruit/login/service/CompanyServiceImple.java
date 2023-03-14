@@ -28,11 +28,8 @@ public class CompanyServiceImple implements CompanyService {
 		System.out.println("결과");
 	}
 	
-//	@Override
-//	public void insert(CompanyVO company) throws Exception {
-//		// TODO Auto-generated method stub
-//		companymapper.insert(company);
-//		//authmapper.insertCom();
-//		//System.out.println("결과");
-//	}
+	@Override
+	public CompanyVO companyLogin(CompanyVO company) throws Exception {
+		return companymapper.loginCompany(company);
+	}
 }

@@ -8,7 +8,7 @@
     
 <!DOCTYPE html>
 <html>
-	<head>
+<head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
 	
@@ -126,9 +126,28 @@
     </div>
     <main class="page-wrapper">
     
-        <!-- Sign In Modal-->
-        <!-- ************************************** 로그인 모달 id signin-modal -->
+    <!-- Sign Up Modal-->
+        <!-- **************************************** 로그인 회원/기업 구분 id singin-modal -->
         <div class="modal fade" id="signin-modal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered p-2 my-0 mx-auto" style="max-width: 500px;">
+                <div class="modal-content">
+                    <div class="modal-body px-0 py-2 py-sm-0">
+                        <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-dismiss="modal"></button>
+                        <div class="row mx-0 align-items-center">
+                            <div class="col-md-6 border-end-md p-4 p-sm-5">
+                            	 <a class="btn btn-sm text-primary d-none d-lg-block order-lg-3" href="#modal-memSingin" data-bs-toggle="modal"><i class="fi-user me-2"></i>일반 회원</a>
+                            </div>
+                            <div class="col-md-6 px-4 pt-2 pb-4 px-sm-5 pb-sm-5 pt-md-5">
+								 <a class="btn btn-sm text-primary d-none d-lg-block order-lg-3" href="#modal-comSingin" data-bs-toggle="modal"><i class="fi-user me-2"></i>기업 회원</a>                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sign In Modal-->
+        <!-- ************************************** 일반회원 로그인 모달 id modal-memSingin -->
+        <div class="modal fade" id="modal-memSingin" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered p-2 my-0 mx-auto" style="max-width: 950px;">
                 <div class="modal-content">
                     <div class="modal-body px-0 py-2 py-sm-0">
@@ -136,7 +155,7 @@
                         <div class="row mx-0 align-items-center">
                             <div class="col-md-6 border-end-md p-4 p-sm-5">
                                 <h2 class="h3 mb-4 mb-sm-5">Hey there!<br>Welcome Metajobs back.</h2><img class="d-block mx-auto" src="img/signin-modal/signin.svg" width="344" alt="Illustartion">
-                                <div class="mt-4 mt-sm-5">Don't have an account? <a href="#signup-modal" data-bs-toggle="modal" data-bs-dismiss="modal">Sign up here</a></div>
+                                <div class="mt-4 mt-sm-5">Don't have an account? <a href="#modal-memSingup" data-bs-toggle="modal" data-bs-dismiss="modal">Sign up here</a></div>
                             </div>
                             <div class="col-md-6 px-4 pt-2 pb-4 px-sm-5 pb-sm-5 pt-md-5"><a class="btn btn-outline-info rounded-pill w-100 mb-3" href="#"><i class="fi-google fs-lg me-1"></i>Sign in with Google</a><a class="btn btn-outline-info rounded-pill w-100 mb-3" href="#"><i class="fi-facebook fs-lg me-1"></i>Sign in with Facebook</a>
                                 <div class="d-flex align-items-center py-3 mb-3">
@@ -144,7 +163,54 @@
                                     <div class="px-3">Or</div>
                                     <hr class="w-100">
                                 </div>
-                                <form action="/login" method="post" class="needs-validation" novalidate>
+                                <form action="/member/login" method="post" class="needs-validation" novalidate>
+                                    <div class="mb-4">
+                                        <label class="form-label mb-2" for="signin-id">ID</label>
+                                        <input class="form-control" id="signin-id" name="mem_id" placeholder="Enter ID" required>
+                                    </div>
+                                    <div class="mb-4">
+                                        <div class="d-flex align-items-center justify-content-between mb-2">
+                                            <label class="form-label mb-0" for="signin-password">Password</label><a class="fs-sm" href="#">Forgot password?</a>
+                                        </div>
+                                        <div class="password-toggle">
+                                            <input class="form-control" type="password" name="mem_pw" id="signin-password" placeholder="Enter password" required>
+                                            <label class="password-toggle-btn" aria-label="Show/hide password">
+                          					<input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                        					</label>
+                                        </div>
+	                                 </div>
+                                  	<%-- <c:if test="${msg == false}"> --%>
+                                    <c:if test="${result == 0}">
+                                    	<p style="color:#f00;">ID 또는 비밀번호를 잘못 입력하셨습니다.</p>
+                                    </c:if>
+                                    <button id="login" class="btn btn-primary btn-lg rounded-pill w-100" type="submit">Sign in</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sign In Modal-->
+        <!-- ************************************** 기업회원 로그인 모달 id modal-comSingin -->
+        <div class="modal fade" id="modal-comSingin" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered p-2 my-0 mx-auto" style="max-width: 950px;">
+                <div class="modal-content">
+                    <div class="modal-body px-0 py-2 py-sm-0">
+                        <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-dismiss="modal"></button>
+                        <div class="row mx-0 align-items-center">
+                            <div class="col-md-6 border-end-md p-4 p-sm-5">
+                                <h2 class="h3 mb-4 mb-sm-5">Hey there!<br>Welcome Metajobs back.</h2><img class="d-block mx-auto" src="img/signin-modal/signin.svg" width="344" alt="Illustartion">
+                                <div class="mt-4 mt-sm-5">Don't have an account? <a href="#modal-comSingup" data-bs-toggle="modal" data-bs-dismiss="modal">Sign up here</a></div>
+                            </div>
+                            <div class="col-md-6 px-4 pt-2 pb-4 px-sm-5 pb-sm-5 pt-md-5"><a class="btn btn-outline-info rounded-pill w-100 mb-3" href="#"><i class="fi-google fs-lg me-1"></i>Sign in with Google</a><a class="btn btn-outline-info rounded-pill w-100 mb-3" href="#"><i class="fi-facebook fs-lg me-1"></i>Sign in with Facebook</a>
+                                <div class="d-flex align-items-center py-3 mb-3">
+                                    <hr class="w-100">
+                                    <div class="px-3">Or</div>
+                                    <hr class="w-100">
+                                </div>
+                                <form action="/company/login" method="post" class="needs-validation" novalidate>
                                     <div class="mb-4">
                                         <label class="form-label mb-2" for="signin-id">ID</label>
                                         <input class="form-control" id="signin-id" name="mem_id" placeholder="Enter ID" required>
@@ -236,7 +302,7 @@
                                     <li class="d-flex mb-2"><i class="fi-check-circle text-primary mt-1 me-2"></i><span>Easily manage your Apply List</span></li>
                                     <li class="d-flex mb-0"><i class="fi-check-circle text-primary mt-1 me-2"></i><span>Leave Interview reviews</span></li>
                                 </ul><img class="d-block mx-auto" src="img/signin-modal/signup.svg" width="344" alt="Illustartion">
-                                <div class="mt-sm-4 pt-md-3">Already have an account? <a href="#signin-modal" data-bs-toggle="modal" data-bs-dismiss="modal">Sign in</a></div>
+                                <div class="mt-sm-4 pt-md-3">Already have an account? <a href="#modal-memSingin" data-bs-toggle="modal" data-bs-dismiss="modal">Sign in</a></div>
                             </div>
                             <div class="col-md-6 px-4 pt-2 pb-4 px-sm-5 pb-sm-5 pt-md-5"><a class="btn btn-outline-info rounded-pill w-100 mb-3" href="#"><i class="fi-google fs-lg me-1"></i>Sign in with Google</a><a class="btn btn-outline-info rounded-pill w-100 mb-3" href="#"><i class="fi-facebook fs-lg me-1"></i>Sign in with Facebook</a>
                                 <div class="d-flex align-items-center py-3 mb-3">
@@ -274,8 +340,10 @@
                                     </div>
                                     <div class="mb-4">
                                         <label class="form-label" for="signup-birth">Birth</label>
-                                        <!-- <input class="form-control" type="text" name="birth" id="signup-birth" placeholder="생년월일 yyyy-mm-dd" required> -->
-                                        <input class="form-control" type="date" name="mem_birth" id="signup-birth" placeholder="생년월일" required>
+                                       <div class="input-group input-group-lg">
+		                                <!-- <input class="form-control" type="date" id="birth" name="mem_birth" required> -->
+										<input class="form-control date-picker rounded pe-5" type="text" id="reDate" name="mem_birth" placeholder="Choose date" data-datepicker-options="{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;}"><i class="fi-calendar text-muted position-absolute top-50 end-0 translate-middle-y me-3"></i>
+										</div>
                                     </div>
                                     <div class="mb-4">
                                         <label class="form-label" for="signup-address">Address</label>
@@ -394,8 +462,51 @@
                 </div>
             </div>
         </div>
-         
-      
+       
+        
+        <!--  MyPage Modal -->
+        <!-- **************************************** 마이페이지 모달 id modal-myPage -->
+        <div class="modal fade" id="modal-myPage" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header d-block position-relative border-0 pb-0 px-sm-5 px-4">
+                        <h3 class="modal-title mt-4 text-center">회원 정보</h3>
+                        <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body px-sm-5 px-4">
+                        <form class="needs-validation" action="/member/update" method="post" novalidate>
+                        	<input type="hidden" name="mem_id" value="${member.mem_id}">
+                            <div class="mb-3">
+                                <label class="form-label" for="id">ID <span class='text-danger'>*</span>&nbsp;&nbsp;&nbsp;&nbsp;<c:out value="${member.mem_id}"/></label>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="name">회원명 <span class='text-danger'>*</span>&nbsp;&nbsp;&nbsp;&nbsp;<c:out value="${member.mem_name}"/></label>
+				            </div> 
+				            <div class="mb-3">
+                                <label class="form-label" for="birth">생년월일 &nbsp;&nbsp;<fmt:formatDate pattern="yyyy년 MM월 dd일" value="${member.mem_birth}"/></label>
+                                <div class="input-group input-group-lg">
+                                <!-- <input class="form-control" type="date" id="birth" name="mem_birth" required> -->
+								<input class="form-control date-picker rounded pe-5" type="text" id="reDate" name="mem_birth" placeholder="Choose date" data-datepicker-options="{&quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y&quot;, &quot;dateFormat&quot;: &quot;Y-m-d&quot;}"><i class="fi-calendar text-muted position-absolute top-50 end-0 translate-middle-y me-3"></i>
+								</div>
+                            </div> 
+				            <div class="mb-3">
+                                <label class="form-label" for="phone">핸드폰번호 &nbsp;&nbsp;</label>
+                            	<input class="form-control" type="text" id="phone" name="mem_phone" placeholder="<c:out value="${member.mem_phone}"/>" required>
+                            </div> 
+				            <div class="mb-3">
+                                <label class="form-label" for="address">주소 &nbsp;&nbsp;</label>
+                            	<input class="form-control" type="text" id="address" name="mem_address" placeholder="<c:out value="${member.mem_address}"/>" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="email">Email &nbsp;&nbsp;</label>
+                            	<input class="form-control" type="text" id="email" name="mem_email" placeholder="<c:out value="${member.mem_email}"/>" required>
+                            </div>
+                            <button class="btn btn-primary d-block w-100 mb-4" type="submit">회원정보 수정</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
  	
  		<!-- Navbar-->
         <header class="navbar navbar-expand-lg navbar-light fixed-top" data-scroll-header>
@@ -416,7 +527,32 @@
                         <li class="nav-item dropdown me-lg-2"><a class="nav-link align-items-center pe-lg-4" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="false"><i class="fi-layers me-2"></i>나의 이력서</a></li>
                         <li class="nav-item d-lg-none"><a class="nav-link" href="#signin-modal" data-bs-toggle="modal"><i class="fi-user me-2"></i>Sign in</a></li>
                     </ul>
-                    
+                    <!-- 
+                    <a class="btn btn-sm text-primary d-none d-lg-block order-lg-3" href="#signin-modal" data-bs-toggle="modal"><i class="fi-user me-2"></i>Sign in</a>
+                	<a class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3" href="#signup-modal" data-bs-toggle="modal"><i class="fi-plus me-2"></i>Sign<span class='d-none d-sm-inline'> Up</span></a>
+                 -->
+                
+                
+                 <%--  
+                <!-- 로그인하지 않은 상태 -->
+                <c:if test = "${member == null} && ${company == null}">
+                	<a class="btn btn-sm text-primary d-none d-lg-block order-lg-3" href="#signin-modal" data-bs-toggle="modal"><i class="fi-user me-2"></i>Sign in</a>
+                	<a class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3" href="#signup-modal" data-bs-toggle="modal"><i class="fi-plus me-2"></i>Sign<span class='d-none d-sm-inline'> Up</span></a>
+                </c:if>
+                
+                <!-- 로그인 한 상태 -->
+                <c:choose>
+                <c:when test="${member != null}">
+                	<a href="/member/logout" class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3"><i class="fi-minus me-2"></i>Sign<span class='d-none d-sm-inline'> Out</span></a>
+               		<span>${member.mem_name}&nbsp;님&nbsp;&nbsp;환영합니다&nbsp;:)&nbsp;</span>
+               	</c:when>
+                <c:when test="${company != null}">
+                	<a href="/company/logout" class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3"><i class="fi-minus me-2"></i>Sign<span class='d-none d-sm-inline'> Out</span></a>
+               		<span>${company.com_name}&nbsp;님&nbsp;&nbsp;환영합니다&nbsp;:)&nbsp;</span>
+               	</c:when>
+                </c:choose>
+                 --%>
+                
                 <!-- 로그인하지 않은 상태 -->
                 <c:if test = "${member == null}">
                 	<a class="btn btn-sm text-primary d-none d-lg-block order-lg-3" href="#signin-modal" data-bs-toggle="modal"><i class="fi-user me-2"></i>Sign in</a>
@@ -425,11 +561,39 @@
                 
                 <!-- 로그인 한 상태 -->
                 <c:if test = "${member != null}">
-                	<a href="/logout" class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3"><i class="fi-minus me-2"></i>Sign<span class='d-none d-sm-inline'> Out</span></a>
                		<!-- <button id="login" a href="login.do" class="btn btn-primary btn-lg rounded-pill w-100" type="button">Sign out</button> -->
                		<span>${member.mem_name}&nbsp;님&nbsp;&nbsp;환영합니다&nbsp;:)&nbsp;</span>
+               		<a class="btn btn-sm text-primary d-none d-lg-block order-lg-3" href="#modal-myPage" data-bs-toggle="modal"><i class="fi-user me-2"></i>마이 페이지</a>
+                	<a href="/logout" class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3"><i class="fi-minus me-2"></i>Sign<span class='d-none d-sm-inline'> Out</span></a>
                 </c:if>
-                    
+                
+                <%--     
+                <!-- 로그인하지 않은 상태 -->
+                <c:if test = "${company == null}">
+                	<a class="btn btn-sm text-primary d-none d-lg-block order-lg-3" href="#signin-modal" data-bs-toggle="modal"><i class="fi-user me-2"></i>Sign in</a>
+                	<a class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3" href="#signup-modal" data-bs-toggle="modal"><i class="fi-plus me-2"></i>Sign<span class='d-none d-sm-inline'> Up</span></a>
+                </c:if>
+                
+                <!-- 로그인 한 상태 -->
+                <c:if test = "${company != null}">
+                	<a href="/logout" class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3"><i class="fi-minus me-2"></i>Sign<span class='d-none d-sm-inline'> Out</span></a>
+               		<!-- <button id="login" a href="login.do" class="btn btn-primary btn-lg rounded-pill w-100" type="button">Sign out</button> -->
+               		<span>${company.com_name}&nbsp;님&nbsp;&nbsp;환영합니다&nbsp;:)&nbsp;</span>
+                </c:if>
+                 
+                 
+                <!-- 로그인하지 않은 상태 -->
+                <c:choose>
+                <c:when test="${member == null}">
+                	<a class="btn btn-sm text-primary d-none d-lg-block order-lg-3" href="#signin-modal" data-bs-toggle="modal"><i class="fi-user me-2"></i>Sign in</a>
+                	<a class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3" href="#signup-modal" data-bs-toggle="modal"><i class="fi-plus me-2"></i>Sign<span class='d-none d-sm-inline'> Up</span></a>
+                </c:when>
+                <c:when test="${company == null}">
+                	<a class="btn btn-sm text-primary d-none d-lg-block order-lg-3" href="#signin-modal" data-bs-toggle="modal"><i class="fi-user me-2"></i>Sign in</a>
+                	<a class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3" href="#signup-modal" data-bs-toggle="modal"><i class="fi-plus me-2"></i>Sign<span class='d-none d-sm-inline'> Up</span></a>
+                	</c:when>
+                </c:choose> 
+                --%>
                 </div>
             </div>
         </header>
@@ -445,7 +609,7 @@
     <script src="${path}/resources/vendor/lightgallery/plugins/zoom/lg-zoom.min.js"></script>
     <script src="${path}/resources/vendor/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script>
     <script src="${path}/resources/vendor/tiny-slider/dist/min/tiny-slider.js"></script>
-    <script src="${path}/resources/vendor/tiny-slider/dist/min/tiny-slider.js"></script>
+    <script src="${path}/resources/vendor/flatpickr/dist/flatpickr.min.js"></script>
     <!-- Main theme script-->
     <script src="${path}/resources/js/theme.min.js"></script>
     

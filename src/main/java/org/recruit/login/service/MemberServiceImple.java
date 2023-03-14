@@ -32,4 +32,9 @@ public class MemberServiceImple implements MemberService {
 	public MemberVO memberLogin(MemberVO member) throws Exception {
 		return membermapper.loginMember(member);
 	}
+
+	@Override
+	public void updateMember(MemberVO member) {
+		membermapper.updateMember(member);
+	}
 }
