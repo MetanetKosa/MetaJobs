@@ -43,8 +43,13 @@ public class PostServiceImpl implements PostService {
 	}
 
 	@Override
-	public List<PostVO> getListWithPaging(Criteria cri) {
+	public List<PostVO> getListWithPaging(Criteria cri, int total) {
 		return mapper.getListWithPaging(cri);
+	}
+
+	@Override
+	public int getTotalCount(Criteria cri) {
+		return mapper.getTotalCount(cri);
 	}
 
 }

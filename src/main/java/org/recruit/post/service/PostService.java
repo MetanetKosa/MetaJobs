@@ -11,5 +11,7 @@ public interface PostService {
 	public int updatePost(PostVO post);
 	public int deletePost(Long postNo);
 	public PostVO getPost(Long postNo);
-	public List<PostVO> getListWithPaging(Criteria cri);
+	public List<PostVO> getListWithPaging(Criteria cri, int total);
+	public int getTotalCount(Criteria cri);
+
 }

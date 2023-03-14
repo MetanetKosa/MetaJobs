@@ -12,4 +12,5 @@ public interface PostMapper {
 	public int postDelete(Long postNo);
 	public PostVO getPost(Long postNo);
 	public List<PostVO> getListWithPaging(Criteria cri);
+	public int getTotalCount(Criteria cri);
 }

@@ -9,10 +9,9 @@
 <jsp:include page="/WEB-INF/views/common/header.jsp">
 	<jsp:param value="홈페이지" name="title"/>
 </jsp:include>
-<head>
-	
-</head>
+
 <body>
+<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- Page loading spinner-->
     <!-- <div class="page-loading active">
         <div class="page-loading-inner">
@@ -266,60 +265,53 @@
             <div class="container py-5">
                 <h1 class="text-light pt-1 pt-md-3 mb-4">Find jobs</h1>
                 <!-- Search form-->
-                <form class="form-group form-group-light d-block rounded-lg-pill mb-4">
+                    <!-- Search form-->
+                 <form class="form-group form-group-light d-block rounded-lg-pill mb-4">
                     <div class="row align-items-center g-0 ms-n2">
                         <div class="col-lg-3 col-xl-4">
                             <div class="input-group input-group-lg border-end-lg border-light"><span class="input-group-text text-light rounded-pill opacity-50 ps-3"><i class="fi-search"></i></span>
-                                <input class="form-control" type="text" placeholder="Search site...">
+                                <input class="form-control" type="text" name = "keyword" id = "keyword" placeholder="검색어를 입력해주세요">
                             </div>
                         </div>
                         <hr class="hr-light d-lg-none my-2">
                         <div class="col-lg-5 d-sm-flex">
                             <div class="dropdown w-sm-50 border-end-sm border-light" data-bs-toggle="select">
-                                <button class="btn btn-link dropdown-toggle" type="button" data-bs-toggle="dropdown"><i class="fi-list me-2"></i><span class="dropdown-toggle-label">Category</span></button>
-                                <input type="hidden">
+                                <button class="btn btn-link dropdown-toggle" type="button" data-bs-toggle="dropdown"><i class="fi-list me-2"></i><span class="dropdown-toggle-label">경력구분</span></button>
+                                <input type="hidden" name = "searchCareer" id = "searchCareer">
                                 <ul class="dropdown-menu dropdown-menu-dark my-3">
-                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Accounting</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Marketing &amp; PR</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Medicine</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Internet technology</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">HoReCa</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Design, creativity</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Fitness &amp; sports</span></a></li>
+                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">신입</span></a></li>
+                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">경력</span></a></li>
                                 </ul>
                             </div>
-                            <hr class="hr-light d-sm-none my-2">
+                            <hr class="hr-light d-sm-none my-2" name = "searchEmptype" id = "searchEmptype">
                             <div class="dropdown w-sm-50 border-end-lg border-light" data-bs-toggle="select">
-                                <button class="btn btn-link dropdown-toggle" type="button" data-bs-toggle="dropdown"><i class="fi-map-pin me-2"></i><span class="dropdown-toggle-label">Location</span></button>
+                                <button class="btn btn-link dropdown-toggle" type="button" data-bs-toggle="dropdown"><i class="fi-map-pin me-2"></i><span class="dropdown-toggle-label">고용형태</span></button>
                                 <input type="hidden">
                                 <ul class="dropdown-menu dropdown-menu-dark my-3">
-                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Dallas</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Chicago</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Houston</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Las Vegas</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Los Angeles</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">New York</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">San Francisco</span></a></li>
+                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">정규직</span></a></li>
+                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">계약직</span></a></li>
+                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">인턴</span></a></li>
+                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">파견직</span></a></li>
                                 </ul>
                             </div>
                         </div>
-                        <hr class="hr-light d-lg-none my-2">
+                        <hr class="hr-light d-lg-none my-2" name = "searchEdu" id = "searchEdu">
                         <div class="col-lg-4 col-xl-3 d-flex align-items-center">
                             <div class="dropdown w-50 w-lg-100" data-bs-toggle="select">
-                                <button class="btn btn-link dropdown-toggle" type="button" data-bs-toggle="dropdown"><i class="fi-geo me-2"></i><span class="dropdown-toggle-label">Distance</span></button>
+                                <button class="btn btn-link dropdown-toggle" type="button" data-bs-toggle="dropdown"><i class="fi-geo me-2"></i><span class="dropdown-toggle-label">학력조건</span></button>
                                 <input type="hidden">
                                 <ul class="dropdown-menu dropdown-menu-dark my-3">
-                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">10 miles</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">20 miles</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">30 miles</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">40 miles</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">50 miles</span></a></li>
+                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">고졸</span></a></li>
+                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">초고졸</span></a></li>
+                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">대졸</span></a></li>
+                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">대학원</span></a></li>
                                 </ul>
                             </div>
-                            <button class="btn btn-primary btn-lg w-50 w-lg-auto rounded-pill" type="button">Find jobs</button>
+                            <button class="btn btn-primary btn-lg w-50 w-lg-auto rounded-pill" type="submit">검색</button>
                         </div>
                     </div>
                 </form>
+                 
                 <!-- Search params (dropdowns)-->
                 <div class="d-sm-flex justify-content-between pt-2 pb-1 pb-md-3 pb-lg-4">
                     <div class="d-flex flex-column flex-sm-row flex-wrap">
@@ -370,6 +362,7 @@
                 </div>
             </div>
         </section>
+        
         <!-- Page content-->
         <section class="position-relative bg-white rounded-xxl-4 zindex-5" style="margin-top: -30px;">
             <div class="row justify-content-center pb-sm-2">
@@ -477,7 +470,7 @@
             </div>
         </section>
     </main>
-			<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+			<!-- <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script> -->
 
 		<script>
 		console.log("script가 잘 실행되나요?");
@@ -501,6 +494,13 @@
 				} */
 			});
 		</script>
+
+       <script src="${path}/resources/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+       <script src="${path}/resources/vendor/simplebar/dist/simplebar.min.js"></script>
+       <script src="${path}/resources/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+       <script src="${path}/resources/vendor/flatpickr/dist/flatpickr.min.js"></script>
+       <!-- Main theme script-->
+      <script src="${path}/resources/js/theme.min.js"></script>
 </body>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>

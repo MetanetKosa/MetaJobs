@@ -45,17 +45,19 @@ public class PostController {
 	public void list(Criteria cri, Model model) {
 		log.info("list:" + cri);
 //		model.addAttribute("postList",service.getPostList());
-//		int total = service.getTotal(cri);
-//		log.info("postList: " + cri );
-		model.addAttribute("postList", service.getListWithPaging(cri));
-		model.addAttribute("pageMaker",new PageDTO(cri, 80));
+		int total = service.getTotalCount(cri);
+		log.info("postList: " + cri );
+		model.addAttribute("postList", service.getListWithPaging(cri,total));
+		model.addAttribute("pageMaker",new PageDTO(cri, total));
 	}
 	
 	//페이징 처리
 		@GetMapping("/getListWithPaging")
 		public void getListWithPaging(Criteria cri, Model model) {
 			log.info("getListWithPaging:" + cri );
-			model.addAttribute("getList", service.getListWithPaging(cri));
+			int total = service.getTotalCount(cri);
+			log.info(total);
+			model.addAttribute("getList", service.getListWithPaging(cri,total));
 			model.addAttribute("pageMaker",new PageDTO(cri, 200));
 		}
 	
