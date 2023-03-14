@@ -157,7 +157,7 @@
 							</div>
 							<div class="col-12 mb-4">
 								<label class="form-label" for="pr-address">지원방법</label> 
-								<textarea class="form-control form-control-lg" style= "height:300px" id='postHow' name='postHow' placeholder='<c:out value="${post.postHow}"/>' >${post.postHow}</textarea>
+								<textarea class="form-control form-control-lg" style= "height:100px" id='postHow' name='postHow' placeholder='<c:out value="${post.postHow}"/>' >${post.postHow}</textarea>
 							</div>
 						</div>
 
@@ -169,23 +169,28 @@
 								required>
 
 						</div>
+						<div align="right">
+						<button class="btn btn-primary btn-lg rounded-pill ms-sm-auto"
+					 type = "submit" 
+					 >수정</button>
+					 <button class="btn btn-primary btn-lg rounded-pill ms-sm-auto"
+					 type = "submit" data-oper='delete' onclick="location.href='/post/postDelete?postNo=${post.postNo }'"
+					 >삭제</button>
+					 </div>
 					</div>
 				</div>
 			</div>
 			
 			<!-- Navigation-->
-			<div
+			<%-- <div
 				class="d-flex flex-column flex-sm-row bg-light rounded-3 p-4 px-md-5">
 				 <button class="btn btn-primary btn-lg rounded-pill ms-sm-auto"
 					 type = "submit" 
-					 >수정<i
-					class="fi-chevron-right fs-sm ms-2"></i></button>
-					<%-- onclick="location.href='/post/postModify?post_no=${post.postNo }'" --%>
+					 >수정</button>
 					<button class="btn btn-primary btn-lg rounded-pill ms-sm-auto"
 					 type = "submit" data-oper='delete' onclick="location.href='/post/postDelete?postNo=${post.postNo }'"
-					 >삭제<i
-					class="fi-chevron-right fs-sm ms-2"></i></button>
-			</div>
+					 >삭제</button>
+			</div> --%>
 			 <input type='hidden' name='postNo' id= 'postNo' value='<c:out value="${post.postNo }"/>'>
 			
 			</form>
@@ -209,6 +214,3 @@
 </body>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />
-
-<script type="text/javascript">
-</script>

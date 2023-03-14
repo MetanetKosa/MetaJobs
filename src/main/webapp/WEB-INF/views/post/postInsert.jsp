@@ -9,6 +9,7 @@
 <jsp:include page="/WEB-INF/views/common/header.jsp">
 	<jsp:param value="홈페이지" name="title" />
 </jsp:include>
+    <link rel="stylesheet" media="screen" href="${path}/resources/vendor/flatpickr/dist/flatpickr.min.css"/>
 
 <body class="bg-secondary">
 
@@ -135,7 +136,7 @@
 							</div>
 							<div class="col-12 mb-4">
 								<label class="form-label" for="pr-address">지원방법</label> 
-								<textarea class="form-control form-control-lg" style= "height:300px" id='postHow' name='postHow' placeholder=""  ></textarea>
+								<textarea class="form-control form-control-lg" style= "height:100px" id='postHow' name='postHow' placeholder=""  ></textarea>
 							</div>
 						</div>
 
@@ -146,17 +147,15 @@
 								required>
 
 						</div>
+						<div align="right">
+						<button class="btn btn-primary btn-lg rounded-pill ms-sm-auto"
+					 type = "submit" >등록<i
+					class="fi-chevron-right fs-sm ms-2"></i></button>
+					</div>
 					</div>
 				</div>
 			</div>
-			
-			<!-- Navigation-->
-			<div
-				class="d-flex flex-column flex-sm-row bg-light rounded-3 p-4 px-md-5">
-				 <button class="btn btn-primary btn-lg rounded-pill ms-sm-auto"
-					 type = "submit">공고등록<i
-					class="fi-chevron-right fs-sm ms-2"></i></button>
-			</div>
+	
 			</form>
 		</div>
 
@@ -169,9 +168,7 @@
 	<!-- Vendor scrits: js libraries and plugins-->
 	<script src="${path}/resources/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="${path}/resources/vendor/simplebar/dist/simplebar.min.js"></script>
-	<script src="${path}/resources/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
-		    <script src="${path}/resources/vendor/flatpickr/dist/flatpickr.min.js"></script>
-	
+	<script src="${path}/resources/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>	
 	<!-- Main theme script-->
 	<script src="${path}/resources/js/theme.min.js"></script>
 
