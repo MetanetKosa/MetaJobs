@@ -1,5 +1,6 @@
 package org.recruit.login.service;
 
+
 import org.recruit.login.domain.AuthVO;
 import org.recruit.login.domain.MemberVO;
 import org.recruit.login.mapper.AuthMapper;
@@ -20,10 +21,15 @@ public class MemberServiceImple implements MemberService {
 	AuthMapper authmapper;
 	
 	@Override
-	public void insert(MemberVO member, AuthVO auth) throws Exception {
+	public void insertMember(MemberVO member, AuthVO auth) throws Exception {
 		// TODO Auto-generated method stub
-		membermapper.insert(member);
+		membermapper.insertMember(member);
 		authmapper.insertMem();
 		System.out.println("결과");
+	}
+
+	@Override
+	public MemberVO memberLogin(MemberVO member) throws Exception {
+		return membermapper.loginMember(member);
 	}
 }

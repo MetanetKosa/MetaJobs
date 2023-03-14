@@ -21,9 +21,9 @@ public class CompanyServiceImple implements CompanyService {
 	AuthMapper authmapper;
 	
 	@Override
-	public void insert(CompanyVO company, AuthVO auth) throws Exception {
+	public void insertCompany(CompanyVO company, AuthVO auth) throws Exception {
 		// TODO Auto-generated method stub
-		companymapper.insert(company);
+		companymapper.insertCompany(company);
 		authmapper.insertCom();
 		System.out.println("결과");
 	}

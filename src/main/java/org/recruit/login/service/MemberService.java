@@ -8,9 +8,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface MemberService {
+
 	//회원가입
 	//public void insert(MemberVO member) throws Exception;
-
-	public void insert(MemberVO member, AuthVO auth) throws Exception;
+	public void insertMember(MemberVO member, AuthVO auth) throws Exception;
 	
+	//로그인
+	public MemberVO memberLogin(MemberVO member) throws Exception;
 }

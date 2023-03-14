@@ -107,7 +107,6 @@
                 }, 2000);
             };
         })();
-
     </script>
     <!-- Vendor Styles-->
     <link rel="stylesheet" media="screen" href="${path}/resources/vendor/simplebar/dist/simplebar.min.css" />
@@ -148,20 +147,24 @@
                                 <form action="/login" method="post" class="needs-validation" novalidate>
                                     <div class="mb-4">
                                         <label class="form-label mb-2" for="signin-id">ID</label>
-                                        <input class="form-control" id="signin-id" placeholder="Enter ID" required>
+                                        <input class="form-control" id="signin-id" name="mem_id" placeholder="Enter ID" required>
                                     </div>
                                     <div class="mb-4">
                                         <div class="d-flex align-items-center justify-content-between mb-2">
                                             <label class="form-label mb-0" for="signin-password">Password</label><a class="fs-sm" href="#">Forgot password?</a>
                                         </div>
                                         <div class="password-toggle">
-                                            <input class="form-control" type="password" id="signin-password" placeholder="Enter password" required>
+                                            <input class="form-control" type="password" name="mem_pw" id="signin-password" placeholder="Enter password" required>
                                             <label class="password-toggle-btn" aria-label="Show/hide password">
                           					<input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
                         					</label>
                                         </div>
-                                    </div>
-                                    <button class="btn btn-primary btn-lg rounded-pill w-100" type="submit">Sign in</button>
+	                                 </div>
+                                  	<%-- <c:if test="${msg == false}"> --%>
+                                    <c:if test="${result == 0}">
+                                    	<p style="color:#f00;">ID 또는 비밀번호를 잘못 입력하셨습니다.</p>
+                                    </c:if>
+                                    <button id="login" class="btn btn-primary btn-lg rounded-pill w-100" type="submit">Sign in</button>
                                 </form>
                             </div>
                         </div>
@@ -169,6 +172,34 @@
                 </div>
             </div>
         </div>
+        
+<!--         
+        Sign Out Modal
+        ************************************** 로그아웃 모달 id signout-modal
+        <div class="modal fade" id="signout-modal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered p-2 my-0 mx-auto" style="max-width: 500px;">
+                <div class="modal-content">
+                        <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-dismiss="modal"></button>
+                    <div class="modal-body px-0 py-2 py-sm-0 m-5">
+                        <div class="row mx-0 align-items-center">
+                                <form action="/logout" method="post" class="needs-validation" novalidate>
+                                    <div class="mb-4">
+                                        <label class="form-label mb-2">로그아웃 하시겠습니까?<br></label>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="form-label mb-2" for="signout-id">&nbsp;ID를 입력하세요</label><br>
+                                        <input class="form-control" id="signout-id" name="mem_id" placeholder="Enter ID" required>
+                                    </div>
+                                    
+                                    <button id="login" class="btn btn-primary btn-lg rounded-pill w-100" type="submit">Sign out</button>
+                                </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+   -->      
         
         <!-- Sign Up Modal-->
         <!-- **************************************** 회원가입 회원/기업 구분 id signup-modal -->
@@ -374,8 +405,8 @@
                 <!-- ************************************* 로그인 로그아웃 버튼 -->
                 <a class="navbar-brand me-3 me-xl-4" href="${path}/"><img class="d-block" src="${path}/resources/img/logo/logo-dark.svg" width="116" alt="Finder"></a>
                 <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <a class="btn btn-sm text-primary d-none d-lg-block order-lg-3" href="#signin-modal" data-bs-toggle="modal"><i class="fi-user me-2"></i>Sign in</a>
-                <a class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3" href="#signup-modal" data-bs-toggle="modal"><i class="fi-plus me-2"></i>Sign<span class='d-none d-sm-inline'> Up</span></a>
+                
+                
                 <div class="collapse navbar-collapse order-lg-2" id="navbarNav">
                     <ul class="navbar-nav navbar-nav-scroll" style="max-height: 35rem;">
                         <!-- Menu-->
@@ -385,6 +416,19 @@
                         <li class="nav-item dropdown me-lg-2"><a class="nav-link align-items-center pe-lg-4" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="false"><i class="fi-layers me-2"></i>나의 이력서</a></li>
                         <li class="nav-item d-lg-none"><a class="nav-link" href="#signin-modal" data-bs-toggle="modal"><i class="fi-user me-2"></i>Sign in</a></li>
                     </ul>
+                    
+                <!-- 로그인하지 않은 상태 -->
+                <c:if test = "${member == null}">
+                	<a class="btn btn-sm text-primary d-none d-lg-block order-lg-3" href="#signin-modal" data-bs-toggle="modal"><i class="fi-user me-2"></i>Sign in</a>
+                	<a class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3" href="#signup-modal" data-bs-toggle="modal"><i class="fi-plus me-2"></i>Sign<span class='d-none d-sm-inline'> Up</span></a>
+                </c:if>
+                
+                <!-- 로그인 한 상태 -->
+                <c:if test = "${member != null}">
+                	<a href="/logout" class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3"><i class="fi-minus me-2"></i>Sign<span class='d-none d-sm-inline'> Out</span></a>
+               		<!-- <button id="login" a href="login.do" class="btn btn-primary btn-lg rounded-pill w-100" type="button">Sign out</button> -->
+               		<span>${member.mem_name}&nbsp;님&nbsp;&nbsp;환영합니다&nbsp;:)&nbsp;</span>
+                </c:if>
                     
                 </div>
             </div>
@@ -404,6 +448,21 @@
     <script src="${path}/resources/vendor/tiny-slider/dist/min/tiny-slider.js"></script>
     <!-- Main theme script-->
     <script src="${path}/resources/js/theme.min.js"></script>
+    
+    <script type="text/javascript">
+    
+	$(document).ready(function(){
+		var result = '<c:out value="${result}"/>';
+	});
+	
+	checkModal(result);
+	
+	function checkModal(result) {
+		if (result == 0)
+			alert("로그인 실패");
+	}
+		
+	</script>
 </body>
 
 

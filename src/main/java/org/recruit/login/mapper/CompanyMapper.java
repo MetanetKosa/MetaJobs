@@ -6,7 +6,7 @@ import org.recruit.login.domain.CompanyVO;
 
 public interface CompanyMapper {
 	//회원가입
-	public void insert(CompanyVO company);
+	public void insertCompany(CompanyVO company);
 
 	//회원 한명 정보 조회
 	public CompanyVO read(String com_id);

@@ -5,27 +5,22 @@
 <mapper namespace="org.recruit.login.mapper.MemberMapper">
 <!-- mapper.xml id 명과 mapper.java(interface) 메소드명이 일치하도록 -->
 
-<!--   
+ 
     <resultMap type="org.recruit.login.domain.MemberVO" id="memberMap">
 	    <id property="id" column="id"/>
 	    <result property="id" column="id"/>
 	    <result property="pw" column="pw"/>
-	    <result property="auth" column="auth"/>
-	    <result property="name" column="name"/>
-	    <result property="birth" column="birth"/>
-	    <result property="phone" column="phone"/>
-	    <result property="address" column="address"/>
-	    <result property="email" column="email"/>
-	    <result property="joinDate" column="joinDate"/>
-	    <result property="updateDate" column="updatedate"/>
+  	</resultMap>
+  	
+<!--   	
     <collection property="authList" resultMap="authMap">
     </collection> 
-  	</resultMap>
+    
 	<resultMap type="org.recruit.login.domain.AuthVO" id="authMap">
 	    <result property="userid" column="userid"/>
 	    <result property="auth" column="auth"/>
    </resultMap> 
-   -->
+    -->
   
   <!-- 회원정보 확인 -->
   	<select id="read" resultType="org.recruit.login.domain.MemberVO">
@@ -43,7 +38,7 @@
   	</select>
 
 	<!-- 회원가입 -->
-    <insert id="insert">
+    <insert id="insertMember">
    
 	  	insert into member (mem_no, mem_id, mem_pw, mem_name, mem_birth, mem_phone, mem_address, mem_email)
 	  	values (mem_seq.nextval, #{mem_id}, #{mem_pw}, #{mem_name}, #{mem_birth}, #{mem_phone}, #{mem_address}, #{mem_email})
@@ -69,7 +64,7 @@
 			mem_email = #{mem_email},
 			mem_updateDate = sysdate
 			<!-- mem_update = TO_CHAR(SYSDATE, 'YYYY/MM/DD HH:MI:SS') -->
-		where id = #{id} 
+		where mem_id = #{mem_id} 
 	</update>
 	
 	<!-- 회원 탈퇴 -->
@@ -85,11 +80,17 @@
   	</select>
    	
   	<!-- 로그인 -->
-	<select id="login" resultType="int" >
-		select count(*)
+	<select id="loginMember" resultType="org.recruit.login.domain.MemberVO" >
+		select mem_id, mem_pw, mem_name, mem_birth, mem_phone, mem_address, mem_email
 		from member
 		where
 		mem_id = #{mem_id} and mem_pw = #{mem_pw}
 	</select>
 
+	<select id = "read2" resultType="org.recruit.login.domain.MemberVO" parameterType="org.recruit.login.domain.LoginVO">
+		SELECT 
+		 mem_id, mem_pw, mem_auth, mem_name, mem_birth, mem_phone, mem_address, mem_email, mem_joinDate, mem_updateDate
+		from member
+		where mem_id = #{id} and mem_pw = #{pw}
+  	</select>
 </mapper>

@@ -9,6 +9,6 @@ import org.springframework.stereotype.Service;
 @Service
 public interface CompanyService {
 	//회원가입
-	public void insert(CompanyVO company, AuthVO auth) throws Exception;
+	public void insertCompany(CompanyVO company, AuthVO auth) throws Exception;
 	//public void insert(CompanyVO company) throws Exception;
 }
