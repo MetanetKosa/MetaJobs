@@ -83,6 +83,42 @@ public class MemberMapperTests {
 //		
 //		log.info("UPDATE count: " +mapper.update(member));
 //	}
+	
+//  @Test
+//  public void testRead() {
+//	//mno로 글이 잘 출력되는지 단위테스트
+//	  LoginVO login = new LoginVO();
+//	  login.setId("member11");
+//	  login.setPw("pw11");
+//	  MemberVO vo = mapper.read2(login);
+//	  log.info(vo);
+//  }	
+
+//	  @Test
+//	  public void testJoin() {
+//		  //회원가입
+//		  MemberVO member = new MemberVO();
+//		  member.setMem_id("member12");
+//		  member.setMem_pw("pw12");
+//		  member.setMem_name("김영희");
+//		  member.setMem_birth("1985-12-27");
+//		  member.setMem_phone("01059873498");
+//		  member.setMem_address("서울시 강남구 신사동");
+//		  member.setMem_email("yg85@gmail.com");
+//		  
+//		  mapper.insertMember(member);
+//		  log.info(member);
+//	  }	
+	
+//	  @Test
+//	  public void testLogin() {
+//		  //맞는 id, pw 입력시 member DB에서 잘 select
+//		  MemberVO member = new MemberVO();
+//		  member.setMem_id("member12");
+//		  member.setMem_pw("pw11");
+//		  
+//		  log.info(mapper.loginMember(member));
+//	  }	
 }
 
 

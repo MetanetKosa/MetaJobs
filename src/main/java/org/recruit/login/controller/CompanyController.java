@@ -40,7 +40,7 @@ public class CompanyController {
 	public String comJoinPOST(CompanyVO company, AuthVO auth) throws Exception {
 		
 		log.info("companyJoin : " + company);
-		service.insert(company, auth);
+		service.insertCompany(company, auth);
 		
 		return "redirect:/";
 	}
@@ -54,10 +54,10 @@ public class CompanyController {
 //		return "redirect:/";
 //	}
 	
-	//로그인 페이지 이동 /login
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public void comLoginGET() {
-		log.info("로그인 페이지 진입");
-	}
+//	//로그인 페이지 이동 /login
+//	@RequestMapping(value = "/login", method = RequestMethod.GET)
+//	public void comLoginGET() {
+//		log.info("로그인 페이지 진입");
+//	}
 	
 }

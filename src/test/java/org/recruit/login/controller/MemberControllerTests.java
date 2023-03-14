@@ -41,27 +41,18 @@ public class MemberControllerTests {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(ctx).build();	
 	}
 	
-//	@Test
-	//목록 리스트를 잘 출력하는지 단위테스트
-//	public void testList() throws Exception{
-//		log.info(mockMvc.perform(MockMvcRequestBuilders.get("/board/list"))
-//				 .andReturn()
-//				 .getModelAndView()
-//				 .getModelMap()
-//			);
-//	}
 	
 	@Test
 	//새글을 잘 등록하는지 단위테스트
 	public void testJoin() throws Exception {
 		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/member/insert")
-												.param("id", "member12")
-												.param("pw", "pw12")
-												.param("name", "정소희")
-												.param("birth", "1998-12-21")
-												.param("address", "노원구 중계로")
-												.param("phone", "01026852139")
-												.param("email", "jsohee98@naver.com")
+												.param("mem_id", "member12")
+												.param("mem_pw", "pw12")
+												.param("mem_name", "정소희")
+												.param("mem_birth", "1998-12-21")
+												.param("mem_address", "노원구 중계로")
+												.param("mem_phone", "01026852139")
+												.param("mem_email", "jsohee98@naver.com")
 											).andReturn().getModelAndView().getViewName();
 		
 		log.info(resultPage);

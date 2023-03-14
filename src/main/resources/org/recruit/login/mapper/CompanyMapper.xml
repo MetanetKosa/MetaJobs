@@ -14,7 +14,7 @@
   	</select>
 
 	<!-- 회원가입 -->
-    <insert id="insert">
+    <insert id="insertCompany">
 	  insert into company (com_id, com_pw, com_cno, com_name, com_phone, com_address, com_type, com_ceo)
 	  values (#{com_id}, #{com_pw}, #{com_cno}, #{com_name}, #{com_phone}, #{com_address}, #{com_type}, #{com_ceo})
   	</insert>
