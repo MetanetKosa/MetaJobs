@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -40,16 +41,20 @@ public class MemberController {
 	}
 	
 	//회원가입 처리 /member/insert	
+	@ResponseBody
 	@PostMapping("/member/insert")
 	public String joinPOST(MemberVO member, AuthVO auth) throws Exception {
 		
 		log.info("memberJoin : " + member);
 		service.insertMember(member, auth);
 		
-		return "redirect:/";
+		String message = "";
+		message="<script>alert('SignUp Success :)'); location.href='/'; </script>";
+		return message;
 	}
 	
 	//로그인 페이지 이동 /login
+	@ResponseBody
 	@PostMapping("/member/login")
 	public String loginPost(HttpServletRequest request, MemberVO member, RedirectAttributes rttr) throws Exception {
 		log.info("로그인 페이지 진입");
@@ -61,34 +66,44 @@ public class MemberController {
 			int result = 0;
 			rttr.addFlashAttribute("result", result);
 			session.setAttribute("member", null);
-			return "redirect:/";
+			String message = "";
+			message="<script>alert('LogIn Failed :('); location.href='/'; </script>";
+			return message;
 		} else{
 			int result = 1;
 			rttr.addFlashAttribute("result", result);
 			session.setAttribute("member", login);
 			System.out.println("로그인 데이터: " +member);
-			return "redirect:/";
+			String message = "";
+			message="<script>alert('LogIn Success :)'); location.href='/'; </script>";
+			return message;
 		}
 	}
 	
 	//로그아웃 버튼
 	//@GetMapping("/member/logout")
+	@ResponseBody
 	@GetMapping("/logout")
 	public String logoutPost(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		
 		session.invalidate();
 		
-		return "redirect:/";
+		String message = "";
+		message="<script>alert('LogOut Successs :)'); location.href='/'; </script>";
+		return message;
 	}
 	
 	//회원정보 수정 /member/update
+	@ResponseBody
 	@PostMapping("/member/update")
 	public String updatePOST(MemberVO member) throws Exception {
 		
 		log.info("memberUpdate : " + member);
 		service.updateMember(member);
-		
-		return "redirect:/";
+
+		String message = "";
+		message="<script>alert('Modify Your Info :)'); location.href='/'; </script>";
+		return message;
 	}
 }
