@@ -40,13 +40,13 @@
 				<div class="col-lg-11 col-xl-10">
 					<!-- Page title-->
 					<div class="text-center pb-4 mb-3">
-						<h1 class="h2 mb-4">공고등록</h1>
-						<p class="mb-4">공고를 등록할 수 있습니다.</p>
+						<h1 class="h2 mb-4">공고수정</h1>
+						<p class="mb-4">공고를 수정할 수 있습니다.</p>
 					</div>
 					<!-- Step 1: Basic Info-->
 					<div class="bg-light rounded-3 p-4 p-md-5 mb-3">
 						<h2 class="h4 mb-4">
-							<i class="fi-info-circle text-primary fs-5 mt-n1 me-2"></i>공고 등록
+							<i class="fi-info-circle text-primary fs-5 mt-n1 me-2"></i>공고 수정
 						</h2>
 						<div class="row">
 							<div class="col-sm-6 mb-4">
@@ -119,7 +119,7 @@
 									id='postCareer' name='postCareer' required>
 									<option value="" selected>${post.postCareer }</option>
 									<option value="신입">신입</option>
-									<option value="인턴">인턴 </option>
+									<option value="경력">경력 </option>
 								</select>
 							</div>
 							<div class="col-sm-6 mb-2">
@@ -141,6 +141,7 @@
 									class="form-select form-select-lg" 
 									id='postEdu' name='postEdu' required>
 									<option value="" disabled selected>${post.postEdu }</option>
+									<option value="학력무관">학력무관</option>
 									<option value="고졸">고졸</option>
 									<option value="초대졸">초대졸</option>
 									<option value="대졸">대졸</option>

@@ -111,7 +111,7 @@
 									id='postCareer' name='postCareer' required>
 									<option value="" disabled selected></option>
 									<option value="신입">신입</option>
-									<option value="인턴">인턴</option>
+									<option value="경력">경력</option>
 								</select>
 							</div>
 							<div class="col-sm-6 mb-2">
@@ -133,6 +133,7 @@
 									class="form-select form-select-lg" 
 									id='postEdu' name='postEdu' required>
 									<option value="" disabled selected></option>
+									<option value="학력무관">학력무관</option>
 									<option value="고졸">고졸</option>
 									<option value="초대졸">초대졸</option>
 									<option value="대졸">대졸</option>

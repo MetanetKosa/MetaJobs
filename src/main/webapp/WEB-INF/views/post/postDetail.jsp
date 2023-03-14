@@ -408,16 +408,15 @@
                                 <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>마감일  <fmt:formatDate pattern="YYYY.MM.dd" value="${post.postFdate}" /> 입니다.  </li>
                                
                             </ul>
-                            <h3 class="h6 pt-2">유의사항:</h3>
+                            <!-- <h3 class="h6 pt-2">유의사항:</h3>
                             <ul class="list-unstyled">
-                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>Et mattis sit imperdiet risus, fermentum ultrices non.</li>
-                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>Sed phasellus consequat nunc enim interdum tristique ultrices egestas.</li>
-                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>Molestie mus ultrices tellus enim.</li>
-                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>Vitae pulvinar massa id lorem aliquam fermentum egestas.</li>
-                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>Dictumst blandit sit mauris in consectetur.</li>
-                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>Sem purus lorem odio donec faucibus ipsum ultricies.</li>
-                            </ul>
-                            <p class="pt-2 mb-1">Please, send your CV marked âPartnership Managerâ in the subject via e-mail:</p><a class="nav-link-muted fw-bold" href="mailto:contact@example.com">contact@example.com</a>
+                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>본 채용은 메타넷 그룹사에서 함께 진행하고 있으며 최종 합격 후 계열 법인으로 입사 결정될 수 있습니다.</li>
+                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>근무지는 최종 합격 후 해당 계열 법인 및 프로젝트 사이트에 따라 결정됩니다.(서울/수도권)</li>
+                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>입사 지원서 내용 중 허위 사항이 있는 경우 합격이 취소됩니다.</li>
+                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>전형 일정은 내부 사정에 따라 조정될 수 있으며, 조정 사항 발생 시 사전 안내 예정입니다.</li>
+                                <li class="d-flex"><span class="text-primary fs-lg me-2">&#8226;</span>국가유공자 및 장애인 등 취업보호대상자는 관계 법령에 따라 우대합니다..</li>
+                            </ul> -->
+                            	
                             <hr class="my-4">
                             <div class="btn-group btn-group-lg">
                                 <button class="btn btn-primary rounded-pill rounded-end-0 ps-4 pe-3" type="button" onclick="location.href='/post/postModify?postNo=${post.postNo }'">수정</button>
