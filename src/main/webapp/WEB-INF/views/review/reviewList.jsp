@@ -191,16 +191,16 @@
                     <h2 class="h3 mb-4 pb-4 border-bottom">$2,000<span class="d-inline-block ms-1 fs-base fw-normal text-body">/month</span></h2>
 
 					 <!-- Form group-->
-                        <form class="form-group d-block" name="campSearchFrm" action="${path}/camp/campSearch" method="get" >
+                        <form class="form-group d-block" name="reviewSearchFrm" id="reviewSearchFrm" action="${path}/review/reviewList" method="get" >
                             <div class="row g-0">
                                 <div class="col-md-10 d-sm-flex align-items-center">
                                     <div class="input-group input-group-lg border-end-md"><span class="input-group-text text-muted rounded-pill ps-3"><i class="fi-search"></i></span>
-                                        <input class="form-control" name="cno" type="text" placeholder="회사명을 입력하세요">
+                                        <input class="form-control" name="keyword" type="text" placeholder="회사명을 입력하세요">
                                     </div>
                                     <hr class="d-sm-none my-2">
                                     <div class="dropdown w-sm-50 border-end-sm" data-bs-toggle="select">
                                         <button class="btn btn-lg btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown"><i class="fi-home me-2"></i><span class="dropdown-toggle-label">직종</span></button>
-                                        <input type="hidden" name="reJob">
+                                        <input type="hidden" name="searchJob">
                                         <ul class="dropdown-menu" style="position: absolute; z-index:1;">
                                             <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">직종 전체</span></a></li>      
                                             <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">개발</span></a></li>      
@@ -219,16 +219,16 @@
                                     <hr class="d-sm-none my-2">
                                     <div class="dropdown w-sm-50 border-end-sm" data-bs-toggle="select">
                                         <button class="btn btn-lg btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown"><i class="fi-map-pin me-2"></i><span class="dropdown-toggle-label">면접결과</span></button>
-                                        <input type="hidden" name="reResult">
+                                        <input type="hidden" name="searchResult">
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">합격</span></a></li>
                                             <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">불합격</span></a></li>
                                             <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">대기중</span></a></li>
                                         </ul>
                                     </div>  
-<!--                                     <input class="form-control" name="category" type="hidden"> -->
-<!--                                     <input class="form-control" name="price" type="hidden"> -->
                                 </div>
+                                <input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
+                                <input type="hidden" name="amount" value="${pageMaker.cri.amount}">
                                 <hr class="d-md-none mt-2">
                                 <div class="col-md-2 d-sm-flex align-items-center pt-3 pt-md-0">
                                     <input class="btn btn-lg btn-icon btn-primary px-3 w-100" type="submit" value="검색"/>
@@ -241,15 +241,7 @@
                     <div class="mb-4 pb-4 border-bottom">
                         <div class="d-flex flex-sm-row flex-column align-items-sm-center align-items-stretch justify-content-between"><a class="btn btn-outline-primary mb-sm-0 mb-3" href="#modal-review" data-bs-toggle="modal"><i class="fi-edit me-1"></i>Add review</a>
                             <div class="d-flex align-items-center ms-sm-4">
-                           	<p>총 ${total}건</p>
-                               <!--  <label class="me-2 pe-1 text-nowrap" for="reviews-sorting"><i class="fi-arrows-sort text-muted mt-n1 me-2"></i>Sort by:</label>
-                                <select class="form-select" id="reviews-sorting">
-                    <option>Newest</option>
-                    <option>Oldest</option>
-                    <option>Popular</option>
-                    <option>High rating</option>
-                    <option>Low rating</option>
-                  </select> -->
+                           		<p>총 ${total}건</p>
                             </div>
                         </div>
                     </div>
@@ -313,8 +305,11 @@
                         </ul>
                         
                         <form id='actionForm' action="${path}/review/reviewList" method='get'>
-							<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>                        
-							<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>                        
+							<input type='hidden' name='keyword' value='${pageMaker.cri.keyword}'>
+							<input type='hidden' name='searchResult' value='${pageMaker.cri.searchResult}'>
+							<input type='hidden' name='searchJob' value='${pageMaker.cri.searchJob}'>
+							<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+							<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
                         </form>
                         
                     </nav>
@@ -366,6 +361,16 @@
 					
 					actionForm.find("input[name = 'pageNum']").val($(this).attr("href"));
 					actionForm.submit();
+				});
+				
+				var reviewSearchFrm = $("#reviewSearchFrm");
+				
+				$("#reviewSearchFrm input .btn").on("click", function(e){
+
+					reviewSearchFrm.find("input[name='pageNum']").val("1");
+					e.preventDefault();
+					
+					reviewSearchFrm.submit();
 				});
 			
 			});

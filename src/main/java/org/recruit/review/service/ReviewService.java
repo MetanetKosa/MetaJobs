@@ -6,9 +6,8 @@ import org.recruit.review.domain.Criteria;
 import org.recruit.review.domain.ReviewVO;
 
 public interface ReviewService {
-	public List<ReviewVO> getReviewList();
-
 	public List<ReviewVO> getReviewList(Criteria cri);
+
 	
 	public boolean insertReview(ReviewVO review);
 	

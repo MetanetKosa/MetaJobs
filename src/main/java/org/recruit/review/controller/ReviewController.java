@@ -1,8 +1,5 @@
 package org.recruit.review.controller;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import org.recruit.review.domain.Criteria;
 import org.recruit.review.domain.PageDTO;
@@ -37,6 +34,7 @@ public class ReviewController {
 	}
 	
 	
+	
 	@PostMapping("/insert")
 	public String insertReview(ReviewVO review, RedirectAttributes rttr){
 		log.info("ReDate : " + review.getReDate());
@@ -54,11 +52,17 @@ public class ReviewController {
 	
 	
 	@PostMapping("/delete")
-	public String deleteReview(@RequestParam("rno")Long rno, RedirectAttributes rttr) {
+	public String deleteReview(@RequestParam("rno")Long rno, Criteria cri, RedirectAttributes rttr) {
 		log.info("remove: " + rno);
 		if(service.deleteReview(rno)) {
 			rttr.addFlashAttribute("result", "success");
 		}
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
+		rttr.addAttribute("pageNum", cri.getKeyword());
+		rttr.addAttribute("SearchJob", cri.getSearchJob());
+		rttr.addAttribute("SearchResult", cri.getSearchResult());
+		
 		return "redirect:/review/reviewList";
 	}
 	

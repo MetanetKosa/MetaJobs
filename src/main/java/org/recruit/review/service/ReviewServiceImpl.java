@@ -17,17 +17,13 @@ public class ReviewServiceImpl implements ReviewService{
 	@Autowired
 	private ReviewMapper mapper;
 
-	@Override
-	public List<ReviewVO> getReviewList() {
-		return mapper.getList();
-	}
 
 	@Override
 	public List<ReviewVO> getReviewList(Criteria cri) {
 		log.info("getList with criteria : " + cri);
 		return mapper.getListWithPaging(cri);
 	}
-
+	
 	@Override
 	public boolean insertReview(ReviewVO review) {
 		return mapper.reviewInsert(review);
