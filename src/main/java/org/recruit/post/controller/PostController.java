@@ -1,30 +1,18 @@
 package org.recruit.post.controller;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
 
-<<<<<<< HEAD
-
-=======
 import org.recruit.post.domain.Criteria;
 import org.recruit.post.domain.PageDTO;
->>>>>>> post
 import org.recruit.post.domain.PostVO;
 import org.recruit.post.service.PostService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.AllArgsConstructor;
@@ -59,7 +47,7 @@ public class PostController {
 	//페이징 처리
 		@GetMapping("/getListWithPaging")
 		public void getListWithPaging(Criteria cri, Model model) {
-			log.info("getListWithPaging:" + cri );
+			log.info("getListWithPaging:" + cri);
 			int total = service.getTotalCount(cri);
 			log.info(total);
 			model.addAttribute("getList", service.getListWithPaging(cri,total));

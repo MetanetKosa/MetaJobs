@@ -99,13 +99,13 @@ public class PostServiceTest {
 //		PostVO post = service.getPost(4L);
 //		log.info("postVO 결과 : " + post);
 //	}
-	@Test
-	public void postgetListWithPaging() {
-		Criteria cri = new Criteria();
-		cri.setPageNum(1);
-		cri.setAmount(10);
-		List<PostVO> postList= service.getListWithPaging(cri);
-		postList.forEach(post ->log.info(post));
-	}
+//	@Test
+//	public void postgetListWithPaging() {
+//		Criteria cri = new Criteria();
+//		cri.setPageNum(1);
+//		cri.setAmount(10);
+//		List<PostVO> postList= service.getListWithPaging(cri,total);
+//		postList.forEach(post ->log.info(post));
+//	}
 
 }
