@@ -9,7 +9,8 @@ public class PageDTO {
 	
 	private int startPage;
 	private int endPage;
-	private boolean prev, next;
+	private boolean prev;
+	private	boolean next;
 	
 	private int total;
 	private Criteria cri;

@@ -231,7 +231,7 @@
                                 <input type="hidden" name="amount" value="${pageMaker.cri.amount}">
                                 <hr class="d-md-none mt-2">
                                 <div class="col-md-2 d-sm-flex align-items-center pt-3 pt-md-0">
-                                    <input class="btn btn-lg btn-icon btn-primary px-3 w-100" type="submit" value="검색"/>
+                                    <input class="btn btn-lg btn-icon btn-primary px-3 w-100" id="searchButton" type="submit" value="검색"/>
                                 </div>
                             </div>
                         </form>
@@ -288,7 +288,7 @@
                     <nav class="mt-2 mb-4" aria-label="Reviews pagination">
                         <ul class="pagination">
                         	<c:if test="${pageMaker.prev}">
-                            	<li class="page-item"><a class="page-link" href="#" aria-label="Prev"><i class="fi-chevron-left"></i></a></li>
+                            	<li class="page-item previous"><a class="page-link" href="${pageMaker.cri.pageNum -1}" aria-label="Prev"><i class="fi-chevron-left"></i></a></li>
                         	</c:if>
                         	
                             <li class="page-item d-sm-none"><span class="page-link page-link-static">1 / 5</span></li>
@@ -299,8 +299,8 @@
 	                            	<span class="visually-hidden">(current)</span>
 	                            </li>
                             </c:forEach>
-                        	<c:if test="${pageMaker.prev}">
-                            	<li class="page-item"><a class="page-link" href="#" aria-label="Next"><i class="fi-chevron-right"></i></a></li>
+                        	<c:if test="${pageMaker.next}">
+                            	<li class="page-item next"><a class="page-link" href="${pageMaker.cri.pageNum +1}" aria-label="Next"><i class="fi-chevron-right"></i></a></li>
                         	</c:if>
                         </ul>
                         
@@ -365,7 +365,7 @@
 				
 				var reviewSearchFrm = $("#reviewSearchFrm");
 				
-				$("#reviewSearchFrm input .btn").on("click", function(e){
+				$("#searchButton").on("click", function(e){
 
 					reviewSearchFrm.find("input[name='pageNum']").val("1");
 					e.preventDefault();
