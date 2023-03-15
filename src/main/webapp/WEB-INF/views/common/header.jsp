@@ -179,9 +179,9 @@
                                         </div>
 	                                 </div>
                                   	<%-- <c:if test="${msg == false}"> --%>
-                                    <c:if test="${result == 0}">
+                                    <%-- <c:if test="${result == 0}">
                                     	<p style="color:#f00;">ID 또는 비밀번호를 잘못 입력하셨습니다.</p>
-                                    </c:if>
+                                    </c:if> --%>
                                     <button id="loginBtn" class="btn btn-primary btn-lg rounded-pill w-100" type="submit">Sign in</button>
                                 </form>
                             </div>
@@ -226,9 +226,9 @@
                                         </div>
 	                                 </div>
                                   	<%-- <c:if test="${msg == false}"> --%>
-                                    <c:if test="${result == 0}">
+                                   <%--  <c:if test="${result == 0}">
                                     	<p style="color:#f00;">ID 또는 비밀번호를 잘못 입력하셨습니다.</p>
-                                    </c:if>
+                                    </c:if> --%>
                                     <button id="login" class="btn btn-primary btn-lg rounded-pill w-100" type="submit">Sign in</button>
                                 </form>
                             </div>
@@ -510,22 +510,22 @@
  		<!-- Navbar-->
         <header class="navbar navbar-expand-lg navbar-light fixed-top" data-scroll-header>
             <div class="container">
-                <a class="navbar-brand me-3 me-xl-4" href="${path}/"><img class="d-block" src="img/logo/logo-dark.svg" width="116" alt="Finder"></a>
+                <a class="navbar-brand me-3 me-xl-4" href="${path}/"><img class="d-block" src="${path}/resources/img/logo/logo-dark.svg" width="116" alt="Finder"></a>
                 
                 <!-- ************************************* 로그인 로그아웃 버튼 -->
-                <a class="navbar-brand me-3 me-xl-4" href="${path}/"><img class="d-block" src="${path}/resources/img/logo/logo-dark.svg" width="116" alt="Finder"></a>
+                <%-- <a class="navbar-brand me-3 me-xl-4" href="${path}/"><img class="d-block" src="${path}/resources/img/logo/logo-dark.svg" width="116" alt="Finder"></a> --%>
                 <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 
                 
                 <div class="collapse navbar-collapse order-lg-2" id="navbarNav">
                     <ul class="navbar-nav navbar-nav-scroll" style="max-height: 35rem;">
                         <!-- Menu-->
-                        <li class="nav-item dropdown me-lg-2"><a class="nav-link align-items-center pe-lg-4" href="${path}/WEB-INF/views/post/postInsert.jsp" data-bs-toggle="dropdown" role="button" aria-expanded="false"><i class="fi-layers me-2"></i>공고 등록<span class="d-none d-lg-block position-absolute top-50 end-0 translate-middle-y border-end" style="width: 1px; height: 30px;"></span></a></li>
-                        <li class="nav-item dropdown me-lg-2"><a class="nav-link  align-items-center pe-lg-4" href="${path}/post/postList" data-bs-toggle="dropdown" role="button" aria-expanded="false"><i class="fi-layers me-2"></i>공고 목록<span class="d-none d-lg-block position-absolute top-50 end-0 translate-middle-y border-end" style="width: 1px; height: 30px;"></span></a></li>
-                        <li class="nav-item dropdown me-lg-2"><a class="nav-link align-items-center pe-lg-4" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="false"><i class="fi-layers me-2"></i>면접 후기<span class="d-none d-lg-block position-absolute top-50 end-0 translate-middle-y border-end" style="width: 1px; height: 30px;"></span></a></li>
-                        <li class="nav-item dropdown me-lg-2"><a class="nav-link align-items-center pe-lg-4" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="false"><i class="fi-layers me-2"></i>나의 이력서</a></li>
+                        <li class="nav-item dropdown me-lg-2"><a class="nav-link align-items-center pe-lg-4" href="${path}/post/postGet" ><i class="fi-layers me-2"></i>공고 등록<span class="d-none d-lg-block position-absolute top-50 end-0 translate-middle-y border-end" style="width: 1px; height: 30px;"></span></a></li>
+                        <li class="nav-item dropdown me-lg-2"><a class="nav-link  align-items-center pe-lg-4" href="${path}/post/postList" ><i class="fi-layers me-2"></i>공고 목록<span class="d-none d-lg-block position-absolute top-50 end-0 translate-middle-y border-end" style="width: 1px; height: 30px;"></span></a></li>
+                        <li class="nav-item dropdown me-lg-2"><a class="nav-link align-items-center pe-lg-4" href="${path}/review/reviewList" ><i class="fi-layers me-2"></i>면접 후기<span class="d-none d-lg-block position-absolute top-50 end-0 translate-middle-y border-end" style="width: 1px; height: 30px;"></span></a></li>
+                        <li class="nav-item dropdown me-lg-2"><a class="nav-link align-items-center pe-lg-4" href="${path}/resume/resumeList?mem_no=44" ><i class="fi-layers me-2"></i>나의 이력서</a></li>
                         <li class="nav-item d-lg-none"><a class="nav-link" href="#signin-modal" data-bs-toggle="modal"><i class="fi-user me-2"></i>Sign in</a></li>
-                    </ul>
+                    </ul>																						<%-- <c:out value="${login.mem_no}"/>'<c:out value="${post.postNo }"/> href="${path}/resume/list?mem_no='<c:out value="${login.mem_no }"/>'"  --%>
                     <!-- 
                     <a class="btn btn-sm text-primary d-none d-lg-block order-lg-3" href="#signin-modal" data-bs-toggle="modal"><i class="fi-user me-2"></i>Sign in</a>
                 	<a class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3" href="#signup-modal" data-bs-toggle="modal"><i class="fi-plus me-2"></i>Sign<span class='d-none d-sm-inline'> Up</span></a>
@@ -608,7 +608,6 @@
     <script src="${path}/resources/vendor/lightgallery/plugins/zoom/lg-zoom.min.js"></script>
     <script src="${path}/resources/vendor/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script>
     <script src="${path}/resources/vendor/tiny-slider/dist/min/tiny-slider.js"></script>
-    <script src="${path}/resources/vendor/flatpickr/dist/flatpickr.min.js"></script>
     <!-- Main theme script-->
     <script src="${path}/resources/js/theme.min.js"></script>
     

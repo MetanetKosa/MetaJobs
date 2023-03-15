@@ -69,13 +69,13 @@
                             <div class="card-body p-4">
                                 <div class="d-sm-flex justify-content-between align-items-start pb-4">
                                     <div class="order-sm-1">
-                                        <h3 class="h4 mb-sm-4">Annette Black</h3>
+                                        <h3 class="h4 mb-sm-4">이사라</h3>
                                         <h4 class="h5">기본정보</h4>
                                         <ul class="list-unstyled text-nav">
-                                            <li><span class='text-muted'>생년월일:</span> ${resume.resume_title}</li>
-                                            <li><span class='text-muted'>휴대폰번호:</span> Part-time</li>
-                                            <li><span class='text-muted'>주소:</span> New York, USA</li>
-                                            <li><span class='text-muted'>이메일:</span> $2000 – $3000</li>
+                                            <li><span class='text-muted'>생년월일:</span> 19990504</li>
+                                            <li><span class='text-muted'>휴대폰번호:</span> 01012345555</li>
+                                            <li><span class='text-muted'>주소:</span> 서울</li>
+                                            <li><span class='text-muted'>이메일:</span> dltkfk@baver.com</li>
                                             <li><span class='text-muted'>성별:</span> ${resume.resume_gender}</li>
                                             <li><span class='text-muted'>경력여부:</span> ${resume.resume_career}</li>
                                         </ul>
@@ -103,7 +103,7 @@
                             <button class="btn btn-primary btn-lg rounded-pill ms-sm-auto" type="button" data-oper='list'>목록</button>
                         </div>
                     </div>
-                    <form id='operForm' action="/resume/modify" method="get">
+                    <form id='operForm' action="/resume/resumeModify" method="get">
                     	<input type='hidden' id= 'resume_no' name='resume_no' value='<c:out value="${resume.resume_no}"/>'>
                     	<input type='hidden' id= 'mem_no' name='mem_no' value='<c:out value="${resume.mem_no}"/>'>
                     </form>
@@ -131,17 +131,17 @@
 			
 			$("button[data-oper='modify']").on("click", function(e){
 				operForm.find("#mem_no").remove();
-				operForm.attr("action", "/resume/modify").submit();
+				operForm.attr("action", "/resume/resumeModify").submit();
 			});
 			
 			$("button[data-oper='list']").on("click", function(e){
 				operForm.find("#resume_no").remove();
-				operForm.attr("action", "/resume/list").submit();
+				operForm.attr("action", "/resume/resumeList").submit();
 			});
 			
 			$("button[data-oper='delete']").on("click", function(e){
 				operForm.find("#mem_no").remove();
-				operForm.attr("action", "/resume/delete").attr("method","post").submit();
+				operForm.attr("action", "/resume/resumeDelete").attr("method","post").submit();
 			});
 			
 		});

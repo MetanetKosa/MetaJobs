@@ -50,10 +50,10 @@
                 <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm position-absolute end-0 bottom-0" type="button" data-bs-toggle="tooltip" title="Change image"><i class="fi-pencil fs-xs"></i></button>
               </div>
               <div class="ps-3 ps-sm-4">
-                <h3 class="h5">Annette Black</h3>
+                <h3 class="h5">이사라</h3>
                 <ul class="list-unstyled fs-sm mb-0">
-                  <li class="d-flex text-nav text-break"><i class="fi-mail opacity-60 mt-1 me-2"></i><span>annette_black@email.com</span></li>
-                  <li class="d-flex text-nav text-break"><i class="fi-phone opacity-60 mt-1 me-2"></i><span>(302) 555-0107</span></li>
+                  <li class="d-flex text-nav text-break"><i class="fi-mail opacity-60 mt-1 me-2"></i><span>dltkfk@naver.com</span></li>
+                  <li class="d-flex text-nav text-break"><i class="fi-phone opacity-60 mt-1 me-2"></i><span>01012345555</span></li>
                 </ul>
               </div>
             </div><a class="nav-link p-0 d-none d-md-block" href="signin-light.html"><i class="fi-logout mt-n1 me-2"></i>Sign out</a>
@@ -79,7 +79,7 @@
                   <li><a class="nav-link fw-normal d-flex align-items-center px-0 py-1" href="#"><i class="fi-file opacity-70 me-2"></i><span>Publihed</span><span class="text-muted ms-auto">(3)</span></a></li>
                   <li><a class="nav-link fw-normal d-flex align-items-center px-0 py-1" href="#"><i class="fi-file-clean opacity-70 me-2"></i><span>Drafts</span><span class="text-muted ms-auto">(0)</span></a></li>
                   <li><a class="nav-link fw-normal d-flex align-items-center px-0 py-1" href="#"><i class="fi-archive opacity-70 me-2"></i><span>Archived</span><span class="text-muted ms-auto">(0)</span></a></li>
-                </ul><a class="btn btn-primary rounded-pill w-100" href="/resume/insert"><i class="fi-plus fs-sm me-2"></i>새 이력서 등록</a>
+                </ul><a class="btn btn-primary rounded-pill w-100" href="/resume/resumeInsert"><i class="fi-plus fs-sm me-2"></i>새 이력서 등록</a>
               </div>
             </div>
             <!-- List of resumes-->
@@ -91,7 +91,7 @@
                   <div class="d-flex justify-content-between">
                     <div class="d-flex align-items-start"><img class="d-none d-sm-block" src="${path}/resources/img/avatars/38.png" width="100" alt="Resume picture">
                       <div class="ps-sm-3">
-                        <h3 class="h6 card-title pb-1 mb-2"><a class="stretched-link text-nav text-decoration-none" href='/resume/get?resume_no=<c:out value="${resume.resume_no}"/>'><c:out value="${resume.resume_title}"/></a></h3>
+                        <h3 class="h6 card-title pb-1 mb-2"><a class="stretched-link text-nav text-decoration-none" href='/resume/resumeGet?resume_no=<c:out value="${resume.resume_no}"/>'><c:out value="${resume.resume_title}"/></a></h3>
                         <div class="fs-sm">
                           <div class="text-nowrap mb-2"><i class="fi-map-pin text-muted me-1"> </i><c:out value="${resume.resume_career}"/></div>
                          <!--  <div class="text-nowrap"><i class="fi-cash fs-base text-muted me-1"></i>$4,000</div> -->

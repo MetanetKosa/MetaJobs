@@ -32,12 +32,12 @@ public class ResumeController {
 	
 	private ResumeService service;
 	
-	@GetMapping("/list")
+	@GetMapping("/resumeList")
 	public void list(@RequestParam Long mem_no, Model model) {
 		model.addAttribute("list", service.getResumeList(mem_no));
 	}
 	
-	@PostMapping("/insert")
+	@PostMapping("/resumeInsert")
 	public String insert(ResumeVO resume, RedirectAttributes rttr) {
 		log.info("register" + resume);
 		System.out.println(resume);
@@ -49,30 +49,30 @@ public class ResumeController {
 		
 		rttr.addFlashAttribute("result",resume.getResume_no());
 		rttr.addAttribute("mem_no", resume.getMem_no());
-		return "redirect:/resume/list";
+		return "redirect:/resume/resumeList";
 	}
 	
-	@GetMapping("/insert")
+	@GetMapping("/resumeInsert")
 	public void insert() {
 		
 	}
-	@GetMapping({"/get","/modify"})
+	@GetMapping({"/resumeGet","/resumeModify"})
 	public void get(@RequestParam Long resume_no, Model model) {
 		model.addAttribute("resume", service.get(resume_no));
 	}
 	
 	
-	@RequestMapping(value = "/modify", method=RequestMethod.POST)
+	@RequestMapping(value = "/resumeModify", method=RequestMethod.POST)
 	public String modify(ResumeVO resume,@RequestParam("resume_no") Long resume_no, RedirectAttributes rttr) {
 		log.info("resume_no" + resume_no);
 		if(service.updateResume(resume)) {
 			rttr.addAttribute("mem_no", resume.getMem_no());
 		}
 		
-		return "redirect:/resume/list";
+		return "redirect:/resume/resumeList";
 	}
 	
-	@PostMapping("/delete")
+	@PostMapping("/resumeDelete")
 	public String remove(@RequestParam Long resume_no, RedirectAttributes rttr) {
 		
 		List<ResumeAttachVO> attachList = service.getAttachList(resume_no);
@@ -82,7 +82,7 @@ public class ResumeController {
 			deleteFiles(attachList);
 			rttr.addAttribute("mem_no",resume.getMem_no());
 		}
-		return "redirect:/resume/list";
+		return "redirect:/resume/resumeList";
 	}
 	
 	private void deleteFiles(List<ResumeAttachVO> attachList) {

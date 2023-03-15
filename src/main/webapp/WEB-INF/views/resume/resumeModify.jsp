@@ -41,7 +41,7 @@
 	                    <!-- Step 1: Basic Info-->
 	                    <div class="bg-light rounded-3 p-4 p-md-5 mb-3">
 	                        <h2 class="h4 mb-4"><i class="fi-info-circle text-primary fs-5 mt-n1 me-2"></i>이력서</h2>
-	                      	<form id="form" role="form" action="/resume/modify" method="post">
+	                      	<form id="form" role="form" action="/resume/resumeModify" method="post">
 		                        <div class="row">
 		                       		 <div class="col-12 mb-4">
 		                                <!-- <label class="form-label" for="pr-address">title</label> -->
@@ -50,13 +50,16 @@
 		                            <div class="d-sm-flex justify-content-between align-items-start pb-4">
 	                                  
 	                                    			<div class="order-sm-1">
-	                                        			<h4 class="h5">기본정보</h4>
-	                                        			<ul class="list-unstyled text-nav">
-			                                            <li><span class="text-muted">이름:</span> UX Designer</li>
-			                                            <li><span class="text-muted">이메일:</span> Part-time</li>
-			                                            <li><span class="text-muted">휴대폰:</span> New York, USA</li>
-			                                            <li><span class="text-muted">주소:</span> $2000 – $3000</li>			                   
-	                                       				 </ul>
+	                                        
+                                        <h4 class="h5">기본정보</h4>
+                                        <ul class="list-unstyled text-nav">
+                                            <li><span class='text-muted'>생년월일:</span> 19990504</li>
+                                            <li><span class='text-muted'>휴대폰번호:</span> 01012345555</li>
+                                            <li><span class='text-muted'>주소:</span> 서울</li>
+                                            <li><span class='text-muted'>이메일:</span> dltkfk@baver.com</li>
+                                            <li><span class='text-muted'>성별:</span> ${resume.resume_gender}</li>
+                                            <li><span class='text-muted'>경력여부:</span> ${resume.resume_career}</li>
+                                        </ul>
 	                                    			</div>
                                			 </div>
                                		<div class="row">

@@ -17,12 +17,12 @@
 		</selectKey>
 
 		insert into resume(resume_no,resume_image,resume_title,resume_gender,resume_technology,resume_career,mem_no,resume_cv)
-		values(#{resume_no}, null, #{resume_title}, #{resume_gender}, #{resume_technology}, #{resume_career}, #{mem_no}, #{resume_cv})
+		values(#{resume_no},#{resume_image}, #{resume_title}, #{resume_gender}, #{resume_technology}, #{resume_career}, #{mem_no}, #{resume_cv})
 	</insert> 
 	
 	<update id="resumeUpdate">
 		update resume set 
-		resume_image = #{resume_image, jdbcType=VARCHAR},
+		resume_image = 'image',
 		resume_title = #{resume_title},
 		resume_gender = #{resume_gender},
 		resume_technology = #{resume_technology},
