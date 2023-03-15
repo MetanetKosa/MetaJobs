@@ -24,11 +24,19 @@
 
 
  <!-- Vendor scrits: js libraries and plugins-->
-       <script src="${path}/resources/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+      <%--  <script src="${path}/resources/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
        <script src="${path}/resources/vendor/simplebar/dist/simplebar.min.js"></script>
        <script src="${path}/resources/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
        <script src="${path}/resources/vendor/flatpickr/dist/flatpickr.min.js"></script>
        <!-- Main theme script-->
-      <script src="${path}/resources/js/theme.min.js"></script>
+      <script src="${path}/resources/js/theme.min.js"></script> --%>
+      	<!-- Vendor scrits: js libraries and plugins-->
+	<script src="${path}/resources/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="${path}/resources/vendor/simplebar/dist/simplebar.min.js"></script>
+	<script src="${path}/resources/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+		    <script src="${path}/resources/vendor/flatpickr/dist/flatpickr.min.js"></script>
+	
+	<!-- Main theme script-->
+	<script src="${path}/resources/js/theme.min.js"></script>
 </body>
-</html>
+

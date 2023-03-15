@@ -43,7 +43,7 @@
 						<h2 class="h4 mb-4">
 							<i class="fi-info-circle text-primary fs-5 mt-n1 me-2"></i>이력서
 						</h2>
-						<form role="form" action="/resume/insert" method="post">
+						<form role="form" action="/resume/resumeInsert" method="post">
 							<div class="row">
 								<div class="col-12 mb-4">
 									<!-- <label class="form-label" for="pr-address">title</label> -->
@@ -104,10 +104,10 @@
 									<div class="order-sm-1">
 										<h4 class="h5">기본정보</h4>
 										<ul class="list-unstyled text-nav">
-											<li><span class="text-muted">이름:</span> 김길동</li>
-											<li><span class="text-muted">이메일:</span> kim@naver.com</li>
-											<li><span class="text-muted">휴대폰:</span> New York, USA</li>
-											<li><span class="text-muted">주소:</span> $2000 – $3000</li>
+											<li><span class='text-muted'>생년월일:</span> 19990504</li>
+                                            <li><span class='text-muted'>휴대폰번호:</span> 01012345555</li>
+                                            <li><span class='text-muted'>주소:</span> 서울</li>
+                                            <li><span class='text-muted'>이메일:</span> dltkfk@baver.com</li>
 										</ul>
 									</div>
 								</div>
@@ -135,12 +135,10 @@
 										id="pr-address" name="resume_technology"
 										placeholder="보유기술 입력(ex.문서작성능력, java 등)">
 								</div>
-								<div class="col-12 mb-4">
-									<label class="form-label fw-bold pb-1 mb-2">보유기술 및 능력</label> <input
-										class="form-control form-control-lg" type="text"
-										id="pr-address" name="mem_no"
-										placeholder="보유기술 입력(ex.문서작성능력, java 등)">
-								</div>
+								
+								<input type='hidden' id= 'resume_no' name='resume_image' value='image'>
+                        		<input type='hidden' id= 'mem_no' name='mem_no' value=48>	
+								
 
 
 								<div class="col-12 mb-4">
@@ -177,8 +175,7 @@
 						</form>
 					</div>
 				</div>
-			</div>
-			<div class="row">
+				<div class="row">
 				<div class="col-lg-12">
 					<div class="panel-panel-default">
 						<div class="panel-heading">첨부파일</div>
@@ -196,6 +193,8 @@
 					</div>
 				</div>
 			</div>
+			</div>
+			
 		</div>
 
 

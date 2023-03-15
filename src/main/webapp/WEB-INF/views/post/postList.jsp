@@ -9,7 +9,13 @@
 <jsp:include page="/WEB-INF/views/common/header.jsp">
 	<jsp:param value="홈페이지" name="title"/>
 </jsp:include>
-
+<!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="${path}/resources/vendor/simplebar/dist/simplebar.min.css" />
+    <link rel="stylesheet" media="screen" href="${path}/resources/vendor/lightgallery/css/lightgallery-bundle.min.css" />
+    <link rel="stylesheet" media="screen" href="${path}/resources/vendor/tiny-slider/dist/tiny-slider.css" />
+    <link rel="stylesheet" media="screen" href="${path}/resources/vendor/flatpickr/dist/flatpickr.min.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+<link rel="stylesheet" media="screen" href="${path}/resources/css/theme.min.css">
 <body>
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- Page loading spinner-->
@@ -173,7 +179,6 @@
             </div>
         </div>
      
-        <!-- Page content-->
         <!-- Page header-->
         <section class="bg-dark pt-5">
             <div class="container py-5">
@@ -216,7 +221,7 @@
                                 <input type="hidden">
                                 <ul class="dropdown-menu dropdown-menu-dark my-3">
                                     <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">고졸</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">초고졸</span></a></li>
+                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">초대졸</span></a></li>
                                     <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">대졸</span></a></li>
                                     <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">대학원</span></a></li>
                                 </ul>
@@ -385,8 +390,8 @@
         </section>
     </main>
 			<!-- <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script> -->
-
-
+       <!-- Main theme script-->
+      <script src="${path}/resources/js/theme.min.js"></script>
 		<script>
 		console.log("script가 잘 실행되나요?");
 			$(document).ready(function(){
@@ -409,6 +414,14 @@
 				} */
 			});
 		</script>
+ <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
+	    <!-- Vendor scrits: js libraries and plugins-->
+	    <script src="${path}/resources/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	    <script src="${path}/resources/vendor/simplebar/dist/simplebar.min.js"></script>
+	    <script src="${path}/resources/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+	    <script src="${path}/resources/vendor/flatpickr/dist/flatpickr.min.js"></script>
+	    <!-- Main theme script-->
+		<script src="${path}/resources/js/theme.min.js"></script>
 </body>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />

@@ -131,7 +131,7 @@
 									<option value="" selected>${post.postEmptype }</option>
 									<option value="정규직">정규직</option>
 									<option value="계약직">계약직</option>
-									<option value="인턴직">인턴직</option>
+									<option value="인턴">인턴직</option>
 									<option value="파견직">파견직</option>
 								</select>
 							</div>

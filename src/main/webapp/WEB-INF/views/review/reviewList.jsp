@@ -36,7 +36,10 @@
                         <form class="needs-validation" action="${path}/review/insert" method="post" novalidate>
                             <div class="mb-3">
                                 <label class="form-label" for="cName">회사명 <span class='text-danger'>*</span></label>
-                                <input class="form-control" type="text" id="cName" name="cno" placeholder="회사명" required>
+                                <!-- 변경된 부분 2 -->
+                                <input class="form-control" type="text" id="cName" placeholder="회사명" required>
+                                <input type="hidden" name="cno" value="1111">
+                                <!-- 여기까지 -->
                                 <div class="invalid-feedback">Please let us know your name.</div>
                             </div>
                             <div class="mb-3">
@@ -57,8 +60,11 @@
 				                  </select>
 				            </div> 
                             <div class="mb-3">
-				                <label class="form-label" for="reJob">직군 <span class='text-danger'>*</span></label>
-                                <input class="form-control" type="text" id="mno" name="mno" placeholder="회원번호" required>
+                            <!-- 변경된 부분 1 -->
+				               <!--  <label class="form-label" for="reJob">직군 <span class='text-danger'>*</span></label> -->
+                               <!--  <input class="form-control" type="text" id="mno" name="mno" placeholder="회원번호" required> -->
+                               <input type="hidden" name="mno" value="44">
+                            <!-- 여기까지!! -->
                                <!--  <div class="invalid-feedback">Please provide a valid email address.</div> -->
                             </div>
                             <div class="mb-3">
@@ -192,11 +198,16 @@
                             <div class="row g-0">
                                 <div class="col-md-10 d-sm-flex align-items-center">
                                     <div class="input-group input-group-lg border-end-md"><span class="input-group-text text-muted rounded-pill ps-3"><i class="fi-search"></i></span>
-                                        <input class="form-control" name="keyword" type="text" placeholder="회사명을 입력하세요">
+                                        <!-- 변경된 부분 3 -->
+                                       <!--  <input class="form-control" name="keyword" type="text" placeholder="회사명을 입력하세요"> -->
+                                        <input class="form-control" type="text" placeholder="회사명을 입력하세요">
+                                        <input type="hidden" name="keyword" value="3">
+                                       <!-- 여기까지 -->
                                     </div>
                                     <hr class="d-sm-none my-2">
                                     <div class="dropdown w-sm-50 border-end-sm" data-bs-toggle="select">
-                                        <button class="btn btn-lg btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown"><i class="fi-home me-2"></i><span class="dropdown-toggle-label">직종 전체</span></button>
+                                        <button class="btn btn-lg btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown"><i class="fi-home me-2"></i>
+                                        <span class="dropdown-toggle-label">직종 전체</span></button>
                                         <input type="hidden" name="searchJob">
                                         <ul class="dropdown-menu" style="position: absolute; z-index:1;">
                                             <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">개발</span></a></li>      
@@ -214,7 +225,8 @@
                                     </div>
                                     <hr class="d-sm-none my-2">
                                     <div class="dropdown w-sm-50 border-end-sm" data-bs-toggle="select">
-                                        <button class="btn btn-lg btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown"><i class="fi-map-pin me-2"></i><span class="dropdown-toggle-label">면접결과 전체</span></button>
+                                        <button class="btn btn-lg btn-link dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown"><i class="fi-map-pin me-2"></i>
+                                        <span class="dropdown-toggle-label">면접결과 전체</span></button>
                                         <input type="hidden" name="searchResult">
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">합격</span></a></li>
@@ -251,7 +263,15 @@
 		                        <div class="d-flex justify-content-between mb-3">
 		                            <div class="d-flex align-items-center pe-2"><img class="rounded-circle me-1" src="${path}/resources/img/avatars/13.png" width="48" alt="Avatar">
 		                                <div class="ps-2">
-		                                    <h6 class="fs-base mb-0">회사명</h6>
+		                                <!-- 변경된 부분 -->
+		                                    <h6 class="fs-base mb-0">
+		                                    <c:if test="${review.cno==1111}">메타넷디지털</c:if>
+		                                    <c:if test="${review.cno==1234}">회사명2</c:if>
+		                                    <c:if test="${review.cno==1237}">회사명3</c:if>
+		                                    
+		                                    </h6>
+		                                    
+		                                <!-- 여기까지 -->
 		                                    <h6 class="fs-sm mb-0">${review.reJob}</h6>
 		                                </div>
 		                            </div>
@@ -340,11 +360,11 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header d-block position-relative border-0 pb-0 px-sm-5 px-4">
-                        <h6 class="modal-title mt-1 text-center">등록 완료!</h6>
+                        <h6 class="modal-title mt-1 text-center">완료!</h6>
                         <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-						게시글 등록이 완료되었습니다.
+						처리가 완료되었습니다.
                     </div>
                 </div>
             </div>
@@ -383,7 +403,6 @@
 				
 				var reviewSearchFrm = $("#reviewSearchFrm");
 				
-				$("#searchButton").on("click", function(e){
 
 					reviewSearchFrm.find("input[name='pageNum']").val("1");
 					e.preventDefault();
