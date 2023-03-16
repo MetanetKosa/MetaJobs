@@ -41,7 +41,7 @@
 	                    <!-- Step 1: Basic Info-->
 	                    <div class="bg-light rounded-3 p-4 p-md-5 mb-3">
 	                        <h2 class="h4 mb-4"><i class="fi-info-circle text-primary fs-5 mt-n1 me-2"></i>이력서</h2>
-	                      	<form id="form" role="form" action="/resume/modify" method="post">
+	                      	<form id="form" role="form" action="/resume/resumeModify" method="post">
 		                        <div class="row">
 		                       		 <div class="col-12 mb-4">
 		                                <!-- <label class="form-label" for="pr-address">title</label> -->
@@ -52,10 +52,10 @@
 	                                    			<div class="order-sm-1">
 	                                        			<h4 class="h5">기본정보</h4>
 	                                        			<ul class="list-unstyled text-nav">
-			                                            <li><span class="text-muted">이름:</span> UX Designer</li>
-			                                            <li><span class="text-muted">이메일:</span> Part-time</li>
-			                                            <li><span class="text-muted">휴대폰:</span> New York, USA</li>
-			                                            <li><span class="text-muted">주소:</span> $2000 – $3000</li>			                   
+			                                            <li><span class="text-muted">이름:</span> 이사라</li>
+			                                            <li><span class="text-muted">이메일:</span>dltkfk@naver.com</li>
+			                                            <li><span class="text-muted">휴대폰:</span> 01012345555</li>
+			                                            <li><span class="text-muted">주소:</span> 서울</li>			                   
 	                                       				 </ul>
 	                                    			</div>
                                			 </div>
@@ -90,6 +90,7 @@
 	                   
 		                     	 <input type="hidden" id='resume_no' name='resume_no' value="${resume.resume_no}"> 
 		                     	<input type='hidden' id= 'mem_no' name='mem_no' value='<c:out value="${resume.mem_no}"/>'>
+		                     	<input type='hidden' id= 'resume_no' name='resume_image' value='image'>
         						<button type="submit" class="btn-primary btn-lg rounded-pill ms-sm-auto" data-oper="modify">수정</button>
         						<!-- <button type="submit" class="btn btn-info" data-oper="delete">삭제</button>
         						<button type="submit" class="btn btn-info" data-oper="list">목록</button> -->

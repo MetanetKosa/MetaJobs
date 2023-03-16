@@ -17,7 +17,7 @@
 		</selectKey>
 
 		insert into resume(resume_no,resume_image,resume_title,resume_gender,resume_technology,resume_career,mem_no,resume_cv)
-		values(#{resume_no}, null, #{resume_title}, #{resume_gender}, #{resume_technology}, #{resume_career}, #{mem_no}, #{resume_cv})
+		values(#{resume_no}, #{resume_image}, #{resume_title}, #{resume_gender}, #{resume_technology}, #{resume_career}, #{mem_no}, #{resume_cv})
 	</insert> 
 	
 	<update id="resumeUpdate">
@@ -38,10 +38,11 @@
 	
 	<select id="getList" resultType="org.recruit.resume.domain.ResumeVO">
 	<![CDATA[
-			select * from resume where mem_no = #{mem_no} and resume_no > 0
+			select  * from resume where mem_no = #{mem_no} and resume_no > 0
 	]]>
 	</select> 
 	
+
 	<delete id="resumeDelete">
 		delete from resume where resume_no = #{resume_no}
 	</delete>

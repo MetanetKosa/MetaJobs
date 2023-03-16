@@ -96,6 +96,7 @@
         }
     </style>
     <!-- Page loading scripts-->
+    <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
         (function() {
             window.onload = function() {
@@ -523,7 +524,7 @@
                         <li class="nav-item dropdown me-lg-2"><a class="nav-link align-items-center pe-lg-4" href="${path}/WEB-INF/views/post/postInsert.jsp" data-bs-toggle="dropdown" role="button" aria-expanded="false"><i class="fi-layers me-2"></i>공고 등록<span class="d-none d-lg-block position-absolute top-50 end-0 translate-middle-y border-end" style="width: 1px; height: 30px;"></span></a></li>
                         <li class="nav-item dropdown me-lg-2"><a class="nav-link  align-items-center pe-lg-4" href="${path}/post/postList" data-bs-toggle="dropdown" role="button" aria-expanded="false"><i class="fi-layers me-2"></i>공고 목록<span class="d-none d-lg-block position-absolute top-50 end-0 translate-middle-y border-end" style="width: 1px; height: 30px;"></span></a></li>
                         <li class="nav-item dropdown me-lg-2"><a class="nav-link align-items-center pe-lg-4" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="false"><i class="fi-layers me-2"></i>면접 후기<span class="d-none d-lg-block position-absolute top-50 end-0 translate-middle-y border-end" style="width: 1px; height: 30px;"></span></a></li>
-                        <li class="nav-item dropdown me-lg-2"><a class="nav-link align-items-center pe-lg-4" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="false"><i class="fi-layers me-2"></i>나의 이력서</a></li>
+                        <li class="nav-item dropdown me-lg-2"><a class="nav-link align-items-center pe-lg-4" href='/resume/resumeList?mem_no=${member.mem_no}' data-bs-toggle="dropdown" role="button" aria-expanded="false"><i class="fi-layers me-2"></i>나의 이력서</a></li>
                         <li class="nav-item d-lg-none"><a class="nav-link" href="#signin-modal" data-bs-toggle="modal"><i class="fi-user me-2"></i>Sign in</a></li>
                     </ul>
                     <!-- 
@@ -611,6 +612,7 @@
     <script src="${path}/resources/vendor/flatpickr/dist/flatpickr.min.js"></script>
     <!-- Main theme script-->
     <script src="${path}/resources/js/theme.min.js"></script>
+    
     
     <script type="text/javascript">
     
