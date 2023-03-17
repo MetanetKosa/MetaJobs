@@ -6,9 +6,11 @@
 
 	<insert id="resumeInsert">     	
 		insert into resume(resume_no, resume_image,resume_title, resume_gender, resume_technology,resume_career , mem_no,resume_cv)
-		values(resume_seq.nextVal, #{resume_image}, #{resume_title}, #{resume_gender}, #{resume_technology}, #{resume_career}, 2,  #{resume_cv})
+
+		values(resume_seq.nextVal, null, #{resume_title}, #{resume_gender}, #{resume_technology}, #{resume_career}, 1,  #{resume_cv})
+
 	</insert>
-<!-- 	
+	
 	<insert id="insertSelectKey">
 
 		<selectKey keyProperty="resume_no" order="BEFORE"
@@ -17,10 +19,10 @@
 		</selectKey>
 
 		insert into resume(resume_no,resume_image,resume_title,resume_gender,resume_technology,resume_career,mem_no,resume_cv)
-		values(#{resume_no}, #{resume_image}, #{resume_title}, #{resume_gender}, #{resume_technology}, #{resume_career},2, #{resume_cv})
 
-		
-	</insert>  -->
+		values(#{resume_no},#{resume_image}, #{resume_title}, #{resume_gender}, #{resume_technology}, #{resume_career},1, #{resume_cv})
+	</insert> 
+
 	
 	<update id="resumeUpdate">
 		update resume set 
