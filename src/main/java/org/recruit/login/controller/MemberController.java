@@ -34,7 +34,6 @@ public class MemberController {
 	private MemberService service;
 	
 	//회원가입 페이지 이동 /member/insert
-	//@RequestMapping(value = "/member/insert", method = RequestMethod.GET)
 	@GetMapping("/member/insert")
 	public void joinGET() {
 		log.info("회원가입 페이지 진입");
@@ -81,7 +80,6 @@ public class MemberController {
 	}
 	
 	//로그아웃 버튼
-	//@GetMapping("/member/logout")
 	@ResponseBody
 	@GetMapping("/logout")
 	public String logoutPost(HttpServletRequest request) {
