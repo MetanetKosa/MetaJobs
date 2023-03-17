@@ -33,7 +33,7 @@
 		SELECT 
 		 mem_no, mem_id, mem_pw, mem_auth, mem_name, mem_birth, mem_phone, mem_address, mem_email, mem_joinDate, mem_updateDate
 		FROM 
-		  members
+		  member
 		 WHERE mem_id = #{mem_id}
   	</select>
 
@@ -45,7 +45,7 @@
 				select mems_seq.nextVal from dual
 		</selectKey>
    
-	  	insert into members (mem_no, mem_id, mem_pw, mem_name, mem_birth, mem_phone, mem_address, mem_email)
+	  	insert into member (mem_no, mem_id, mem_pw, mem_name, mem_birth, mem_phone, mem_address, mem_email)
 	  	values (#{mem_no}, #{mem_id}, #{mem_pw}, #{mem_name}, #{mem_birth}, #{mem_phone}, #{mem_address}, #{mem_email})
 	  	<!-- 
 	  	insert into auth (id, pw, auth, enabled)
@@ -56,12 +56,12 @@
 
 	<!-- id로 비밀번호 찾기 -->
 	<select id="readPw" parameterType="String" resultType="String">
-		select mem_pw from members where mem_id = #{mem_id}
+		select mem_pw from member where mem_id = #{mem_id}
 	</select>
 	
 	<!-- 회원정보 수정 -->
 	<update id="updateMember">
-		update members 
+		update member 
 		set mem_birth = #{mem_birth},
 			mem_phone = #{mem_phone},
 			mem_address = #{mem_address},
@@ -73,20 +73,20 @@
 	
 	<!-- 회원 탈퇴 -->
 	<delete id="delete">
-		delete from members where mem_id = #{mem_id}
+		delete from member where mem_id = #{mem_id}
 	</delete>
 	 
 	<!-- 회원 리스트 -->
 	<select id="getList" resultType="org.recruit.login.domain.MemberVO">
   		<![CDATA[
-  			select * from members where mem_no > 0
+  			select * from member where mem_no > 0
   		]]>
   	</select>
    	
   	<!-- 로그인 -->
 	<select id="loginMember" resultType="org.recruit.login.domain.MemberVO" >
 		select mem_id, mem_pw, mem_name, mem_birth, mem_phone, mem_address, mem_email
-		from members
+		from member
 		where
 		mem_id = #{mem_id} and mem_pw = #{mem_pw}
 	</select>
@@ -94,7 +94,7 @@
 	<select id = "read2" resultType="org.recruit.login.domain.MemberVO" parameterType="org.recruit.login.domain.LoginVO">
 		SELECT 
 		 mem_id, mem_pw, mem_auth, mem_name, mem_birth, mem_phone, mem_address, mem_email, mem_joinDate, mem_updateDate
-		from members
+		from member
 		where mem_id = #{id} and mem_pw = #{pw}
   	</select>
 </mapper>

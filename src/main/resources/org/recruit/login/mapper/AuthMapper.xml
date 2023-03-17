@@ -9,7 +9,7 @@
     <![CDATA[
 	  insert into auth (id, pw, auth, enabled)
 		SELECT mem_id, mem_pw, mem_auth, mem_enabled
-		FROM members where mem_id = (select max(mem_id) from members)  
+		FROM member where mem_id = (select max(mem_id) from member)  
 	]]>
   	</insert>
   	
