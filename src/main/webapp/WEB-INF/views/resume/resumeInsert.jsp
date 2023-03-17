@@ -137,7 +137,7 @@
 								</div>
 								
 								<input type='hidden' id= 'resume_no' name='resume_image' value='image'>
-                        		<input type='hidden' id= 'mem_no' name='mem_no' value=48>	
+                        		<input type='hidden' id= 'mem_no' name='mem_no' value=2>	
 								
 
 
