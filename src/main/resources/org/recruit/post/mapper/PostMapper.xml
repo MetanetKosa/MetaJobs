@@ -35,7 +35,6 @@
 		VALUES(
 		post_seq.nextval,#{postTitle},#{postJob},#{postCareer},#{postEmptype},#{postAdd},#{postSdate},#{postFdate},
 		#{postSal},#{postEdu},#{postAge},#{postHow},#{postUrl},1237,41)
-		<!-- #{postSal},#{postEdu},#{postAge},#{postHow},#{postUrl},#{comCno},#{memNo}) -->
 	</insert>
 
 	<update id="postUpdate">
@@ -89,6 +88,7 @@
 		<if test = "searchEdu != null">
 			AND post_edu like '%' || #{searchEdu} || '%'
 		</if>
+		order by post_no desc
 	</select>
 	
 	<select id="getTotalCount" resultType="int">

@@ -5,7 +5,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
-    
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -16,8 +16,14 @@
 	  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 	  crossorigin="anonymous"></script>
 </head>
+<!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="${path}/resources/vendor/simplebar/dist/simplebar.min.css" />
+    <link rel="stylesheet" media="screen" href="${path}/resources/vendor/lightgallery/css/lightgallery-bundle.min.css" />
+    <link rel="stylesheet" media="screen" href="${path}/resources/vendor/tiny-slider/dist/tiny-slider.css" />
+    <link rel="stylesheet" media="screen" href="${path}/resources/vendor/flatpickr/dist/flatpickr.min.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+<link rel="stylesheet" media="screen" href="${path}/resources/css/theme.min.css">
 <body>
-
 	<!-- Sign Up Modal -->
 	
      <!-- **************************************** 회원가입 멤버 모달 id signup-member -->
@@ -98,7 +104,7 @@
              </div>
          </div>
      </div>
-      
+
      <script>
 		$(document).ready(function(){
 			//회원가입 버튼(회원가입 기능 작동)
@@ -108,6 +114,13 @@
 			});
 		});
 	</script>
-	
+ <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
+	    <!-- Vendor scrits: js libraries and plugins-->
+	    <script src="${path}/resources/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	    <script src="${path}/resources/vendor/simplebar/dist/simplebar.min.js"></script>
+	    <script src="${path}/resources/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+	    <script src="${path}/resources/vendor/flatpickr/dist/flatpickr.min.js"></script>
+	    <!-- Main theme script-->
+		<script src="${path}/resources/js/theme.min.js"></script>	
 </body>
 </html>

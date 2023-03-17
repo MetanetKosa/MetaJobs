@@ -72,10 +72,12 @@
                                         <h3 class="h4 mb-sm-4">이사라</h3>
                                         <h4 class="h5">기본정보</h4>
                                         <ul class="list-unstyled text-nav">
+
                                             <li><span class='text-muted'>생년월일:</span>19950504</li>
                                             <li><span class='text-muted'>휴대폰번호:</span>0101234555</li>
                                             <li><span class='text-muted'>주소:</span>서울</li>
                                             <li><span class='text-muted'>이메일:</span>dltkfk@naver.com</li>
+
                                             <li><span class='text-muted'>성별:</span> ${resume.resume_gender}</li>
                                             <li><span class='text-muted'>경력여부:</span> ${resume.resume_career}</li>
                                         </ul>

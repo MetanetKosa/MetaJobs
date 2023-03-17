@@ -12,7 +12,7 @@
 </jsp:include>
 <link rel="stylesheet" media="screen" href="${path}/resources/vendor/simplebar/dist/simplebar.min.css" />
     <link rel="stylesheet" media="screen" href="${path}/resources/vendor/lightgallery/css/lightgallery-bundle.min.css" />
-    <link rel=stylesheet" media="screen" href="${path}/resources/vendor/tiny-slider/dist/tiny-slider.css" />
+    <link rel="stylesheet" media="screen" href="${path}/resources/vendor/tiny-slider/dist/tiny-slider.css" />
     <link rel="stylesheet" media="screen" href="${path}/resources/vendor/flatpickr/dist/flatpickr.min.css"/>
     <!-- Main Theme Styles + Bootstrap-->
 <link rel="stylesheet" media="screen" href="${path}/resources/css/theme.min.css">
@@ -50,13 +50,16 @@
 		                            <div class="d-sm-flex justify-content-between align-items-start pb-4">
 	                                  
 	                                    			<div class="order-sm-1">
-	                                        			<h4 class="h5">기본정보</h4>
-	                                        			<ul class="list-unstyled text-nav">
-			                                            <li><span class="text-muted">이름:</span> 이사라</li>
-			                                            <li><span class="text-muted">이메일:</span>dltkfk@naver.com</li>
-			                                            <li><span class="text-muted">휴대폰:</span> 01012345555</li>
-			                                            <li><span class="text-muted">주소:</span> 서울</li>			                   
-	                                       				 </ul>
+	                                        
+                                        <h4 class="h5">기본정보</h4>
+                                        <ul class="list-unstyled text-nav">
+                                            <li><span class='text-muted'>생년월일:</span> 19990504</li>
+                                            <li><span class='text-muted'>휴대폰번호:</span> 01012345555</li>
+                                            <li><span class='text-muted'>주소:</span> 서울</li>
+                                            <li><span class='text-muted'>이메일:</span> dltkfk@baver.com</li>
+                                            <li><span class='text-muted'>성별:</span> ${resume.resume_gender}</li>
+                                            <li><span class='text-muted'>경력여부:</span> ${resume.resume_career}</li>
+                                        </ul>
 	                                    			</div>
                                			 </div>
                                		<div class="row">
@@ -90,7 +93,6 @@
 	                   
 		                     	 <input type="hidden" id='resume_no' name='resume_no' value="${resume.resume_no}"> 
 		                     	<input type='hidden' id= 'mem_no' name='mem_no' value='<c:out value="${resume.mem_no}"/>'>
-		                     	<input type='hidden' id= 'resume_no' name='resume_image' value='image'>
         						<button type="submit" class="btn-primary btn-lg rounded-pill ms-sm-auto" data-oper="modify">수정</button>
         						<!-- <button type="submit" class="btn btn-info" data-oper="delete">삭제</button>
         						<button type="submit" class="btn btn-info" data-oper="list">목록</button> -->

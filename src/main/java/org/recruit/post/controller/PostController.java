@@ -32,12 +32,12 @@ public class PostController {
 		return "/post/postInsert";
 	}
 	
+	
+	
 	//페이징 처리
-	//@RequestMapping(value = "/postList", method = RequestMethod.GET)
 	@GetMapping("/postList")
 	public void list(Criteria cri, Model model) {
 		log.info("list:" + cri);
-//		model.addAttribute("postList",service.getPostList());
 		int total = service.getTotalCount(cri);
 		log.info("postList: " + cri );
 		model.addAttribute("postList", service.getListWithPaging(cri,total));
@@ -56,8 +56,6 @@ public class PostController {
 	
 	@PostMapping("/postInsert")
 	public String postList(@ModelAttribute PostVO post) {
-		log.info("getPostSdate결과:"+post.getPostSdate());
-		log.info("getPostFdate결과:"+post.getPostFdate());
 		service.insertPost(post);
 		return "redirect:/post/postList";
 	}
@@ -65,7 +63,6 @@ public class PostController {
 
 	@GetMapping(value = "/postDetail")
 	public String postDetail(Model model, @RequestParam Long post_no ) {
-		log.info("post_no 결과확인: "+ post_no);
 		model.addAttribute("post", service.getPost(post_no));
 		log.info("postDetail 결과확인: "+ service.getPost(post_no));
 		return "/post/postDetail";
@@ -73,15 +70,12 @@ public class PostController {
 	
 	@GetMapping(value = "/postModify")
 	public String postModify(Model model, @RequestParam Long postNo) {
-		log.info("postModify결과확인: "+ postNo);
 		model.addAttribute("post", service.getPost(postNo));
 		return "/post/postModify";
 	}
 	
 	@RequestMapping(value = "/postModify", method = RequestMethod.POST)
 	public String modify(@ModelAttribute PostVO post, RedirectAttributes rttr, @RequestParam("postNo") Long postNo) {
-		log.info("getPostSdate확인 : " + post.getPostSdate());
-		log.info("getPostFdate확인 : " + post.getPostFdate());
 		if(service.updatePost(post) == 1) {
 			rttr.addFlashAttribute("result", "success");
 		}
@@ -91,11 +85,12 @@ public class PostController {
 
 	@RequestMapping(value = "/postDelete", method = RequestMethod.GET)
 	public String delete(@RequestParam Long postNo, RedirectAttributes rttr) {
-		log.info("DeleteMapping결과확인: "+ postNo);
 		if(service.deletePost(postNo) == 1) {
 			rttr.addFlashAttribute("result", "success");
 		}
 		return "redirect:/post/postList";
 	}
+	
+	
 	
 }

@@ -26,7 +26,7 @@ public class ResumeServiceImpl implements ResumeService {
 	@Transactional
 	@Override
 	public void insertResume(ResumeVO resume) {
-		mapper.insertSelectKey(resume);
+		mapper.resumeInsert(resume);
 		if(resume.getAttachList() == null || resume.getAttachList().size() <= 0) {
 			return ;
 		}
