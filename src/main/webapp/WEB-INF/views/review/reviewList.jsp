@@ -38,7 +38,7 @@
                                                 <label class="form-label" for="cName">회사명 <span class='text-danger'>*</span></label>
                                                 <!-- 변경된 부분 2 -->
                                                 <input class="form-control" type="text" id="cName" placeholder="회사명" required>
-                                                <input type="hidden" name="cno" value="1">
+                                                <input type="hidden" name="cno" value="1234">
                                                 <!-- 여기까지 -->
                                                 <div class="invalid-feedback">Please let us know your name.</div>
                                             </div>
@@ -266,9 +266,9 @@
                                                             <div class="ps-2">
                                                                 <!-- 변경된 부분 -->
                                                                 <h6 class="fs-base mb-0">
-                                                                    <c:if test="${review.cno==1}">메타넷디지털</c:if>
-                                                                    <c:if test="${review.cno==2}">대한기업</c:if>
-                                                                    <c:if test="${review.cno==3}">한국유통</c:if>
+                                                                    <c:if test="${review.cno==1234}">메타넷디지털</c:if>
+                                                                    <c:if test="${review.cno==1235}">대한기업</c:if>
+                                                                    <c:if test="${review.cno==1236}">한국유통</c:if>
 
                                                                 </h6>
 
