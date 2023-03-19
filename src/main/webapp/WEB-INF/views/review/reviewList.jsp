@@ -38,7 +38,7 @@
                                 <label class="form-label" for="cName">회사명 <span class='text-danger'>*</span></label>
                                 <!-- 변경된 부분 2 -->
                                 <input class="form-control" type="text" id="cName" placeholder="회사명" required>
-                                <input type="hidden" name="cno" value="1">
+                                <input type="hidden" name="cno" value="1234">
                                 <!-- 여기까지 -->
                                 <div class="invalid-feedback">Please let us know your name.</div>
                             </div>
@@ -63,7 +63,7 @@
                             <!-- 변경된 부분 1 -->
 				               <!--  <label class="form-label" for="reJob">직군 <span class='text-danger'>*</span></label> -->
                                <!--  <input class="form-control" type="text" id="mno" name="mno" placeholder="회원번호" required> -->
-                               <input type="hidden" name="mno" value="1">
+                               <input type="hidden" name="mno" value="41">
                             <!-- 여기까지!! -->
                                <!--  <div class="invalid-feedback">Please provide a valid email address.</div> -->
                             </div>
@@ -201,7 +201,7 @@
                                         <!-- 변경된 부분 3 -->
                                        <!--  <input class="form-control" name="keyword" type="text" placeholder="회사명을 입력하세요"> -->
                                         <input class="form-control" type="text" placeholder="회사명을 입력하세요">
-                                        <input type="hidden" name="keyword" value="1">
+                                        <input type="hidden" name="keyword" value="1234">
                                        <!-- 여기까지 -->
                                     </div>
                                     <hr class="d-sm-none my-2">
