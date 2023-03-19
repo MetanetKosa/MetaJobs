@@ -3,6 +3,7 @@ package org.recruit.resume.domain;
 import java.util.Date;
 import java.util.List;
 
+import org.recruit.login.domain.MemberVO;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -22,6 +23,7 @@ public class ResumeVO {
 	private Date regDate;
 	private Date updateDate;
 	
+	private MemberVO memberVO;
 	
 	private List<ResumeAttachVO> attachList;
 

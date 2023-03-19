@@ -69,14 +69,18 @@
                             <div class="card-body p-4">
                                 <div class="d-sm-flex justify-content-between align-items-start pb-4">
                                     <div class="order-sm-1">
-                                        <h3 class="h4 mb-sm-4">이사라</h3>
+                                        <h3 class="h4 mb-sm-4">${member.mem_name}</h3>
                                         <h4 class="h5">기본정보</h4>
                                         <ul class="list-unstyled text-nav">
+                                        <li><span class='text-muted'>생년월일:</span><fmt:formatDate pattern="YYYY/MM/dd" value ="${member.mem_birth}"/></li>
+                                            <li><span class='text-muted'>휴대폰번호:</span>${member.mem_phone}</li>
+                                            <li><span class='text-muted'>주소:</span>${member.mem_address}</li>
+                                            <li><span class='text-muted'>이메일:</span>${member.mem_email}</li>
 
-                                            <li><span class='text-muted'>생년월일:</span>19950504</li>
+                            <!--                 <li><span class='text-muted'>생년월일:</span>19950504</li>
                                             <li><span class='text-muted'>휴대폰번호:</span>0101234555</li>
                                             <li><span class='text-muted'>주소:</span>서울</li>
-                                            <li><span class='text-muted'>이메일:</span>dltkfk@naver.com</li>
+                                            <li><span class='text-muted'>이메일:</span>dltkfk@naver.com</li> -->
 
                                             <li><span class='text-muted'>성별:</span> ${resume.resume_gender}</li>
                                             <li><span class='text-muted'>경력여부:</span> ${resume.resume_career}</li>
@@ -94,7 +98,8 @@
                                     <h4 class="h5">첨부파일</h4>
                                     <div class="mt-3">                                
                                         <p></p>
-                                        <div class="d-flex">
+                                        <div class="uploadResult">
+                                        	<ul></ul>
                                         </div>                              
                                   	 </div>                                 
                                 </div>
@@ -145,6 +150,61 @@
 				operForm.find("#mem_no").remove();
 				operForm.attr("action", "/resume/resumeDelete").attr("method","post").submit();
 			});
+			
+			 (function(){
+				  
+				    var resume_no = '<c:out value="${resume.resume_no}"/>';
+				    
+				   
+				    $.getJSON("/resume/getAttachList", {resume_no: resume_no}, function(arr){
+				        
+				       console.log(arr);
+				       
+				       var str = "";
+				       
+				       $(arr).each(function(i, attach){
+				       
+				         //image type
+				         if(attach.fileType){
+				           var fileCallPath =  encodeURIComponent( attach.uploadPath+ "/s_"+attach.uuid +"_"+attach.fileName);
+				           
+				           str += "<li data-path='"+attach.uploadPath+"' data-uuid='"+attach.uuid+"' data-filename='"+attach.fileName+"' data-type='"+attach.fileType+"' ><div>";
+				          
+				           str += "</div>";
+				           str +"</li>";
+				         }else{
+				             
+				           str += "<li data-path='"+attach.uploadPath+"' data-uuid='"+attach.uuid+"' data-filename='"+attach.fileName+"' data-type='"+attach.fileType+"' ><div>";
+				           str += "<span> "+ attach.fileName+"</span><br/>";
+				          
+				           str += "</div>";
+				           str +"</li>";
+				         }
+				       });
+				       
+				       $(".uploadResult ul").html(str);
+				       
+				       
+				     });//end getjson
+
+				    
+				  })();//end function
+				  
+				  $(".uploadResult").on("click","li", function(e){
+				      
+					    console.log("view image");
+					    
+					    var liObj = $(this);
+					    
+					    var path = encodeURIComponent(liObj.data("path")+"/" + liObj.data("uuid")+"_" + liObj.data("filename"));
+					    
+					    if(liObj.data("type")){
+					      showImage(path.replace(new RegExp(/\\/g),"/"));
+					    }else {
+					      //download 
+					      self.location ="/download?fileName="+path
+					    }
+				  });
 			
 		});
 		

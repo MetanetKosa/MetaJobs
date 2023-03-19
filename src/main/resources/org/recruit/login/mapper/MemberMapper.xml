@@ -85,7 +85,7 @@
    	
   	<!-- 로그인 -->
 	<select id="loginMember" resultType="org.recruit.login.domain.MemberVO" >
-		select mem_id, mem_pw, mem_name, mem_birth, mem_phone, mem_address, mem_email
+		select mem_no, mem_id, mem_pw, mem_name, mem_birth, mem_phone, mem_address, mem_email
 		from member
 		where
 		mem_id = #{mem_id} and mem_pw = #{mem_pw}

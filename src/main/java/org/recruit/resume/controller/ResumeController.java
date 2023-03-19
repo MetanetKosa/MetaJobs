@@ -1,5 +1,7 @@
 package org.recruit.resume.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -10,9 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.tomcat.util.http.fileupload.FileUtils;
+import org.recruit.login.domain.MemberVO;
 import org.recruit.resume.domain.ResumeAttachVO;
 import org.recruit.resume.domain.ResumeVO;
 import org.recruit.resume.service.ResumeService;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -21,6 +26,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,15 +52,21 @@ public class ResumeController {
 	
 
 	@PostMapping("/resumeInsert")
-	public String insert(ResumeVO resume, RedirectAttributes rttr, HttpServletRequest request) {
+	public String insert(ResumeVO resume, RedirectAttributes rttr, HttpServletRequest request,HttpSession session, Model model) {
 		log.info("이미지 등록 처리");
+		MemberVO member = (MemberVO)session.getAttribute("member");
+		if(member != null) {
+			resume.setMem_no(member.getMem_no());
+			model.addAttribute("member",member);
+			service.insertResume(resume);
+		}
 		
 		if(resume.getAttachList() != null) {
 			resume.getAttachList().forEach(attach -> log.info(attach));
 		}
 		//이미지 파일명을 찾아서 넣어 주는 것이 필요하다 - 중복이 되지 않는다.
 		//resume.setResume_image(FileUtil("/upload/image", resume.getImageFile(), request));
-		service.insertResume(resume);
+		
 		
 		rttr.addFlashAttribute("result",resume.getResume_no());
 		rttr.addAttribute("mem_no", resume.getMem_no());
@@ -66,8 +78,9 @@ public class ResumeController {
 		
 	}
 	@GetMapping({"/resumeGet","/resumeModify"})
-	public void get(@RequestParam Long resume_no, Model model) {
+	public void get(@RequestParam Long resume_no, Model model,HttpSession session) {
 		model.addAttribute("resume", service.get(resume_no));
+		model.addAttribute("member",session.getAttribute("member"));
 	}
 	
 	
@@ -131,4 +144,41 @@ public class ResumeController {
 	return new ResponseEntity<>(service.getAttachList(resume_no), HttpStatus.OK);
 	
 }
+	@GetMapping(value = "/download", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+	@ResponseBody
+	public ResponseEntity<Resource> downloadFile(@RequestHeader("User-Agent") String userAgent, String fileName) {
+
+		Resource resource = new FileSystemResource("c:\\upload\\" + fileName);
+
+		if (resource.exists() == false) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+
+		String resourceName = resource.getFilename();
+
+		// remove UUID
+		String resourceOriginalName = resourceName.substring(resourceName.indexOf("_") + 1);
+
+		HttpHeaders headers = new HttpHeaders();
+		try {
+
+			boolean checkIE = (userAgent.indexOf("MSIE") > -1 || userAgent.indexOf("Trident") > -1);
+
+			String downloadName = null;
+
+			if (checkIE) {
+				downloadName = URLEncoder.encode(resourceOriginalName, "UTF8").replaceAll("\\+", " ");
+			} else {
+				downloadName = new String(resourceOriginalName.getBytes("UTF-8"), "ISO-8859-1");
+			}
+
+			headers.add("Content-Disposition", "attachment; filename=" + downloadName);
+
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+
+		return new ResponseEntity<Resource>(resource, headers, HttpStatus.OK);
+	}
+	
 }

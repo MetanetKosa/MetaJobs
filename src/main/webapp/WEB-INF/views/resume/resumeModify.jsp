@@ -87,6 +87,26 @@
 		                                <label class="form-label fw-bold pb-1 mb-2">자기소개서</label>
 		                                <textarea class="form-control form-control-lg" id="pr-address" name="resume_cv" cols="30" rows="10" placeholder="내용을 입력하세요 " style="height: 272px;  resize: none;" >${resume.resume_cv }</textarea>
 		                            </div>
+		                            
+		                            <div class="row">
+										<div class="col-lg-12">
+											<div class="panel-panel-default">
+												<div class="panel-heading">첨부파일</div>
+						
+												<div class="panel-body">
+													<div class="form-group uploadDiv">
+														<input type="file" name='uploadFile' multiple>
+													</div>
+						
+													<div class='uploadResult'>
+														<ul>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+		                            
 		                          
 		                        </div>
 
@@ -112,31 +132,52 @@
 	    <script src="${path}/resources/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
 	    <!-- Main theme script-->
 	    <script src="${path}/resources/js/theme.min.js"></script>
-	    <!-- <script type="text/javascript">
-	    $(document).ready(function(){
+	   
+	  <script>
+	   $(document).ready(function(){
+			   (function(){
+					  
+				    var resume_no = '<c:out value="${resume.resume_no}"/>';
+				    
+				   
+				    $.getJSON("/resume/getAttachList", {resume_no: resume_no}, function(arr){
+				        
+				       console.log(arr);
+				       
+				       var str = "";
+				       
+				       $(arr).each(function(i, attach){
+				       
+				         //image type
+				         if(attach.fileType){
+				           var fileCallPath =  encodeURIComponent( attach.uploadPath+ "/s_"+attach.uuid +"_"+attach.fileName);
+				           
+				           str += "<li data-path='"+attach.uploadPath+"' data-uuid='"+attach.uuid+"' data-filename='"+attach.fileName+"' data-type='"+attach.fileType+"' ><div>";
+				          
+				           str += "</div>";
+				           str +"</li>";
+				         }else{
+				             
+				           str += "<li data-path='"+attach.uploadPath+"' data-uuid='"+attach.uuid+"' data-filename='"+attach.fileName+"' data-type='"+attach.fileType+"' ><div>";
+				           str += "<span> "+ attach.fileName+"</span>";
+				           str += "<button type='button' data-file=\'"+fileCallPath+"\' "
+							str += "data-type='image' class='btn btn-warning btn-circle'><i class='fi-trash me-1'></i></button><br>";
+				           str += "</div>";
+				           str +"</li>";
+				         }
+				       });
+				       
+				       $(".uploadResult ul").html(str);
+				       
+				       
+				     });//end getjson
 
-
-	  	  var formObj = $("form");
-
-	  	  $('button').on("click", function(e){
-	  	    
-	  	    e.preventDefault(); 
-	  	    
-	  	    var operation = $(this).data("oper");
-	  	    
-	  	    console.log(operation);
-	  	    
-	  	    if(operation === 'list'){
-	  	    	 formObj.attr("action", "/resume/list").attr("method","get");
-	  	      
-	  	    }
-	  	  	formObj.find("#mem_no").remove();
-	  	    formObj.submit();
-	  	  });
-
-	  }); 
-	  </script> -->
-	    	
+				    
+				  })();//end function
+			
+		});
+						
+	</script> 	
 	  
 	    
 	</body>
