@@ -175,24 +175,25 @@
 						</form>
 					</div>
 				</div>
-				<div class="row">
-				<div class="col-lg-12">
-					<div class="panel-panel-default">
-						<div class="panel-heading">첨부파일</div>
-
-						<div class="panel-body">
-							<div class="form-group uploadDiv">
-								<input type="file" name='uploadFile' multiple>
-							</div>
-
-							<div class='uploadResult'>
-								<ul>
-								</ul>
+				
+			</div>
+			<div class="row">
+					<div class="col-lg-12">
+						<div class="panel-panel-default">
+							<div class="panel-heading">첨부파일</div>
+	
+							<div class="panel-body">
+								<div class="form-group uploadDiv">
+									<input type="file" name='uploadFile' multiple>
+								</div>
+	
+								<div class='uploadResult'>
+									<ul>
+									</ul>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
 			</div>
 			
 		</div>
@@ -203,13 +204,12 @@
 		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 		crossorigin="anonymous"></script>
 	<script>
-		$(document)
-				.ready(
+		$(document).ready(
 						function(e) {
 
 							var formObj = $("form[role='form']");
 
-							$("input[type='submit']")
+							$("button[type='submit']")
 									.on(
 											"click",
 											function(e) {

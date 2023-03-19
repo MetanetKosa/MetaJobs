@@ -3,11 +3,17 @@ package org.recruit.resume.controller;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.recruit.resume.domain.ResumeAttachVO;
 import org.recruit.resume.domain.ResumeVO;
 import org.recruit.resume.service.ResumeService;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.AllArgsConstructor;
@@ -37,14 +44,16 @@ public class ResumeController {
 		model.addAttribute("list", service.getResumeList(mem_no));
 	}
 	
+
 	@PostMapping("/resumeInsert")
-	public String insert(ResumeVO resume, RedirectAttributes rttr) {
-		log.info("register" + resume);
-		System.out.println(resume);
-		if(resume.getAttachList() != null) {
-			resume.getAttachList().forEach(attach -> System.out.println(attach));
-		}
+	public String insert(ResumeVO resume, RedirectAttributes rttr, HttpServletRequest request) {
+		log.info("이미지 등록 처리");
 		
+		if(resume.getAttachList() != null) {
+			resume.getAttachList().forEach(attach -> log.info(attach));
+		}
+		//이미지 파일명을 찾아서 넣어 주는 것이 필요하다 - 중복이 되지 않는다.
+		//resume.setResume_image(FileUtil("/upload/image", resume.getImageFile(), request));
 		service.insertResume(resume);
 		
 		rttr.addFlashAttribute("result",resume.getResume_no());
@@ -120,8 +129,6 @@ public class ResumeController {
 
 
 	return new ResponseEntity<>(service.getAttachList(resume_no), HttpStatus.OK);
-
+	
 }
-
-
 }

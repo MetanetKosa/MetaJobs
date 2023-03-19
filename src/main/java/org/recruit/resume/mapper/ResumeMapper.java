@@ -19,6 +19,8 @@ public interface ResumeMapper {
 	
 	public int resumeDelete(Long resume_no);
 	
+	public int imageChange(ResumeVO resume);
+	
 	public List<ResumeAttachVO> findByBno(Long resume_no);
 
 }

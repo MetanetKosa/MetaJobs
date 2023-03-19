@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Data;
 
@@ -20,6 +21,7 @@ public class ResumeVO {
 	private String resume_cv;
 	private Date regDate;
 	private Date updateDate;
+	
 	
 	private List<ResumeAttachVO> attachList;
 

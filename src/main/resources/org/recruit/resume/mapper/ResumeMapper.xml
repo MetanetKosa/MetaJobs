@@ -4,14 +4,14 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.recruit.resume.mapper.ResumeMapper">
 
-	<insert id="resumeInsert">     	
+<!-- 	<insert id="resumeInsert">     	
 		insert into resume(resume_no, resume_image,resume_title, resume_gender, resume_technology,resume_career , mem_no,resume_cv)
 
 		values(resume_seq.nextVal, #{resume_image}, #{resume_title}, #{resume_gender}, #{resume_technology}, #{resume_career}, 1,  #{resume_cv})
 
-	</insert>
+	</insert> -->
 	
-	<insert id="insertSelectKey">
+	<insert id="resumeInsert">
 
 		<selectKey keyProperty="resume_no" order="BEFORE"
 				resultType="long">
@@ -25,7 +25,6 @@
 	
 	<update id="resumeUpdate">
 		update resume set 
-		resume_image = 'image',
 		resume_title = #{resume_title},
 		resume_gender = #{resume_gender},
 		resume_technology = #{resume_technology},
@@ -44,7 +43,10 @@
 			select  * from resume where mem_no = #{mem_no} and resume_no > 0
 	]]>
 	</select> 
-	
+	<update id="imageChange">
+		update resume set resume_image = #{resume_image}
+		where resume_no = #{resume_no}
+	</update>
 
 	<delete id="resumeDelete">
 		delete from resume where resume_no = #{resume_no}

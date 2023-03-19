@@ -61,7 +61,7 @@ public class ResumeServiceImpl implements ResumeService {
 	@Override
 	public boolean delete(Long resume_no) {
 		
-		attachMapper.deleteAll(resume_no);
+		//attachMapper.deleteAll(resume_no);
 		return mapper.resumeDelete(resume_no) == 1;
 	}
 
@@ -79,8 +79,14 @@ public class ResumeServiceImpl implements ResumeService {
 	@Override
 	public void removeAttach(Long resume_no) {
 		// TODO Auto-generated method stub
-		attachMapper.deleteAll(resume_no);
+		//attachMapper.deleteAll(resume_no);
 		
+	}
+
+	@Override
+	public int imageChange(ResumeVO resume) {
+		// TODO Auto-generated method stub
+		return mapper.imageChange(resume);
 	}
 
 }

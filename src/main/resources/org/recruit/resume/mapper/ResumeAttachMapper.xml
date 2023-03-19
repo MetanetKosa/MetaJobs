@@ -5,7 +5,7 @@
 <mapper namespace="org.recruit.resume.mapper.ResumeAttachMapper">
 
 	<insert id="insert">     	
-		insert into attach(uuid, uploadpath, filename, filetype, resume_no)
+		insert into attach(uuid, uploadPath, fileName, fileType, resume_no)
 		values(#{uuid}, #{uploadPath}, #{fileName}, #{fileType}, #{resume_no})
 	</insert>
 	
