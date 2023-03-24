@@ -27,29 +27,29 @@ public class ReviewMapperTests {
 //	}
 	
 	// insert Test
-//	@Test
-//	public void testReviewInsert() throws ParseException {
-//		ReviewVO review = new ReviewVO();
-//
-//		// String -> Date 변환
+	@Test
+	public void testReviewInsert() throws ParseException {
+		ReviewVO review = new ReviewVO();
+
+		// String -> Date 변환
 		
-//		String dateStr = "2022-11-11";
-//		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-//		Date date = formatter.parse(dateStr);
-// 
-////        System.out.println(date);
-//		review.setCno(1L);
-//		review.setReJob("새로운내용");
-//		review.setReDate(date);
-//		review.setPNum("집단면접");
-//		review.setReContent("또 새로운 면접 후기 내용");
-//		review.setReResult("합격");
-//		//review.setReWdate(date); // default = sysdate
-//		review.setMno(2L);
-//		
-//		mapper.reviewInsert(review);
-//		log.info(review);
-//	}
+		String dateStr = "2022-11-11";
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = formatter.parse(dateStr);
+ 
+//        System.out.println(date);
+		review.setCno(1L);
+		review.setReJob("새로운내용");
+		review.setReDate(date);
+		review.setPNum("집단면접");
+		review.setReContent("또 새로운 면접 후기 내용");
+		review.setReResult("합격");
+		//review.setReWdate(date); // default = sysdate
+		review.setMno(2L);
+		
+		mapper.reviewInsert(review);
+		log.info(review);
+	}
 	
 //	@Test
 //	public void getTest() {
