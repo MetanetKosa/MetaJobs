@@ -12,7 +12,8 @@ public interface ResumeService {
 	public boolean updateResume(ResumeVO resume);
 	public boolean delete(Long resume_no);
 	public List<ResumeVO> getResumeList(Long mem_no);
-	
+	//imageChange 처리
+	public int imageChange(ResumeVO resume);
 	public List<ResumeAttachVO> getAttachList(Long resum_no);
 	public void removeAttach(Long resume_no);
 

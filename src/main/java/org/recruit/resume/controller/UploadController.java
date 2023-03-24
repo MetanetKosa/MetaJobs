@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.recruit.resume.domain.AttachFileDTO;
+import org.recruit.resume.domain.ResumeAttachVO;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -37,34 +38,34 @@ import net.coobird.thumbnailator.Thumbnailator;
 @Log4j
 public class UploadController {
 
-	@GetMapping("/uploadForm")
-	public void uploadForm() {
-
-		log.info("upload form");
-	}
-
-
-	@PostMapping("/uploadFormAction")
-	public void uploadFormPost(MultipartFile[] uploadFile, Model model) {
-
-		String uploadFolder = "C:\\upload";
-
-		for (MultipartFile multipartFile : uploadFile) {
-
-			log.info("-------------------------------------");
-			log.info("Upload File Name: " + multipartFile.getOriginalFilename());
-			log.info("Upload File Size: " + multipartFile.getSize());
-
-			File saveFile = new File(uploadFolder, multipartFile.getOriginalFilename());
-
-			try {
-				multipartFile.transferTo(saveFile);
-			} catch (Exception e) {
-				log.error(e.getMessage());
-			} 
-		} 
-
-	}
+//	@GetMapping("/uploadForm")
+//	public void uploadForm() {
+//
+//		log.info("upload form");
+//	}
+//
+//
+//	@PostMapping("/uploadFormAction")
+//	public void uploadFormPost(MultipartFile[] uploadFile, Model model) {
+//
+//		String uploadFolder = "C:\\upload";
+//
+//		for (MultipartFile multipartFile : uploadFile) {
+//
+//			log.info("-------------------------------------");
+//			log.info("Upload File Name: " + multipartFile.getOriginalFilename());
+//			log.info("Upload File Size: " + multipartFile.getSize());
+//
+//			File saveFile = new File(uploadFolder, multipartFile.getOriginalFilename());
+//
+//			try {
+//				multipartFile.transferTo(saveFile);
+//			} catch (Exception e) {
+//				log.error(e.getMessage());
+//			} 
+//		} 
+//
+//	}
 
 	@GetMapping("/uploadAjax")
 	public void uploadAjax() {
@@ -72,7 +73,7 @@ public class UploadController {
 		log.info("upload ajax");
 	}
 
-	
+	//년/월/일 폴더 생성 
 	private String getFolder() {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -85,7 +86,7 @@ public class UploadController {
 	}
 
 	
-
+	//이미지 파일 판단
 	private boolean checkImageType(File file) {
 
 		try {
@@ -110,10 +111,12 @@ public class UploadController {
 		List<AttachFileDTO> list = new ArrayList<>();
 		String uploadFolder = "C:\\upload";
 
+		//오늘 날짜의 경로를 문자열로 생성 
 		String uploadFolderPath = getFolder();
 		// make folder --------
 		File uploadPath = new File(uploadFolder, uploadFolderPath);
 
+		//해당 경로가 있는지 검사하고 폴더 생성 
 		if (uploadPath.exists() == false) {
 			uploadPath.mkdirs();
 		}

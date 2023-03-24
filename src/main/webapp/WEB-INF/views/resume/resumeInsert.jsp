@@ -51,9 +51,9 @@
 										id="pr-address" name="resume_title"
 										placeholder="이력서 제목을 입력하세요(100자까지 가능)*">
 								</div>
-								<div
+							<!-- 	<div
 									class="d-sm-flex justify-content-between align-items-start pb-4">
-									<!-- <div class="flex-shrink-0 order-sm-2 mb-4"
+									 <div class="flex-shrink-0 order-sm-2 mb-4"
 										style="width: 10rem; height: 10rem;">
 										<div
 											class="filepond--root file-uploader bg-secondary filepond--hopper"
@@ -71,7 +71,7 @@
 												accept="image/png,image/jpeg">
 											<a class="filepond--credits" aria-hidden="true" href="https://pqina.nl/" target="_blank" rel="noopener noreferrer" style="transform: translateY(152px);">Powered by PQINA
 	                                        	</a>
-											<div class="filepond--drop-label"
+										 	<div class="filepond--drop-label"
 												style="transform: translate3d(0px, 0px, 0px); opacity: 1;">
 												<label for="filepond--browser-wiavsc9xq"
 													id="filepond--drop-label-wiavsc9xq" aria-hidden="true">
@@ -79,10 +79,16 @@
 													class="d-inline-block fi-camera-plus fs-2 text-muted mb-2"></i><br>
 													<span class="fw-bold">사진 추가</span>
 												</label>
+											</div> 
+											<div class='uploadResultimage'>
+												<ul>
+												</ul>
 											</div>
 											<div class="filepond--list-scroller"
 												style="transform: translate3d(0px, 0px, 0px);">
-												<ul class="filepond--list" role="list"></ul>
+												<ul class="filepond--list" role="list">
+												
+												</ul>
 											</div>
 											<div class="filepond--panel filepond--panel-root"
 												data-scalable="true">
@@ -93,21 +99,22 @@
 												</div>
 												<div class="filepond--panel-bottom filepond--panel-root"
 													style="transform: translate3d(0px, 152px, 0px);"></div>
-											</div>
+											</div> 
+											
 											<span class="filepond--assistant"
 												id="filepond--assistant-wiavsc9xq" role="status"
 												aria-live="polite" aria-relevant="additions"></span>
 											<div class="filepond--drip"></div>
 											<fieldset class="filepond--data"></fieldset>
 										</div>
-									</div> -->
+									</div>  -->
 									<div class="order-sm-1">
 										<h4 class="h5">기본정보</h4>
 										<ul class="list-unstyled text-nav">
-											<li><span class='text-muted'>생년월일:</span> 19990504</li>
-                                            <li><span class='text-muted'>휴대폰번호:</span> 01012345555</li>
-                                            <li><span class='text-muted'>주소:</span> 서울</li>
-                                            <li><span class='text-muted'>이메일:</span> dltkfk@baver.com</li>
+											<li><span class='text-muted'>생년월일:</span><fmt:formatDate pattern="YYYY/MM/dd" value ="${member.mem_birth}"/></li>
+                                            <li><span class='text-muted'>휴대폰번호:</span>${member.mem_phone}</li>
+                                            <li><span class='text-muted'>주소:</span>${member.mem_address}</li>
+                                            <li><span class='text-muted'>이메일:</span>${member.mem_email}</li>
 										</ul>
 									</div>
 								</div>
@@ -137,11 +144,8 @@
 								</div>
 								
 								<input type='hidden' id= 'resume_no' name='resume_image' value='image'>
-<<<<<<< HEAD
-                        		<input type='hidden' id= 'mem_no' name='mem_no' value=1>	
-=======
-                        		<input type='hidden' id= 'mem_no' name='mem_no' value=2>	
->>>>>>> resume
+                        		<input type='hidden' id= 'mem_no' name='mem_no' value='<c:out value="${resume.mem_no}"/>'>	
+
 								
 
 
@@ -150,6 +154,25 @@
 									<textarea class="form-control form-control-lg" id="pr-address"
 										name="resume_cv" cols="30" rows="10" placeholder="내용을 입력하세요 "
 										style="height: 272px; resize: none;"></textarea>
+								</div>
+								
+								<div class="row">
+										<div class="col-lg-12">
+											<div class="panel-panel-default">
+												<div class="panel-heading">첨부파일</div>
+						
+												<div class="panel-body">
+													<div class="form-group uploadDiv">
+														<input type="file" name='uploadFile' multiple>
+													</div>
+						
+													<div class='uploadResult'>
+														<ul>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
 								</div>
 
 								<div class="d-md-flex align-items-center mb-4 pb-md-2">
@@ -179,25 +202,26 @@
 						</form>
 					</div>
 				</div>
-				<div class="row">
-				<div class="col-lg-12">
-					<div class="panel-panel-default">
-						<div class="panel-heading">첨부파일</div>
-
-						<div class="panel-body">
-							<div class="form-group uploadDiv">
-								<input type="file" name='uploadFile' multiple>
-							</div>
-
-							<div class='uploadResult'>
-								<ul>
-								</ul>
+				
+			</div>
+			<!-- <div class="row">
+					<div class="col-lg-12">
+						<div class="panel-panel-default">
+							<div class="panel-heading">첨부파일</div>
+	
+							<div class="panel-body">
+								<div class="form-group uploadDiv">
+									<input type="file" name='uploadFile' multiple>
+								</div>
+	
+								<div class='uploadResult'>
+									<ul>
+									</ul>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-			</div>
+			</div> -->
 			
 		</div>
 
@@ -207,13 +231,12 @@
 		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 		crossorigin="anonymous"></script>
 	<script>
-		$(document)
-				.ready(
+		$(document).ready(
 						function(e) {
 
 							var formObj = $("form[role='form']");
 
-							$("input[type='submit']")
+							$("button[type='submit']")
 									.on(
 											"click",
 											function(e) {
@@ -336,6 +359,7 @@
 								}
 
 								var uploadUL = $(".uploadResult ul");
+							
 
 								var str = "";
 
@@ -362,6 +386,9 @@
 																+ "'>";
 														str += "</div>";
 														str + "</li>";
+														
+													
+															
 													} else {
 														var fileCallPath = encodeURIComponent(obj.uploadPath
 																+ "/"
@@ -388,6 +415,7 @@
 												});
 
 								uploadUL.append(str);
+								
 							}
 							$(".uploadResult").on("click", "button",
 									function(e) {
@@ -429,7 +457,12 @@
 		src="${path}/resources/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
 	<!-- Main theme script-->
 	<script src="${path}/resources/js/theme.min.js"></script>
-
+	<script src="${path}/resources/vendor/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.min.js"></script>
+	<script src="${path}/resources/vendor/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.js"></script>
+	<script src="${path}/resources/vendor/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.min.js"></script>
+	<script src="${path}/resources/vendor/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.min.js"></script>
+	<script src="${path}/resources/vendor/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.min.js"></script>
+	<script src="${path}/resources/vendor/filepond/dist/filepond.min.js"></script>
 
 
 

@@ -50,10 +50,10 @@
                 <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm position-absolute end-0 bottom-0" type="button" data-bs-toggle="tooltip" title="Change image"><i class="fi-pencil fs-xs"></i></button>
               </div>
               <div class="ps-3 ps-sm-4">
-                <h3 class="h5">이사라</h3>
+                <h3 class="h5">${member.mem_name}</h3>
                 <ul class="list-unstyled fs-sm mb-0">
-                  <li class="d-flex text-nav text-break"><i class="fi-mail opacity-60 mt-1 me-2"></i><span>dltkfk@naver.com</span></li>
-                  <li class="d-flex text-nav text-break"><i class="fi-phone opacity-60 mt-1 me-2"></i><span>01012345555</span></li>
+                  <li class="d-flex text-nav text-break"><i class="fi-mail opacity-60 mt-1 me-2"></i><span>${member.mem_email}</span></li>
+                  <li class="d-flex text-nav text-break"><i class="fi-phone opacity-60 mt-1 me-2"></i><span>${member.mem_phone}</span></li>
                 </ul>
               </div>
             </div><a class="nav-link p-0 d-none d-md-block" href="signin-light.html"><i class="fi-logout mt-n1 me-2"></i>Sign out</a>
