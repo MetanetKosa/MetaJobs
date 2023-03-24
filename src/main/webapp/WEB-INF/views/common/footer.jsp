@@ -7,7 +7,7 @@
                 <div class="row gy-4">
                     <div class="col-lg-3 col-md-6 col-sm-4">
                         <div class="mb-4 pb-sm-3">
-                            <a class="d-inline-block" href="city-guide-home-v1.html"><img src="img/logo/logo-light.svg" width="116" alt="Logo"></a>
+                            <a class="d-inline-block" href="city-guide-home-v1.html"><img src="${path}/resources/img/logo/logo-light.svg" width="116" alt="Logo"></a>
                         </div>
                         <ul class="nav nav-light flex-column">
                             <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal text-light text-nowrap" href="mailto:example@gmail.com"><i class="fi-mail mt-n1 me-1 align-middle text-primary"></i>example@gmail.com</a></li>

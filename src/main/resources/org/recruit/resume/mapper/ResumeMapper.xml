@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.recruit.resume.mapper.ResumeMapper">
+
+	<insert id="resumeInsert">     	
+		insert into resume(resume_no, resume_image,resume_title, resume_gender, resume_technology,resume_career , mem_no,resume_cv)
+
+		values(resume_seq.nextVal, #{resume_image}, #{resume_title}, #{resume_gender}, #{resume_technology}, #{resume_career}, 1,  #{resume_cv})
+
+	</insert>
+	
+	<insert id="insertSelectKey">
+
+		<selectKey keyProperty="resume_no" order="BEFORE"
+				resultType="long">
+				select resume_seq.nextVal from dual
+		</selectKey>
+
+		insert into resume(resume_no,resume_image,resume_title,resume_gender,resume_technology,resume_career,mem_no,resume_cv)
+		values(#{resume_no},#{resume_image}, #{resume_title}, #{resume_gender}, #{resume_technology}, #{resume_career},1, #{resume_cv})
+	</insert> 
+
+	
+	<update id="resumeUpdate">
+		update resume set 
+		resume_image = 'image',
+		resume_title = #{resume_title},
+		resume_gender = #{resume_gender},
+		resume_technology = #{resume_technology},
+		resume_career = #{resume_career},
+		resume_cv = #{resume_cv},
+		updateDate = sysdate
+		where resume_no = #{resume_no}  
+	</update>
+	
+	<select id="get" resultType="org.recruit.resume.domain.ResumeVO">
+		select * from resume where resume_no = #{resume_no}
+	</select>
+	
+	<select id="getList" resultType="org.recruit.resume.domain.ResumeVO">
+	<![CDATA[
+			select  * from resume where mem_no = #{mem_no} and resume_no > 0
+	]]>
+	</select> 
+	
+
+	<delete id="resumeDelete">
+		delete from resume where resume_no = #{resume_no}
+	</delete>
+	
+</mapper>

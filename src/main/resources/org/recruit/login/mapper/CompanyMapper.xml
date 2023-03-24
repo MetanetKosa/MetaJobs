@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.recruit.login.mapper.CompanyMapper">
+
+  	<!-- 회원정보 확인 -->
+  	<select id="read" resultType="org.recruit.login.domain.CompanyVO">
+		SELECT 
+		 com_id, com_pw, com_auth, com_cno, com_name, com_phone, com_address, com_type, com_ceo, com_joinDate
+		FROM 
+		  company
+		 WHERE com_cno = #{com_cno}
+  	</select>
+
+	<!-- 회원가입 -->
+    <insert id="insertCompany">
+	  insert into company (com_id, com_pw, com_cno, com_name, com_phone, com_address, com_type, com_ceo)
+	  values (#{com_id}, #{com_pw}, #{com_cno}, #{com_name}, #{com_phone}, #{com_address}, #{com_type}, #{com_ceo})
+  	</insert>
+  
+	<!-- 회원 탈퇴 -->
+    <delete id="delete">
+		delete from company where com_cno = #{com_cno}
+    </delete>
+
+	<!-- 회원 수정 -->
+  	<update id="update">
+		update company 
+		set com_pw = #{com_pw},
+			com_phone = #{com_phone},
+			com_address = #{com_address},
+			com_type = #{com_type},
+			com_ceo = #{com_manager},
+			com_updateDate = sysdate
+			<!-- mem_update = TO_CHAR(SYSDATE, 'YYYY/MM/DD HH:MI:SS') -->
+		where com_cno = #{com_cno} 
+  	</update>
+  
+  	<select id="getList" resultType="org.recruit.login.domain.CompanyVO">
+ 		<![CDATA[
+ 			select * from company where com_cno > 0
+ 		]]>
+ 	</select>
+ 	
+ 	<!-- 로그인 -->
+	<select id="loginCompany" resultType="org.recruit.login.domain.CompanyVO" >
+		select com_id, com_pw, com_cno, com_name, com_phone, com_address, com_type, com_ceo, com_joinDate
+		from company
+		where
+		com_id = #{com_id} and com_pw = #{com_pw}
+	</select>
+</mapper>
