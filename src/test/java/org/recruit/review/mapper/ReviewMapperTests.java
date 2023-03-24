@@ -41,7 +41,7 @@ public class ReviewMapperTests {
 		review.setCno(1L);
 		review.setReJob("새로운내용");
 		review.setReDate(date);
-		review.setPNum("집단면접");
+		review.setPnum("집단면접");
 		review.setReContent("또 새로운 면접 후기 내용");
 		review.setReResult("합격");
 		//review.setReWdate(date); // default = sysdate
