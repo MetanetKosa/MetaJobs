@@ -11,7 +11,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.tomcat.util.http.fileupload.FileUtils;
+//import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.recruit.login.domain.MemberVO;
 import org.recruit.resume.domain.ResumeAttachVO;
 import org.recruit.resume.domain.ResumeVO;

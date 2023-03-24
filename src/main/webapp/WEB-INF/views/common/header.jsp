@@ -521,7 +521,7 @@
                     <ul class="navbar-nav navbar-nav-scroll" style="max-height: 35rem;">
                         <!-- Menu-->
                         
-                        <li class="nav-item dropdown me-lg-2"><a class="nav-link align-items-center pe-lg-4" href="${path}/post/postGet" ><i class="fi-layers me-2"></i>공고 등록<span class="d-none d-lg-block position-absolute top-50 end-0 translate-middle-y border-end" style="width: 1px; height: 30px;"></span></a></li>
+                        <li class="nav-item dropdown me-lg-2"><a class="nav-link align-items-center pe-lg-4" href="${path}/post/postGet?mem_no=${member.mem_no}" ><i class="fi-layers me-2"></i>공고 등록<span class="d-none d-lg-block position-absolute top-50 end-0 translate-middle-y border-end" style="width: 1px; height: 30px;"></span></a></li>
                         <li class="nav-item dropdown me-lg-2"><a class="nav-link  align-items-center pe-lg-4" href="${path}/post/postList" ><i class="fi-layers me-2"></i>공고 목록<span class="d-none d-lg-block position-absolute top-50 end-0 translate-middle-y border-end" style="width: 1px; height: 30px;"></span></a></li>
                         <li class="nav-item dropdown me-lg-2"><a class="nav-link align-items-center pe-lg-4" href="${path}/review/reviewList" ><i class="fi-layers me-2"></i>면접 후기<span class="d-none d-lg-block position-absolute top-50 end-0 translate-middle-y border-end" style="width: 1px; height: 30px;"></span></a></li>
 

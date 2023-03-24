@@ -146,8 +146,6 @@
 								<input type='hidden' id= 'resume_no' name='resume_image' value='image'>
                         		<input type='hidden' id= 'mem_no' name='mem_no' value='<c:out value="${resume.mem_no}"/>'>	
 
-								
-
 
 								<div class="col-12 mb-4">
 									<label class="form-label fw-bold pb-1 mb-2">자기소개서</label>

@@ -1,6 +1,9 @@
 package org.recruit.post.controller;
 
 
+import javax.servlet.http.HttpSession;
+
+import org.recruit.login.domain.MemberVO;
 import org.recruit.post.domain.Criteria;
 import org.recruit.post.domain.PageDTO;
 import org.recruit.post.domain.PostVO;
@@ -55,8 +58,12 @@ public class PostController {
 		}
 	
 	@PostMapping("/postInsert")
-	public String postList(@ModelAttribute PostVO post) {
+	public String postList(@ModelAttribute PostVO post,HttpSession session) {
 		service.insertPost(post);
+		MemberVO member = (MemberVO)session.getAttribute("member");
+		if(member != null) {
+			post.setMemNo(member.getMem_no());
+		}
 		return "redirect:/post/postList";
 	}
 	
